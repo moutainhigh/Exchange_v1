@@ -5,7 +5,6 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.DrawableTypeRequest;
 import com.bumptech.glide.Glide;
-import com.exchange_v1.app.utils.ActivityUtils;
 import com.exchange_v1.app.utils.imageloader.ImageLoadingListener;
 import com.exchange_v1.app.utils.imageloader.ImageOptions;
 import com.exchange_v1.app.utils.imageloader.ImageStrategy;

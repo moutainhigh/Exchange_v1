@@ -1,8 +1,6 @@
 package com.exchange_v1.app.utils.http;
 
 
-import com.exchange_v1.app.utils.StringUtil;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.Serializable;

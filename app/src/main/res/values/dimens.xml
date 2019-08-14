@@ -1,0 +1,245 @@
+<resources>
+
+    <dimen name="radius">5dp</dimen>
+    <!-- ****************全局统一字体大小 ************ -->
+
+    <!-- 全局统一大号字体 -->
+    <dimen name="font_size_big_too">28sp</dimen>
+    <dimen name="font_size_big">15sp</dimen>
+    <!-- 全局统一中号字体 -->
+    <dimen name="font_size_middle">14sp</dimen>
+    <!-- 全局统一正文号字体 -->
+    <dimen name="font_size_normal">12sp</dimen>
+    <!-- 全局统一小号字体 -->
+    <dimen name="font_size_little">10sp</dimen>
+    <!-- 全局统一最小号字体 -->
+    <dimen name="font_size_least">8sp</dimen>
+    <dimen name="line_view">0.8dp</dimen>
+    <dimen name="line_view_bold">5dp</dimen>
+
+    <!-- 公共. -->
+    <!-- 普通条目的水平方向的margin -->
+    <dimen name="item_margin_hor">15dp</dimen>
+    <dimen name="base_item_height">40dp</dimen>
+    <dimen name="base_item_width">80dp</dimen>
+    <dimen name="radio_button_conner_radius">3dp</dimen>
+    <dimen name="radio_button_stroke_border">1dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_8">8dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_15">15dp</dimen>
+    <dimen name="dp_48">48dp</dimen>
+    <dimen name="sp_18">18sp</dimen>
+
+    <!-- c2b2.0添加字体 -start -->
+    <dimen name="txt_f12">12sp</dimen>
+
+    <dimen name="txt_f8">8sp</dimen>
+    <dimen name="txt_f18">18sp</dimen>
+    <dimen name="txt_f32">32sp</dimen>
+    <dimen name="txt_f16">16sp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>corner
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- c2b2.0添加字体 -end -->
+    <!--外间隔-->
+    <dimen name="m_big">24dp</dimen>
+    <dimen name="m_middle">16dp</dimen>
+    <dimen name="m_low_big">12dp</dimen>
+    <dimen name="m_low">8dp</dimen>
+    <dimen name="m_low_too">4dp</dimen>
+
+    <!--内间隔-->
+    <dimen name="p_big">24dp</dimen>
+    <dimen name="p_middle">16dp</dimen>
+    <dimen name="p_low">8dp</dimen>
+
+    <dimen name="parallax_viewpager_height">130dp</dimen>
+    <dimen name="mine_fragment_parallax_viewpager_height2">96dp</dimen>
+    <dimen name="titleBarHeight">48.5dp</dimen>
+
+
+    <!--首页带有更多的动态框-->
+    <dimen name="common_text_size_index_more">12sp</dimen>
+    <dimen name="common_text_size_index_ly_desc">13sp</dimen>
+
+    <!--slidingup activity-->
+    <dimen name="margin_standard">16dp</dimen>
+    <dimen name="margin_short">8dp</dimen>
+    <dimen name="margin_extra_short">4dp</dimen>
+
+    <dimen name="toolbar_elevation">4dp</dimen>
+
+    <dimen name="flexible_space_image_height">240dp</dimen>
+    <dimen name="flexible_space_show_fab_offset">120dp</dimen>
+
+    <dimen name="parallax_image_height">180dp</dimen>
+    <dimen name="tab_height">48dp</dimen>
+
+    <dimen name="header_bar_height">50dp</dimen>
+    <dimen name="intersection_height">16dp</dimen>
+
+    <dimen name="sliding_slop">32dp</dimen>
+    <dimen name="sliding_overlay_blur_size">4dp</dimen>
+
+    <!-- 2.7 -->
+    <dimen name="common_text_size_title_view_mid">18sp</dimen> <!-- 共用titleview的title字体大小-->
+    <dimen name="common_text_size_title_17sp">17sp</dimen> <!-- 用于一些比较引导性的地方-如顶部栏名称等-->
+    <dimen name="common_text_size_title_16sp">16sp</dimen> <!-- 用于一些比较引导性的地方-如顶部栏名称等-->
+    <dimen name="common_text_size_title_15sp">15sp</dimen> <!-- 用于类似我的页面中列表item的样式，左边的字体大小-->
+    <dimen name="common_text_size_btn_14sp">14sp</dimen><!-- 一般用于按钮、功能入口名称-如页面底部的确认按钮、购买流程中各种按钮等-->
+    <dimen name="common_text_size_detail_13sp">13sp</dimen><!-- 用于大多数文字-适用于大段文字，如商品详情等等-->
+    <dimen name="common_text_size_desc_12sp">12sp</dimen><!--用于大多数文字-如小标题、模块描述等等-->
+
+    <dimen name="common_line_size_thin_1px">0.5dp</dimen><!--细分割线高度-->
+    <dimen name="common_line_size_width_8dp">8dp</dimen><!--宽分割线高度-->
+    <dimen name="common_line_size_width_10dp">10dp</dimen><!--宽分割线高度-->
+    <dimen name="common_size_margin_left_right_16dp">16dp</dimen><!--宽分割线高度-->
+
+    <dimen name="common_corner_size_confirm_btn_5dp">5dp</dimen>
+    <dimen name="common_text_size_title_12sp">12sp</dimen>
+    <dimen name="dp_17">17dp</dimen>
+    <dimen name="common_text_size_desc_13sp">13sp</dimen>
+    <dimen name="dp_13">13dp</dimen>
+    <dimen name="dp_190">190dp</dimen>
+    <dimen name="dp_36">36dp</dimen>
+    <dimen name="dp_178">178dp</dimen>
+    <dimen name="dp_65">65dp</dimen>
+    <dimen name="dp_290">290dp</dimen>
+    <dimen name="dp_293">293dp</dimen>
+    <dimen name="dp_110">110dp</dimen>
+    <dimen name="dp_44">44dp</dimen>
+    <dimen name="dp_28">28dp</dimen>
+    <dimen name="dp_130">130dp</dimen>
+    <dimen name="dp_27">27dp</dimen>
+    <dimen name="dp_145">145dp</dimen>
+    <dimen name="dp_340">340dp</dimen>
+    <dimen name="dp_300">300dp</dimen>
+    <dimen name="dp_9">9dp</dimen>
+    <dimen name="sp_21">21sp</dimen>
+    <dimen name="dp_128">128dp</dimen>
+    <dimen name="dp_83">83dp</dimen>
+    <dimen name="dp_315">315dp</dimen>
+    <dimen name="dp_360">360dp</dimen><!--确认按钮这类按钮的圆角-->
+
+    <dimen name="_dp_10">-10dp</dimen>
+    <dimen name="dp_285">285dp</dimen>
+    <dimen name="dp_0.15">0.15dp</dimen>
+    <dimen name="dp_1">1dp</dimen>
+    <dimen name="dp_100">100dp</dimen>
+    <dimen name="dp_115">115dp</dimen>
+    <dimen name="dp_118">118dp</dimen>
+    <dimen name="dp_12">12dp</dimen>
+    <dimen name="dp_120">120dp</dimen>
+    <dimen name="dp_135">135dp</dimen>
+    <dimen name="dp_14">14dp</dimen>
+    <dimen name="dp_150">150dp</dimen>
+    <dimen name="dp_180">180dp</dimen>
+    <dimen name="dp_16">16dp</dimen>
+    <dimen name="dp_170">170dp</dimen>
+    <dimen name="dp_18">18dp</dimen>
+    <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_23">23dp</dimen>
+    <dimen name="dp_200">200dp</dimen>
+    <dimen name="dp_25">25dp</dimen>
+    <dimen name="dp_24">24dp</dimen>
+    <dimen name="dp_3">3dp</dimen>
+    <dimen name="dp_21">21dp</dimen>
+    <dimen name="dp_30">30dp</dimen>
+    <dimen name="dp_32">32dp</dimen>
+    <dimen name="dp_35">35dp</dimen>
+    <dimen name="dp_40">40dp</dimen>
+    <dimen name="dp_43">43dp</dimen>
+    <dimen name="dp_45">45dp</dimen>
+    <dimen name="dp_46">46dp</dimen>
+    <dimen name="dp_5">5dp</dimen>
+    <dimen name="dp_50">50dp</dimen>
+    <dimen name="dp_53">53dp</dimen>
+    <dimen name="dp_55">55dp</dimen>
+    <dimen name="dp_6">6dp</dimen>
+    <dimen name="dp_60">60dp</dimen>
+    <dimen name="dp_7">7dp</dimen>
+    <dimen name="dp_7.5">7.5dp</dimen>
+    <dimen name="dp_75">75dp</dimen>
+    <dimen name="dp_70">70dp</dimen>
+    <dimen name="dp_72">72dp</dimen>
+    <dimen name="dp_80">80dp</dimen>
+    <dimen name="dp_90">90dp</dimen>
+    <dimen name="sp_10">10sp</dimen>
+    <dimen name="sp_9">9sp</dimen>
+    <dimen name="sp_6">6sp</dimen>
+    <dimen name="sp_11">11sp</dimen>
+    <dimen name="sp_12">12sp</dimen>
+    <dimen name="sp_13">13sp</dimen>
+    <dimen name="sp_14">14sp</dimen>
+    <dimen name="sp_15">15sp</dimen>
+    <dimen name="sp_16">16sp</dimen>
+    <dimen name="sp_17">17sp</dimen>
+    <dimen name="sp_20">20sp</dimen>
+    <dimen name="sp_22">22sp</dimen>
+    <dimen name="sp_24">24sp</dimen>
+    <dimen name="sp_32">32sp</dimen>
+    <dimen name="sp_40">40sp</dimen>
+    <dimen name="dp_37">37dp</dimen>
+    <dimen name="dp_107">107dp</dimen>
+    <dimen name="dp_26">26dp</dimen>
+    <dimen name="dp_49">49dp</dimen>
+    <dimen name="sp_30">30sp</dimen>
+    <dimen name="sp_23">23sp</dimen>
+    <dimen name="gap" >100dp</dimen >
+    <dimen name="dp_11">11dp</dimen>
+    <dimen name="dp_380">380dp</dimen>
+    <dimen name="dp_255">255dp</dimen>
+
+    <!-- 5.0按钮高度 -->
+    <dimen name="button_height_44dp">44dp</dimen>
+    <dimen name="button_corners_44dp">44dp</dimen>
+    <dimen name="default_margin_left">15dp</dimen>
+    <dimen name="default_margin_right">15dp</dimen>
+
+    <dimen name="default_1px">1px</dimen>
+    <dimen name="sp_28">28sp</dimen>
+    <dimen name="dp_59">59dp</dimen>
+    <dimen name="dp_56">56dp</dimen>
+    <dimen name="dp_98">98dp</dimen>
+    <dimen name="dp_288">288dp</dimen>
+    <dimen name="dp_144">144dp</dimen>
+    <dimen name="dp_104">104dp</dimen>
+    <dimen name="dp_69">69dp</dimen>
+    <dimen name="dp_31">31dp</dimen>
+    <dimen name="dp_138">138dp</dimen>
+    <dimen name="dp_108">108dp</dimen>
+    <dimen name="dp_58">58dp</dimen>
+    <dimen name="dp_47">47dp</dimen>
+    <dimen name="dp_68">68dp</dimen>
+    <dimen name="dp_129">129dp</dimen>
+    <dimen name="dp_176">176dp</dimen>
+    <dimen name="dp_93">93dp</dimen>
+    <dimen name="dp_125">125dp</dimen>
+    <dimen name="dp_157">157dp</dimen>
+    <dimen name="dp_84">84dp</dimen>
+    <dimen name="dp_167">167dp</dimen>
+    <dimen name="dp_152">152dp</dimen>
+
+    <!-- ************* 5.6规范字体大小 ************** -->
+    <dimen name="font_size_12">12sp</dimen>
+    <dimen name="font_size_14">14sp</dimen>
+    <dimen name="font_size_16">16sp</dimen>
+    <dimen name="font_size_18">18sp</dimen>
+    <dimen name="font_size_20">20sp</dimen>
+    <dimen name="dp_38">38dp</dimen>
+
+    <dimen name="mis_image_size">120dp</dimen>
+    <dimen name="mis_space_size">2dp</dimen>
+    <dimen name="mis_folder_cover_size">72dp</dimen>
+    <dimen name="sp_7">7sp</dimen>
+    <dimen name="dp_22">22dp</dimen>
+    <dimen name="dp_54">54dp</dimen>
+    <dimen name="dp_42">42dp</dimen>
+    <dimen name="dp_259">259dp</dimen>
+    <dimen name="dp_253">253dp</dimen>
+    <dimen name="dp_137">137dp</dimen>
+    <dimen name="dp_103">103dp</dimen>
+
+</resources>

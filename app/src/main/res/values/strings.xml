@@ -1,3 +1,1165 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Exchange_v1</string>
+
+    <!-- ***********************公用数据模块*********************** -->
+
+    <string name="app_name">光汇云油</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="enter">确定</string>
+    <string name="cancel">取消</string>
+    <string name="day">天前</string>
+    <string name="hour">小时前</string>
+    <string name="minute">分钟前</string>
+    <string name="second">秒前</string>
+    <string name="prompt">温馨提示</string>
+    <string name="back">返回</string>
+    <string name="activity_title_main">主页</string>
+    <string name="activity_title_register">注册</string>
+    <string name="activity_title_login">登录</string>
+    <string name="activity_main_cloud_oil">云储油</string>
+    <string name="activity_main_oilprice_in">油价走势</string>
+    <string name="activity_main_mine_account">我的账户</string>
+    <string name="activity_oil_price_chart">油价走势</string>
+    <string name="process_dialog_wait">系统正在加载...</string>
+    <string name="process_dialog_switch">切换中...</string>
+    <string name="toast_switch_success">切换成功</string>
+    <string name="msg_sold_out" formatted="false">"已售罄"</string>
+    <string name="toast_mine_message">请先通过实名认证再转出</string>
+    <string name="toast_mine_brank">尚未实名认证，请先实名认证</string>
+    <string name="toast_mine_cash1">您尚未通过实名认证，无法进行领取</string>
+    <string name="buytotal_price">购买总价：</string>
+    <string name="seize_length1">占</string>
+    <string name="seize_length2">占位</string>
+    <string name="seize_length3">占位字</string>
+    <string name="bias" formatted="false"><![CDATA[<font color="#67C5BC">%s</font><font color="#B81818">%s</font>]]></string>
+    <string name="formatted_left_B81818" formatted="false"><![CDATA[<font color="#B81818">%s</font>%s]]></string>
+    <string name="formatted_money_s" formatted="false">￥%s</string>
+    <string name="formatted_money_2f" formatted="false">￥%.2f</string>
+    <string name="formatted_money_d" formatted="false">￥%d</string>
+    <string name="area_view_asc">升序</string>
+    <string name="area_view_desc">降序</string>
+    <string name="pay_result_callback_msg" formatted="false">微信支付结果：%s</string>
+    <string name="pay_result_tip">这个界面用于显示第三方app通过微信支付的结果</string>
+    <string name="getting_prepayid">正在获取预支付订单...</string>
+    <string name="activity_version_msg">新版本正在更新，请耐心等待。</string>
+    <string name="hint_place_read_name">请输入真实姓名</string>
+    <string name="permission_location_write_external_storage">云储油申请访问定位和存储权限。</string>
+    <string name="permission_call_phone">云储油申请访问打电话权限。</string>
+    <string name="button_allow">允许</string>
+    <string name="button_deny">拒绝</string>
+    <!-- ***********************帮助中心*********************** -->
+    <string name="help_title_message1"><![CDATA[■ <b>一、如何购买储油产品？</b>]]></string>
+    <string name="help_title_message2"><![CDATA[■ <b>二、购买储油产品后，发票如何获取？</b>]]></string>
+    <string name="help_title_message3"><![CDATA[■ <b>三、如何进行领取？</b>]]>（客户在购买产品10天后，可选择以下2种方式进行领取）</string>
+    <string name="help_title_message4"><![CDATA[■ <b>四、发票上传后，不能即时到账情况？</b>]]></string>
+    <string name="help_title_message5"><![CDATA[■ <b>五、如何申请转出？</b>]]></string>
+    <string name="help_title_message6"><![CDATA[■ <b>六、关于回购</b>]]></string>
+    <string name="help_title_message7"><![CDATA[■ <b>七、同一账户在光汇云油网站可购买多少油品？</b>]]></string>
+    <string name="help_title">帮助中心</string>
+    <string name="law_statement_title">法律声明</string>
+    <!-- ***********************请求成功或失败的提示信息集合*********************** -->
+    <string name="result_send_sms_ok">获取验证码成功</string>
+    <string name="result_user_create">注册成功</string>
+    <string name="result_saveAddr">操作成功</string>
+    <!-- 版本更新 -->
+    <string name="soft_update_no">已经是最新版本</string>
+    <string name="soft_update_title">软件更新</string>
+    <string name="soft_update_info">New version available ,update now！</string>
+    <string name="soft_update_updatebtn">Update</string>
+    <string name="soft_update_later">稍后更新</string>
+    <string name="soft_updating">正在更新</string>
+    <string name="soft_update_cancel">Cancel</string>
+    <string name="affirm">确定</string>
+
+    <!-- ***********************操作问题的提示信息集合*********************** -->
+    <string name="toast_bank_user_name">姓名不能为空</string>
+    <string name="toast_bank_area">请选择地区</string>
+    <string name="toast_bank_name">请选择银行</string>
+    <string name="toast_bank_penteryourname">请输入你自定义的银行名称</string>
+    <string name="toast_bankcardnumber_fivetotweentyfive_toast">银行卡号必须为5-25位数字</string>
+    <string name="toast_bank_card">卡号不能为空</string>
+    <string name="toast_info_full">请填写完整信息</string>
+    <string name="toast_deal_pas_null">交易密码不能为空</string>
+    <string name="toast_extract_money_null">转出金额不能为空</string>
+    <string name="toast_invalidate_null">验证码不能为空</string>
+    <string name="toas_palce_add_brank">请添加银行卡</string>
+    <string name="toast_order_message">商品数量超出最大购买数量</string>
+    <string name="toast_safe_message">已实名认证</string>
+    <string name="toast_protect_message">您已经设置过密保问题。</string>
+    <string name="toast_noprotect_message">您尚未设置过密保问题，请先设置密保问题。</string>
+    <string name="toast_no_set_pwd">尚未设置交易密码，请使用其它方式支付!</string>
+    <string name="toast_set_message">您已经设置了交易密码。</string>
+    <string name="toast_not_goods">商品不存在</string>
+    <string name="toast_not_support_makeover">目前手机平台不支持转让功能，敬请期待</string>
+    <string name="now_notdata_info">暂时没有信息</string>
+    <string name="jiesuan_goods_nonumber">结算中有商品数量为空,请检查</string>
+    <string name="bankcard_lenth_more">卡号长度不能超过20位</string>
+    <string name="nag_screen_cash_price">可领金额</string>
+
+    <!-- dialog -->
+    <string name="dialog_title_input_pas">请输入交易密码</string>
+    <string name="you_notset_dealpass">您尚没设置交易密码</string>
+    <string name="dialog_gridPas_hint">待支付</string>
+    <string name="dialog_cash_liter">请输入领取升数</string>
+    <string name="dialog_cash_upload">请上传领取发票</string>
+    <string name="dialog_cash_out">领取升数超出本期可领升数</string>
+    <string name="dialog_cashmoney_out">领取金额超出本期可领金额</string>
+    <string name="cover_not_zero">领取金额不能为0</string>
+    <!-- 消息中心 -->
+    <string name="activity_message_center">消息中心</string>
+    <string name="activity_message_list">消息列表</string>
+    <string name="activity_message_clear">清空</string>
+
+    <!-- Login -->
+    <string name="activity_change_identifyingcode">看不清，换一张</string>
+    <string name="activity_immediately_register">立即注册</string>
+    <string name="activity_forget_password">忘记密码?</string>
+    <string name="activity_forget_mimarule">密码要求 8-20个数字和字母组合</string>
+    <string name="toast_login_five_quintic">由于您连续5次使用错误密码登录，帐号已被禁用，请2小时后再试。[光汇储油]</string>
+    <string name="activity_visible_password">显示密码</string>
+    <!-- Register -->
+    <string name="activity_register_next">下一步</string>
+    <string name="activity_register_agree">同意</string>
+    <string name="activity_register_protocol">会员注册协议</string>
+    <string name="activity_place_phone">输入手机号码</string>
+    <string name="activity_place_enter_phone_nocorrect">请输入正确的手机号</string>
+    <string name="activity_register_setup_pwd">设置输入密码</string>
+    <string name="activity_register_phone1">您注册的手机号码为：</string>
+    <string name="activity_register_phone2">验证码接收手机号:</string>
+    <string name="activity_register_get_code">获取验证码</string>
+    <string name="activity_register_finish_reg">完成注册</string>
+    <string name="activity_register_success">注册成功</string>
+    <string name="activity_register_password">新密码</string>
+    <string name="activity_register_confrim_pwd">确认密码</string>
+    <string name="activity_register_identifyingcode">验证码：</string>
+    <string name="activity_register_retrieve_pwd">找回密码</string>
+    <string name="activity_register_phone_cell">手机号码</string>
+    <string name="activity_register_place_code">输入验证码</string>
+    <string name="activity_register_code_in">验证码已发送至：</string>
+    <string name="activity_register_code_phone">验证码接收手机号：</string>
+    <string name="activity_register_pwd_protect">密保问题</string>
+    <string name="activity_register_answer">答案：</string>
+    <string name="activity_register_forget_answer">忘记密保答案?</string>
+    <string name="activity_register_place_answer">请填写密保答案?</string>
+    <string name="activity_register_place_answer2">请填写密保答案</string>
+    <string name="activity_title_setup_pwd">设置密码</string>
+    <string name="activity_register_newpwd">新密码</string>
+    <string name="activity_register_comfirmpwd">确认密码</string>
+    <string name="activity_register_finish">完成</string>
+    <string name="activity_order_finish">已完成</string>
+    <string name="activity_register_success_message1">恭喜您，注册成功！</string>
+    <string name="activity_register_success_message2">为了您的资金财产安全</string>
+    <string name="activity_register_success_message3">建议您立即去</string>
+    <string name="activity_register_success_message4">安全中心</string>
+    <string name="activity_register_success_message5">设置交易密码和密保问题。</string>
+    <string name="toast_place_confirm_pwd">两次输入密码不一致</string>
+    <string name="activity_register_success_title">安全中心</string>
+    <string name="activity_register_subbranch_limit">支行长度不能超过20位</string>
+    <string name="activity_register_bankcard_limit">银行卡长度不能超过25位</string>
+    <string name="activity_register_enterbank_other">其它</string>
+    <string name="activity_login_welcomeyou">欢迎您</string>
+    <string name="activity_getting_deal_pwd">找回交易密码</string>
+    <!-- 云储油 -->
+    <string name="activity_oil_money">我的财富</string>
+    <string name="activity_oil_income">我的收益</string>
+    <string name="activity_oil_mine">我的油箱</string>
+    <string name="activity_oil_detail">储油详情</string>
+    <string name="activity_oil_shop_car">购物车</string>
+    <string name="activity_oil_cloud">云储油</string>
+    <string name="activity_oil_my_oil">我的油箱</string>
+    <string name="activity_oil_switch_oil">切换云储油</string>
+    <string name="activity_oil_switch_cloud">切换大众储油</string>
+    <string name="activity_oil_my_cloud">我的大众储油</string>
+    <string name="activity_oil_more_cloud">大众储油</string>
+    <string name="activity_define_me">自定义</string>
+    <string name="activity_good_card">查看未领完的产品</string>
+    <string name="activity_bad_card">查看已领完的产品</string>
+    <string name="activity_orderlistdetail_count_yuan">%1$s元</string>
+    <string name="activity_no_data">暂无操作记录</string>
+    <!-- 选择模式 -->
+    <string name="activity_modeSelect_mode1">大众储油</string>
+    <string name="activity_modeSelect_mode1_hint">存钱不如储油</string>
+    <string name="activity_modeSelect_mode2">云储油</string>
+    <string name="activity_modeSelect_modernogoods">云储油正在筹备中，即将上线</string>
+    <string name="activity_modeSelect_goto_mode1">去大众储油</string>
+    <string name="activity_modeSelect_mode2_hint">资产配制新组合股票.房产.云储油</string>
+    <string name="activity_modeSelect_app_name">光汇云油</string>
+    <string name="activity_modeSelect_app_name2">BRIGHTOIL ONLINE</string>
+    <string name="activity_modeSelect_txt1">专注石油买卖，致力保值增值</string>
+
+    <!-- OilPrice油价走势 -->
+    <string name="activity_OilPrice_quality">请选择油品</string>
+    <string name="activity_OilPrice_choose_place">请选择地区</string>
+    <string name="activity_OilPrice_reference">参考油价:%1$s(元/升)</string>
+
+    <string name="activity_OilPrice_reference1">参考油价:%1$s元</string>
+
+    <!-- 我的账户 -->
+    <string name="activity_mine_account_balance">可用余额</string>
+    <string name="activity_mine_freeze_balance">冻结余额</string>
+    <string name="activity_mine_recharge">充值</string>
+    <string name="activity_mine_withdraw_cash">转出</string>
+    <string name="activity_mine_my_order">我的订单</string>
+    <string name="activity_mine_my_order_state_buyed">已支付</string>
+    <string name="activity_mine_my_order_state_noubuy">未支付</string>
+    <string name="activity_mine_my_order_state_isrubish">已作废</string>
+    <string name="activity_mine_my_brank_car">我的银行卡</string>
+    <string name="activity_mine_my_account">云储油</string>
+    <string name="activity_mine_safety">安全中心</string>
+    <string name="activity_mine_help">帮助中心</string>
+    <string name="activity_mine_law_state">法律声明</string>
+    <string name="activity_mine_software_update">软件升级</string>
+    <string name="activity_mine_exit">退出登录</string>
+    <string name="activity_mine_message">消息</string>
+    <string name="activity_mine_set">设置中心</string>
+    <string name="activity_mine_set_true">已设置</string>
+    <string name="activity_mine_set_false">未设置</string>
+    <string name="activity_mine_my_oil">我的油箱</string>
+    <string name="activity_mine_my_trade">我的交易</string>
+    <string name="activity_mine_customer_service">联系客服</string>
+    <string name="activity_mine_mydeal_buypractise_card">购买体验卡</string>
+    <string name="activity_mine_mydeal_you_nodeal">\t你还没有交易!</string>
+    <string name="activity_mine_mydeal_adp_buy">购\n买</string>
+    <string name="activity_mine_mydeal_order_num">订单号:</string>
+    <string name="activity_mine_mydeal_oil_kid">油品：</string>
+    <string name="activity_mine_mydeal_price">单价:</string>
+    <string name="activity_mine_mydeal_buyprice_yuans">%1$s元/升</string>
+    <string name="activity_mine_mydeal_cash">金额:</string>
+    <string name="activity_mine_mydeal_buyprice_yuan">%1$s元</string>
+    <string name="activity_mine_mydeal_coupon">优惠金额:</string>
+    <string name="activity_mine_mydeal_pay_method">支付方式:</string>
+    <string name="activity_mine_mydeal_cover">领\n取</string>
+    <string name="activity_mine_mydeal_cover_cardnum">卡号：</string>
+    <string name="activity_mine_mydeal_cover_shennum">领取升数:</string>
+    <string name="activity_mine_mydeal_cover_shen">%1$s升</string>
+    <string name="activity_mine_mydeal_cover_cash">领取金额:</string>
+    <string name="activity_mine_mydeal_cover_get">收益:</string>
+    <string name="activity_mine_mydeal_cashout_apply">转\n出\n申\n请</string>
+    <string name="activity_mine_mydeal_cashout_cash">转出金额:</string>
+    <string name="activity_mine_mydeal_cashout_info">明细:</string>
+    <string name="activity_mine_mydeal_recharge">充\n值</string>
+    <string name="activity_mine_my_oiltank">获赠油包</string>
+    <string name="activity_mine_my_oiltank_what">"什么是获赠油包？"</string>
+    <string name="activity_mine_my_addoil_card">我的加油卡</string>
+    <string name="activity_mine_oiltank_detail"> 收支明细</string>
+    <string name="activity_mine_myoiltank_detail">收支明细</string>
+    <string name="activity_mine_mydeal_cover_oilprice">领取油价:</string>
+    <!-- 我的云储油 -->
+    <string name="activity_means_exchange">本期可领：</string>
+    <string name="activity_means_unit">收益：</string>
+    <string name="activity_means_total">总额：</string>
+    <string name="activity_means_balance">余额：</string>
+    <string name="activity_means_cash">领取</string>
+    <string name="activity_means_quicklycash">立即领取</string>
+    <string name="activity_means_assignment">转让</string>
+    <string name="activity_means_buyback">回购</string>
+    <string name="activity_means_details">详情</string>
+    <string name="activity_means_deal_record">交易记录</string>
+    <string name="activity_means_my_transfer_car">我的转让卡</string>
+    <string name="activity_means_transfer_area">转让区</string>
+    <string name="activity_means_batch_cash">批量领取</string>
+    <string name="activity_means_batch_cash_moretwo">必须选择一个以上商品才能批量领取</string>
+    <string name="activity_means_notbatch_cash_goods">此商品未上传发票，请单独领取</string>
+    <string name="activity_means_bund_car">绑定卡券</string>
+    <string name="activity_means_purchase_date">购买日期</string>
+    <string name="activity_means_cloudoil_no">储油卡号</string>
+    <string name="activity_means_cloudoil_name">储油产品</string>
+    <string name="activity_means_oil">油　　品</string>
+    <string name="activity_means_oil_type">种　　类</string>
+    <string name="activity_means_status">状　　态</string>
+    <string name="activity_means_area">地　　区</string>
+    <string name="activity_means_number">数　　量</string>
+    <string name="activity_means_complimentary">赠　　送</string>
+    <string name="activity_means_cash_periods">领取期数</string>
+    <string name="activity_means_terminally_duration">每期时长</string>
+    <string name="activity_means_terminally_number">每期限领量</string>
+    <string name="activity_means_cash_number">已领数量</string>
+    <string name="activity_means_excess_number">剩余数量</string>
+    <string name="activity_means_month_number">当前可领量</string>
+    <string name="activity_means_buyback_cost">回购手续费</string>
+    <string name="activity_means_assignment_cost">转让手续费</string>
+    <string name="activity_means_price">购买总价</string>
+    <string name="activity_means_cash_noticeconfire">继续领取</string>
+    <string name="activity_means_cash_noticecancle">放弃领取</string>
+    <string name="activity_means_cash_noticemessage">你当前收益为%1$s,是否继续操作</string>
+    <string name="activity_means_transfer_confire">继续转让</string>
+    <string name="activity_means_transfer_cancel">放弃转让</string>
+    <string name="activity_means_buyback_confire">继续回购</string>
+    <string name="activity_means_buyback_cancel">放弃回购</string>
+    <string name="activity_means_cash_plan">领取计划</string>
+
+    <string name="activity_means_cash_record">操作记录</string>
+    <string name="activity_means_storgeOil_cashPlan">储油领取计划</string>
+    <string name="activity_means_openConver_num">开放领取%1$s笔</string>
+    <string name="activity_means_openConver">开放领取%1$s</string>
+    <string name="activity_means_wait_openConver">等待开放(%1$s)：</string>
+    <!-- 商品详情界面 -->
+    <string name="activity_title_goodsDetail">商品详情</string>
+    <string name="activity_goodsDetail_choose_place">地区</string>
+    <string name="activity_goodsDetail_litre">升数</string>
+    <string name="activity_goodsDetail_quality">油品</string>
+    <string name="activity_goodsDetail_type">类型</string>
+    <string name="activity_goodsDetail_type_card1">虚拟卡</string>
+    <string name="activity_goodsDetail_type_card2">实体卡</string>
+    <string name="activity_goodsDetail_num">数量</string>
+    <string name="activity_goodsDetail_percentage">，约年化%1$s%%</string>
+
+    <string name="activity_goodsDetail_sum">合计:</string>
+    <string name="activity_goodsDetail_freight_no">(不含运费)</string>
+    <string name="activity_goodsDetail_freight_yes">(含运费</string>
+    <string name="activity_goodsDetail_money_note">元)</string>
+    <string name="activity_goodsDetail_largess">赠送比例</string>
+    <string name="activity_goodsDetail_convert_litre">领取期数</string>
+    <string name="activity_goodsDetail_unit_litre">期数</string>
+    <string name="activity_goodsDetail_convert_num">每期可领量</string>
+    <string name="activity_goodsDetail_litre_time">每期时长</string>
+    <string name="activity_goodsDetail_litre_day">领取起始日</string>
+    <string name="activity_goodsDetail_consult">参考油价</string>
+
+
+    <string name="activity_goodsDetail_buy">立即购买</string>
+    <string name="activity_order_submit">提交订单</string>
+    <string name="goods_detail_order_submit">立即购买</string>
+    <string name="activity_goodsDetail_add">加入购物车</string>
+    <string name="activity_goodsDetail_not_strocknum">库存不足</string>
+
+
+    <string name="toast_goodsDetail_date">日期</string>
+    <string name="activity_goodsDetail_message">每个用户限购1张</string>
+
+
+    <string name="activity_goodsDetail_imagetext">图文详情</string>
+    <string name="activity_goodsDetail_oil_price">油价走势</string>
+    <string name="activity_goodsDetail_freeze_date">冻结期</string>
+    <string name="activity_goodsDetail_multiple">(只能是%1$s的整倍数)</string>
+    <string name="activity_goodsDetail_min">(最小值是%1$s)</string>
+    <string name="activity_goodsDetail_max">(最大值是%1$s)</string>
+    <string name="activity_cash_gz">使用规则：</string>
+    <string name="activity_means_transforprice_moreadviceprice">转让金额不能低于转让参考价</string>
+    <string name="activity_goodsDetail_oilKid">油品类型</string>
+
+    <string name="activity_goodsDetail_buy_goodsNum">购买数量</string>
+    <string name="activity_goodsDetail_conver_intruce">领取说明</string>
+
+
+    <string name="activity_goodsDetail_you_nowBuy">您正在购买</string>
+
+    <string name="activity_goodsDetail_count_giveNum_rise">%1$s，价值%2$s</string><!--购买成功后，立即赠送%1$s升（价值%2$s元）-->
+    <string name="activity_goodsDetail_count_giveNum_yuan">%1$s元</string><!--购买成功后，立即赠送:%1$s元-->
+    <string name="activity_goodsDetail_count_whatDate_startCah">%1$s期，%2$s开放领取</string>
+    <string name="activity_goodsDetail_address">地点：</string>
+    <string name="activity_goodsDetail_buy_oil">购买油量：</string>
+    <string name="activity_goodsDetail_give_oil">赠送油量：</string>
+    <string name="activity_goodsDetail_buy_oilprice">购买油价：</string>
+    <string name="activity_goodsDetail_buy_oil_amout">购买金额：</string>
+    <string name="activity_goodsDetail_give_amout">赠送金额：</string>
+    <string name="activity_goodsDetail_card_balance">卡内余额：</string>
+    <string name="activity_goodsDetail_oil_amount">储油金额：</string>
+    <string name="activity_goodsDetail_candeal_oil">可领油量：</string>
+    <string name="activity_goodsDetail_oil_income">储油收益：</string>
+    <string name="activity_goodsDetail_candeal_amount">可领金额：</string>
+    <string name="activity_goodsDetail_now_oil_price">当前油价：</string>
+    <string name="activity_goodsDetail_deal_litre">领取(升)</string>
+    <string name="activity_goodsDetail_deal_price">领取(元)</string>
+    <string name="activity_goodsDetail_extract">转出金额(元)</string>
+    <string name="activity_goodsDetail_income_yuan">收益(元)</string>
+    <string name="activity_goodsDetail_total_money">总金额(元)</string>
+
+    <!-- 现金券相关 -->
+    <string name="cash_coupon_use">使用现金券</string>
+
+    <!-- 转出、充值相关 -->
+    <string name="activity_title_extract">@string/mine_main_submit_oil</string>
+    <string name="activity_extract_go_notes">转出记录</string>
+    <string name="activity_extract_account_money">可转出余额</string>
+    <string name="activity_extract_yuan">元</string>
+
+
+    <string name="activity_extract_select">转出到</string>
+    <string name="activity_extract_tail_num" format="false">尾号:%s</string>
+    <string name="activity_extract_new_card">+新增银行卡</string>
+    <string name="activity_extract_money">转出金额</string>
+    <string name="activity_extract_hint_money">请输入转出金额</string>
+    <string name="activity_extract_hint_money_morethan_balance">转出金额大于帐号余额</string>
+
+    <string name="activity_extract_buy_number">请输入合理数量</string>
+    <string name="activity_extract_pas">交易密码</string>
+    <string name="activity_extract_hint_pas">请输入交易密码</string>
+    <string name="activity_extract_forget_pas">忘记密码?</string>
+    <string name="activity_extract_identify_code">验  证  码</string>
+    <string name="activity_extract_hint_identify_code">请输入验证码</string>
+    <string name="activity_extract_get_identify_code">获取验证码</string>
+    <string name="activity_extract_again_code">重新发送</string>
+    <string name="activity_extract_apply">申请转出</string>
+    <string name="activity_extract_count_down">%s秒</string>
+    <string name="activity_extract_hint">提示：转出时部分银行可能存在日限额。</string>
+    <string name="activity_title_extractRecord">转出记录</string>
+    <string name="activity_extractRecord_time">时间</string>
+    <string name="activity_extractRecord_money">金额</string>
+    <string name="activity_extractRecord_type">账户类型</string>
+    <string name="activity_extractRecord_state">状态</string>
+    <string name="activity_title_recharge">余额充值</string>
+
+
+    <!-- 个人信息InfoActivity -->
+    <string name="activity_title_info">个人信息</string>
+    <string name="activity_info_name">姓　　名</string>
+
+    <string name="activity_info_id_card">身份证号</string>
+
+    <string name="activity_info_phone">手  机  号</string>
+
+    <string name="activity_info_place">收货地址</string>
+    <string name="activity_info_hint_place">请选择收货地址</string>
+
+    <string name="activity_correct_price">修改价格</string>
+    <string name="activity_email">邮箱  </string>
+    <string name="activity_edit_code">填写验证码  </string>
+
+
+    <!-- 我的订单OrderListActivity 订单详情OrderDetail 物流跟踪OrderFollow -->
+
+    <string name="activity_orderList_left">全部</string>
+    <string name="activity_orderList_right">已购买</string>
+    <string name="activity_orderList_subtotal">小计：</string>
+
+    <string name="activity_orderList_count_yuan">共计:%1$s元</string>
+    <string name="activity_orderList_yuan">元</string>
+
+    <string name="activity_orderList_go_buy">去支付</string>
+    <string name="activity_title_OrderDetail">订单详情</string>
+    <string name="activity_OrderDetail_num">订  单  号</string>
+    <string name="activity_OrderDetail_state">订单状态</string>
+    <string name="activity_OrderDetail_go_pay">去支付</string>
+    <string name="activity_OrderDetail_time">下单时间</string>
+    <string name="activity_OrderDetail_list_title">商品列表</string>
+    <string name="activity_OrderDetail_place">收货地址</string>
+    <string name="activity_OrderDetail_place_first_adress">请先设置收货地址</string>
+    <string name="activity_OrderDetail_dispatch_mode">配送方式</string>
+    <string name="activity_OrderDetail_follow">物流跟踪</string>
+    <string name="activity_OrderDetail_follownoinfo">暂时没有物流信息，请耐心等待!</string>
+    <string name="activity_OrderDetail_pay_mode">支付方式</string>
+    <string name="activity_OrderDetail_cancel">取消订单</string>
+    <string name="activity_OrderDetail_hint_cancel">确定取消订单?</string>
+    <string name="activity_title_OrderFollow">物流跟踪</string>
+    <string name="activity_OrderFollow_num">订  单  号</string>
+    <string name="activity_OrderFollow_follow_num">物流单号</string>
+    <string name="activity_OrderFollow_firm">物流公司</string>
+    <string name="activity_OrderFollow_info">物流信息</string>
+    <string name="activity_order_count_goods">%1$s件商品</string>
+
+    <!-- 我的银行卡BankCardList 修改BankCardEdit 选择银行BankSelet -->
+    <string name="activity_title_bankCardList">我的银行卡</string>
+    <string name="activity_bankCardList_add">+添加银行卡</string>
+    <string name="activity_title_unbind">解绑银行卡</string>
+
+    <string name="activity_bankCardList_customer">修改请联系客服</string>
+
+
+    <string name="activity_title_bankCardEdit_add">添加银行卡</string>
+    <string name="activity_title_bankCardEdit_edit">修改银行卡</string>
+    <string name="activity_bankCardEdit_name">姓名</string>
+    <string name="activity_bankCardEdit_hint_name">请输入姓名</string>
+    <string name="activity_bankCardEdit_area">地区</string>
+    <string name="activity_bankCardEdit_hint_area">请选择地区</string>
+    <string name="activity_bankCardEdit_card">卡号：</string>
+    <string name="activity_bankCardEdit_subbranch">支行</string>
+    <string name="activity_bankCardEdit_hint_card">请输入银行卡号</string>
+    <string name="activity_bank_hint_subb">请输入支行名称</string>
+    <string name="activity_bankCardEdit_bank">银行</string>
+    <string name="activity_bankCardEdit_hint_bank">请选择银行名称</string>
+    <string name="activity_bankCardEdit_enterhint_bank">请输入银行名称</string>
+    <string name="activity_bankCardEdit_add">确认添加</string>
+    <string name="activity_bankCardEdit_edit">确认修改</string>
+    <string name="activity_bankCardEdit_del">删除</string>
+    <string name="activity_bankCardEdit_del_sure">确定删除银行卡？</string>
+    <string name="activity_title_bankSelect">选择银行</string>
+    <string name="activity_bankCardEdit_warning">温馨提示：为保障转出安全，您只能绑定一张银行卡，且绑定后不能自行修改，请谨慎填写银行卡信息，如您绑定后需要换卡或者修改错误信息，请致电客服 400-809-8888</string>
+
+    <!-- 安全中心、实名认证、交易密码 -->
+    <string name="activity_title_safe">安全中心</string>
+    <string name="activity_safe_set_protect_pas">设置密保问题</string>
+    <string name="activity_safe_set_deal_pas">设置交易密码</string>
+    <string name="activity_safe_edit_deal_pas">修改交易密码</string>
+    <string name="activity_safe_reset_deal_pas">重置交易密码</string>
+    <string name="activity_safe_forget_deal_pas">忘记交易密码</string>
+    <string name="activity_safe_find_deal_pas">重置交易密码</string>
+    <string name="activity_safe_edit_login_pas">修改登录密码</string>
+    <string name="activity_loginPasEdit_pas_old">当前密码  </string>
+    <string name="activity_loginPasEdit_hint1">请输入当前登录密码</string>
+    <string name="activity_loginPasEdit_hint2">6-20位字母和数字组合</string>
+    <string name="activity_loginPasEdit_hint3">再次输入新密码</string>
+    <string name="activity_loginPasEdit_pas_new">新密码  </string>
+    <string name="activity_loginPasEdit_pas_sure">确认密码  </string>
+    <string name="hint_plase_pwd">请输入密码</string>
+    <string name="hint_repetition_pwd">两次密码设置不一致</string>
+    <string name="hint_loginPasEdit_input_right">请输入正确位数</string>
+    <string name="activity_safe_mytelephone">我的手机</string>
+    <string name="activity_safe_email">我的邮箱</string>
+    <string name="activity_safe_iccard">银行卡</string>
+    <string name="activity_safe_address">收货地址</string>
+    <string name="activity_safe_myaddress">我的收货地址</string>
+    <string name="activity_about">关于</string>
+    <string name="activity_about_copy" formatted="true">Copyright©深圳光汇云油电商有限公司</string>
+    <string name="activity_about_exp" formatted="true">特殊声明：您通过软件参与的商品活动与Apple Inc.无关</string>
+    <string name="activity_no_real_deem">未认证</string>
+    <string name="activity_safe_real_deem">实名认证</string>
+    <string name="activity_title_realDeem">实名认证</string>
+    <string name="activity_title_realDeem_inland">国内会员实名认证</string>
+    <string name="activity_title_realDeem_foreign">外籍会员实名认证</string>
+    <string name="activity_realDeem_name">姓名</string>
+    <string name="activity_coustomer_name">客户姓名</string>
+    <string name="activity_realDeem_hint_name">请输入真实姓名</string>
+    <string name="activity_realDeem_id_card">身份证号码</string>
+    <string name="activity_realDeem_card_number">证件号　　</string>
+    <string name="activity_realDeem_hint_id_card">请输入证件号</string>
+    <string name="activity_realDeem_hint_your_card_number">请在此输入您的证件号码</string>
+    <string name="activity_realDeem_idcard_wrong">身份证号只能输入15或18位数字和字母</string>
+    <string name="activity_realDeem_id_face">证件图正面</string>
+    <string name="activity_realDeem_id_con">证件图反面</string>
+    <string name="activity_realDeem_select_pic">上传图片</string>
+    <string name="activity_realDeem_submit">点击提交</string>
+    <string name="activity_realDeem_warn_submit_fail">信息输入不正确或者未上传照片，请重新完善信息。</string>
+    <string name="activity_realDeem_warn_submit_ok">您的实名认证正在审核中，请耐心等待。</string>
+    <string name="activity_realDeem_warn_pwd">您尚未设置交易密码，无法进行领取。</string>
+    <string name="activity_realDeem_warn_zr">您尚未设置交易密码，无法进行转让。</string>
+    <string name="activity_realDeem_warn_hg">您尚未设置交易密码，无法进行回购。</string>
+    <string name="activity_title_protectPas">设置密保问题</string>
+    <string name="activity_protectPas_p1">密保问题一  </string>
+    <string name="activity_protectPas_p2">密保问题二  </string>
+    <string name="activity_protectPas_p3">密保问题三  </string>
+    <string name="activity_protectPas_qusetion1_equal_question2">选择问题与问题一重复</string>
+    <string name="activity_protectPas_qusetion2_equal_question3">选择问题与问题二重复</string>
+    <string name="activity_protectPas_qusetion1_equal_question3">选择问题与问题三重复</string>
+    <string name="activity_protectPas_hint_p">请选择</string>
+    <string name="activity_protectPas_answer">答案：</string>
+    <string name="activity_protectPas_hint_answer">请输入问题答案</string>
+    <string name="activity_protectPas_select_question1">请先选择问题一</string>
+    <string name="activity_protectPas_select_question2">请先选择问题二</string>
+    <string name="activity_protectPas_select_question3">请先选择问题三</string>
+    <string name="activity_protectPas_answer1">请输入问题答案一</string>
+    <string name="activity_protectPas_answer2">请输入问题答案二</string>
+    <string name="activity_protectPas_answer3">请输入问题答案三</string>
+    <string name="activity_protectPas_save">保存</string>
+    <string name="activity_title_protectAsk">选择问题</string>
+    <string name="activity_title_dealPasSet">设置交易密码</string>
+    <string name="activity_dealPasSet_pas_new">交易密码</string>
+    <string name="activity_dealPasSet_pas_sure">确认密码</string>
+    <string name="activity_protectPas_sameanswer">答案相同,请重新填写答案</string>
+
+    <string name="activity_dealPasSet_input_pas_new">输入新密码  </string>
+    <string name="activity_dealPasSet_input_pas_sure">确认新密码  </string>
+    <string name="activity_dealPasSet_code">短信验证码</string>
+
+    <string name="activity_dealPasSet_ok">确认</string>
+    <string name="activity_title_dealPasEdit">修改交易密码</string>
+    <string name="activity_dealPasEdit_pas_old">原交易密码</string>
+    <string name="activity_dealPasEdit_pas_forget">忘记密码?</string>
+    <string name="activity_dealPasEdit_pas_new">新密码</string>
+    <string name="activity_dealPasEdit_pas">登录密码</string>
+    <string name="activity_dealPasEdit_name">客户姓名</string>
+    <string name="activity_dealPasEdit_pas_sure">确认新密码</string>
+    <string name="activity_dealPasEdit_ok">确认</string>
+    <string name="activity_dealPasEdit_hint1">6位数字</string>
+    <string name="activity_dealPasEdit_hint2">请确认您的交易密码</string>
+    <string name="activity_dealPasEdit_hint3">请再次确认您的交易密码</string>
+    <string name="activity_dealPasEdit_password">请输入6位数字交易密码!</string>
+    <string name="activity_dealPasEdit_confrim">请输入确认密码!</string>
+    <string name="activity_dealPasEdit_not">两次输入的密码不一致!</string>
+    <string name="activity_dealPasEdit_again">原始密码输入不正确,请重新输入!</string>
+    <string name="activity_palce_code">请输入验证码</string>
+    <string name="activity_please_email">请输入邮箱地址</string>
+    <string name="activity_please_okemail">请输入规范的邮箱地址</string>
+    <string name="activity_verify_email">邮箱验证</string>
+    <!-- 绑定实体卡BindEsse 确认绑定BindEsseOver -->
+    <string name="activity_title_bindEsse">绑定实体卡</string>
+    <string name="activity_bindEsse_id">储油卡号</string>
+    <string name="activity_bindEsse_hint_id">请输入储油卡号</string>
+    <string name="activity_bindEsse_pas">储油密码</string>
+    <string name="activity_bindEsse_hint_pas">请输入储油卡密码</string>
+    <string name="activity_bindEsse_identify">验证码</string>
+    <string name="activity_bindEsse_hint_identify">输入验证码</string>
+    <string name="activity_bindEsse_get_identify">获取验证码</string>
+    <string name="activity_bindEsse_ok">验证</string>
+    <string name="activity_title_bindEsseOver">确认绑定</string>
+    <string name="activity_bindEsseOver_title">您要绑定的储油卡信息如下：</string>
+    <string name="activity_bindEsseOver_name">产　　品</string>
+    <string name="activity_bindEsseOver_oil_name">油　　品</string>
+    <string name="activity_bindEsseOver_clazz">类　　型</string>
+    <string name="activity_bindEsseOver_area">地　　区</string>
+    <string name="activity_bindEsseOver_cost">价　　值</string>
+    <string name="activity_bindEsseOver_term">领取期数</string>
+    <string name="activity_bindEsseOver_rule">领取规则</string>
+    <string name="activity_bindEsseOver_have_term">有 效 期至</string>
+    <string name="activity_bindEsseOver_limit_num">每期领取数量</string>
+    <string name="activity_bindEsseOver_ok">立即绑定</string>
+    <string name="activity_place_carnum">请输入储油卡号</string>
+    <string name="activity_place_password">请输入储油密码</string>
+    <string name="activity_place_code">请输入验证码</string>
+    <string name="activity_place_code_ok">请输入正确验证码</string>
+    <string name="activity_toast_success">绑定成功</string>
+
+    <!-- 转让操作AttornHand 回购操作BuyBackHand -->
+    <string name="activity_title_attornHand">转让</string>
+    <string name="activity_attornHand_attorn">转让</string>
+    <string name="activity_attornHand_unit1">元/升</string>
+    <string name="activity_attornHand_unit2">元</string>
+    <string name="activity_attornHand_unit3">(5% 最低50元)</string>
+    <string name="activity_attornHand_sell_money">平台卖出价</string>
+    <string name="activity_attornHand_consult_money">转让参考价</string>
+    <string name="activity_attornHand_money">转让金额</string>
+    <string name="activity_attornHand_hint_money">请输入转让金额</string>
+    <string name="activity_attornHand_poundage">转让手续费</string>
+    <string name="activity_attornHand_get_money">您将获得</string>
+    <string name="activity_attornHand_income">您的收益</string>
+    <string name="activity_attornHand_ok">提交</string>
+    <string name="activity_attornHand_base_info">基本信息</string>
+    <string name="activity_attornHand_card_id">储油卡号</string>
+    <string name="activity_attornHand_name">产品名称</string>
+    <string name="activity_attornHand_clazz">产品类型</string>
+    <string name="activity_attornHand_place">地　　区</string>
+    <string name="activity_attornHand_oil_trait">油　　品</string>
+    <string name="activity_attornHand_num">数量</string>
+    <string name="activity_attornHand_give">赠　　送</string>
+    <string name="activity_attornHand_convert_date">领取期</string>
+    <string name="activity_attornHand_surplus_convert_date">剩余期数</string>
+    <string name="activity_attornHand_surplus_num">剩余数量</string>
+    <string name="activity_attornHand_buy_price">购买总价</string>
+    <string name="activity_title_buyBackHand">回购</string>
+    <string name="activity_buyBackHand_buy_back">回购</string>
+    <string name="activity_buyBackHand_unit1">升</string>
+    <string name="activity_buyBackHand_unit2">元</string>
+    <string name="activity_buyBackHand_unit3">(5% 最低50元)</string>
+    <string name="activity_buyBackHand_unit4">元/升</string>
+    <string name="activity_buyBackHand_unit5">折</string>
+    <string name="activity_buyBackHand_buy_num">回购数量</string>
+    <string name="activity_buyBackHand_poundage">回购手续费</string>
+    <string name="activity_buyBackHand_money">回购金额</string>
+    <string name="activity_buyBackHand_income">您的收益</string>
+    <string name="activity_buyBackHand_ok">提交</string>
+    <string name="activity_buyBackHand_base_info">基本信息</string>
+    <string name="activity_buyBackHand_card_id">储油卡号</string>
+    <string name="activity_buyBackHand_name">产品名称</string>
+    <string name="activity_buyBackHand_clazz">产品类型</string>
+    <string name="activity_buyBackHand_place">地　　区</string>
+    <string name="activity_buyBackHand_oil_trait">油　　品</string>
+    <string name="activity_buyBackHand_give">赠　　送</string>
+    <string name="activity_buyBackHand_convert_date">领取期数</string>
+    <string name="activity_buyBackHand_convert_num_over">已领取数量</string>
+    <string name="activity_buyBackHand_surplus_num">剩余数量</string>
+    <string name="activity_buyBackHand_hint_surplus_num">回购将扣除赠送部分</string>
+    <string name="activity_buyBackHand_buy_price">购买总价</string>
+    <string name="activity_buyBackHand_buy_price_add">已累计领取</string>
+    <string name="activity_buyBackHand_number">数　　量</string>
+    <string name="activity_attornHand_no">领取成功，请留意账户余额变化。</string>
+    <string name="activity_attornHand_yes">领取申请成功，请耐心等待审核。</string>
+    <string name="activity_buyBackHand_no">回购成功，请留意账户余额变化。</string>
+    <string name="activity_buyBackHand_yes">回购申请成功，请耐心等待审核。</string>
+
+    <!-- 我的转让卡AttornList 转让卡详情AttornDetail -->
+    <string name="activity_title_attornList">我的转让卡</string>
+    <string name="activity_attornList_name">名称</string>
+    <string name="activity_attornList_state">状态</string>
+    <string name="activity_attornList_money">转让价(元)</string>
+    <string name="activity_title_attornDetail">转让详情</string>
+    <string name="activity_attornDetail_wait">等待审核</string>
+    <string name="activity_attornDetail_state">状态</string>
+    <string name="activity_attornDetail_income">收　　益</string>
+    <string name="activity_attornDetail_card_id">储油卡号</string>
+    <string name="activity_attornDetail_name">产品名称</string>
+    <string name="activity_attornDetail_clazz">产品类型</string>
+    <string name="activity_attornDetail_oil_trait">油　　品</string>
+    <string name="activity_attornDetail_place">地　　区</string>
+    <string name="activity_attornDetail_num">数　　量</string>
+    <string name="activity_attornDetail_give">赠　　送</string>
+    <string name="activity_attornDetail_convert_date">领取期数</string>
+    <string name="activity_attornDetail_qi_unit">期</string>
+    <string name="activity_attornDetail_consult_money">转让参考价</string>
+    <string name="activity_attornDetail_attorn_money">转 让 价</string>
+    <string name="activity_attornDetail_attorn_cancel">取消转让</string>
+
+    <!-- 转让区 -->
+    <string name="activity_area_price_asc">价格升序</string>
+    <string name="activity_area_address">地　　区</string>
+
+    <!-- 领取操作 -->
+    <string name="activity_convert_batch_title">批量领取</string>
+    <string name="activity_convert_place_choose">请选择需要领取的商品</string>
+    <string name="activity_convert_oil_name">储油名称</string>
+    <string name="activity_convert_number">可领取数量</string>
+    <string name="activity_convert_income">收益</string>
+    <string name="activity_convert_details">详情</string>
+    <string name="activity_convert_trade_password">交易密码：</string>
+    <string name="activity_convert_forget_password">忘记交易密码?</string>
+
+
+    <string name="activity_cash_auto_calculate">(系统自动计算)</string>
+
+
+    <!-- 购物车界面 -->
+    <string name="activity_title_car">购物车</string>
+    <string name="activity_car_go_reckon">去结算</string>
+
+
+    <string name="activity_noadress_pleaseadd">没有默认的收货地址，请添加</string>
+    <string name="message_goods_remove_item">确定要从购物车中移除商品?</string>
+    <string name="message_goods_remove_address">确定要删除该地址?</string>
+    <string name="activity_car_order_confirm">订单确认</string>
+    <string name="activity_car_submit_order">提交订单</string>
+
+    <string name="activity_car_dispatching_way">配送方式</string>
+    <string name="activity_car_sdispatching_says">配送说明</string>
+    <string name="activity_car_select_dispatching_way">请选择配送方式</string>
+    <string name="activity_car_take_delivery">收货地址</string>
+    <string name="activity_take_delivery_default" formatted="false"><![CDATA[<font color="#B81818">【默认】</font>%s]]></string>
+    <string name="activity_car_new_address">+新建地址</string>
+    <string name="activity_car_delete">删除</string>
+    <string name="activity_car_eidt">编辑</string>
+    <string name="activity_goods_take_by">收货人姓名：</string>
+    <string name="activity_goods_take_by2">收货人：</string>
+    <string name="activity_goods_phone">手机号码  </string>
+    <string name="activity_goods_phone2">手机号码：</string>
+    <string name="activity_goods_postalcode">邮政编码：</string>
+    <string name="activity_goods_area">省、市、区：</string>
+    <string name="activity_goods_address">详细地址：</string>
+
+
+    <string name="activity_goods_save">保 存</string>
+
+
+    <string name="activity_goods_add_edit_address">新建/编辑地址</string>
+    <string name="toast_place_take_info">请填写完整的收货信息!</string>
+    <string name="toast_place_take_zip">请填写邮政编码!</string>
+    <string name="toast_place_take_phone">请输入正确的手机号!</string>
+    <string name="activity_goods_more_message">单品最多购买99件</string>
+
+    <!-- 购物车商品详情 -->
+    <string name="activity_title_carGoods">商品详情</string>
+    <string name="activity_carGoods_attorn_money">转让价</string>
+    <string name="activity_carGoods_card_num">卡　　号</string>
+    <string name="activity_carGoods_oil_quality">油　　品</string>
+    <string name="activity_carGoods_type">种　　类</string>
+    <string name="activity_carGoods_place">地　　区</string>
+    <string name="activity_carGoods_odd_date_num">剩余领取期数</string>
+    <string name="activity_carGoods_odd_date_time">剩余领取期限</string>
+    <string name="activity_carGoods_odd_num">剩余数量</string>
+    <string name="activity_carGoods_term_time">每期时长</string>
+    <string name="activity_carGoods_term_num">每期限领取</string>
+    <string name="activity_carGoods_term_can_num">本期可领取</string>
+    <string name="activity_carGoods_add">加入购物车</string>
+    <string name="activity_carGoods_buy">点击购买</string>
+    <string name="activity_goodsDatail_giveMost_rate">最高赠送比例</string>
+    <string name="activity_goodsDatail_coverDate_month">领取期数（月）</string>
+    <string name="activity_goodsDatail_startBuy_cash">起购金额（元）</string>
+    <string name="activity_goodsDatail_goods_feature">产品特点</string>
+    <string name="activity_goodsDatail_limit_cash">额度</string>
+    <string name="activity_goodsDatail_give_goods">赠送</string>
+    <string name="activity_goodsDatail_goods_validityTerm">有效期</string>
+    <string name="activity_goodsDatail_goods_datail">产品详情</string>
+    <!-- 交易记录 -->
+    <string name="activity_trade_record">交易记录</string>
+    <string name="activity_trade_date">交易日期</string>
+    <string name="activity_trade_income">收　　益</string>
+    <string name="activity_trade_oil_product">储油产品</string>
+    <string name="activity_trade_product_type">产品类型</string>
+    <string name="activity_trade_serial_number">交易流水号</string>
+    <string name="activity_trade_oil_car_num">储油卡号</string>
+    <string name="activity_trade_serial_type">交易类型</string>
+    <string name="activity_trade_serial_status">交易状态</string>
+    <string name="activity_trade_serial_area">地　　区</string>
+    <string name="activity_trade_balance_price">结算油价</string>
+    <string name="activity_trade_cash_number">交易数量</string>
+    <string name="activity_trade_cash_money">交易金额</string>
+    <string name="activity_trade_surplus_number">剩余数量</string>
+    <string name="activity_trade_see_oil">查看购油发票</string>
+    <string name="activity_trade_oil">购油发票</string>
+
+
+    <!-- check update -->
+
+    <string name="activity_setting_update_force">重大更新</string>
+    <string name="activity_setting_update_common">更新</string>
+    <string name="activity_setting_update_common_version" formatted="true">"发现V%s新版本"</string>
+    <string name="activity_setting_update_hasnew">发现最新版本，是否立即更新？</string>
+    <string name="activity_setting_update_isnew">当前版本已是最新版，无需更新！</string>
+    <string name="activity_setting_update_title">版本更新！</string>
+
+
+    <!-- 支付 -->
+
+
+    <string name="activity_paly_fail">支付失败</string>
+    <string name="activity_paly_confrim">支付结果确认中</string>
+    <string name="activity_paly_check">检查结果为：</string>
+
+    <!-- 京东支付 -->
+    <string name="activity_title_jd_pay">京东支付</string>
+    <!-- 建行支付 -->
+    <string name="activity_title_cbc_pay">网银支付</string>
+
+    <!-- **********************警告提示模块*********************** -->
+
+    <string name="warning_out_login">你的帐已在其他设备登录，如非本人操作，请注意账户安全并立即重新登录！</string>
+
+    <string name="warning_auth_failure">实名认证未通过，是否重新认证？</string>
+
+    <!-- dialog select image -->
+    <string name="dialog_select_image_title">选择图片</string>
+
+    <!-- **********************Intent*********************** -->
+    <string name="intent_key_islogin">login</string>
+    <string name="intent_key_phone">phone</string>
+    <string name="intent_key_pwd">pwd</string>
+    <string name="intent_key_sourse">sourse</string>
+    <string name="intent_key_id">id</string>
+    <string name="intent_key_type">type</string>
+    <string name="intent_key_data">data</string>
+    <string name="intent_key_rand">rand_num</string>
+    <string name="intent_key_member">member_id</string>
+    <string name="intent_key_question">question</string>
+    <string name="intent_key_cardbn">card_bn</string>
+    <string name="intent_key_order_bn">order_bn</string>
+    <string name="intent_key_cardname">card_name</string>
+    <string name="intent_key_cardtype">card_type</string>
+    <string name="intent_key_bean">bean</string>
+    <string name="intent_key_jump_type">jump_type</string>
+    <string name="intent_key_jump">jump</string>
+    <string name="intent_key_type_bn">type_bn</string>
+    <string name="intent_key_product_id">product_id</string>
+    <string name="intent_key_event">event</string>
+    <string name="intent_key_title">promotion_title</string>
+    <string name="intent_key_ico">promotion_ico</string>
+    <string name="intent_key_text">promotion_text</string>
+    <string name="intent_key_url">promotion_url</string>
+    <!-- ***********************提示文本模块*********************** -->
+    <!-- hint -->
+    <string name="hint_select_oper">请选择操作</string>
+    <string name="hint_exit_application">再次点击即将退出！</string>
+    <string name="hint_place_login_phone">请输入登录手机号</string>
+    <string name="hint_place_register_phone1">请输入手机号码</string>
+    <string name="hint_place_register_phone2">请输入注册手机号码</string>
+    <string name="hint_place_login_pwd">请您填写登录密码</string>
+    <string name="hint_place_in_identifyingcode">请输入验证码</string>
+
+    <string name="hint_plase_username">请输入真实姓名</string>
+    <string name="hint_plase_password">6-20个数字和字母组合</string>
+    <string name="hint_place_confirm_password">请再次确认登录密码</string>
+    <string name="hint_place_new_password">6位数字</string>
+    <string name="hint_place_confirm_new_password">请确认您的交易密码</string>
+    <string name="hint_set_pas_new">请输入新密码</string>
+    <string name="hint_set_pas_sure">请确定新的密码</string>
+
+    <string name="hint_plase_transepassword_six">密码必须由6位纯数字组合</string>
+    <!-- *******************************上下拉刷新提示文本**************************** -->
+    <string name="pull_to_refresh_pull_label">下拉刷新&#8230;</string>
+    <string name="pull_to_refresh_release_label">释放更新&#8230;</string>
+    <string name="pull_to_refresh_refreshing_label">加载中&#8230;　</string>
+
+
+    <string name="pull_up_refresh_pull_label">上拉加载更多&#8230;</string>
+    <string name="pull_up_refresh_release_label">释放加载更多&#8230;</string>
+    <string name="pull_up_refresh_refreshing_label">加载中&#8230;　　　</string>
+
+
+    <string name="pull_finish">已加载全部数据&#8230;</string>
+    <string name="process_no_date">已加载到全部数据</string>
+    <string name="picture_limited">格式：gif、jpg、png、bmp；大小：不超过2M</string>
+    <string name="top_up_remain">账户可用余额：0.00元</string>
+
+    <string name="top_up_pay">立即支付$元</string>
+    <!-- 二位码字符串  -->
+    <string name="scan_text">将加油站二维码放入框内, 即可自动扫描</string>
+    <string name="top_up_success_money">充值成功$元</string>
+
+    <string name="back_to_home">回首页</string>
+    <string name="fuel_card_no_history">历史加油卡卡号</string>
+    <string name="top_up_history_warning">亲，您还没有给任何加油卡充值过哦</string>
+    <string name="dazhong_oilcard_balance">光汇加油卡余额:%1$s</string>
+
+    <!-- 小票充值  -->
+    <string name="sharereward_copy">发链接邀请</string>
+    <string name="txt_title_nocard">您还没有光汇加油卡</string>
+    <string name="txt_content_nocard">该功能需要购买光汇加油卡后才能使用，请在首页“光汇加油”购买光汇加油卡。</string>
+    <string name="txt_title_frozen">您的光汇加油卡被冻结</string>
+    <string name="txt_content_frozen">由于您的光汇加油卡的加油申请可能正在审核中，因此被冻结，您可以在光汇微商城购买更多的光汇加油卡。</string>
+    <string name="txt_title_nobalance">您的光汇加油卡无余额</string>
+    <string name="txt_content_nobalance">由于您的光汇加油卡余额已经用完，您可以在光汇微商城购买更多的光汇加油卡。</string>
+    <string name="sms_warning">6位短信验证码已发送至您的预留手机\n号，请在２分钟内输入</string>
+    <string name="sharereward_qrcode">面对面邀请</string>
+    <string name="sharereward_wx">微信好友</string>
+    <string name="sharereward_wxcir">微信朋友圈</string>
+
+    <!-- 我的卡券  -->
+    <string name="evoucher_card">节日卡</string>
+    <string name="evoucher_mycard">我的卡券</string>
+    <string name="evoucher_nodata">暂无数据</string>
+    <string name="evoucher_disabled">已失效券</string>
+    <string name="evoucher_detail">详情</string>
+    <string name="other_money">其他金额</string>
+    <string name="beyond_balance">已超出帐号可加油余额。</string>
+
+    <!--扫码加油页面-->
+    <string name="scan_addoil_canusermoney">你的云油账户可用加油金额:%1$s元\t\t</string>
+    <!--我的加油卡界面-->
+    <string name="myoilcard_item_content">剩余%1$s元分%2$s个月返回至可用加油金额账户</string>
+
+    <!--购买加油卡-->
+    <string name="title_a_buy_reful" formatted="false">"购买加油卡"</string>
+    <string name="a_buyInfo_format" formatted="false">"首月%s元，实时到账，共%s月，每月返%s元"</string>
+
+    <string name="a_selArriveInfo_format" formatted="false">"%s元/每月*%s个月=%s元"</string>
+    <string name="a_buy_reful_noUse" formatted="false">"未使用"</string>
+
+    <string name="a_buy_reful_useByStages" formatted="false">"充值%s个月"</string>
+    <string name="a_buy_oil_card_useByStages" formatted="false">"%s个月分期"</string>
+    <string name="a_buy_reful_payNow" formatted="false">"立即支付%s元"</string>
+
+    <string name="title_a_buy_reful_cash_coupon" formatted="false">@string/cash_coupon_use</string>
+    <string name="title_a_demand_extract" formatted="false">提取</string>
+
+    <string name="a_demand_tip_fixed_manager" formatted="false">"提取本金%s元，扣取管理费%s元，获得%s元"</string>
+    <string name="a_demand_tip_fixed_managerHasCoupon" formatted="false">"提取本金%s元，扣取管理费%s元，扣取优惠券优惠金额%s元，获得%s元"</string>
+    <string name="a_demand_tip_fixed" formatted="false">"提取本金%s元，收益%s元，获得%s元"</string>
+    <string name="a_demand_tip_fixedHasCoupon" formatted="false">"提取本金%s元，收益%s元，扣取优惠券优惠%s元，获得%s元"</string>
+
+    <string name="a_demand_tip_atMost" formatted="false">"本次最多可以提取本金%s元，预计收益%s元"</string>
+    <string name="a_demand_tip" formatted="false">"提取本金%s元，获得收益%s元"</string>
+    <string name="a_demand_no_more" formatted="false">"输入金额超过可提本金"</string>
+    <string name="a_demand_ok" formatted="false">"确定提取%s"</string>
+
+
+    <string name="a_buy_fuel_card_cost_describeUp_format" formatted="false">"充值%s个月 , 每月自动到账 , 当天到账第1笔"</string>
+    <string name="a_buy_fuel_card_cost_describeUpNow_format" formatted="false">"充值%s个月 , 每月自动到账 , 当天到账"</string>
+    <string name="a_buy_fuel_card_cost_describeDown_format" formatted="false">"原价%s元  折扣价%s元  共省%s元"</string>
+    <string name="a_buy_fuel_card_cost_firstMonthRemind" formatted="false">"首月%s元 , 在购买后10分钟内到账"</string>
+    <string name="a_buy_fuel_card_updateCardMsgTv" formatted="false">"您已添加过加油卡，需%s天后才可更换。如有疑问请联系客服 400-809-8888"</string>
+
+    <!--<string name="a_buy_fuel_card_cost_describeDownNow_format" formatted="false">"原价%s元  折扣价%s元  共省%s元"</string>-->
+
+
+    <string name="lipsum">Lorem ipsum dolor sit amet, ut duis lorem provident sed felis blandit, condimentum donec lectus ipsum et mauris, morbi porttitor interdum feugiat nulla donec sodales, vestibulum nisl primis a molestie vestibulum quam, sapien mauris metus risus suspendisse magnis. Augue viverra nulla faucibus egestas eu, a etiam id congue rutrum ante, arcu tincidunt donec quam felis at ornare, iaculis ligula sodales venenatis commodo volutpat neque, suspendisse elit praesent tellus felis mi amet. Inceptos amet tempor lectus lorem est non, ac donec ac libero neque mauris, tellus ante metus eget leo consequat. Scelerisque dolor curabitur pretium blandit ut feugiat, amet lacus pulvinar justo convallis ut, sed natoque ipsum urna posuere nibh eu. Sed at sed vulputate sit orci, facilisis a aliquam tellus quam aliquam, eu aliquam donec at molestie ante, pellentesque mauris lorem ultrices libero faucibus porta, imperdiet adipiscing sit hac diam ut nulla. Lacus enim elit pulvinar donec vehicula dapibus, accumsan purus officia cursus dolor sapien, eu amet dis mauris mi nulla ut. Non accusamus etiam pede non urna tempus, vestibulum aliquam tortor eget pharetra sodales, in vestibulum ut justo orci nulla, lobortis purus sem semper consectetuer magni purus. Dolor a leo vestibulum amet ut sit, arcu ut eaque urna fusce aliquet turpis, sed fermentum sed vestibulum nisl pede, tristique enim lorem posuere in laborum ut. Vestibulum id id justo leo nulla, magna lobortis ullamcorper et dignissim pellentesque, duis suspendisse quis id lorem ante. Vivamus a nullam ante adipiscing amet, mi vel consectetuer nunc aenean pede quisque, eget rhoncus dis porttitor habitant nunc vivamus, duis cubilia blandit non donec justo dictumst, praesent vitae nulla nam pulvinar urna. Adipiscing adipiscing justo urna pulvinar imperdiet nullam, vitae fusce rhoncus proin nonummy suscipit, ullamcorper amet et non potenti platea ultrices, mauris nullam sapien nunc justo vel, eu semper pellentesque arcu fusce augue. Malesuada mauris nibh sit a a scelerisque, velit sem lectus tellus convallis consectetuer, ultricies auctor a ante eros amet sed.\n\n
+Risus lacus duis leo platea wisi, felis maecenas rutrum in id in donec, non id a potenti libero eget, posuere elit ea sed pellentesque quis. Sunt lacus urna lorem elit duis, nibh donec purus quisque consectetuer dolor, neque vestibulum proin ornare eros nonummy phasellus. Iaculis cras eu at egestas dolor montes, viverra quisque malesuada consectetuer semper maecenas, a sed vitae donec tempor aliqua metus, ornare mollis suscipit et erat fusce, sit orci aut auctor elementum fames aliquam. Platea dui integer magnis non metus, minus dignissimos ante massa nostra et, rutrum sapien egestas quis sapien donec donec. Erat sit a eros aenean natoque, quam libero id lorem enim proin, lorem ipsum fermentum mattis metus et. Aliquam aliquet suscipit purus conubia at neque, platea vivamus vestibulum nulla quibusdam senectus, et morbi lectus malesuada gravida donec, elementum sit convallis pellentesque velit amet. Et eveniet viverra vehicula consectetuer justo, provident sed commodo non lacinia velit, tempor phasellus vel leo nisl cras, vivamus et arcu interdum dui eu amet. Volutpat wisi rhoncus vel turpis diam quibusdam, dapibus elit est quisque cubilia mauris, nulla elit magna tempor accumsan bibendum, lorem varius sed interdum eget mattis, scelerisque egestas feugiat donec dui molestie. Leo facilisis nisl sit montes ligula sed, enim commodo consectetuer nunc est et, ut sed vehicula dolor luctus elit. Fermentum cras donec eget nibh est vel, sed justo risus et pharetra diam, eu vivamus egestas ligula risus diam, sed justo eget hac ut mauris. Vestibulum diam nec vitae mi eget suspendisse, aenean arcu purus facilisis purus class in, id aliquam sit id scelerisque sapien etiam. Ut nullam sit sed at mauris lobortis, consequat dolor autem ipsum euismod nulla, elit quis proin eget conubia varius, erat arcu massa mus in mauris, scelerisque ut eu sollicitudin libero leo urna.\n\n
+Consectetuer luctus tempor elit ut dolor ligula, quis dui per dui hendrerit ante sagittis, in quisque pretium in eleifend enim. Condimentum iaculis vitae feugiat dis tellus vel, lectus dolor nec dui nulla nascetur, et pellentesque curabitur lorem leo velit eget. Id nascetur arcu lobortis suspendisse imperdiet urna, natoque nascetur ante in porta a, interdum hendrerit mi bibendum platea tellus, urna in enim ornare vestibulum faucibus enim. Leo fusce egestas ante nec volutpat, in tempor vel facilisis potenti ut, pede at non lorem a commodo, nulla dolor orci interdum vestibulum nulla. Dui nulla vestibulum quisque a pharetra porta, integer nec ipsum nec sed dui pharetra, magna et dignissim ipsum sed dictum, litora eros vivamus scelerisque libero ipsum. Sed ac ac lorem molestie adipiscing morbi, pellentesque imperdiet nunc quis morbi amet ante, libero dui ligula nec risus neque et, velit nonummy phasellus et facilisi amet, ligula in elementum non sapien pulvinar faucibus. Eu leo ut posuere sed aliquet, tincidunt vel urna volutpat tempus sem, sit felis aliquet vestibulum condimentum sit, amet nibh vel tellus purus ullamcorper libero, nulla vestibulum pede ut vestibulum pretium. Eu nulla vestibulum a neque in metus, quisquam nam sed cursus eget luctus, pede ultrices nec sed dignissim pellentesque, sit class cursus metus nulla placerat mauris, consequat mollis neque vivamus amet pede. Mauris dolor nulla diam eros bibendum, quam ante vestibulum morbi non ligula vel, molestie curabitur rhoncus nulla euismod interdum non. Nulla fringilla lorem mollis ad massa, sit molestie nibh lorem arcu volutpat, accumsan commodo lectus eu et donec, sit tempor tempus rutrum in curabitur amet. Nec urna euismod a tincidunt commodo, eu pede turpis libero vitae viverra, ante vestibulum nam non habitasse potenti, mauris imperdiet in in nunc convallis. Et nostra wisi in est accumsan vehicula, quisque vitae felis mauris sed vulputate nec, ante imperdiet sollicitudin massa iaculis massa sit.\n\n
+Quam libero nulla netus eu porta curae, ut nulla bibendum facilisis et urna sed, quis congue vestibulum aliquam interdum etiam. Nulla vel lobortis ullamcorper vitae excepturi, neque urna feugiat lectus vel lacinia, massa pretium orci eu metus neque vulputate. Imperdiet ac velit rhoncus nulla malesuada nullam, nec pulvinar justo gravida lorem rutrum magna, habitasse repudiandae mi eros vestibulum ante, nec euismod dui iaculis in turpis pretium, ac id metus egestas proin lacus lectus. Laoreet lorem nec vitae risus erat arcu, vitae quam ut in ante tristique, porta dolor pede quam et odio nam, arcu lacus sem congue ante cursus massa. Et mattis sagittis erat accumsan fusce quam, vehicula ligula beatae natoque fusce sodales conubia, habitasse metus cum magnis viverra nam cursus, egestas urna wisi primis blandit eu magna, eget libero elit lacus lorem dis aliquam. Ut mauris ante natoque lacus massa, justo a lectus sodales enim adipiscing id, accumsan ut ipsum vestibulum sed enim auctor, vitae congue tincidunt id phasellus lacinia scelerisque, tincidunt sapien nulla euismod volutpat iaculis. Platea sociis nec aliquet nec molestie, in mi et augue sapien in vivamus, integer fames proin vitae in ullamcorper et. Fringilla etiam sapiente rhoncus suspendisse nec id, lobortis cras eget egestas dui ac nec, justo lacus ut lorem bibendum quia eros, eget a gravida id donec nunc suscipit, porta sed in sodales non rutrum. Lectus vel dui elementum pellentesque magna aliquam, vitae non sit pede et fusce nibh, id id deserunt ornare dui sit condimentum, in adipiscing imperdiet turpis nam aliquet, facilisis metus magna lacus wisi facilisis tortor. Vulputate elit accumsan quam amet ligula, suspendisse lacus mi nonummy integer urna, libero nulla nunc varius in odio, laoreet nulla amet placerat amet nec. Consectetuer vel massa hendrerit vitae iaculis id, sed ut ut laudantium odio in, elit vestibulum duis ante maecenas interdum in, neque vehicula ultrices varius in quam, pede tellus pellentesque sed nullam quis.</string>
+    <string name="activity_means_expired">已领完产品</string>
+
+
+    <string name="oilBox_minMortgageCash" formatted="false">"油箱可低现金%s元"</string>
+    <string name="oilBoxDiscount" formatted="false">"油箱折扣"</string>
+
+    <string name="a_cash_272_sum" formatted="false">"本次最多可领%s , "</string>
+    <string name="a_cash_272_count" formatted="false">"请输入领取%s"</string>
+    <string name="a_cash_272_nowOilAndOldOil" formatted="false">"%s%s : 当前油价%s , 买入油价%s"</string>
+    <string name="a_cash_272_money_index" formatted="false">"领取金额=当前油价*领取升数=%s"</string>
+    <string name="a_cash_272_earnings_title" formatted="false">"收益=%s"</string>
+    <string name="a_cash_272_earnings_title_info" formatted="false">"*当输入领取升数&lt;=赠送升数时，收益=赠送升数*当前油价；当输入领取升数>赠送升数时，收益=赠送升数*当前油价+(领取升数-赠送升数)*(当前油价-买入油价）。\n平台将优先领取赠送升数部分，赠送升数可到卡详情页中查看。"</string>
+
+
+    <!--我的-->
+    <string name="mine_main_my_wallet">我的加油卡(元)</string>
+    <string name="mine_main_my_wallet_can">可用金额</string>
+    <string name="mine_main_my_wallet_cant">不可用金额</string>
+    <string name="mine_main_my_oil_box">我的油箱(升)</string>
+    <string name="mine_main_my_oil_box_can">可用油量</string>
+    <string name="mine_main_my_oil_box_cant">不可用油量</string>
+    <string name="mine_main_submit_oil">转出</string>
+    <string name="mine_main_get_money">转出</string>
+    <string name="mine_main_get_money_result">转出结果</string>
+    <string name="mine_main_recharge">充值</string>
+    <string name="mine_main_member">我的会员</string>
+    <string name="mine_bwoil_pay_toast">开卡中,请等待完成后进入</string>
+    <string name="mainminefragment_my_oil_storage_card">我的储油卡</string>
+    <string name="oil_card_name_preservation">我的保值卡</string>
+    <string name="mainminefragment_my_oil_card">其他油卡</string>
+    <string name="safe_insurance_title">您的账户安全\n由易安保险保驾护航</string>
+    <string name="safe_insurance_content">购买任意光汇云油产品，平台将为您购买保额为10000元起的光汇云油账户安全险。</string>
+    <string name="add_oil_card_toast">您的汇油宝和\n其他油卡数据可以在这里查看</string>
+    <!--产品详情-->
+    <string name="activity_detail_home">首页</string>
+    <string name="activity_detail_my_user">我的账户</string>
+    <string name="activity_detail_share">分享</string>
+    <string name="activity_detail_message">消息中心</string>
+
+    <!--车主认证-->
+    <string name="carnumber_input_type">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLIMNOPQRSTUVWXYZ</string>
+    <string name="refuel_invoice">发票报销</string>
+    <string name="refuel_invoice_reimbursement">全国加油，可用发票报销</string>
+    <string name="refuel_account_book">用油账本</string>
+    <string name="refuel_invoice_oil_book">不错过车生活的点点滴滴</string>
+    <string name="buy_number">折</string>
+    <string name="oil_child_detail">即买即用、全国加油</string>
+    <string name="must_buy">立即购买</string>
+
+    <!-- 车辆保险 -->
+    <string name="insur_recognizee">被保人</string>
+    <string name="insur_phone">手机号码</string>
+    <string name="insur_identity_card">身份证号</string>
+    <string name="insur_consignee_address">收件地址</string>
+    <string name="insur_details_address">详细地址</string>
+    <string name="insur_recognizee_hide">请输入被保人真实姓名</string>
+    <string name="insur_phone_hide">请输入被保人常用手机号</string>
+    <string name="insur_identity_card_hide">请输入被保人身份证号</string>
+    <string name="insur_consignee_address_hide">请选择所在地区</string>
+    <string name="insur_details_address_hide">请输入详细地址</string>
+    <string name="insur_top_message">行驶证信息(纸质车险保单上的车险人)</string>
+    <string name="insur_top_address">其他收件人(被车险人与收件人不是同一人)</string>
+    <string name="insur_car_top_info">请先填写车辆信息再购买车险</string>
+    <string name="insur_car_line">填写信息>选择方案>下单支付>接受保单</string>
+    <string name="insur_car_bottom">理解并接受</string>
+    <string name="insur_select_city">投保城市</string>
+    <string name="insur_car_number">车牌号码</string>
+    <string name="insur_car_type">车辆性质</string>
+    <string name="insur_save_btn">保存</string>
+    <string name="insur_add_btn">添加</string>
+
+    <string name="insur_carpaper_model">品牌型号</string>
+    <string name="insur_carpaper_numbertype">车型识别代码</string>
+    <string name="insur_carpaper_engine">发动机号</string>
+    <string name="insur_carpaper_regisTime">注册日期</string>
+    <string name="insur_carpaper_openData">发证日期</string>
+    <string name="insur_carpaper_mustBuy">交强险生效时间</string>
+    <string name="insur_carpaper_shouldBuy">商业险生效时间</string>
+    <string name="insur_carpaper_peopleInfo">被保人/收件人信息</string>
+    <string name="main_mine_icon">还没上传靓照哦 点击上传头像即可</string>
+    <string name="insur_mall">光汇车险超市,给您更多选择</string>
+    <string name="insur_mall_contant">车险保险由保险公司发行,由投保保险公司提供</string>
+
+
+    <string name="all_convert"><u>全部领取</u></string>
+    <string name="intent_key_cash_day">cash_day</string>
+    <string name="a_cash_330_buy_count">领取后实时转入账户余额</string>
+    <string name="cash_coupon_rate">使用加息券</string>
+
+    <!-- 新生快捷支付 -->
+    <string name="bank_add_desc">安全绑卡  无需网银  免手续费</string>
+    <string name="bank_add_owner">持卡人</string>
+    <string name="bank_support">查看支持银行</string>
+    <string name="bank_pay">确定支付</string>
+    <string name="bank_send_msg">发送验证码</string>
+    <string name="bank_card_type">卡类型</string>
+    <string name="bank_on_sale">优惠</string>
+    <string name="bank_beforehand">请填写银行预留信息</string>
+    <string name="bank_id_card_number">身份证号</string>
+    <string name="bank_phone_number">手机号</string>
+    <string name="bank_id_card_number_desc">持卡人身份证，将此身份信息用于实名认证</string>
+    <string name="bank_phone_number_desc">此卡在银行预留的手机号</string>
+
+    <!--字符串填充-->
+    <string name="one_money_str_replace">最低转出金额：%1$s元</string>
+    <string name="one_cash_money_str_replace">转出%1$s元申请成功</string>
+    <string name="two_str_replace">%1$s(%2$s)</string>
+    <string name="two_money_str_replace">可转：¥ %1$s，可免费转：¥ %2$s</string>
+    <string name="two_money1_str_replace">手续费：%1$s元，实际加油额度：%2$s元</string>
+    <string name="money_last_replace">%1$s元</string>
+    <string name="float_precent">%1$.2f%%</string>
+    <string name="money_falg_first_replace">¥%1$s</string>
+    <string name="cash_money_str_replace">手续费：%1$s元，实际转出金额：</string>
+    <string name="pay_fail_reason">失败原因：%1$s</string>
+    <string name="msg_code_note">请点击重新发送验证码按钮，在网络信号良好环境下稍等片刻。如依然无法收到，请致电光汇云油客服电话 400-809-8888</string>
+    <string name="main_cloud_safe_gurad">人保、易安保险与工商银行保障您的资金安全</string>
+    <string name="activity_order_now">立即投资</string>
+
+    <!--光汇云付-->
+    <string name="bwoil_pay_title">光汇云付</string>
+    <string name="bwoil_pay_common_problem">常见问题</string>
+    <string name="bwoil_pay_bank_desc">请选择开通的电子II类账户类型：</string>
+    <string name="bwoil_pay_bank_card_title">选择绑定银行卡</string>
+    <string name="bwoil_pay_bank_list">支持银行列表</string>
+    <string name="bwoil_pay_bank_card_list_desc">请选择云付账户绑定的银行卡</string>
+    <string name="bwoil_pay_bank_register_title">完成开户信息</string>
+    <string name="bwoil_pay_opening_title">开户中</string>
+    <string name="bwoil_pay_open_success_title">开户成功</string>
+    <string name="bwoil_pay_opening_content">正在为您开通专属云付,请稍后...</string>
+    <string name="pufa_desc">来自：浦发银行</string>
+    <string name="pufa_desc2">“光汇云油浦发银行卡”可用于Apple Pay</string>
+
+    <!--加油赚钱-->
+    <string name="cash_total_info">合计：%1$s张  可领金额：%2$s元</string>
+    <string name="oil_count">%1$s张</string>
+    <string name="create_time">下单时间：%1$s</string>
+    <string name="card_name_replace">%1$s (%2$s张)</string>
+
+    <!--通用命名-->
+    <string name="user_name_desc">真实姓名</string>
+    <string name="user_id_desc">身份证号</string>
+    <string name="id_picture_desc">请上传本人身份证原件照片，该资料仅用于身份验证</string>
+    <string name="id_front_picture">身份证正面照片</string>
+    <string name="id_back_picture">身份证反面照片</string>
+    <string name="msg_code_desc">请输入手机号码为%1$s的短信验证码</string>
+    <string name="msg_code_name">短信验证码</string>
+    <string name="get_msg_code_name">获取验证码</string>
+    <string name="input_msg_code_hint">请输入短信验证码</string>
+    <string name="commit">提交</string>
+    <string name="agree_content_title">已阅读并同意%1$s内容</string>
+    <string name="service_content_title">《服务协议》</string>
+    <string name="local_picture">相册</string>
+    <string name="camera">照相机</string>
+
+    <!--toast-->
+    <string name="un_front_id_image_toast">请上传身份证正面照片</string>
+    <string name="un_back_id_image_toast">请上传身份证反面照片</string>
+    <string name="please_input_msg_code_toast">请输入验证码</string>
+    <string name="please_agree_service_content_toast">请选择同意服务协议</string>
+    <string name="image_size_error_toast">图片尺寸不符合要求,请重新选择图片</string>
+    <string name="uploadimage_error_toast">图片上传失败,请稍后重试</string>
+    <string name="image_type_error_toast">请上传jpg/jpeg类型图片</string>
+    <!--产品页相关字符串-->
+    <string name="myfragentpageadapter_oil_storage_card">储油卡</string>
+
+    <string name="myfragentpageadapter_oil_card">加油卡</string>
+    <string name="user_no_order">您还没有相关订单</string>
+    <string name="now_no_order">您当前没有可领油卡</string>
+    <string name="no_relerant_oil_card">您还没有相关油卡</string>
+    <string name="surplus_pay_success">余额充值成功</string>
+    <string name="m_tiny_oil_storage_card">微众加油卡</string>
+
+
+    <string name="top_news_title">油价分析</string>
+    <string name="customer_service_title">客户服务</string>
+    <string name="customer_service_phone">电话客服</string>
+    <string name="customer_service_feedback">意见反馈</string>
+    <string name="customer_service_online">在线客服</string>
+    <string name="customer_service_online_title">光汇云油在线客服</string>
+    <string name="feedback_edit_title">意见反馈</string>
+    <string name="feedback_edit_title_right">我的反馈</string>
+    <string name="feedback_edit_hint">请填写您的问题或建议，我们将不断作出改进</string>
+    <string name="feedback_edit_limit">300字以内</string>
+    <string name="feedback_edit_add_img">添加图片</string>
+    <string name="feedback_edit_btn_commit">提交反馈</string>
+    <string name="feedback_detail_title">反馈详情</string>
+    <string name="my_feedback_null">您还没有提交过反馈意见</string>
+
+    <string name="mis_action_button_string">%1$s(%2$d/%3$d)</string>
+
+    <!--支付页面-->
+    <string name="pay_fast_pay_limit_desc">单笔:%1$s万,单日:%2$s万</string>
+
+    <string name="product_detail_buy_rule">%1$s元起购，%2$s元递增，每单限购%3$s元</string>
+    <string name="product_detail_recharge_desc">购买明细：购买后手动领取当月加油额度%1$d元,</string>
+    <!--确认购买-->
+    <string name="confirm_buy_button_content">确认购买</string>
+    <string name="frozen_account_list">冻结账户余额订单列表</string>
+
+    <!--键盘标识-->
+    <integer name="hide_keyboard">-2525</integer>
+    <integer name="action_done">-3525</integer>
+    <integer name="keyboard_title">-2018</integer>
+    <!--切换特殊字符-->
+    <integer name="keyboard_character">-2019</integer>
+    <!--切换数字-->
+    <integer name="keyboard_number">-2021</integer>
+
+    <!--h5页面-->
+    <string name="share_qr_code_name">面对面邀请</string>
+    <string name="share_show_name">分享邀请</string>
+
+    <!--领取计划-->
+    <string name="payback_total_money">预计合计（元）：%1$s</string>
+    <string name="payback_total_can_payback_count">可领%1$s笔</string>
+    <string name="payback_current_period_for_total_periods">%1$s/%2$s期</string>
+    <string name="payback_no_buy_payback_plan_desc">暂无数据</string>
+    <string name="payback_no_can_payback_plan_desc">暂无数据</string>
+
+    <string name="return_card">我要退货</string>
 </resources>

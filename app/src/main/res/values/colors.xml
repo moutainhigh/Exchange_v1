@@ -3,4 +3,436 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- 透明色 -->
+    <color name="trans">#00000000</color>
+    <!-- 橙色 -->
+    <color name="bg_orange_home">#E6601B</color>
+    <!-- 橙色 -->
+    <color name="bg_orange_car">#F79F15</color>
+    <!-- 透明色(50) -->
+    <color name="transparent_50">#50000000</color>
+    <!-- 红色 -->
+    <color name="red_3c">#FF3C00</color>
+    <!-- 绿色 -->
+    <color name="green">#00FF00</color>
+    <!-- 蓝色 -->
+    <color name="blue">#4481D2</color>
+    <!-- 蓝色 -->
+    <color name="order_font_blue">#3e61c6</color>
+    <!-- 纯白色 -->
+    <color name="white">#ffffffff</color>
+    <!-- 黄色 -->
+    <color name="yellow">#ffffff00</color>
+    <!-- 灰色 -->
+    <color name="gray">#ff868686</color>
+    <!-- 红色 -->
+    <color name="red">#ffff0000</color>
+    <color name="red_a_buymust_detail_251">#fc3637</color>
+    <!-- 红色 -->
+    <color name="oil_my_unit_income">#b81818</color>
+    <!-- 红色 -->
+    <color name="car_font_red">#80180e</color>
+    <!-- 黑色 -->
+    <color name="black">#ff000000</color>
+    <!-- 蓝色背景 -->
+    <color name="mine_blue_bg">#ff0c7ee3</color>
+    <!-- 灰色 不透明 -->
+    <color name="bg_gray_0">#ffe8e8e8</color>
+    <!-- 深灰色 -->
+    <color name="btn_gray_1">#B9B9B9</color>
+    <!-- 橙色2 -->
+    <color name="btn_orange_reg">#FFA018</color>
+    <!-- 灰色字体 -->
+    <color name="font_actionbar_gray">#ff666666</color>
+    <!-- 首页黑色 -->
+    <color name="home_font_black">#323232</color>
+    <!-- 首页灰色 -->
+    <color name="home_font_gray">#646464</color>
+    <color name="home_font_gray1">#B4B4B4</color>
+    <!-- 通用 -->
+    <color name="view_line">#D9D9D9</color>
+    <color name="view_line_bold">#EEEEEE</color>
+    <color name="all_txt_32">#323232</color>
+    <color name="all_txt_00">#000000</color>
+    <color name="all_txt_b4">#B4B4B4</color>
+    <color name="all_txt_66">#666666</color>
+    <color name="all_txt_f5">#f5f5f5</color>
+    <color name="all_red_90">#e04040</color>
+    <color name="all_red_de">#de3333</color>
+    <color name="all_red_4c">#f74c4c</color>
+    <color name="all_red_f8">#f86c51</color>
+
+
+
+    <color name="all_red_94">#f99494</color>
+    <color name="all_gray_89">#898989</color>
+    <color name="all_gray_88">#888888</color>
+    <color name="all_red_7c">#c73035</color>
+    <color name="all_bule">#184486</color>
+    <color name="mine_bule_text">#1c83d1</color>
+
+
+    <color name="all_txt_hint1">#cccccc</color>
+    <color name="all_bg_gray">#EBEBEB</color>
+    <color name="all_bg_presse">#D9D9D9</color>
+    <color name="home_my_money">#f6c3a5</color>
+    <color name="home_my_money2">#f6cbbc</color>
+    <color name="trade_record_txt">#565656</color>
+    <color name="trade_record_txt2">#08af57</color>
+    <color name="cash_income_txt">#00af56</color>
+    <color name="cash_income_txt2">#777777</color>
+    <color name="setup_password_txt">#fe4141</color>
+    <color name="pass_word_background">#f0f2f5</color>
+    <color name="goods_detail_font">#454545</color>
+    <color name="goods_detail_gray">#5b5b5b</color>
+    <color name="pk_bg_orange">#ffa018</color>
+    <!-- 正文文本颜色 -->
+    <color name="font_content">#ff4d4d4d</color>
+    <!-- 灰色文本 -->
+    <color name="font_gray">#ff999999</color>
+    <!-- 灰色文本 -->
+    <color name="msg_font_gray">#999999</color>
+    <!-- 灰色分割线 -->
+    <color name="divider_gray">#EFF2F7</color>
+    <!-- 灰色 透明 -->
+    <color name="bg_gray_30">#30868686</color>
+    <!-- 浅灰色 -->
+    <color name="bg_oil_item_gray">#E6E6E6</color>
+    <!-- 浅蓝色 -->
+    <color name="login_txt_blue">#00aaff</color>
+
+    <!-- ********************title Colors********************* -->
+    <!-- 浅灰色透明 -->
+    <color name="title_transparent_grey">#66222266</color>
+    <!-- 标题栏背景颜色 -->
+    <!-- <color name="title_bg_blue">#ff3f8ff2</color> -->
+    <!-- <color name="title_bg_blue">#ff1f8fe4</color> -->
+    <color name="title_bg_red">#A4B4D5</color>
+    <color name="title_bg_gray">#F2F2F2</color>
+    <color name="title_txt">#e04040</color>
+    <color name="red_txt01">#fb3536</color>
+
+    <color name="bule_4d">#4d8fdb</color>
+    <color name="all_btn_bg">#4653A2</color>
+    <!-- 浅蓝色 -->
+    <color name="all_txt_wathet">#CBCFE5</color>
+    <!-- 纯黑色 -->
+    <color name="black_50">#50000000</color>
+    <!-- 纯黑色 -->
+    <color name="black_20">#20000000</color>
+    <!-- 纯黑色 -->
+    <color name="black_70">#70000000</color>
+    <!-- 黑色 透明_50% -->
+    <color name="bg_black_88">#882d2d2d</color>
+    <!-- 透明灰色背景 -->
+    <color name="bg_transparent_grey">#bb000000</color>
+    <!-- 灰色黑色背景 -->
+    <color name="bg_gray_black">#ff161616</color>
+    <!-- 淡灰色透明 -->
+    <color name="thin_gray_lucency">#FFF0F0F0</color>
+    <!-- 淡灰色 -->
+    <color name="btn_car_selector">#E5E5E5</color>
+    <!-- 灰的字体 -->
+    <color name="txt_tab">#9b9b9b</color>
+    <!-- 我的合同sing -->
+    <color name="txt_black">@color/black_transparent_87</color>
+
+    <!-- ****************************图表色块******************************************** -->
+    <!-- 曲线颜色 -->
+    <color name="char_curve">#ffeab900</color>
+    <!-- 点的颜色 -->
+    <color name="char_dot">#ffD2D0D1</color>
+    <!-- 网格线的颜色 -->
+    <color name="char_gridline">#ff187ddd</color>
+    <color name="radio_button_selected_color">#4653A2</color>
+    <color name="radio_button_unselected_color">#ffffffff</color>
+
+    <!-- ****************************liangxg******************************************** -->
+
+
+    <!-- 黑色色块 -->
+    <!-- 黑色 -->
+    <color name="common_red">#8a1e22</color>
+    <color name="black_transparent_87">#3d3b3b</color>
+    <color name="black_transparent_54">#514f4d</color>
+    <color name="black_transparent_26">#b4b4b4</color>
+    <color name="black_transparent_14">#21000000</color>
+    <!-- 灰色背景 -->
+    <color name="grag_bg">#eeeeee</color>
+    <color name="bule_50">#fff3e0</color>
+    <color name="bule_500">#5677FC</color>
+    <!-- 橙色 -->
+    <color name="orange_700">#f57700</color>
+    <color name="orange_500">#ff9800</color>
+    <color name="pink_700">#E91E63</color>
+    <color name="bule_700">#455EDE</color>
+    <color name="gray_500">#616161</color>
+    <color name="gray_100">#f5f5f5</color>
+    <color name="gray_200">#eeeeee</color>
+    <color name="gray_50">#fafafa</color>
+    <color name="red_500">#C2185B</color>
+    <color name="green500">#259B94</color>
+    <color name="yellow_500">#ffeb3b</color>
+    <color name="bg_color">#f5f5f5</color>
+    <color name="pas_bule">#1a88fe</color>
+
+    <!-- ****************************pl******************************************** -->
+    <color name="dimgray">#707070</color>
+    <color name="gray_d2">#D2D2D2</color>
+    <color name="blue_bd">#3978BD</color>
+    <color name="dimgray_a1">#A1A1A1</color>
+    <color name="dimgray_4d">#514f4d</color>
+    <color name="dimgray_cd">#cfcdcd</color>
+    <color name="dimgray_fe">#fefefe</color>
+    <color name="dimgray_79">#7A7979</color>
+    <color name="dimgray_f5">#f5f5f5</color>
+    <color name="red_69">#f76969</color>
+    <color name="dimgray_80">#808080</color>
+    <color name="dimgray_87">#888787</color>
+    <color name="dimgray_a6">#A6A6A6</color>
+    <color name="dimred_a0">#E54C6200</color>
+    <color name="dimred_bc">#FABCBC</color>
+    <color name="dimred_7a">#7A7A7A</color>
+    <color name="dimred_7b">#7B7B7B</color>
+    <color name="dimred_c1">#C1C1C1</color>
+    <color name="dimred_c0">#c0c0c0</color>
+    <color name="dimred_f8">#f8f8f8</color>
+    <color name="dimred_e0">#e0e0e0</color>
+    <color name="dimred_d8">#d8d8d8</color>
+
+    <!-- 版本2.0新增颜色 -->
+    <!-- c9 -->
+    <color name="gray_c9">#c9c9c9</color>
+    <!-- 浅灰 -->
+    <color name="gray_tint">#a1a1a1</color>
+    <!-- 顶部文字 -->
+    <color name="red_top">#8aee22</color>
+    <!-- 深灰色文字 -->
+    <color name="gray_deep">#514f4d</color>
+    <!-- 蓝色文字 -->
+    <color name="blue_tx">#4c90db</color>
+    <!-- 灰色线 -->
+    <color name="gray_line">#e5e5e5</color>
+    <!-- 红色按钮颜色 -->
+    <color name="red_btn">#8A1F22</color>
+    <color name="red_btn_90">#901800</color>
+    <color name="logo_red">#f24326</color>
+
+
+    <!-- 通用红色 -->
+    <color name="red_normal">#f74c4c</color>
+    <!-- 通用浅灰 -->
+    <color name="gray_normal">#b4b4b4</color>
+    <!-- 版本2.0新增颜色-end -->
+    <color name="green_normal">#8DAA00</color>
+    <!-- 版本2.0新增颜色-end -->
+
+
+    <!-- 二维码颜色 -->
+    <color name="black_272">#dd272636</color>
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <!--颜色归类-->
+    <!--白-->
+    <color name="while_1">#ffffff</color>
+    <color name="while_2">#ffffff</color>
+    <!--黑-->
+    <color name="black_1">@color/black_transparent_87</color>
+    <color name="black_33">@color/black_transparent_87</color>
+    <color name="black_2">#000000</color>
+    <color name="black_3">@color/black_transparent_54</color>
+    <color name="black_34">#343434</color>
+    <!--红-->
+    <color name="red_1">#fa3e3d</color>
+    <color name="red_2">#b81818</color>
+    <color name="red_3">#fb3635</color>
+    <color name="red_fb36">#fb3635</color>
+    <color name="red_f248">#f24848</color>
+    <color name="red_e040">#e04040</color>
+    <!--灰-->
+    <color name="grey_1">#AAAAAA</color>
+    <color name="grey_2">#F7F7F7</color>
+    <color name="grey_26">#262626</color>
+    <color name="grey_ad">#adadad</color>
+    <color name="grey_ac">#acacac</color>
+    <color name="gray_66">#666666</color>
+    <color name="gray_f3">#f3f3f3</color>
+    <color name="gray_dd">#dddddd</color>
+    <color name="gray_ed">#edeef0</color>
+    <color name="line_background">#FFBF00</color>
+    <color name="orange">#FDC139</color>
+
+
+    <color name="T2">@color/black_transparent_54</color>
+
+
+    <color name="primary">#009688</color>
+    <color name="primaryDark">#00796b</color>
+    <color name="accent">#eeff41</color>
+    <color name="oilTvbackgroud">#febf4e</color>
+    <color name="accentLight">#F4FF81</color>
+
+    <!--2.7-->
+    <!--文字-->
+    <color name="common_color_black_text_title">#333333</color><!--titlebar标题文字颜色-->
+    <color name="common_color_black_text_first_desc">#656565</color><!--一级标题文字颜色-->
+    <color name="common_color_black_text_second_desc">#999999</color><!--二级标题文字颜色-->
+    <color name="common_color_black_text_second_desc_change">#888888</color><!--二级标题文字颜色-->
+
+
+    <color name="common_color_black_text_stress">#242424</color><!--首页标准黑文字颜色-->
+    <color name="common_color_black_text_first_change_for_3.2">#161616</color><!--首页标准黑文字颜色-->
+
+
+    <color name="common_color_black_product_desc">#666666</color><!--产品列表描述-->
+    <color name="common_color_black_product_title">#161616</color><!--产品列表标题-->
+
+    <!--背景-->
+    <color name="common_color_grey_bg">#f5f5f5</color><!--通用的灰色整体背景色-->
+    <color name="common_color_grey_bg_wide_line">#f5f5f5</color><!--高度较高的分割线背景色-->
+    <color name="common_color_grey_bg_title_line">#edeef0</color><!--titlebar分隔线的背景色-->
+    <color name="common_color_grey_bg_gap_line">#edeef0</color><!--细分隔线的背景色-->
+    <color name="common_color_grey_bg_gap_line_new">#EFF2F7</color><!--细分隔线的背景色-->
+    <color name="common_color_grey_bg_select_rectangle_line">#cfbbbb</color><!--类似购买加油卡选择框的边线背景色-->
+
+    <color name="common_color_red_bg">#e04040</color><!--通用的红背景色-->
+    <color name="common_color_blue_desc">#0362bf</color><!--通用的描述字体蓝色-->
+    <color name="common_color_text_red_bg">#fc3635</color><!--通用的红背景色-->
+    <color name="common_color_text_red_bg_33">#33fc3635</color><!--20%透明度通用的红背景色-->
+
+    <color name="lineColor">#e34545</color><!--油价走势的折线相关颜色-->
+    <color name="costlineColor">#0086f8</color><!--油价走势的成本线折线相关颜色-->
+    <color name="lineBg">#33f25d59</color><!--油价走势的折线相关颜色-->
+    <color name="lineMarkViewBg">#ff4b46</color><!--油价走势的折线相关颜色-->
+    <color name="linePointIn">#f76969</color><!--油价走势的折线相关颜色-->
+    <color name="linePointBorder">#fabcbc</color><!--油价走势的折线相关颜色-->
+    <color name="indicator_font_gray">#161616</color><!--产品详情页顶部未选中颜色-->
+    <color name="indicator_font_select">#FC3635</color><!--产品详情页顶部选中颜色-->
+    <color name="detail_menu_bg_gray">#414649</color>
+
+    <color name="comment_gray">#aaaaaa</color>
+    <color name="gray_btn">#BBBBBB</color>
+    <color name="car_insure_bg">#FFF5F5</color>
+    <color name="car_insure_txt">#FC4F4E</color>
+    <color name="lay_oil_btn">#d4d4d4</color>
+
+    <!-- 灰色 -->
+    <color name="gray_c8c8c8">#c8c8c8</color>
+    <color name="detail_blue_tv">#447dc8</color>
+
+    <!-- 3.6.0首页爆款产品定义 -->
+    <color name="main_refuel_hottake_months">#FFC72A</color>
+    <color name="main_refuel_hottake_contant">#80FFFFFF</color> <!-- 50%透明度 -->
+
+    <color name="insuran_mall_contant">#CCFFFFFF</color> <!-- 80%透明度 -->
+    <color name="bank_support_color">#368bff</color>
+    <color name="circle_green_bg">#00dc08</color>
+    <color name="light_green">#34CB98</color>
+    <color name="light_orange">#FF6908</color>
+
+    <color name="recharge_color">#4f86fa</color>
+    <color name="tab_unselect_color">#fddebe</color>
+    <color name="main_view_pager_indetioner">#4dffffff</color><!--首页轮播指示器未选中的色值-->
+
+    <color name="color_orange">#FE9A28</color>
+    <!-- 置灰状态的背景和字体颜色 -->
+    <color name="common_gray_bg">#B7B7B7</color>
+    <color name="common_gray_text">#999999</color>
+    <!--设置油卡列表页面保险文字背景色-->
+    <color name="cloud_card_background">#fff5e9</color>
+    <!--设置油卡列表页面保险文字背景色-->
+    <color name="divide_line_background">#f0f0f0</color>
+    <color name="take_a_photo_background">#ffa01a</color>
+    <color name="main_card_title_background">#fdc54e</color>
+    <color name="good_detail_common_bg">#F9FAFC</color>
+
+    <color name="red_orange">#FF674E</color>
+    <color name="purple">#996AC4</color>
+
+    <!--白色-->
+    <color name="common_main_white_color">#FFFFFF</color>
+    <!-- 通用辅助色 -->
+    <!--深橙色-->
+    <color name="common_assist_green_color">#01C12D</color>
+    <!--黑色-->
+    <color name="common_assist_black_color">#161616</color>
+
+    <color name="common_num_txt_color">#FF3B30</color>
+    <color name="common_card_content_color">#F85F30</color>
+
+
+    <!--自定义相机背景色-->
+    <color name="preview_mock">#ff000000</color>
+    <color name="color_afff">#afff</color>
+    <!--   ***************  5.6.1 规范 通用主色调   ****************  -->
+    <!--深橙色  单色主色调-->
+    <color name="common_main_orange_color">#FBA029</color>
+    <!--红色    单色辅助色-->
+    <color name="common_assist_red_color">#FF632B</color>
+    <!--蓝色    单色辅助色-->
+    <color name="common_assist_blue_color">#4F7EE8</color>
+
+
+    <!--分割线和边框颜色-->
+    <color name="common_assist_line_color">#EFF2F7</color>
+    <!--背景色底色-->
+    <color name="common_assist_bg_color">#F9FAFC</color>
+
+
+    <!-- 文字颜色 -->
+    <color name="common_neutral_color_3">#333333</color>
+    <color name="common_neutral_color_6">#666666</color>
+    <color name="common_neutral_color_9">#999999</color>
+    <color name="common_neutral_color_C">#CCCCCC</color>
+    <!-- 数字字体颜色 -->
+    <color name="common_neutral_color_num">#FF674E</color>
+    <!-- 橙色 -->
+    <color name="common_orange_text">#FF9F19</color>
+    <!-- 红色背景 -->
+    <color name="common_red_label_sub_full">#F25730</color>
+
+
+    <!-- 橙色背景渐变色 -->
+    <color name="common_gradient_orange_start">#FECE40</color>
+    <color name="common_gradient_orange_center">#fCBE00</color>
+    <color name="common_gradient_orange_end">#FBA029</color>
+    <!-- 红色背景渐变色 -->
+    <color name="common_gradient_red_start">#FF855A</color>
+    <color name="common_gradient_red_end">#E66537</color>
+    <!-- 蓝色背景渐变色 -->
+    <color name="common_gradient_blue_start">#87A9F4</color>
+    <color name="common_gradient_blue_end">#4F7EE8</color>
+
+    <!-- 黄色按钮  渐变色 -->
+    <color name="common_gradient_orange_press_start">#E4B839</color>
+    <color name="common_gradient_orange_press_end">#E18F24</color>
+    <color name="common_gradient_orange_unclick_start">#FFE28D</color>
+    <color name="common_gradient_orange_unclick_end">#FDC67F</color>
+    <!-- 红色按钮  渐变色 -->
+    <color name="common_gradient_red_status_start">#F1825B</color>
+    <color name="common_gradient_red_status_end">#E65E2E</color>
+    <color name="common_gradient_red_press_start">#DB744F</color>
+    <color name="common_gradient_red_press_end">#DA592B</color>
+    <color name="common_gradient_red_unclick_start">#F1825B</color>
+    <color name="common_gradient_red_unclick_end">#E65E2E</color>
+
+    <!--   **************************************************  -->
+    <color name="text_blue_color">#5a7be9</color>
+    <color name="text_red_desc_color">#f75a30</color>
+    <color name="text_green_color">#37a50a</color>
+    <color name="text_date_color">#389BFF</color>
+
+    <color name="commission_reminder_bg">#FFF9D8</color>
+    <color name="keyboard_bg">#D7DAE1</color>
+    <color name="find_oil_price_item_bg">#fef5e9</color>
+    <color name="pay_balance_font">#4f7ee8</color>
+    <color name="common_list_num_color">#F25730</color>
+    <color name="cash_product_item">#ff9f1a</color>
+    <color name="cash_product_item_line">#eff0f1</color>
+    <color name="text_color_yellow">#F4BB46</color>
+    <color name="webank_code_color">#FF8C2B</color>
+    <color name="camera_photo_background">#f2f2f2</color>
+    <color name="main_refuel_product_title_color">#444444</color>
 </resources>

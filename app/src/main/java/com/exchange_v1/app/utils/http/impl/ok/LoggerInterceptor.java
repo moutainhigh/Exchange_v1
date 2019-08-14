@@ -2,8 +2,6 @@ package com.exchange_v1.app.utils.http.impl.ok;
 
 import android.text.TextUtils;
 
-import com.exchange_v1.app.utils.Logger;
-
 import java.io.IOException;
 
 import okhttp3.Headers;

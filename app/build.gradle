@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
+
     defaultConfig {
         applicationId "com.exchange_v1"
         minSdkVersion 14
@@ -9,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        useLibrary 'org.apache.http.legacy'
     }
     buildTypes {
         release {
@@ -30,4 +32,16 @@ dependencies {
     implementation "${supportV4}"
     implementation "${supportMultidex}"
     implementation "${supportMultidexInstrumentation}"
+
+    //友盟统计sdk common为基础包，使用友盟相关所必须
+    implementation 'com.umeng.sdk:common:1.5.1'
+    implementation 'com.umeng.sdk:analytics:7.5.1'
+    //下拉刷新框架
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-5'
+    //EventBus
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation "${imageloader}"
+    implementation "${httpUrl}"
+    implementation "${nineoldandroids}"
+
 }

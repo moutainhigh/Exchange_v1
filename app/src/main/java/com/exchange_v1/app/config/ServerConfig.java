@@ -1,0 +1,149 @@
+package com.exchange_v1.app.config;
+
+
+/**
+ * 服务端配置类
+ *
+ * @author CodeApe
+ * @version 1.0
+ * @Description 此处定义服务器的链接地址配置和接口请求的方法，
+ * @date 2014年4月4日
+ * @Copyright: Copyright (c) 2013 深圳光汇云油电商有限公司.
+ */
+public class ServerConfig {
+
+    /**
+     * 内网切换，取消注释：“服务器地址_内网”、“API接口方法模块_内网”、“SERVER_TYPE_VALUE”
+     */
+    // *****************************网请求消息状态码 ******************************//
+    /**
+     * 请求接口数据成功状态码
+     */
+    public static final String RESPONSE_STATUS_SUCCESS = "10000";
+    /**
+     * 本地上传失败
+     */
+    public static final String EXCEPTION_UPLOAD_ERROR_STATUS = "805";
+
+    // **************************失败状态码*****************************//
+    /**
+     * 注册需要手机号码
+     */
+    public static final String STATUS_REGISTER_NEED_PHONE = "60001";
+    /**
+     * 登录需要手机号码
+     */
+    public static final String STATUS_LOGIN_NEED_PHONE = "60003";
+    /**
+     * Tickey 过期失效
+     */
+    public static final String STATUS_TICKEY_UNVALID = "60004";
+
+    // ***************************接口请求配置 ****************************//
+    /**
+     * 服务器连接方法key
+     */
+    public static final String SERVER_METHOD_KEY = "token";
+    /**
+     * 服务器连接类型key
+     */
+    public static final String SERVER_TYPE_KEY = "key";
+    /**
+     * 服务器连接类型数据
+     */
+    public static final String SERVER_TYPE_VALUE = "testb2c";
+    /**
+     * 服务器连接版本key
+     */
+    public static final String SERVER_VESRTION_KEY = "v";
+    /**
+     * 服务器连接版本 数据
+     */
+    public static final String SERVER_VESRTION_VAULE = "1.0";
+    /**
+     * 客户端平台
+     */
+    public static final String SERVER_PLATFORM_VAULE = "platform";
+
+    /**
+     * 服务器升级版本key
+     */
+    public static final String SERVER_UPDATE_KEY = "app_v";
+    /**
+     * 服务器升级版本 数据
+     */
+    public static final String SERVER_UPDATE_VAULE = "2.0";
+    /**
+     * 服务器超时时间
+     */
+    public static final int SERVER_CONNECT_TIMEOUT = 60000;
+    /**
+     * 请求数据条数
+     */
+    public static final String PAGE_COUNT = "10";
+    /**
+     * 请求数据条数
+     */
+    public static final String PAGE_LIST_COUNT = "12";
+    /**
+     * 请求数据条数
+     */
+    public static final String PAGE_COUNT_COLPENT_PRODUCT = "15";
+    /**
+     * 请求数据条数
+     */
+    public static final int PAGE_COUNT_INT = 10;
+    /**
+     * 管理后台分配给此系统的连接ID的key
+     */
+    public static final String SERVER_CAS_KEY = "res_key";
+    /**
+     * 管理后台分配给此系统的连接ID
+     */
+    public static final String SERVER_CAS_VALUE = "100";
+
+    /*************************** 服务器地址_内网 ****************************/
+    // /** Api服务器地址 */
+    // public static String SERVER_API_URL = "http://192.168.200.108/index.php/b2cphone/";
+
+    // public static String SERVER_API_URL = "http://192.168.101.101/b2c/index.php/b2cphone/";
+    // public static String SERVER_API_URL = "http://192.168.202.67/b2c/index.php/b2cphone/";
+    // public static String SERVER_API_URL = "http://192.168.101.53/demo_c2b/index.php/b2cphone/";
+    /** 53 v1生产环境 */
+//	public static String SERVER_API_URL = "http://192.168.101.53/b2c_v1/index.php/b2cphone/";
+
+//	public static String SERVER_API_URL = "http://192.168.101.53/b2c_front_optimize/index.php/b2cphone/";
+
+    // public static String SERVER_API_URL = "http://192.168.101.53/demo_c2b/index.php/b2cphone/";
+    /** 53 v1外网生产环境 */
+    //public static String SERVER_API_URL = "http://test.bwoonline.com/b2c_v1/index.php/b2cphone/";
+//	public static String SERVER_API_URL = "http://192.168.101.53/b2c_v1/index.php/b2cphone/";
+    /** 101 生产环境 */
+    // public static String SERVER_API_URL= "http://www.brightoilonline.cn/b2c/index.php/b2cphone/";
+
+    /** 53环境 */
+    //public static String SERVER_API_URL = "http://192.168.101.53/branch_v2.2_clearing/index.php/b2cphone/";
+//	public static String SERVER_API_URL = "http://192.168.204.37/b2c/branches/branch_v2.2_clearing/index.php/b2cphone/";
+//	public static String SERVER_API_URL = "http://192.168.101.53/b2c_tank/index.php/b2cphone/";
+    //public static String SERVER_API_URL = "http://test.bwoonline.com/b2c_front_optimize/index.php/b2cphone/";
+    /** 预生产环境 */
+    //public static String SERVER_API_URL = "https://democ2b.brightoilonline.com/index.php/b2cphone/";
+    /** 预生产环境 购买加油卡H5页面 */
+//	public static String BUY_REFUL_URL = "https://demom.brightoilonline.com/index.php/wap/weixinuser-rechargeOil.html";
+    /**生产环境 */
+    //public static String  SERVER_API_URL="https://c2b.brightoilonline.com/index.php/b2cphone/";
+    /**生产环境 购买加油卡H5页面 */
+    //public static String  BUY_REFUL_URL="http://test.bwoonline.com/b2c_front_optimize/index.php/wap/weixinuser-rechargeOil.html";
+
+    /**
+     * build.gradle配置的SERVER_API_URL
+     */
+    public static String SERVER_API_URL = "";
+    /**
+     * 文件服务器地址
+     */
+    public final static String SERVER_FILE_URL = "http://buddyfile.t.com";
+    /**
+     * 图片服务器地址
+     */
+}

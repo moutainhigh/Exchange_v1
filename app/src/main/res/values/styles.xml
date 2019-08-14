@@ -5,4 +5,14 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- 标题栏自定义按钮样式 -->
+    <style name="view_title_btn_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">44dip</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
 </resources>
