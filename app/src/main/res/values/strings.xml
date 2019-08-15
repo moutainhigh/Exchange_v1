@@ -1162,4 +1162,6 @@ Quam libero nulla netus eu porta curae, ut nulla bibendum facilisis et urna sed,
     <string name="payback_no_can_payback_plan_desc">暂无数据</string>
 
     <string name="return_card">我要退货</string>
+
+    <string name="spkey_app_timmer">spkey_app_timmer</string>
 </resources>

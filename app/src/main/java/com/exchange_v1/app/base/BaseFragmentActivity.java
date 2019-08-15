@@ -39,12 +39,6 @@
 ///**
 // * 基类 FragmentActivity
 // *
-// * @Description 所有的FragmentActivity 都继承自此类
-// * @author CodeApe
-// * @version 1.0
-// * @date 2014年5月24日
-// * @Copyright: Copyright (c) 2014 Shenzhen Utoow Technology Co., Ltd. All rights
-// *             reserved.
 // *
 // */
 //public abstract class BaseFragmentActivity extends FragmentActivity {

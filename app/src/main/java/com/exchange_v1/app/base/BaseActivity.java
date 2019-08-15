@@ -32,7 +32,6 @@
 //import com.exchange_v1.app.utils.DateUtil;
 //import com.exchange_v1.app.utils.FinishPrograme;
 //import com.exchange_v1.app.utils.GestureUtil;
-//import com.exchange_v1.app.utils.IntentUtil;
 //import com.exchange_v1.app.utils.SpUtil;
 //import com.exchange_v1.app.utils.StringUtil;
 //import com.exchange_v1.app.utils.TVUtils;
@@ -54,10 +53,6 @@
 ///**
 // * Acitivity基类
 // *
-// * @Description
-// * @author 綦巍
-// * @date 2015-8-14
-// * @Copyright: Copyright (c) 2015 深圳光汇云油电商有限公司
 // */
 //public abstract class BaseActivity extends AppCompatActivity implements OnSoftKeyPadListener {
 //

@@ -7,6 +7,9 @@ import com.alibaba.fastjson.JSON;
 import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.config.ServerConfig;
+import com.exchange_v1.app.utils.DES3;
+import com.exchange_v1.app.utils.HandlerUtil;
+import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.http.AsyncRequestParams;
 import com.exchange_v1.app.utils.http.HttpsUtils;
 import com.exchange_v1.app.utils.http.IBinaryResponseHandler;
@@ -201,7 +204,7 @@ public class C2bOkClient implements IHttpMethod {
                         }
                     });
                 } else {
-                    descResult(jsonStr, okResponseBean, TApplication.getSecretKey());
+//                    descResult(jsonStr, okResponseBean, TApplication.getSecretKey());
                 }
 
                 HandlerUtil.runOnUI(new Runnable() {//切换到主线程中

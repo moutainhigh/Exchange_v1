@@ -3,10 +3,6 @@ package com.exchange_v1.app.config;
 /**
  * 数据库操作字段
  * 
- * @Description
- * @author 綦巍
- * @date 2015-4-28
- * @Copyright: Copyright (c) 2015 深圳光汇云油电商有限公司.
  */
 public class DataBaseFields {
 	// *******************************公用字段*****************************//

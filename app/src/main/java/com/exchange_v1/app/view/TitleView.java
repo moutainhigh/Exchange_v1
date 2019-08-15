@@ -20,12 +20,7 @@ import com.exchange_v1.app.utils.ViewUtils;
 /**
  * 标题栏控件.
  * 
- * @Description TODO
- * @author CodeApe
- * @version 1.0
- * @date 2013-10-23
- * @Copyright: Copyright (c) 2013 深圳光汇云油电商有限公司
- * 
+ *
  */
 public class TitleView extends RelativeLayout {
 

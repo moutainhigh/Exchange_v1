@@ -4,11 +4,6 @@ package com.exchange_v1.app.config;
 /**
  * 服务端配置类
  *
- * @author CodeApe
- * @version 1.0
- * @Description 此处定义服务器的链接地址配置和接口请求的方法，
- * @date 2014年4月4日
- * @Copyright: Copyright (c) 2013 深圳光汇云油电商有限公司.
  */
 public class ServerConfig {
 
@@ -102,38 +97,6 @@ public class ServerConfig {
      */
     public static final String SERVER_CAS_VALUE = "100";
 
-    /*************************** 服务器地址_内网 ****************************/
-    // /** Api服务器地址 */
-    // public static String SERVER_API_URL = "http://192.168.200.108/index.php/b2cphone/";
-
-    // public static String SERVER_API_URL = "http://192.168.101.101/b2c/index.php/b2cphone/";
-    // public static String SERVER_API_URL = "http://192.168.202.67/b2c/index.php/b2cphone/";
-    // public static String SERVER_API_URL = "http://192.168.101.53/demo_c2b/index.php/b2cphone/";
-    /** 53 v1生产环境 */
-//	public static String SERVER_API_URL = "http://192.168.101.53/b2c_v1/index.php/b2cphone/";
-
-//	public static String SERVER_API_URL = "http://192.168.101.53/b2c_front_optimize/index.php/b2cphone/";
-
-    // public static String SERVER_API_URL = "http://192.168.101.53/demo_c2b/index.php/b2cphone/";
-    /** 53 v1外网生产环境 */
-    //public static String SERVER_API_URL = "http://test.bwoonline.com/b2c_v1/index.php/b2cphone/";
-//	public static String SERVER_API_URL = "http://192.168.101.53/b2c_v1/index.php/b2cphone/";
-    /** 101 生产环境 */
-    // public static String SERVER_API_URL= "http://www.brightoilonline.cn/b2c/index.php/b2cphone/";
-
-    /** 53环境 */
-    //public static String SERVER_API_URL = "http://192.168.101.53/branch_v2.2_clearing/index.php/b2cphone/";
-//	public static String SERVER_API_URL = "http://192.168.204.37/b2c/branches/branch_v2.2_clearing/index.php/b2cphone/";
-//	public static String SERVER_API_URL = "http://192.168.101.53/b2c_tank/index.php/b2cphone/";
-    //public static String SERVER_API_URL = "http://test.bwoonline.com/b2c_front_optimize/index.php/b2cphone/";
-    /** 预生产环境 */
-    //public static String SERVER_API_URL = "https://democ2b.brightoilonline.com/index.php/b2cphone/";
-    /** 预生产环境 购买加油卡H5页面 */
-//	public static String BUY_REFUL_URL = "https://demom.brightoilonline.com/index.php/wap/weixinuser-rechargeOil.html";
-    /**生产环境 */
-    //public static String  SERVER_API_URL="https://c2b.brightoilonline.com/index.php/b2cphone/";
-    /**生产环境 购买加油卡H5页面 */
-    //public static String  BUY_REFUL_URL="http://test.bwoonline.com/b2c_front_optimize/index.php/wap/weixinuser-rechargeOil.html";
 
     /**
      * build.gradle配置的SERVER_API_URL
@@ -144,6 +107,9 @@ public class ServerConfig {
      */
     public final static String SERVER_FILE_URL = "http://buddyfile.t.com";
     /**
-     * 图片服务器地址
+     * 版本更新服务器
      */
+    public static final String SERVER_VERSION_URL = "http://buddy.t.com/Api/version/typeid/0";
+
+
 }

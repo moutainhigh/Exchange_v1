@@ -12,8 +12,16 @@ import android.text.TextUtils;
 import com.exchange_v1.R;
 import com.exchange_v1.app.bean.UpdateBean;
 import com.exchange_v1.app.bean.UserInfoBean;
+import com.exchange_v1.app.navition.NativeAction;
+import com.exchange_v1.app.utils.ApkUtil;
+import com.exchange_v1.app.utils.DES3;
+import com.exchange_v1.app.utils.JniUtil;
+import com.exchange_v1.app.utils.Logger;
+import com.exchange_v1.app.utils.SpUtil;
+import com.exchange_v1.app.utils.UserInfoUtil;
 import com.exchange_v1.app.utils.imageloader.ImageLoaderUtil;
 import com.exchange_v1.app.utils.imageloader.ImageOptions;
+import com.exchange_v1.app.view.C2bRefreshHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
@@ -23,7 +31,6 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 
 import java.util.HashMap;
-
 
 
 /**
@@ -355,10 +362,10 @@ public class TApplication extends Application {
      * @updateInfo (此处输入修改内容, 若无修改可不写.)
      */
     public static UserInfoBean getUserInfoBean() {
-//        if (null == userInfoBean) {
-//            userInfoBean = (UserInfoBean) SpUtil.getObject(TApplication.context, "userInfo" + UserInfoUtil.getLoginBean().getAccount());
-//        }
-//        return userInfoBean;
+        if (null == userInfoBean) {
+            userInfoBean = (UserInfoBean) SpUtil.getObject(TApplication.context, "userInfo" + UserInfoUtil.getLoginBean().getAccount());
+        }
+        return userInfoBean;
     }
 
     /**
@@ -390,8 +397,8 @@ public class TApplication extends Application {
     public static void initImageLoader(Context context) {
 
         ImageOptions imageOptions = new ImageOptions.Builder()
-                .placeHolder(R.drawable.home_img_defualt)
-                .errorDrawable(R.drawable.home_img_defualt)
+                .placeHolder(R.mipmap.home_img_defualt)
+                .errorDrawable(R.mipmap.home_img_defualt)
                 .build();
 
         //初始化图片框架.

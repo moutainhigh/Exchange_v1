@@ -2,6 +2,7 @@ package com.exchange_v1.app.bean;
 
 
 import com.exchange_v1.app.config.DataBaseFields;
+import com.exchange_v1.app.utils.EncryptUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
