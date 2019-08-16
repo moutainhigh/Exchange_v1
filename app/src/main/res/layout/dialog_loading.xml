@@ -13,10 +13,10 @@
         android:orientation="horizontal"
         android:padding="15dp" >
 
-        <com.brightoilonline.c2b_phone.view.LoadingView
+        <com.exchange_v1.app.view.LoadingView
             android:layout_width="27dp"
             android:layout_height="27dp"
-            android:background="@drawable/loading_reflush" />
+            android:background="@mipmap/loading_reflush" />
 
         <TextView
             android:id="@+id/loading_txt"

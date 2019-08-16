@@ -163,7 +163,7 @@ public class C2bOkClient implements IHttpMethod {
                 HandlerUtil.runOnUI(new Runnable() {//切换到主线程中
                     @Override
                     public void run() {
-                        mHandler.onSuccess(response.code(), headersArr, bytes);
+                        mHandler.onSuccess(response.code(), (com.exchange_v1.app.utils.http.Header[]) headersArr, bytes);
                     }
                 });
             }
