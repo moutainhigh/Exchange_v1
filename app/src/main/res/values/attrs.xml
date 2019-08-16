@@ -1,0 +1,324 @@
+<!--
+  Copyright 2011 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<resources>
+
+    <!-- 自定义按钮 -->
+    <declare-styleable name="QwSwichBtn">
+        <attr name="bg_open" format="reference|color" />
+        <attr name="bg_close" format="reference|color" />
+        <attr name="bg_line" format="reference|color" />
+        <attr name="btn_bg" format="reference|color" />
+        <attr name="btn_line" format="reference|color" />
+        <attr name="checked" format="boolean" />
+        <attr name="btn_style">
+            <flag name="round" value="0x0" />
+            <flag name="square" value="0x1" />
+        </attr>
+    </declare-styleable>
+    <!-- 首页TAB -->
+    <declare-styleable name="MyRadioView">
+        <attr name="text" format="reference|string" />
+        <attr name="img1" format="reference" />
+        <attr name="img0" format="reference" />
+    </declare-styleable>
+    <!-- 统一头部 -->
+    <declare-styleable name="TitleView">
+        <attr name="title_txt" format="reference|string" />
+        <attr name="title_left" format="reference|string" />
+        <attr name="title_right" format="reference|string" />
+        <attr name="img_left" format="reference" />
+        <attr name="img_right" format="reference" />
+    </declare-styleable>
+    <!-- 星期 -->
+    <string-array name="weeks">
+        <item>星期日</item>
+        <item>星期一</item>
+        <item>星期二</item>
+        <item>星期三</item>
+        <item>星期四</item>
+        <item>星期五</item>
+        <item>星期六</item>
+    </string-array>
+    <!-- 选择图片操作 -->
+    <string-array name="select_image">
+        <item>拍照</item>
+        <item>从相册中选取</item>
+    </string-array>
+    <!-- 自定义控件属性文件，下拉属性控件的属性 -->
+    <declare-styleable name="PullToRefresh">
+        <attr name="adapterViewBackground" format="reference|color" />
+        <attr name="headerBackground" format="reference|color" />
+        <attr name="headerTextColor" format="color" />
+        <attr name="mode">
+            <flag name="pullDownFromTop" value="0x1" />
+            <flag name="pullUpFromBottom" value="0x2" />
+            <flag name="both" value="0x3" />
+            <flag name="non" value="0x4" />
+        </attr>
+    </declare-styleable>
+
+    <!-- 自定义加载框属性 -->
+    <declare-styleable name="CustomProgressBar">
+        <attr name="animtime" format="float" />
+    </declare-styleable>
+
+    <!-- TextView -->
+    <declare-styleable name="MeterTextView">
+        <attr name="meterLength" format="integer" />
+    </declare-styleable>
+
+    <!-- 自定义radio -->
+    <declare-styleable name="AuthGroupBtn">
+        <attr name="sc_corner_radius" format="dimension" />
+        <attr name="sc_border_width" format="dimension" />
+        <attr name="sc_tint_color" format="color" />
+        <attr name="sc_checked_text_color" format="color" />
+    </declare-styleable>
+
+    <!-- 自定义输入框 -->
+    <declare-styleable name="MyInputEditView">
+        <attr name="lineColor1" format="color" />
+        <attr name="lineColor2" format="color" />
+        <attr name="leftText" format="string" />
+        <attr name="rightText" format="string" />
+        <attr name="rightHintText" format="string" />
+        <attr name="isPwd" format="boolean" />
+        <attr name="inputType" format="integer" />
+        <attr name="isLeft" format="boolean" />
+        <attr name="isRight" format="boolean" />
+        <attr name="isSelect" format="boolean" />
+        <attr name="leftTextColor" format="color" />
+        <attr name="rightTextColor" format="color" />
+        <attr name="codeBtnBackground" format="reference|color" />
+    </declare-styleable>
+
+    <!-- 自定义输入框 -->
+    <declare-styleable name="MyPopView">
+        <attr name="sText" format="string" />
+    </declare-styleable>
+
+    <!-- 自定义布局 -->
+    <declare-styleable name="MyCommonView">
+        <attr name="mtext1" format="string" />
+        <attr name="mtext2" format="string" />
+        <attr name="mImage1" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="BaseScollTextView">
+        <attr name="delayTime" format="integer|reference"/>
+        <attr name="scrollTextSize" format="integer"/>
+        <attr name="scrollTextColor" format="color|reference"/>
+        <attr name="singleLine" format="boolean"/>
+        <attr name="gravity">
+            <enum name="left" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+        <attr name="direction">
+            <enum name="top" value="0"/>
+            <enum name="down" value="1"/>
+            <enum name="left" value="2"/>
+            <enum name="right" value="3"/>
+        </attr>
+        <attr name="ellipsize">
+            <enum name="start" value="0"/>
+            <enum name="middle" value="1"/>
+            <enum name="end" value="2"/>
+            <enum name="marquee" value="3"/>
+        </attr>
+    </declare-styleable>
+
+    <!-- 自定义打分控件RatingBar -->
+    <declare-styleable name="RatingBar">
+        <!--尺寸值-->
+        <attr name="starImageSize" format="dimension" />
+        <!--星星间距-->
+        <attr name="starPadding" format="dimension" />
+        <!--星星总数-->
+        <attr name="starCount" format="integer" />
+        <!--空白的星星资源文件值-->
+        <attr name="starEmpty" format="reference" />
+        <!--满星资源文件值-->
+        <attr name="starFill" format="reference" />
+        <!--半星资源文件值-->
+        <attr name="starHalf" format="reference" />
+        <!--是否可点击boolean值-->
+        <attr name="clickable" format="boolean" />
+        <!--当前进度float值-->
+        <attr name="starStep" format="float" />
+        <!--每次进度方式的值，整星还是半星-->
+        <attr name="stepSize">
+            <enum name="Half" value="0" />
+            <enum name="Full" value="1" />
+        </attr>
+    </declare-styleable>
+
+
+    <!-- 是否使用一键清除 -->
+    <attr name="clearEnable" format="boolean"/>
+    <!-- 输入框提示文字 -->
+    <attr name="hintInputText" format="string"/>
+    <!-- 是否需要下划线功能 -->
+    <attr name="isBottomLine" format="boolean"/>
+    <!-- 左边图标 -->
+    <attr name="leftIconSrc" format="reference"/>
+
+    <!-- 5.6.2 自定义账号输入框 -->
+    <declare-styleable name="C2bAccountEditView">
+        <attr name="bottomLineColor" format="color" />
+        <attr name="closeIconSrc" format="reference"/>
+        <!-- 输入类型为手机号 -->
+        <attr name="isPhone" format="boolean"/>
+        <attr name="leftIconSrc"/>
+        <attr name="isBottomLine"/>
+        <attr name="hintInputText"/>
+        <attr name="clearEnable"/>
+    </declare-styleable>
+
+    <!-- 5.6.2 自定义密码输入框 -->
+    <declare-styleable name="C2bPassWordEditView">
+        <!-- 是否需要显示密码功能 -->
+        <attr name="isEye" format="boolean"/>
+        <attr name="leftIconSrc"/>
+        <attr name="isBottomLine"/>
+        <attr name="hintInputText"/>
+        <attr name="clearEnable"/>
+    </declare-styleable>
+
+    <!-- 5.6.2 自定义 验证码输入框 -->
+    <declare-styleable name="C2bCodeEditView">
+        <attr name="time" format="integer"/>
+        <attr name="btnBackground" format="reference"/>
+        <attr name="btnTextColor" format="color"/>
+        <attr name="hintInputText"/>
+    </declare-styleable>
+
+
+        <declare-styleable
+            name="roundedimageview">
+
+            <attr
+                name="border_thickness"
+                format="dimension"
+                />
+
+            <attr
+                name="border_inside_color"
+                format="color"
+                />
+
+            <attr
+                name="border_outside_color"
+                format="color"></attr>
+
+        </declare-styleable>
+
+<!--3.2.5 viewpager card 卡片滑动-->
+    <attr name="ratio" format="float" />
+    <attr name="card_padding" format="dimension" />
+    <attr name="card_margin" format="dimension" />
+    <attr name="card_loop" format="boolean" />
+    <attr name="card_max_offset" format="dimension" />
+
+    <declare-styleable name="CardViewPager">
+        <attr name="card_padding" />
+        <attr name="card_margin" />
+        <attr name="card_max_offset" />
+        <attr name="card_loop" />
+    </declare-styleable>
+    <declare-styleable name="SpringView">
+        <attr name="type">
+            <enum name="overlap" value="0"/>
+            <enum name="follow" value="1"/>
+        </attr>
+        <attr name="give">
+            <enum name="both" value="0"/>
+            <enum name="top" value="1"/>
+            <enum name="bottom" value="2"/>
+            <enum name="none" value="3"/>
+        </attr>
+        <attr name="header" format="reference"/>
+        <attr name="footer" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="SlideDetailsLayout">
+        <!-- float value for indicate the moment of switch panel-->
+        <attr name="percent" format="float"/>
+        <!-- how long the animation keep-->
+        <attr name="duration" format="integer"/>
+        <!-- default panel to show after init-->
+        <attr name="default_panel" format="enum">
+            <enum name="front" value="0"/>
+            <enum name="behind" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <!--我的储油理财中滑动控件的属性-->
+    <declare-styleable name="HeaderViewPager">
+        <attr name="hvp_topOffset" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="StickyListHeadersListView">
+        <attr name="stickyListHeadersListViewStyle" format="reference"/>
+
+        <!-- View attributes -->
+        <attr name="android:clipToPadding" />
+        <attr name="android:scrollbars" />
+        <attr name="android:overScrollMode" />
+        <attr name="android:padding" />
+        <attr name="android:paddingLeft" />
+        <attr name="android:paddingTop" />
+        <attr name="android:paddingRight" />
+        <attr name="android:paddingBottom" />
+
+        <!-- ListView attributes -->
+        <attr name="android:fadingEdgeLength" />
+        <attr name="android:requiresFadingEdge" />
+        <attr name="android:cacheColorHint" />
+        <attr name="android:choiceMode" />
+        <attr name="android:drawSelectorOnTop" />
+        <attr name="android:fastScrollEnabled" />
+        <attr name="android:fastScrollAlwaysVisible" />
+        <attr name="android:listSelector" />
+        <attr name="android:scrollingCache" />
+        <attr name="android:scrollbarStyle" />
+        <attr name="android:divider" />
+        <attr name="android:dividerHeight" />
+        <attr name="android:transcriptMode" />
+        <attr name="android:stackFromBottom" />
+
+        <!-- StickyListHeaders attributes -->
+        <attr name="hasStickyHeaders" format="boolean" />
+        <attr name="isDrawingListUnderStickyHeader" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="CircleProgressBarView">
+
+        <attr name="circleBgStrokeWidth" format="dimension" />
+        <attr name="progressStrokeWidth" format="dimension" />
+
+        <attr name="circleBgColor" format="color" />
+        <attr name="progressColor" format="color" />
+
+        <attr name="circleAnimationDuration" format="integer" />
+
+        <attr name="isDrawCenterProgressText" format="boolean" />
+
+        <attr name="centerProgressTextColor" format="color"/>
+        <attr name="centerProgressTextSize" format="dimension"/>
+
+    </declare-styleable>
+</resources>

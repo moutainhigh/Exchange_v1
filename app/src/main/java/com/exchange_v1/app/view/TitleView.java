@@ -14,6 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.exchange_v1.R;
+import com.exchange_v1.app.utils.DisplayUtil;
+import com.exchange_v1.app.utils.TVUtils;
 import com.exchange_v1.app.utils.ViewUtils;
 
 
@@ -232,7 +235,7 @@ public class TitleView extends RelativeLayout {
 	 */
 	public void setOnTitleListener(OnClickListener listener) {
 		Drawable drawable = getResources().getDrawable(
-				R.drawable.icon_white_arrow_down);
+				R.mipmap.icon_white_arrow_down);
 		txt_Title.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable,
 				null);
 		txt_Title.setCompoundDrawablePadding(DisplayUtil.dip2px(context, 5));

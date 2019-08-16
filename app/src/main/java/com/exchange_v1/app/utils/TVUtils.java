@@ -1,5 +1,6 @@
 package com.exchange_v1.app.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.StringRes;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.exchange_v1.R;
 import com.exchange_v1.app.bean.Discountrate;
 
 
@@ -71,7 +73,8 @@ public class TVUtils {
         setText(tv,String.valueOf(intV));
     }
 
-    public static void setText(TextView tv,@StringRes int resid) {
+    @SuppressLint("ResourceType")
+    public static void setText(TextView tv, @StringRes int resid) {
         if (tv==null)return;
         if (resid<0)return;
 
@@ -125,9 +128,9 @@ public class TVUtils {
         ViewUtils.setBackgroundResource(v, itemViewBackground);
     }
     public static void setMainViewBackground(View v, boolean isSelect) {
-        int itemViewBackground = R.drawable.main_card_unselect_background;
+        int itemViewBackground = R.mipmap.main_card_unselect_background;
         if (isSelect) {
-            itemViewBackground = R.drawable.main_card_select_background;
+            itemViewBackground = R.mipmap.main_card_select_background;
         }
         ViewUtils.setBackgroundResource(v, itemViewBackground);
     }
