@@ -1,43 +1,18 @@
 package com.exchange_v1.app.utils;
 
-import android.app.Activity;
 import android.app.ActivityManager;
-import android.app.ActivityManager.RunningTaskInfo;
-import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Typeface;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.Selection;
-import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.SparseArray;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.AbsListView.LayoutParams;
-import android.widget.BaseAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
-
 
 import com.exchange_v1.app.base.TApplication;
 
-import java.lang.reflect.Field;
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 
 /**
@@ -154,5 +129,31 @@ public class Util {
             return false;
         }
         return true;
+    }
+
+    /**
+     * 判断当前应用程序处于前台还是后台
+     *
+     * @param context
+     * @return
+     * @updateTime 2015-6-22,下午2:44:41
+     * @updateAuthor qw
+     */
+    public static boolean isApplicationBroughtToBackground(final Context context) {
+        ActivityManager am = (ActivityManager) context
+                .getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);
+        if (!tasks.isEmpty()) {
+            ComponentName topActivity = tasks.get(0).topActivity;
+            if (!topActivity.getPackageName().equals(context.getPackageName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void sendBroadcast(Context context, Intent intent) {
+        String permission = "com.brightoilonline.c2b_phone.Manifest.permission.bwoilpermiss";
+        context.sendBroadcast(intent, permission);
     }
 }

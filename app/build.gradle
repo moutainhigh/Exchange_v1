@@ -43,6 +43,7 @@ dependencies {
     implementation "${imageloader}"
     implementation "${httpUrl}"
     implementation "${nineoldandroids}"
-    implementation 'com.alibaba:fastjson:1.1.15'
+    //luanch添加数字“徽章”
+    implementation "me.leolin:ShortcutBadger:1.1.22@aar"
 
 }

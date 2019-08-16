@@ -9,6 +9,7 @@ import android.os.StrictMode;
 import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.exchange_v1.R;
 import com.exchange_v1.app.bean.UpdateBean;
 import com.exchange_v1.app.bean.UserInfoBean;
@@ -21,6 +22,8 @@ import com.exchange_v1.app.utils.SpUtil;
 import com.exchange_v1.app.utils.UserInfoUtil;
 import com.exchange_v1.app.utils.imageloader.ImageLoaderUtil;
 import com.exchange_v1.app.utils.imageloader.ImageOptions;
+import com.exchange_v1.app.utils.lbs.C2bLocationClient;
+import com.exchange_v1.app.utils.lbs.ILocation;
 import com.exchange_v1.app.view.C2bRefreshHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
@@ -175,7 +178,6 @@ public class TApplication extends Application {
      */
     public static String pageName;
 
-//    public static C2bLocationClient c2bLocationClient;
     /**
      * app留存时长计数值
      */
@@ -188,7 +190,7 @@ public class TApplication extends Application {
     public static boolean isClickLoading = false;
     //设备Id
     public static String deviceId;
-
+    public static C2bLocationClient c2bLocationClient;
     //	public static BDLocationUtil bdLocationUtil = null;
 
     @Override
@@ -278,13 +280,16 @@ public class TApplication extends Application {
      * 百度定位初始化
      */
     private void initBaiduLBS() {
-//        SDKInitializer.initialize(this);
-//
-//        ILocation.LBSlocationListener locListener = (ILocation.LBSlocationListener) context;
-//        c2bLocationClient = C2bLocationClient.getInstance().setLocationCallback(context, locListener);
-//        startBdLocation();
+        SDKInitializer.initialize(this);
+
+        ILocation.LBSlocationListener locListener = (ILocation.LBSlocationListener) context;
+        c2bLocationClient = C2bLocationClient.getInstance().setLocationCallback(context, locListener);
+        startBdLocation();
     }
 
+    public static void startBdLocation() {
+        c2bLocationClient.start();
+    }
     /**
      * 初始化数据库
      */

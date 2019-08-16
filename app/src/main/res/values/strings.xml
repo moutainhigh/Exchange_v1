@@ -1172,13 +1172,4 @@ Quam libero nulla netus eu porta curae, ut nulla bibendum facilisis et urna sed,
     <string name="test_version">内测版本 = Beta_V %1$s \n</string>
     <string name="official_version">正式版本  = V %1$s \n</string>
 
-    <string name="spkey_file_userinfo">userinfo</string>
-    <string name="spkey_value_userno">usernum</string>
-    <string name="spkey_value_isautologin">isautologin</string>
-    <string name="spkey_value_islogin">islogin</string>
-    <string name="spkey_value_username">username</string>
-    <string name="spkey_value_account">account</string>
-    <string name="spkey_value_user_id">userid</string>
-    <string name="spkey_value_password">password</string>
-    <string name="spkey_value_portrait">protrait</string>
 </resources>

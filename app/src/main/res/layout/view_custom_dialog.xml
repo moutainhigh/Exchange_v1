@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/trans"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:id="@+id/custom_dialog_view_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/dialog_progress_bg"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:indeterminateDrawable="@drawable/progress_blue_bg_selector" />
+
+        <TextView
+            android:id="@+id/custom_dialog_txt_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_size_14" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/custom_dialog_view_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/dialog_bg_wihte"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/custom_dialog_view_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-10dp"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/custom_dialog_txt_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@string/app_name"
+                android:textColor="@color/font_content"
+                android:textSize="@dimen/font_size_14" />
+
+            <View
+                android:id="@+id/titleBetweenMsgLine"
+                style="@style/divider_horizontal_gray_style"
+                android:layout_height="1dp"
+                android:layout_margin="3dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <TextView
+                        android:id="@+id/custom_dialog_txt_message"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:lineSpacingExtra="3dp"
+                        android:minHeight="60dp"
+                        android:padding="8dp"
+                        android:text=""
+                        android:textColor="@color/font_content"
+                        android:textSize="15sp"
+                        android:visibility="gone"
+                        tools:text="msg"
+                        tools:visibility="visible" />
+
+                    <EditText
+                        android:id="@+id/custom_dialog_edit_input"
+                        style="@style/default_edit_style"
+                        android:gravity="center_vertical|left"
+                        android:hint="@null"
+                        android:inputType="textPassword"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </ScrollView>
+
+            <View
+                android:id="@+id/msgBetweenBtnLine"
+                style="@style/divider_horizontal_gray_style"
+                android:layout_height="1dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/custom_dialog_view_custom"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/dialog_bg_wihte"
+                android:orientation="vertical"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/dialog_relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:visibility="visible"
+                >
+
+                <ListView
+                    android:id="@+id/custom_dialog_view_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dialog_bg_wihte"
+                    android:cacheColorHint="@color/trans"
+                    android:divider="@color/divider_gray"
+                    android:dividerHeight="0.5dp"
+                    android:listSelector="@color/trans"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/custom_dialog_view_buttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/custom_dialog_view_listview"
+                    android:layout_marginTop="10dp"
+                    tools:visibility="visible"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <Button
+                        android:id="@+id/custom_dialog_btn_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/selector_orange_btn"
+                        android:text="@string/enter"
+                        android:textColor="@color/white"
+                        tools:visibility="visible"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/custom_dialog_btn_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/dialog_btn_left_bg_selector"
+                        android:text="@string/cancel"
+                        android:textColor="@color/white"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/custom_dialog_btn_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/selector_orange_btn"
+                        android:text="@string/enter"
+                        android:textColor="@color/white"
+                        android:visibility="gone" />
+                    <!-- 以前的样式 android:background="@drawable/dialog_btn_single_bg_selector" -->
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

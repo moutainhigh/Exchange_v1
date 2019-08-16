@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- **********************SP数据模块*********************** -->
+    <string name="intent_key_from">from</string>
+    <string name="intent_key_operation">operation</string>
+    <string name="intent_key_apkpath">apkpath</string>
+    <string name="intent_key_apksize">apksize</string>
+    <string name="spkey_value_language">language</string>
+    <string name="spkey_file_config">config</string>
+    <string name="spkey_file_userinfo">userinfo</string>
+    <string name="spkey_value_userno">usernum</string>
+    <string name="spkey_value_isautologin">isautologin</string>
+    <string name="spkey_value_islogin">islogin</string>
+    <string name="spkey_value_username">username</string>
+    <string name="spkey_value_account">account</string>
+    <string name="spkey_value_user_id">userid</string>
+    <string name="spkey_value_password">password</string>
+    <string name="spkey_value_portrait">protrait</string>
+    <string name="spkey_value_paylist">spkey_value_paylist</string>
+    <string name="spkey_value_banklist">spkey_value_banklist</string>
+    <string name="spkey_value_showCardList">showCardList</string>
+    <string name="spkey_value_showLunBoImageList">showLunBoImageList</string>
+    <string name="spkey_value_stateCode">spkey_value_stateCode</string>
+    <string name="spkey_value_question">spkey_value_question</string>
+    <string name="spkey_value_appconfig">spkey_value_appconfig</string>
+    <string name="intent_key_action">action</string>
+    <string name="spkey_value_goiltranlist">spkey_value_goiltranlist</string>
+
+    <string name="spkey_adimg_load">spkey_spkey_adimg_load</string>
+    <string name="spkey_app_version">spkey_app_version</string>
+
+
+    <string name="spkey_money_oil">spkey_money_oil</string>
+    <string name="spkey_webank_oil">spkey_webank_oil</string>
+    <string name="spkey_money_mine">spkey_money_mine</string>
+    <string name="spkey_city">spkey_city</string>
+    <string name="exchangeable_money_oil">exchangeable_money_oil</string>
+
+    <string name="spkey_value_gestrue_autologin">isgestruelogin</string>
+
+</resources>
