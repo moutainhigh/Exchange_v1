@@ -10,11 +10,11 @@ import com.exchange_v1.app.base.BaseFragment;
 /**
  * 首页
  */
-public class MainRefuelFragment extends BaseFragment implements View.OnClickListener {
+public class MainHomeFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     protected View getViews() {
-        return View.inflate(context, R.layout.f_refuel, null);
+        return View.inflate(context, R.layout.f_home, null);
     }
 
     @Override

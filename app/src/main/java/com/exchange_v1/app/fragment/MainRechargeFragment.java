@@ -8,13 +8,14 @@ import com.exchange_v1.R;
 import com.exchange_v1.app.base.BaseFragment;
 
 /**
- * 产品列表
+ * 充值页面
  */
 
-public class NewProductListFragment extends BaseFragment {
+public class MainRechargeFragment extends BaseFragment {
+
     @Override
     protected View getViews() {
-        return View.inflate(context, R.layout.f_product, null);
+        return View.inflate(context, R.layout.f_recharge, null);
     }
 
     @Override

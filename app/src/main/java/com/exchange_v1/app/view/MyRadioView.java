@@ -87,7 +87,7 @@ public class MyRadioView extends RelativeLayout {
 		text.setEnabled(check);
 		img.setImageResource(isCheck ? img1Res : img0Res);
 		if (check) {
-			text.setTextColor(getResources().getColor(R.color.common_main_orange_color));
+			text.setTextColor(getResources().getColor(R.color.common_assist_blue_color));
 		} else {
 			text.setTextColor(getResources().getColor(R.color.msg_font_gray));
 		}

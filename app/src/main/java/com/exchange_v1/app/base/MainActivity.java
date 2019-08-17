@@ -24,10 +24,10 @@ import android.view.animation.TranslateAnimation;
 import android.widget.RelativeLayout;
 
 import com.exchange_v1.R;
-import com.exchange_v1.app.fragment.MainFindFragment;
+import com.exchange_v1.app.fragment.MainCashFragment;
 import com.exchange_v1.app.fragment.MainMineFragment;
-import com.exchange_v1.app.fragment.MainRefuelFragment;
-import com.exchange_v1.app.fragment.NewProductListFragment;
+import com.exchange_v1.app.fragment.MainHomeFragment;
+import com.exchange_v1.app.fragment.MainRechargeFragment;
 import com.exchange_v1.app.receiver.JPushReceiver;
 import com.exchange_v1.app.utils.C2bPushUtil;
 import com.exchange_v1.app.utils.CountIdUtil;
@@ -114,7 +114,7 @@ public class MainActivity extends BaseFragmentActivity {
      * 主页fragment （2.7版本主页变成加油页面）
      */
     //	private MainCloudOilFragment fragment_home;
-    private MainRefuelFragment fragment_home;
+    private MainHomeFragment fragment_home;
     /**
      * 我的账户fragment
      */
@@ -122,7 +122,7 @@ public class MainActivity extends BaseFragmentActivity {
     /**
      * 加油服务fragment
      */
-    private NewProductListFragment fragment_oil;
+    private MainRechargeFragment fragment_oil;
     /** 菜单fragment */
     //	private MenuFragment menuFragment;
     /** 有奖分享fragment */
@@ -130,7 +130,7 @@ public class MainActivity extends BaseFragmentActivity {
     /**
      * 底部第三个Tab点击的内容
      */
-    private MainFindFragment tabThirdF;
+    private MainCashFragment tabThirdF;
     /** 油价走势fragment */
     //	private OilPriceFragment fragment_oilPrice;
 
@@ -173,10 +173,10 @@ public class MainActivity extends BaseFragmentActivity {
         setStatusBarFullTransparent();
         setFitSystemWindow(false);
 
-        radio_cloud_oil = (MyRadioView) findViewById(R.id.main_radio_cloud_oil);
-        radio_recommend = (MyRadioView) findViewById(R.id.main_radio_recommend);
+        radio_cloud_oil = (MyRadioView) findViewById(R.id.main_radio_recharge);
+        radio_recommend = (MyRadioView) findViewById(R.id.main_radio_cash);
         radio_mine = (MyRadioView) findViewById(R.id.main_radio_mine);
-        radio_refuel = (MyRadioView) findViewById(R.id.main_radio_refuel);
+        radio_refuel = (MyRadioView) findViewById(R.id.main_radio_home);
         view_slider = findViewById(R.id.view_slider);
         Intent intentmain = getIntent();
         LoadingActivity.hasMain = 1;
@@ -280,12 +280,12 @@ public class MainActivity extends BaseFragmentActivity {
      */
     private void initFragment() {
 
-        fragment_home = new MainRefuelFragment();
+        fragment_home = new MainHomeFragment();
         //		fragment_oilPrice = new OilPriceFragment();
         //tabThirdF = new MainActivitiesFragment();
-        tabThirdF = new MainFindFragment();
+        tabThirdF = new MainCashFragment();
         fragment_mine = new MainMineFragment();
-        fragment_oil = new NewProductListFragment();
+        fragment_oil = new MainRechargeFragment();
 
         addFragment(fragment_home);
         addFragment(fragment_oil);
@@ -388,14 +388,14 @@ public class MainActivity extends BaseFragmentActivity {
             radio_current = myRadioView;
             radio_current.setCheck(true);
             switch (v.getId()) {
-                case R.id.main_radio_refuel:
+                case R.id.main_radio_home:
                     switchView(FRAGMENT_HOME);
                     break;
-                case R.id.main_radio_cloud_oil:
+                case R.id.main_radio_recharge:
                     switchView(FRAGMENT_OIL);
                     break;
 
-                case R.id.main_radio_recommend:
+                case R.id.main_radio_cash:
                     switchView(FRAGMENT_RECOMMEND);
                     break;
                 case R.id.main_radio_mine:

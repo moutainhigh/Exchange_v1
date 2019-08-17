@@ -12,15 +12,15 @@ import com.exchange_v1.app.base.BaseFragment;
 
 
 /**
- * 主页的发现页面
+ * 提现页面
  */
-public class MainFindFragment extends BaseFragment implements OnClickListener {
+public class MainCashFragment extends BaseFragment implements OnClickListener {
 
     private static final int CARMERA_REQUEST_CODE = 1;
 
     @Override
     protected View getViews() {
-        return View.inflate(context, R.layout.f_mainfind_activities, null);
+        return View.inflate(context, R.layout.f_cash, null);
     }
 
 

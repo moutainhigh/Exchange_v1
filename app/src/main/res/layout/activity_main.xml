@@ -39,7 +39,7 @@
         android:orientation="horizontal" >
 
         <com.exchange_v1.app.view.MyRadioView
-            android:id="@+id/main_radio_refuel"
+            android:id="@+id/main_radio_home"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1"
@@ -48,23 +48,23 @@
             title:text="首页" />
 
         <com.exchange_v1.app.view.MyRadioView
-            android:id="@+id/main_radio_cloud_oil"
+            android:id="@+id/main_radio_recharge"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             title:img0="@mipmap/product"
             title:img1="@mipmap/product_c"
-            title:text="产品" />
+            title:text="充值" />
 
 
         <com.exchange_v1.app.view.MyRadioView
-            android:id="@+id/main_radio_recommend"
+            android:id="@+id/main_radio_cash"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             title:img0="@mipmap/find"
             title:img1="@mipmap/find_c"
-            title:text="发现" />
+            title:text="提现" />
 
         <com.exchange_v1.app.view.MyRadioView
             android:id="@+id/main_radio_mine"
