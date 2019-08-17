@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/left_icon_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:minWidth="22dp"
+        android:paddingRight="@dimen/dp_8"
+        android:paddingLeft="@dimen/dp_8"
+        android:src="@mipmap/setting_phone_icon" />
+
+    <EditText
+        android:id="@+id/edit_input_et"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_toLeftOf="@id/right_close_iv"
+        android:layout_toRightOf="@id/left_icon_iv"
+        android:background="@color/trans"
+        android:singleLine="true"
+        android:textColor="@color/black_transparent_54"
+        android:textColorHint="@color/black_transparent_26"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/right_close_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignParentRight="true"
+        android:minWidth="22dp"
+        android:paddingLeft="@dimen/dp_8"
+        android:paddingRight="@dimen/dp_8"
+        android:src="@mipmap/search_clear_pressed" />
+
+    <View
+        android:id="@+id/line_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_below="@id/edit_input_et" />
+
+</RelativeLayout>

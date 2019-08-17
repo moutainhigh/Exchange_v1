@@ -161,15 +161,15 @@
         <!--<item name="android:background">@drawable/selector_orange_zero_corner_btn</item>-->
         <!--<item name="android:textColor">@color/selector_defult_btn_txt</item>-->
     <!--</style>-->
-    <!--&lt;!&ndash; 5.6.2渐变黄色  不可点击状态灰色  50dp圆角按钮 &ndash;&gt;-->
-    <!--<style name="default_five_gray_textview_btn">-->
-        <!--<item name="android:layout_width">match_parent</item>-->
-        <!--<item name="android:layout_height">@dimen/button_height_44dp</item>-->
-        <!--<item name="android:textSize">@dimen/txt_f18</item>-->
-        <!--<item name="android:gravity">center</item>-->
-        <!--<item name="android:layout_marginLeft">15dp</item>-->
-        <!--<item name="android:layout_marginRight">15dp</item>-->
-        <!--<item name="android:background">@drawable/selector_orange_corner_gray_btn</item>-->
-        <!--<item name="android:textColor">@color/selector_defult_btn_txt</item>-->
-    <!--</style>-->
+    <!-- 5.6.2渐变黄色  不可点击状态灰色  50dp圆角按钮 -->
+    <style name="default_five_gray_textview_btn">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/button_height_44dp</item>
+        <item name="android:textSize">@dimen/txt_f18</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:background">@drawable/selector_orange_corner_gray_btn</item>
+        <item name="android:textColor">@color/selector_defult_btn_txt</item>
+    </style>
 </resources>

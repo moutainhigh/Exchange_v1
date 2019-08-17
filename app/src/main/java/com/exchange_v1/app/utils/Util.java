@@ -4,14 +4,18 @@ import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.text.Editable;
 import android.text.Selection;
 import android.text.TextWatcher;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.exchange_v1.app.base.TApplication;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 
@@ -155,5 +159,40 @@ public class Util {
     public static void sendBroadcast(Context context, Intent intent) {
         String permission = "com.brightoilonline.c2b_phone.Manifest.permission.bwoilpermiss";
         context.sendBroadcast(intent, permission);
+    }
+
+    /**
+     * 递归遍历设置所有字体
+     */
+    public static void setFont(View view, Typeface face) {
+        if (view instanceof ViewGroup) {
+            View[] children = null;
+            try {
+                Field field = ViewGroup.class.getDeclaredField("mChildren");
+                field.setAccessible(true);
+                children = (View[]) field.get(view);
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            if (children != null) {
+                for (View child : children) {
+                    setFont(child, face);
+                }
+            } else {
+                int count = ((ViewGroup) view).getChildCount();
+                for (int i = 0; i < count; ++i) {
+                    View child = ((ViewGroup) view).getChildAt(i);
+                    if (null != child) {
+                        setFont(child, face);
+                    }
+                }
+            }
+        } else if (view instanceof TextView) {
+            // ((TextView) view).setTypeface(face);
+        }
     }
 }

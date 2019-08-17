@@ -1,0 +1,113 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/common_assist_bg_color"
+              android:orientation="vertical">
+
+    <com.exchange_v1.app.view.TitleView
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请输入您的手机号，登录或注册您的光汇云油账号"
+            android:textColor="@color/common_neutral_color_3"
+            android:textSize="@dimen/font_size_12"/>
+    </LinearLayout>
+
+    <com.exchange_v1.app.view.UnderLineEditText
+        android:id="@+id/login_under_line_edit_phone"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_15"
+        android:layout_marginTop="40dp"
+        android:background="@color/common_assist_bg_color"
+        app:rightHintText="请输入手机号"/>
+
+    <com.exchange_v1.app.view.CodeEditText
+        android:id="@+id/login_under_line_edit_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_15"
+        android:background="@color/common_assist_bg_color"
+        app:hintInputText="请输入验证码"
+        app:time="60"/>
+
+    <TextView
+        android:id="@+id/login_under_message_send_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_8"
+        android:textColor="@color/common_neutral_color_9"
+        android:textSize="@dimen/font_size_12"
+        tools:text="短信验证码已发送至13723170213，请查收"/>
+
+    <!--登录按钮-->
+    <TextView
+        android:id="@+id/login_under_line_btn_login"
+        style="@style/default_five_gray_textview_btn"
+        android:layout_marginLeft="@dimen/dp_28"
+        android:layout_marginRight="@dimen/dp_28"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="开始"/>
+
+    <TextView
+        android:id="@+id/a_login2_vip_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_15"
+        android:text="点击开始,即表示已阅读并同意"
+        android:textColor="@color/common_neutral_color_9"
+        android:textSize="@dimen/font_size_12"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_5"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/login_vip_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="all"
+            android:text="《会员服务协议》"
+            android:textColor="@color/pay_balance_font"
+            android:textSize="@dimen/sp_12"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/a_login2_password_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_30"
+            android:padding="@dimen/dp_5"
+            android:text="账号密码登录"
+            android:textColor="@color/common_neutral_color_6"
+            android:textSize="@dimen/font_size_14"/>
+    </LinearLayout>
+</LinearLayout>

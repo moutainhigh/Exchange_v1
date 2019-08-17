@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 按下效果 -->
+    <item android:state_pressed="true">
+        <shape>
+            <corners android:radius="@dimen/dp_50" />
+            <gradient
+                android:angle="45"
+                android:startColor="@color/common_gradient_orange_press_start"
+                android:endColor="@color/common_gradient_orange_press_end"
+                android:type="linear"/>
+        </shape>
+    </item>
+
+    <!-- 不可点击效果 -->
+    <item android:state_enabled="false">
+        <shape>
+            <corners android:radius="@dimen/dp_50" />
+            <gradient
+                android:angle="45"
+                android:startColor="@color/common_neutral_color_C"
+                android:endColor="@color/common_neutral_color_C"
+                android:type="linear"/>
+        </shape>
+    </item>
+
+    <!-- 正常状态 -->
+    <item>
+        <shape>
+            <corners android:radius="@dimen/dp_50" />
+            <gradient
+                android:angle="45"
+                android:startColor="@color/common_gradient_orange_start"
+                android:endColor="@color/common_gradient_orange_end"
+                android:type="linear"/>
+        </shape>
+    </item>
+
+</selector>

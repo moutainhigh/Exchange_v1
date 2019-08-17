@@ -62,4 +62,11 @@
         <item name="android:paddingLeft">16dp</item>
         <item name="android:textSize">16sp</item>
     </style>
+
+    <!-- 细分隔线 -->
+    <style name="common_style_line_thin">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/common_line_size_thin_1px</item>
+        <item name="android:background">@color/common_color_grey_bg_gap_line</item>
+    </style>
 </resources>
