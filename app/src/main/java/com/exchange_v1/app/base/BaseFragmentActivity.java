@@ -63,7 +63,6 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
 			view.setFitsSystemWindows(true);
 		}
 		setContentView(view);
-		Util.setFont(view, TApplication.face);
 		findViews();
 		widgetListener();
 		initGetData();

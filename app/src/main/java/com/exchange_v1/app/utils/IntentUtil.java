@@ -8,9 +8,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.exchange_v1.R;
-import com.exchange_v1.app.MainActivity;
 import com.exchange_v1.app.activity.LoginActivity2;
 import com.exchange_v1.app.base.BaseActivity;
+import com.exchange_v1.app.base.MainActivity;
 import com.exchange_v1.app.interf.DoAfterFinish;
 
 

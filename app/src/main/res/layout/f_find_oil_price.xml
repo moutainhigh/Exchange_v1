@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/oil_price_icon"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="油价行情"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#f5f5f5"
+        ></View>
+
+    <!--网格布局-->
+    <com.brightoilonline.c2b_phone.view.AutoSizeGridView
+        android:id="@+id/grid_view_oil_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@color/white"
+        android:listSelector="@null"
+        android:verticalSpacing="@dimen/dp_15"
+        android:horizontalSpacing="@dimen/dp_15"
+        android:numColumns="3"
+        android:scrollbars="none"
+        >
+    </com.brightoilonline.c2b_phone.view.AutoSizeGridView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_14"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_14"
+        android:textColor="@color/common_color_black_text_second_desc"
+        android:text="地区:广东/深圳"
+        android:textSize="@dimen/sp_12"
+        />
+</LinearLayout>

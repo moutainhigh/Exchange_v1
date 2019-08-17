@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_gravity="center"
+        android:layout_weight="26"
+        android:background="@color/find_oil_price_item_bg"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_oil_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/sp_13"
+            android:textColor="@color/common_color_black_product_desc"
+            tools:text="V汽油92#"
+            />
+
+        <TextView
+            android:id="@+id/tv_oil_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/common_main_orange_color"
+            android:textSize="@dimen/sp_15"
+            tools:text="7.56元/升"
+            />
+    </LinearLayout>
+</LinearLayout>

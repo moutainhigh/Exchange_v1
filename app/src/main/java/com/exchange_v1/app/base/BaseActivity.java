@@ -88,7 +88,6 @@ public abstract class BaseActivity extends AppCompatActivity implements OnSoftKe
 	private PowerManager pm;
 	public static C2bLocationClient c2bLocationClient;
 
-	@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -133,7 +132,7 @@ public abstract class BaseActivity extends AppCompatActivity implements OnSoftKe
 
 		mSoftKeyPadDetector = new SoftKeyPadDetector(this);
 		mSoftKeyPadDetector.setOnSoftInputListener(this);
-		TApplication.startBdLocation();
+//		TApplication.startBdLocation();
 
 		pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 	}

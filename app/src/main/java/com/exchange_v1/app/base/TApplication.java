@@ -3,7 +3,6 @@ package com.exchange_v1.app.base;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Typeface;
 import android.os.Build;
 import android.os.StrictMode;
 import android.support.multidex.MultiDex;
@@ -90,10 +89,10 @@ public class TApplication extends Application {
      * 指纹
      */
     private static String appMd5;
-    /**
-     * 字体
-     */
-    public static Typeface face;
+//    /**
+//     * 字体
+//     */
+//    public static Typeface face;
     /**
      * 选择的储油模式 -1:未选择 0:云储油 1:大众储油
      */
@@ -106,10 +105,8 @@ public class TApplication extends Application {
      * secretKey
      */
     public static String secretKey = null;
-//    /**
-//     * 定位信息
-//     */
-//    public static BDLocation bdLocation = null;
+
+    public static int APP_VERSION = 1;
 
     /**
      * 第一次设置 默认密保问题false设置成功后为true
@@ -153,7 +150,7 @@ public class TApplication extends Application {
      * 体验卡id 如果我的订单没有数据用于跳转体验卡
      */
     public static String PRODUCT_ID;
-    public static boolean needSafe = true;
+    public static boolean needSafe = false;
 
 
     /**
@@ -202,11 +199,11 @@ public class TApplication extends Application {
 
         screenWidth = getResources().getDisplayMetrics().widthPixels;
         screenHight = getResources().getDisplayMetrics().heightPixels;
-        face = Typeface.createFromAsset(context.getAssets(),
-                "fonts/Helvetica.ttf");
+//        face = Typeface.createFromAsset(context.getAssets(),
+//                "fonts/Helvetica.ttf");
 
         init_DB();
-        initBaiduLBS();
+//        initBaiduLBS();
 
 //        initImageLoader(this);
 //        BitmapUtil.init(context);
@@ -284,7 +281,7 @@ public class TApplication extends Application {
 
         ILocation.LBSlocationListener locListener = (ILocation.LBSlocationListener) context;
         c2bLocationClient = C2bLocationClient.getInstance().setLocationCallback(context, locListener);
-        startBdLocation();
+//        startBdLocation();
     }
 
     public static void startBdLocation() {

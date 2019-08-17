@@ -14,7 +14,7 @@ import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.exchange_v1.R;
-import com.exchange_v1.app.MainActivity;
+import com.exchange_v1.app.base.MainActivity;
 import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.event.JPushRegIdEvent;
 import com.exchange_v1.app.utils.ActivityUtils;

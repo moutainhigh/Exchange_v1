@@ -1,23 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:title="http://schemas.android.com/apk/res-auto"
     android:id="@+id/contentView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app.MainActivity">
+    android:background="@color/bg_color"
+    android:orientation="vertical"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="1" >
+    </FrameLayout>
 
-    <com.exchange_v1.app.view.TitleView
-        android:id="@+id/view_title"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_height="wrap_content" >
+
+        <View style="@style/divider_horizontal_gray_style"  />
+
+        <View
+            android:id="@+id/view_slider"
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            android:background="@color/title_txt" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="54dp"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <com.exchange_v1.app.view.MyRadioView
+            android:id="@+id/main_radio_refuel"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            title:img0="@mipmap/index"
+            title:img1="@mipmap/index_c"
+            title:text="首页" />
+
+        <com.exchange_v1.app.view.MyRadioView
+            android:id="@+id/main_radio_cloud_oil"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            title:img0="@mipmap/product"
+            title:img1="@mipmap/product_c"
+            title:text="产品" />
+
+
+        <com.exchange_v1.app.view.MyRadioView
+            android:id="@+id/main_radio_recommend"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            title:img0="@mipmap/find"
+            title:img1="@mipmap/find_c"
+            title:text="发现" />
+
+        <com.exchange_v1.app.view.MyRadioView
+            android:id="@+id/main_radio_mine"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            title:img0="@mipmap/mine"
+            title:img1="@mipmap/mine_c"
+            title:text="我的" />
+    </LinearLayout>
+</LinearLayout>

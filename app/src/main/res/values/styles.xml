@@ -1,8 +1,11 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar"></style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:textColorSecondary">@color/black_transparent_87</item>
     </style>
 
     <!-- 标题栏自定义按钮样式 -->
@@ -69,4 +72,12 @@
         <item name="android:layout_height">@dimen/common_line_size_thin_1px</item>
         <item name="android:background">@color/common_color_grey_bg_gap_line</item>
     </style>
+
+    <style name="CommActTheme" parent="AppTheme">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:textColorSecondary">@color/black_transparent_87</item>
+        <item name="colorPrimaryDark">@color/black</item>
+    </style>
+
 </resources>
