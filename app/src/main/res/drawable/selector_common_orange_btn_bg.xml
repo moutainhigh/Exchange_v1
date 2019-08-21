@@ -3,23 +3,22 @@
 
     <item android:state_pressed="true">
         <shape>
-            <corners android:radius="@dimen/radius" />
-
-            <solid android:color="@color/common_main_orange_color"></solid>
+            <corners android:radius="@dimen/dp_50" />
+            <solid android:color="@color/all_btn_bg"></solid>
         </shape>
     </item>
+
     <item android:state_enabled="false">
         <shape>
-            <corners android:radius="@dimen/radius" />
-
-            <solid android:color="@color/common_neutral_color_9"></solid>
+            <corners android:radius="@dimen/dp_50" />
+            <solid android:color="@color/gray"></solid>
         </shape>
     </item>
+
     <item>
         <shape>
-            <corners android:radius="@dimen/radius" />
-
-            <solid android:color="@color/common_main_orange_color"></solid>
+            <corners android:radius="@dimen/dp_50" />
+            <solid android:color="@color/bule_4d"></solid>
         </shape>
     </item>
 

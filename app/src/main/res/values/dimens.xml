@@ -242,4 +242,7 @@
     <dimen name="dp_137">137dp</dimen>
     <dimen name="dp_103">103dp</dimen>
 
+    <!-- button hight -->
+    <dimen name="button_height_40dp">40dp</dimen>
+    <dimen name="button_text_size">13sp</dimen>
 </resources>

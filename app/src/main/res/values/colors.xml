@@ -435,4 +435,9 @@
     <color name="webank_code_color">#FF8C2B</color>
     <color name="camera_photo_background">#f2f2f2</color>
     <color name="main_refuel_product_title_color">#444444</color>
+
+    <!-- *****************************************8 -->
+    <color name="edittext_gray">#E2E2E2</color>
+    <color name="background_gray">#F6F7FB</color>
+
 </resources>

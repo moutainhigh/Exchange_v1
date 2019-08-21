@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_gray">
+
+    <com.exchange_v1.app.view.TitleView
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title_txt="设备绑定"/>
+
+    <EditText
+        style="@style/edit_input"
+        android:layout_marginTop="19dp"
+        android:hint="  设备编号"
+         />
+
+    <EditText
+        style="@style/edit_input"
+        android:layout_marginTop="16dp"
+        android:hint="  昵称"
+        />
+
+    <EditText
+        style="@style/edit_input"
+        android:layout_marginTop="16dp"
+        android:hint="  支付宝账号"
+        />
+
+    <EditText
+        style="@style/edit_input"
+        android:layout_marginTop="16dp"
+        android:hint="  微信账号"
+        />
+
+    <TextView
+        style="@style/default_btn"
+        android:layout_marginTop="28dp"
+        android:enabled="false"
+        android:text="确定"
+         />
+
+</LinearLayout>
