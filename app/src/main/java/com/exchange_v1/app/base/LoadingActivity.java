@@ -139,14 +139,14 @@ public class LoadingActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        //延迟两秒去引导页
+        //延迟两秒去 主页
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 IntentUtil.gotoActivityAndFinish(LoadingActivity.this,
-                        SplashActivity.class);
+                        MainActivity.class);
             }
-        }, 2000);
+        }, 1000);
     }
 
 

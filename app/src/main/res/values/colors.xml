@@ -437,7 +437,7 @@
     <color name="main_refuel_product_title_color">#444444</color>
 
     <!-- *****************************************8 -->
-    <color name="edittext_gray">#E2E2E2</color>
+    <color name="edittext_hint_gray">#E2E2E2</color>
     <color name="background_gray">#F6F7FB</color>
 
 </resources>
