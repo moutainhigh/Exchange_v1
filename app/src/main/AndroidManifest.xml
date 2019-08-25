@@ -64,6 +64,13 @@
             android:screenOrientation="portrait"
             android:theme="@style/CommActTheme"/>
 
+        <!-- 忘记密码页面 -->
+        <activity
+            android:name=".app.activity.ForgetPwdActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommActTheme"/>
+
         <!-- =========================================极光推送部分=========================================== -->
         <!-- Required  SDK核心功能 -->
         <service

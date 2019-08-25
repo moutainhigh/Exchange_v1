@@ -46,5 +46,7 @@ dependencies {
     implementation "${nineoldandroids}"
     //luanch添加数字“徽章”
     implementation "me.leolin:ShortcutBadger:1.1.22@aar"
+    //滑动的viewpager
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.2.0@aar'
 
 }
