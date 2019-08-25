@@ -5,15 +5,16 @@ import android.widget.TextView;
 
 import com.exchange_v1.R;
 import com.exchange_v1.app.base.BaseActivity;
-import com.exchange_v1.app.utils.IntentUtil;
+import com.exchange_v1.app.utils.ToastUtil;
 
-public class ForgetPwdActivity extends BaseActivity implements View.OnClickListener{
+//重置密码第二步
+public class ForgetPwdNextActivity extends BaseActivity implements View.OnClickListener {
 
     private TextView tvSubmit;
 
     @Override
     protected int getContentViewId() {
-        return R.layout.activity_forget_password;
+        return R.layout.activity_forget_next_password;
     }
 
     @Override
@@ -40,7 +41,7 @@ public class ForgetPwdActivity extends BaseActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_submit:
-                IntentUtil.gotoActivity(context, ForgetPwdNextActivity.class);
+                ToastUtil.showToast(context,"请求重置密码接口...");
                 break;
             default:
                 break;
