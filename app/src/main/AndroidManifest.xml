@@ -92,6 +92,63 @@
             android:screenOrientation="portrait"
             android:theme="@style/CommActTheme"/>
 
+        <!-- 通用收款码新增界面 -->
+        <activity
+            android:name=".app.activity.ReceiveQRCodeAddActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommActTheme"/>
+        <!-- 设备新增界面 -->
+        <activity
+            android:name=".app.activity.EqueitmentAddActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommActTheme"/>
+        <!-- 设备绑定列表界面 -->
+        <activity
+            android:name=".app.activity.EqueitmentBindListActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommActTheme"/>
+        <!-- 游戏币明细界面 -->
+        <activity
+            android:name=".app.activity.CoinDetailActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommActTheme"/>
+        <!-- 订单列表界面 -->
+        <activity
+            android:name=".app.activity.OrderListActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommActTheme"/>
+        <!-- 申请搬运界面 -->
+        <activity
+            android:name=".app.activity.ApplyCarryActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommActTheme"/>
+        <!-- 邮箱验证界面 -->
+        <activity
+            android:name=".app.activity.EmailVerifActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommActTheme"/>
+
+        <!-- 位置选择界面 -->
+        <activity
+            android:name=".app.activity.PositionSelectActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommActTheme"/>
+
+        <!-- 申请服务商界面 -->
+        <activity
+            android:name=".app.activity.ApplyServiceActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommActTheme"/>
+
         <!-- =========================================极光推送部分=========================================== -->
         <!-- Required  SDK核心功能 -->
         <service

@@ -47,7 +47,95 @@
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:textSize="22sp"
-                android:text="空格"
+                android:text="通用收款码"
+                />
+
+            <TextView
+                android:id="@+id/tv_btn4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:text="通用收款码增加"
+                />
+
+            <TextView
+                android:id="@+id/tv_btn5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:text="设备绑定增加"
+                />
+
+            <TextView
+                android:id="@+id/tv_btn6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:text="设备绑定列表"
+                />
+
+            <TextView
+                android:id="@+id/tv_btn7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:text="游戏币明细"
+                />
+
+            <TextView
+                android:id="@+id/tv_btn8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:text="8历史订单"
+                />
+
+            <TextView
+                android:id="@+id/tv_btn9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:text="9申请搬运代理"
+                />
+
+            <TextView
+                android:id="@+id/tv_btn10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:text="10邮箱验证"
+                />
+            <TextView
+                android:id="@+id/tv_btn11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:text="11位置选择"
+                />
+            <TextView
+                android:id="@+id/tv_btn12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:text="12申请服务商"
                 />
 
         </LinearLayout>
