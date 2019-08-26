@@ -67,6 +67,12 @@
         android:layout_marginTop="16dp"
         android:hint=" 银行卡号" />
 
+    <EditText
+        style="@style/edit_input"
+        android:visibility="gone"
+        android:layout_marginTop="16dp"
+        android:hint=" 支付宝UID" />
+
     <TextView
         style="@style/default_btn"
         android:layout_marginTop="28dp"
