@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.exchange_v1.R;
 import com.exchange_v1.app.activity.GoogleCheckActivity;
+import com.exchange_v1.app.activity.ReceiveQRCodeActivity;
 import com.exchange_v1.app.activity.RegisterActivity;
 import com.exchange_v1.app.base.BaseFragment;
 import com.exchange_v1.app.utils.IntentUtil;
@@ -61,7 +62,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                 IntentUtil.gotoActivity(context, GoogleCheckActivity.class);
                 break;
             case R.id.tv_btn3:
-//                IntentUtil.gotoActivity(context, RegisterActivity.class);
+                IntentUtil.gotoActivity(context, ReceiveQRCodeActivity.class);
                 break;
             default:
                 break;

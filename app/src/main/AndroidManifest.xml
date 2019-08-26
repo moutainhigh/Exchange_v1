@@ -85,6 +85,13 @@
             android:screenOrientation="portrait"
             android:theme="@style/CommActTheme"/>
 
+        <!-- 通用收款码界面 -->
+        <activity
+            android:name=".app.activity.ReceiveQRCodeActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommActTheme"/>
+
         <!-- =========================================极光推送部分=========================================== -->
         <!-- Required  SDK核心功能 -->
         <service

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F7FB"
+    android:orientation="vertical">
+
+    <com.exchange_v1.app.view.TitleView
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <RelativeLayout
+        android:layout_width="213dp"
+        android:layout_height="213dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="19dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="69dp"
+            android:layout_height="19dp"
+            android:background="@mipmap/yun_bg"
+            android:text="云闪付"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="128dp"
+            android:layout_height="29dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_blue_corner"
+            android:gravity="center"
+            android:text="上传二维码"
+            android:textColor="@color/blue"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:text="小时，请每十小时重新获取并上传更新，避免影响接单！"
+        android:textColor="@color/red"
+        android:textSize="9sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="31dp"
+        android:text="请输入你的真实资料"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
+
+    <EditText
+        style="@style/edit_input"
+        android:layout_marginTop="16dp"
+        android:hint=" 姓名" />
+
+    <EditText
+        style="@style/edit_input"
+        android:layout_marginTop="16dp"
+        android:hint=" 银行卡号" />
+
+    <TextView
+        style="@style/default_btn"
+        android:layout_marginTop="28dp"
+        android:enabled="false"
+        android:text="确定二维码" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:text="核对二维码信息，上传后点击 [ 确认二维码 ]"
+        android:textColor="@color/red"
+        android:textSize="9sp" />
+
+</LinearLayout>
