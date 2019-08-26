@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F7FB">
+
+    <com.exchange_v1.app.view.TitleView
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        style="@style/register_edit_input"
+        android:layout_marginTop="16dp"
+        android:inputType="textPassword"
+        android:hint="谷歌邮箱" />
+
+    <EditText
+        style="@style/register_edit_input"
+        android:layout_marginTop="5dp"
+        android:inputType="textPassword"
+        android:hint="谷歌认证码" />
+
+    <TextView
+        android:id="@+id/tv_submit"
+        style="@style/default_btn"
+        android:layout_marginTop="31dp"
+        android:layout_marginBottom="30dp"
+        android:text="确定"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="21dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#627176"
+            android:textSize="13sp"
+            android:text="绑定流程:"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:textColor="#627176"
+            android:textSize="11sp"
+            android:text="1.下载谷歌验证应用:"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:textColor="#627176"
+            android:textSize="11sp"
+            android:text="2.复制谷歌srcret"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:textColor="#627176"
+            android:textSize="11sp"
+            android:text="3.在安装的谷歌程序中粘贴复制码"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:textColor="#627176"
+            android:textSize="11sp"
+            android:text="4.输入谷歌认证码绑定"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:textColor="#627176"
+            android:textSize="11sp"
+            android:text="5.使用谷歌验证码登陆及充值、提现"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="33dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="#627176"
+            android:textSize="11sp"
+            android:text="谷歌二维码"/>
+
+        <TextView
+            android:layout_width="109dp"
+            android:layout_height="109dp"
+            android:layout_marginTop="21dp"
+            android:background="@color/gray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:text="P6SU5JMPFT3FXXVN"/>
+
+        <TextView
+            android:layout_width="156dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/white"
+            android:background="@mipmap/blue_btn_img"
+            android:gravity="center"
+            android:text="复制"/>
+
+    </LinearLayout>
+</LinearLayout>
