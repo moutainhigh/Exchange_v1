@@ -24,7 +24,8 @@ public class ReceiveQRCodeAddActivity extends BaseActivity implements View.OnCli
 
     @Override
     protected void initGetData() {
-
+        titleView.setBackBtn();
+        titleView.setTitle("通用收款码");
     }
 
     @Override
