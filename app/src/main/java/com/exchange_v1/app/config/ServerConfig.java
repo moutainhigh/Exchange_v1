@@ -111,5 +111,19 @@ public class ServerConfig {
      */
     public static final String SERVER_VERSION_URL = "http://buddy.t.com/Api/version/typeid/0";
 
+    //URL前缀
+    public static String SERVER_URL = "http://yy961410800.oicp.net";
+
+    //注册
+    public static String REGISTER_API = SERVER_URL+"/agent/register";
+    //发送短信
+    public static String SEND_MSG_API = SERVER_URL+"/sms/send";
+    //登录
+    public static String LOGIN_API = SERVER_URL+"/auth/login";
+    //银行卡四要素
+    public static String BANKVALID_API = SERVER_URL+"/agent/bankValid";
+    //用户激活/缴纳押金
+    public static String ACTIVE_API = SERVER_URL+"/agent/active";
+
 
 }

@@ -5,6 +5,8 @@
 
     <uses-permission android:name="org.simalliance.openmobileapi.SMARTCARD"/>
     <uses-permission android:name="com.brightoilonline.c2b_phone.bwoilpermiss"/>
+    <!-- 网络访问权限 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <!-- Required 极光推送 一些系统要求的权限，如访问网络等 -->
     <permission
         android:name="${applicationId}.permission.JPUSH_MESSAGE"

@@ -1,6 +1,4 @@
-package com.exchange_v1.app.interf;
-
-
+package com.exchange_v1.app.network;
 import com.exchange_v1.app.bean.ResponseBean;
 
 public interface MyRequestHandle {

@@ -15,7 +15,6 @@ import com.exchange_v1.app.bean.UserInfoBean;
 import com.exchange_v1.app.navition.NativeAction;
 import com.exchange_v1.app.utils.ApkUtil;
 import com.exchange_v1.app.utils.DES3;
-import com.exchange_v1.app.utils.JniUtil;
 import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.SpUtil;
 import com.exchange_v1.app.utils.UserInfoUtil;
@@ -335,7 +334,8 @@ public class TApplication extends Application {
     public static String getSecretKey() {
         if (TextUtils.isEmpty(secretKey)) {
             if (TextUtils.isEmpty((String) SpUtil.getSpUtil().getObject(context, "secretKey"))) {
-                secretKey = new JniUtil().getKey();
+//                secretKey = new JniUtil().getKey();
+                secretKey = "";
             } else {
                 secretKey = (String) SpUtil.getSpUtil().getObject(context, "secretKey");
             }

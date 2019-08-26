@@ -11,12 +11,7 @@ import java.util.ArrayList;
 /**
  * 网络请求返回状态属性
  * 
- * @Description TODO
- * @author CodeApe
- * @version 1.0
- * @date 2014年12月30日
- * @Copyright: Copyright (c) 2014 Shenzhen Utoow Technology Co., Ltd. All rights reserved.
- * 
+ *
  */
 public class ResponseBean extends BaseBean {
 	/**

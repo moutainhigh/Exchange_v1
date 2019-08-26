@@ -4,10 +4,6 @@ package com.exchange_v1.app.config;
 /**
  * 公共常量
  * 
- * @Description TODO
- * @author gushiyong
- * @date 2015年8月18日
- * @Copyright: Copyright (c) 2015 深圳光汇云油电商有限公司.
  */
 public class Constant {
 
@@ -22,7 +18,7 @@ public class Constant {
 	/** 接口版本号 */
 	public static final String VERSION_CODE = "1.0";
 
-    public static final String ANDROID_PLAT="c2b_android";
+    public static final String ANDROID_PLAT="android";
 
 //	/** 默认的登录开关,默认关闭 */
 //	public static final Boolean DEBUG_SWITCH = true;

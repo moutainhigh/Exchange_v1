@@ -336,9 +336,12 @@ public class C2bOkClient implements IHttpMethod {
 
 
     private RequestBody okJsonRequestPram2(Map<String, String> map) throws Exception {
-        RequestBody body = new FormBody.Builder()
-                .add("params", getPostEncode(map, true))
-                .build();
+        FormBody.Builder builder = new FormBody.Builder();
+        for (String key : map.keySet()) {
+            //追加表单信息
+            builder.add(key, map.get(key));
+        }
+        RequestBody body = builder.build();
         return body;
     }
 

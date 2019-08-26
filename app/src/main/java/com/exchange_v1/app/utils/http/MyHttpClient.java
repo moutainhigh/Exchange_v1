@@ -58,7 +58,7 @@ public class MyHttpClient {
     public static void post(String url, Map params, IResponseHandler callback) throws Exception {
         AsyncRequestParams requestParams = new AsyncRequestParams();
         AsyncRequestParams.convertMapAllToOtherMap(params, requestParams.getUrlParams());
-        post(url, requestParams, true, callback);
+        post(url, requestParams, false, callback);
     }
 
     public static void post(String url, AsyncRequestParams params, IResponseHandler callback) throws Exception {
