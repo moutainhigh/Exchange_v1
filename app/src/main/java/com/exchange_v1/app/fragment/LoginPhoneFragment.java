@@ -76,12 +76,13 @@ public class LoginPhoneFragment extends BaseFragment implements View.OnClickList
             UserBiz.login(context, phone, password, new RequestHandle() {
                 @Override
                 public void onSuccess(ResponseBean result) {
+                    //登录成功保存token
                     String token = (String) result.getObject();
                     if (!StringUtil.isEmpty(token)){
                         TApplication.setToken(token);
                     }
 
-                    IntentUtil.gotoActivity(context, MainActivity.class);
+                    IntentUtil.gotoActivityAndFinish(context, MainActivity.class);
                 }
 
                 @Override

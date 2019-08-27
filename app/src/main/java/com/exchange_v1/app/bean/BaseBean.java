@@ -162,7 +162,7 @@ public abstract class BaseBean implements Serializable {
 				BaseBean bean = newInstance(cls, (String) responseBean.getObject());
 				responseBean.setObject(bean);
 			} catch (JSONException e) {
-				responseBean.setStatus(TApplication.context.getString(R.string.exception_local_json_code));
+				responseBean.setStatus(204);
 				responseBean.setInfo(TApplication.context.getString(R.string.exception_local_json_message));
 				e.printStackTrace();
 			}
@@ -175,7 +175,7 @@ public abstract class BaseBean implements Serializable {
 				BaseBean bean = newInstance(cls, new JSONObject(responseBean.getObject().toString()).getString(key));
 				responseBean.setObject(bean);
 			} catch (Exception e) {
-				responseBean.setStatus(TApplication.context.getString(R.string.exception_local_json_code));
+				responseBean.setStatus(204);
 				responseBean.setInfo(TApplication.context.getString(R.string.exception_local_json_message));
 				e.printStackTrace();
 			}
@@ -204,7 +204,7 @@ public abstract class BaseBean implements Serializable {
 			}
 			responseBean.setObject(toModelList(listStr, cls));
 		} catch (JSONException e) {
-			responseBean.setStatus(TApplication.context.getString(R.string.exception_local_json_code));
+			responseBean.setStatus(204);
 			responseBean.setInfo(TApplication.context.getString(R.string.exception_local_json_message));
 			e.printStackTrace();
 		}
@@ -228,7 +228,7 @@ public abstract class BaseBean implements Serializable {
 			String listStr = (String) responseBean.getObject();
 			responseBean.setObject(new ListBean(listStr, cls).getModelList());
 		} catch (JSONException e) {
-			responseBean.setStatus(TApplication.context.getString(R.string.exception_local_json_code));
+			responseBean.setStatus(204);
 			responseBean.setInfo(TApplication.context.getString(R.string.exception_local_json_message));
 			e.printStackTrace();
 		}
@@ -420,7 +420,7 @@ public abstract class BaseBean implements Serializable {
 				BaseBean bean = gsonInstance(cls, (String) responseBean.getObject());
 				responseBean.setObject(bean);
 			} catch (JSONException e) {
-				responseBean.setStatus(TApplication.context.getString(R.string.exception_local_json_code));
+				responseBean.setStatus(204);
 				responseBean.setInfo(TApplication.context.getString(R.string.exception_local_json_message));
 				e.printStackTrace();
 			}
@@ -437,7 +437,7 @@ public abstract class BaseBean implements Serializable {
 				BaseBean bean = gsonInstance(cls, new JSONObject(responseBean.getObject().toString()).getString(key));
 				responseBean.setObject(bean);
 			} catch (JSONException e) {
-				responseBean.setStatus(TApplication.context.getString(R.string.exception_local_json_code));
+				responseBean.setStatus(204);
 				responseBean.setInfo(TApplication.context.getString(R.string.exception_local_json_message));
 				e.printStackTrace();
 			}
@@ -485,7 +485,7 @@ public abstract class BaseBean implements Serializable {
 			}
 			responseBean.setObject(toGsonModelList(listStr, cls));
 		} catch (JSONException e) {
-			responseBean.setStatus(TApplication.context.getString(R.string.exception_local_json_code));
+			responseBean.setStatus(204);
 			responseBean.setInfo(TApplication.context.getString(R.string.exception_local_json_message));
 			e.printStackTrace();
 		}

@@ -54,6 +54,7 @@ public class NewsBaseBiz {
         postRequest(context, processMsg, cancelable, url, params, false, mhandle);
     }
 
+    //此处调用post请求
     public static void postRequest(final Context context,
                                    final String processMsg, boolean cancelable, final String url,
                                    final HashMap<String, String> params, boolean isEncrypt, final MyRequestHandle mhandle) {
@@ -76,7 +77,7 @@ public class NewsBaseBiz {
                 if (!TextUtils.isEmpty(processMsg)) {
                     ProcessDialogUtil.dismissDialog();
                 }
-                if (isSuccess(responseBean.getStatus())) {
+                if (isSuccess(""+responseBean.getStatus())) {
                     mhandle.onSuccess(responseBean);
                 } else {
                     mhandle.onFail(responseBean);
@@ -137,8 +138,7 @@ public class NewsBaseBiz {
                 MyHttpClient.post(url, params, handler);
             } catch (Exception e) {
                 ResponseBean responseBean = new ResponseBean();
-                responseBean.setStatus(TApplication.context
-                        .getString(R.string.exception_local_json_code));
+                responseBean.setStatus(204);
                 responseBean.setInfo(TApplication.context
                         .getString(R.string.exception_local_json_message));
                 mhandle.onFail(responseBean);
@@ -178,7 +178,7 @@ public class NewsBaseBiz {
                     ProcessDialogUtil.dismissDialog();
                 }
 
-                if (isSuccess(responseBean.getStatus())) {
+                if (isSuccess(""+responseBean.getStatus())) {
                     mhandle.onSuccess(responseBean);
                 } else {
                     mhandle.onFail(responseBean);
@@ -237,8 +237,7 @@ public class NewsBaseBiz {
                 MyHttpClient.post(url, BaseBiz.map2Requestparams(params), handler);
             } catch (Exception e) {
                 ResponseBean responseBean = new ResponseBean();
-                responseBean.setStatus(TApplication.context
-                        .getString(R.string.exception_local_json_code));
+                responseBean.setStatus(204);
                 responseBean.setInfo(TApplication.context
                         .getString(R.string.exception_local_json_message));
 
@@ -294,7 +293,7 @@ public class NewsBaseBiz {
                     ProcessDialogUtil.dismissDialog();
                 }
 
-                if (isSuccess(responseBean.getStatus())) {
+                if (isSuccess(""+responseBean.getStatus())) {
                     mhandle.onSuccess(responseBean);
                 } else {
                     mhandle.onFail(responseBean);
@@ -343,8 +342,7 @@ public class NewsBaseBiz {
             MyHttpClient.post(url, uploadFilePath, handler);
         } catch (Exception e) {
             ResponseBean responseBean = new ResponseBean();
-            responseBean.setStatus(TApplication.context
-                    .getString(R.string.exception_local_json_code));
+            responseBean.setStatus(204);
             responseBean.setInfo(TApplication.context
                     .getString(R.string.exception_local_json_message));
             // if (null != responseBody) {
@@ -379,20 +377,18 @@ public class NewsBaseBiz {
         try {
             operationJson = new JSONObject(result);
         } catch (JSONException e) {
-            responseBean.setStatus(TApplication.context
-                    .getString(R.string.exception_local_json_code));
+            responseBean.setStatus(204);
             responseBean.setInfo(TApplication.context
                     .getString(R.string.exception_local_json_message));
             e.printStackTrace();
         } catch (Exception e) {
-            responseBean.setStatus(TApplication.context
-                    .getString(R.string.exception_net_work_md5_code));
+            responseBean.setStatus(209);
             responseBean.setInfo(TApplication.context
                     .getString(R.string.exception_get_phone_md5_message));
             e.printStackTrace();
         }
         if (null != operationJson) {
-            responseBean.setStatus(operationJson.optString("code"));
+            responseBean.setStatus(operationJson.optInt("code"));
             responseBean.setInfo(operationJson.optString("msg"));
             responseBean.setObject(operationJson.optString("data"));
         }

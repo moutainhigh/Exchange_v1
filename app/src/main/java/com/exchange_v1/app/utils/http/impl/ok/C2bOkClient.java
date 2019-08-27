@@ -140,7 +140,7 @@ public class C2bOkClient implements IHttpMethod {
             @Override
             public void onFailure(Call call, IOException e) {
                 okResponseBean = new ResponseBean();
-                okResponseBean.setStatus(call.hashCode() + "");
+                okResponseBean.setStatus(call.hashCode());
                 okResponseBean.setInfo(TApplication.context.getString(R.string.exception_net_work_time_out_message));
                 HandlerUtil.runOnUI(new Runnable() {//切换到主线程
                     @Override
@@ -179,7 +179,7 @@ public class C2bOkClient implements IHttpMethod {
             @Override
             public void onFailure(Call call, IOException e) {
                 okResponseBean = new ResponseBean();
-                okResponseBean.setStatus(call.hashCode() + "");
+                okResponseBean.setStatus(call.hashCode());
                 okResponseBean.setInfo(TApplication.context.getString(R.string.exception_net_work_time_out_message));
                 HandlerUtil.runOnUI(new Runnable() {//切换到主线程
                     @Override
@@ -198,7 +198,7 @@ public class C2bOkClient implements IHttpMethod {
                 okResponseBean = new ResponseBean();
                 if (StringUtil.isEmpty(jsonStr)) {
                     okResponseBean = new ResponseBean();
-                    okResponseBean.setStatus(204 + "");
+                    okResponseBean.setStatus(204);
                     okResponseBean.setInfo(TApplication.context.getString(R.string.exception_net_work_time_out_message));
                     HandlerUtil.runOnUI(new Runnable() {//切换到主线程
                         @Override
@@ -213,7 +213,7 @@ public class C2bOkClient implements IHttpMethod {
                 HandlerUtil.runOnUI(new Runnable() {//切换到主线程中
                     @Override
                     public void run() {
-                        if ("200".equals(okResponseBean.getStatus())){
+                        if (200 == okResponseBean.getStatus()){
                             mHandler.onSuccess(okResponseBean);
                         }else {
                             mHandler.onFail(okResponseBean);
@@ -290,12 +290,12 @@ public class C2bOkClient implements IHttpMethod {
         Request.Builder builder = new Request.Builder()
                 .url(url)
                 .header("Accept-Language", Locale.getDefault().toString())
-                .header("encrypt", String.valueOf(isEncrypt))
+//                .header("encrypt", String.valueOf(isEncrypt))
                 .header("Connection", "Keep-Alive");
 
-        if (TApplication.iSOUTNET == 0) {
-            builder = builder.addHeader("Authorization", "Basic YndvaWw6YndvaWwxMjM=");
-        }
+//        if (TApplication.iSOUTNET == 0) {
+//            builder = builder.addHeader("Authorization", "Basic YndvaWw6YndvaWwxMjM=");
+//        }
 
         Request request = builder.post(okJsonRequestPram2(params.getUrlParams())).build();
         call = mOkHttpClient.newCall(request);

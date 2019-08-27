@@ -7,16 +7,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 
-
-import com.exchange_v1.app.base.TApplication;
-import com.exchange_v1.app.bean.BaseBean;
-import com.exchange_v1.app.bean.ListBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.config.ServerConfig;
 import com.exchange_v1.app.utils.HandlerUtil;
-import com.exchange_v1.app.utils.SpUtil;
-
-import org.json.JSONException;
 
 /**
  * 基础事务
@@ -194,133 +187,118 @@ public abstract class BaseTask implements Runnable {
 	 */
 	public abstract void onFail(ResponseBean result);
 
-	/**
-	 * 加载缓存列表
-	 * 
-	 * @version 1.0
-	 * @createTime 2014年4月19日,下午4:05:37
-	 * @updateTime 2014年4月19日,下午4:05:37
-	 * @createAuthor CodeApe
-	 * @updateAuthor CodeApe
-	 * @updateInfo (此处输入修改内容,若无修改可不写.)
-	 * 
-	 * @param method
-	 *            方法名
-	 * @param cls
-	 *            解析成的数据模型
-	 * @param fileKey
-	 *            SP数据缓存的filekey
-	 * @return 成功获取 返回解析后的数据 否则 null
-	 */
-	public ResponseBean loadListCache(String fileKey, String method,
-			Class<? extends BaseBean> cls) {
-		SpUtil spUtil = SpUtil.getSpUtil(fileKey, Context.MODE_PRIVATE);
-		String cacheJson = spUtil.getSPValue(method, null);
-		if (!TextUtils.isEmpty(cacheJson)) {
-			try {
-				ListBean mListBean = new ListBean(cacheJson, cls);
-				if (null != mListBean.getModelList()
-						&& mListBean.getModelList().size() > 0) {
-					ResponseBean bean = new ResponseBean(
-							ServerConfig.RESPONSE_STATUS_SUCCESS, "", mListBean);
-					return bean;
-				}
-			} catch (JSONException e) {
-				e.printStackTrace();
-				return null;
-			}
-		}
-		return null;
-	}
+//	/**
+//	 * 加载缓存列表
+//	 *
+//	 * @version 1.0
+//	 * @createTime 2014年4月19日,下午4:05:37
+//	 * @updateTime 2014年4月19日,下午4:05:37
+//	 * @createAuthor CodeApe
+//	 * @updateAuthor CodeApe
+//	 * @updateInfo (此处输入修改内容,若无修改可不写.)
+//	 *
+//	 * @param method
+//	 *            方法名
+//	 * @param cls
+//	 *            解析成的数据模型
+//	 * @param fileKey
+//	 *            SP数据缓存的filekey
+//	 * @return 成功获取 返回解析后的数据 否则 null
+//	 */
+//	public ResponseBean loadListCache(String fileKey, String method,
+//			Class<? extends BaseBean> cls) {
+//		SpUtil spUtil = SpUtil.getSpUtil(fileKey, Context.MODE_PRIVATE);
+//		String cacheJson = spUtil.getSPValue(method, null);
+//		if (!TextUtils.isEmpty(cacheJson)) {
+//			try {
+//				ListBean mListBean = new ListBean(cacheJson, cls);
+//				if (null != mListBean.getModelList()
+//						&& mListBean.getModelList().size() > 0) {
+//					ResponseBean bean = new ResponseBean(
+//							ServerConfig.RESPONSE_STATUS_SUCCESS, "", mListBean);
+//					return bean;
+//				}
+//			} catch (JSONException e) {
+//				e.printStackTrace();
+//				return null;
+//			}
+//		}
+//		return null;
+//	}
 
-	/**
-	 * 加载对象缓存数据
-	 * 
-	 * @version 1.0
-	 * @createTime 2014年4月19日,下午4:07:54
-	 * @updateTime 2014年4月19日,下午4:07:54
-	 * @createAuthor CodeApe
-	 * @updateAuthor CodeApe
-	 * @updateInfo (此处输入修改内容,若无修改可不写.)
-	 * 
-	 * @param fileKey
-	 *            sp数据缓存的filekey
-	 * @param method
-	 *            方法名
-	 * @param cls
-	 *            解析后的对象类
-	 * @return 解析后的对象 or null
-	 */
-	public ResponseBean loadObjectCache(String fileKey, String method,
-			Class<? extends BaseBean> cls) {
+//	/**
+//	 * 加载对象缓存数据
+//	 */
+//	public ResponseBean loadObjectCache(String fileKey, String method,
+//			Class<? extends BaseBean> cls) {
+//
+//		SpUtil spUtil = SpUtil.getSpUtil(fileKey, Context.MODE_PRIVATE);
+//		String cacheJson = spUtil.getSPValue(method, null);
+//		if (!TextUtils.isEmpty(cacheJson) && !"null".equals(cacheJson)) {
+//			try {
+//				return new ResponseBean(ServerConfig.RESPONSE_STATUS_SUCCESS,
+//						"", BaseBean.newInstance(cls, cacheJson));
+//			} catch (JSONException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		return null;
+//	}
 
-		SpUtil spUtil = SpUtil.getSpUtil(fileKey, Context.MODE_PRIVATE);
-		String cacheJson = spUtil.getSPValue(method, null);
-		if (!TextUtils.isEmpty(cacheJson) && !"null".equals(cacheJson)) {
-			try {
-				return new ResponseBean(ServerConfig.RESPONSE_STATUS_SUCCESS,
-						"", BaseBean.newInstance(cls, cacheJson));
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-		}
-		return null;
-	}
+//	/**
+//	 * 加载对象缓存数据
+//	 *
+//	 * @version 1.0
+//	 * @createTime 2014年4月19日,下午4:07:54
+//	 * @updateTime 2014年4月19日,下午4:07:54
+//	 * @createAuthor CodeApe
+//	 * @updateAuthor CodeApe
+//	 * @updateInfo (此处输入修改内容,若无修改可不写.)
+//	 *
+//	 * @param method
+//	 *            方法名
+//	 * @param cls
+//	 *            解析后的对象类
+//	 * @return 解析后的对象 or null
+//	 */
+//	public ResponseBean loadObjectCache(String method,
+//			Class<? extends BaseBean> cls) {
+//
+//		SpUtil spUtil = SpUtil.getSpUtil(TApplication.userInfoBean.getUserNo(),
+//				Context.MODE_PRIVATE);
+//		String cacheJson = spUtil.getSPValue(method, null);
+//		if (!TextUtils.isEmpty(cacheJson)) {
+//			try {
+//				return new ResponseBean(ServerConfig.RESPONSE_STATUS_SUCCESS,
+//						"", BaseBean.newInstance(cls, cacheJson));
+//			} catch (JSONException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		return null;
+//	}
 
-	/**
-	 * 加载对象缓存数据
-	 * 
-	 * @version 1.0
-	 * @createTime 2014年4月19日,下午4:07:54
-	 * @updateTime 2014年4月19日,下午4:07:54
-	 * @createAuthor CodeApe
-	 * @updateAuthor CodeApe
-	 * @updateInfo (此处输入修改内容,若无修改可不写.)
-	 * 
-	 * @param method
-	 *            方法名
-	 * @param cls
-	 *            解析后的对象类
-	 * @return 解析后的对象 or null
-	 */
-	public ResponseBean loadObjectCache(String method,
-			Class<? extends BaseBean> cls) {
-
-		SpUtil spUtil = SpUtil.getSpUtil(TApplication.userInfoBean.getUserNo(),
-				Context.MODE_PRIVATE);
-		String cacheJson = spUtil.getSPValue(method, null);
-		if (!TextUtils.isEmpty(cacheJson)) {
-			try {
-				return new ResponseBean(ServerConfig.RESPONSE_STATUS_SUCCESS,
-						"", BaseBean.newInstance(cls, cacheJson));
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * 从本地加载缓存
-	 * 
-	 * @version 1.0
-	 * @createTime 2014年4月22日,下午2:56:32
-	 * @updateTime 2014年4月22日,下午2:56:32
-	 * @createAuthor CodeApe
-	 * @updateAuthor CodeApe
-	 * @updateInfo (此处输入修改内容,若无修改可不写.)
-	 * 
-	 * @param object
-	 *            返回的缓存数据
-	 * @return 请求返回数据
-	 */
-	public ResponseBean loadObjectCache(Object object) {
-		if (null != object) {
-			return new ResponseBean(ServerConfig.RESPONSE_STATUS_SUCCESS, "",
-					object);
-		}
-		return null;
-	}
+//	/**
+//	 * 从本地加载缓存
+//	 *
+//	 * @version 1.0
+//	 * @createTime 2014年4月22日,下午2:56:32
+//	 * @updateTime 2014年4月22日,下午2:56:32
+//	 * @createAuthor CodeApe
+//	 * @updateAuthor CodeApe
+//	 * @updateInfo (此处输入修改内容,若无修改可不写.)
+//	 *
+//	 * @param object
+//	 *            返回的缓存数据
+//	 * @return 请求返回数据
+//	 */
+//	public ResponseBean loadObjectCache(Object object) {
+//		if (null != object) {
+//			return new ResponseBean(ServerConfig.RESPONSE_STATUS_SUCCESS, "",
+//					object);
+//		}
+//		return null;
+//	}
 
 	/**
 	 * 生成返回数据

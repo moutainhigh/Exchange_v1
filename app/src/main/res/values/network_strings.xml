@@ -9,6 +9,7 @@
     <string name="exception_net_work_json_code">203</string>
     <string name="exception_net_work_json_message">网络数据错误！</string>
     <string name="exception_local_json_code">204</string>
+    <!--<integer name="exception_local_json_code">204</integer>-->
     <string name="exception_local_json_message">本地转换数据异常！</string>
     <string name="exception_data_base_exist_code">205</string>
     <string name="exception_data_base_exist_message">已收藏了该数据!</string>

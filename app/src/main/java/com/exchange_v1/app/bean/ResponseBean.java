@@ -23,7 +23,7 @@ public class ResponseBean extends BaseBean {
 	 */
 	private static final long serialVersionUID = 1L;
 	/** 返回状态码 */
-	private String status;
+	private Integer status;
 	/** 返回消息 */
 	private String info;
 	/** 返回数据 */
@@ -69,7 +69,7 @@ public class ResponseBean extends BaseBean {
 	 * @param info 状态描述符
 	 * @param object 附带信息
 	 */
-	public ResponseBean(String status, String info, Object object) {
+	public ResponseBean(Integer status, String info, Object object) {
 		this.status = status;
 		this.info = info;
 		this.object = object;
@@ -77,16 +77,16 @@ public class ResponseBean extends BaseBean {
 
 	@Override
 	protected void init(JSONObject jSon) throws JSONException {
-		status = jSon.optString("status");
+		status = jSon.optInt("status");
 		info = jSon.optString("info");
 		object = jSon.optString("object");
 	}
 
-	public String getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 

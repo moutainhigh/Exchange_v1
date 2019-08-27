@@ -14,7 +14,7 @@ public class ServerConfig {
     /**
      * 请求接口数据成功状态码
      */
-    public static final String RESPONSE_STATUS_SUCCESS = "10000";
+    public static final String RESPONSE_STATUS_SUCCESS = "200";
     /**
      * 本地上传失败
      */
