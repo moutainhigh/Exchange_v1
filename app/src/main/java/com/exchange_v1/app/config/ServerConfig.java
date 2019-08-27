@@ -125,5 +125,21 @@ public class ServerConfig {
     //用户激活/缴纳押金
     public static String ACTIVE_API = SERVER_URL+"/agent/active";
 
+    //文件上传接口
+    public static String UPLOAD_API = SERVER_URL+"/file/upload";
+
+    //二维码绑定
+    public static String BIND_QRCODE_API = SERVER_URL+"/qrCode/upload";
+    //用户二维码列表
+    public static String QRCODE_LIST_API = SERVER_URL+"/qrCode/list";
+
+    //佣金提现
+    public static String BROKERAGE_API = SERVER_URL+"/withdraw/brokerage";
+    //跑分币提现
+    public static String INTEGRAL_API = SERVER_URL+"/withdraw/integral";
+    //提现列表
+    public static String WITHDRAW_PAGE_API = SERVER_URL+"/withdraw/page";
+    //钱包变动记录
+    public static String WALLETHISTORY_API = SERVER_URL+"/walletHistory/page";
 
 }
