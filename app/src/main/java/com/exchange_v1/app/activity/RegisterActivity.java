@@ -71,7 +71,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.tv_submit:
                 if (!ISDoubleClickUtils.isDoubleClick()) {//防止多次点击
-                    login();
+                    register();
                 }
                 break;
             case R.id.tv_send_msg:
@@ -95,14 +95,14 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
                 @Override
                 public void onFail(ResponseBean result) {
-                    ToastUtil.showToast(context,"短信下发失败");
+                    ToastUtil.showToast(context,result.getInfo());
                 }
             });
         }
 
     }
 
-    private void login() {
+    private void register() {
         String name = etName.getText().toString().trim();
         String id = etId.getText().toString().trim();
         String phone = etPhone.getText().toString().trim();
@@ -118,7 +118,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
             @Override
             public void onFail(ResponseBean result) {
-                ToastUtil.showToast(context,"注册失败！");
+                ToastUtil.showToast(context,result.getInfo());
             }
         });
     }

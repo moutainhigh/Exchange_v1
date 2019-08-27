@@ -16,6 +16,7 @@ import com.exchange_v1.app.config.ServerConfig;
 import com.exchange_v1.app.executor.ProcessDialogUtil;
 import com.exchange_v1.app.utils.DES3;
 import com.exchange_v1.app.utils.LogUtil;
+import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.UserInfoUtil;
 import com.exchange_v1.app.utils.http.AsyncRequestParams;
 import com.exchange_v1.app.utils.http.IResponseHandler;
@@ -374,6 +375,7 @@ public class NewsBaseBiz {
 //                decode = decode.substring(decode.indexOf("{"), decode.length());
 //            }
 //            Logger.d("decode = "+decode);
+        Logger.d("backJson = "+result);
         try {
             operationJson = new JSONObject(result);
         } catch (JSONException e) {

@@ -213,7 +213,11 @@ public class C2bOkClient implements IHttpMethod {
                 HandlerUtil.runOnUI(new Runnable() {//切换到主线程中
                     @Override
                     public void run() {
-                        mHandler.onSuccess(okResponseBean);
+                        if ("200".equals(okResponseBean.getStatus())){
+                            mHandler.onSuccess(okResponseBean);
+                        }else {
+                            mHandler.onFail(okResponseBean);
+                        }
                     }
                 });
             }
