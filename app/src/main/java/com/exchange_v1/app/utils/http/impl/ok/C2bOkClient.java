@@ -47,6 +47,8 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import static com.exchange_v1.app.network.NewsBaseBiz.descResult;
+
 
 /**
  * Created by zhuwd on 2017/3/20.
@@ -205,7 +207,7 @@ public class C2bOkClient implements IHttpMethod {
                         }
                     });
                 } else {
-//                    descResult(jsonStr, okResponseBean, TApplication.getSecretKey());
+                    descResult(jsonStr, okResponseBean, TApplication.getSecretKey());
                 }
 
                 HandlerUtil.runOnUI(new Runnable() {//切换到主线程中

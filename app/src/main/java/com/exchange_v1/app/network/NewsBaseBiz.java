@@ -16,7 +16,6 @@ import com.exchange_v1.app.config.ServerConfig;
 import com.exchange_v1.app.executor.ProcessDialogUtil;
 import com.exchange_v1.app.utils.DES3;
 import com.exchange_v1.app.utils.LogUtil;
-import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.UserInfoUtil;
 import com.exchange_v1.app.utils.http.AsyncRequestParams;
 import com.exchange_v1.app.utils.http.IResponseHandler;
@@ -26,7 +25,6 @@ import org.apache.http.entity.StringEntity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -367,22 +365,17 @@ public class NewsBaseBiz {
      */
     public static void descResult(String result, ResponseBean responseBean, String signValue) {
         JSONObject operationJson = null;
-        String decode;
+//        String decode;
+//        try {
+//            decode = DES3.decode(result, signValue);// 请求返回的数据字符串进行解密
+//            // 返回的字符串不能进行json解析，故添加这样的处理
+//            int index = decode.indexOf("{");
+//            if (index >= 0) {
+//                decode = decode.substring(decode.indexOf("{"), decode.length());
+//            }
+//            Logger.d("decode = "+decode);
         try {
-            decode = DES3.decode(result, signValue);// 请求返回的数据字符串进行解密
-            // 返回的字符串不能进行json解析，故添加这样的处理
-            int index = decode.indexOf("{");
-            if (index >= 0) {
-                decode = decode.substring(decode.indexOf("{"), decode.length());
-            }
-            Logger.d("decode = "+decode);
-            operationJson = new JSONObject(decode);
-        } catch (IOException e) {
-            responseBean.setStatus(TApplication.context
-                    .getString(R.string.exception_net_work_md5_code));
-            responseBean.setInfo(TApplication.context
-                    .getString(R.string.exception_get_phone_md5_message));
-            e.printStackTrace();
+            operationJson = new JSONObject(result);
         } catch (JSONException e) {
             responseBean.setStatus(TApplication.context
                     .getString(R.string.exception_local_json_code));
@@ -397,8 +390,8 @@ public class NewsBaseBiz {
             e.printStackTrace();
         }
         if (null != operationJson) {
-            responseBean.setStatus(operationJson.optString("status"));
-            responseBean.setInfo(operationJson.optString("info"));
+            responseBean.setStatus(operationJson.optString("code"));
+            responseBean.setInfo(operationJson.optString("msg"));
             responseBean.setObject(operationJson.optString("data"));
         }
     }

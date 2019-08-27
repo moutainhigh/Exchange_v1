@@ -11,6 +11,7 @@ import com.exchange_v1.app.biz.UserBiz;
 import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.ISDoubleClickUtils;
 import com.exchange_v1.app.utils.IntentUtil;
+import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
 
 //注册页面
@@ -82,6 +83,22 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void sendCode() {
+        String phone = etPhone.getText().toString().trim();
+        if (StringUtil.isEmpty(phone)){
+            ToastUtil.showToast(context,"手机号不能为空");
+        }else {
+            UserBiz.sendMSG(context, phone, new RequestHandle() {
+                @Override
+                public void onSuccess(ResponseBean result) {
+                    ToastUtil.showToast(context,"短信发送成功");
+                }
+
+                @Override
+                public void onFail(ResponseBean result) {
+                    ToastUtil.showToast(context,"短信下发失败");
+                }
+            });
+        }
 
     }
 
