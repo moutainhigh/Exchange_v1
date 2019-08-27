@@ -1,6 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+    <com.exchange_v1.app.view.TitleView
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/et_qq"
+        style="@style/register_edit_input"
+        android:layout_marginTop="16dp"
+        android:hint="QQ" />
+
+    <EditText
+        android:id="@+id/et_phone"
+        style="@style/register_edit_input"
+        android:layout_marginTop="16dp"
+        android:hint="手机号" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="23dp"
+        android:textColor="#878C8FFF"
+        android:textSize="13sp"
+        android:text="您的余额不足 10,000 DDB，请先"/>
+
+    <TextView
+        android:id="@+id/tv_submit"
+        style="@style/default_btn"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="30dp"
+        android:text="我要申请"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="21dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#627176"
+            android:textSize="13sp"
+            android:text="服务说明："/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:textColor="#627176"
+            android:textSize="11sp"
+            android:text="1.卖币：为搬运工提供充值上币的服务，按照交易额*0.1%,
+买币：为商户提供体现服务。每笔10币。"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:textColor="#627176"
+            android:textSize="11sp"
+            android:text="2.充值服务商需要缴纳5万币保证金，可退。申请时间账户余
+额必须大于5万币。"/>
+
+    </LinearLayout>
+
+</LinearLayout>
