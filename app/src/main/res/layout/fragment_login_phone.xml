@@ -42,6 +42,7 @@
         android:id="@+id/et_passworld"
         style="@style/register_edit_input"
         android:layout_marginTop="5dp"
+        android:inputType="textPassword"
         android:hint="密码" />
 
     <TextView
