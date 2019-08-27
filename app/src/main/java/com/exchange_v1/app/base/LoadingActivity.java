@@ -7,7 +7,6 @@ import android.text.TextUtils;
 
 import com.exchange_v1.R;
 import com.exchange_v1.app.activity.AddLoadingActivity;
-import com.exchange_v1.app.activity.LoginActivity;
 import com.exchange_v1.app.bean.AddLoadBean;
 import com.exchange_v1.app.bean.LoginBean;
 import com.exchange_v1.app.bean.ResponseBean;
@@ -145,7 +144,7 @@ public class LoadingActivity extends BaseActivity {
             @Override
             public void run() {
                 IntentUtil.gotoActivityAndFinish(LoadingActivity.this,
-                        LoginActivity.class);
+                        MainActivity.class);
             }
         }, 1000);
     }

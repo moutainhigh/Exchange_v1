@@ -1,16 +1,20 @@
 package com.exchange_v1.app.activity;
 
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.exchange_v1.R;
 import com.exchange_v1.app.base.BaseActivity;
 
 //申请搬运代理
 public class ApplyCarryActivity extends BaseActivity implements View.OnClickListener {
-    @Override
-    public void onClick(View v) {
-
-    }
+    private EditText etQq;
+    private EditText etPhone;
+    private EditText etEmail;
+    private EditText etPassword;
+    private EditText etBalance;
+    private TextView tvSubmit;
 
     @Override
     protected int getContentViewId() {
@@ -19,12 +23,19 @@ public class ApplyCarryActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected void findViews() {
+        etQq = (EditText) findViewById(R.id.et_qq);
+        etPhone = (EditText) findViewById(R.id.et_phone);
+        etEmail = (EditText) findViewById(R.id.et_email);
+        etPassword = (EditText) findViewById(R.id.et_password);
+        etBalance = (EditText) findViewById(R.id.et_balance);
+        tvSubmit = (TextView) findViewById(R.id.tv_submit);
 
     }
 
     @Override
     protected void initGetData() {
-
+        titleView.setBackBtn();
+        titleView.setTitle("申请搬运代理");
     }
 
     @Override
@@ -34,6 +45,11 @@ public class ApplyCarryActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected void init() {
+
+    }
+
+    @Override
+    public void onClick(View v) {
 
     }
 }
