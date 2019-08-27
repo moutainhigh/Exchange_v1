@@ -1,12 +1,19 @@
 package com.exchange_v1.app.fragment;
 
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.exchange_v1.R;
 import com.exchange_v1.app.activity.ForgetPwdActivity;
 import com.exchange_v1.app.base.BaseFragment;
+import com.exchange_v1.app.base.MainActivity;
+import com.exchange_v1.app.base.TApplication;
+import com.exchange_v1.app.bean.ResponseBean;
+import com.exchange_v1.app.biz.UserBiz;
+import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.IntentUtil;
+import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
 
 public class LoginPhoneFragment extends BaseFragment implements View.OnClickListener {
@@ -14,6 +21,8 @@ public class LoginPhoneFragment extends BaseFragment implements View.OnClickList
 
     private TextView tvSubmit;
     private TextView tvForgetPwd;
+    private EditText etPhone;
+    private EditText etPassworld;
 
     @Override
     protected int getContentViewId() {
@@ -24,6 +33,8 @@ public class LoginPhoneFragment extends BaseFragment implements View.OnClickList
     protected void findViews() {
         tvSubmit = view_Parent.findViewById(R.id.tv_submit);
         tvForgetPwd = view_Parent.findViewById(R.id.tv_forgetPwd);
+        etPhone = view_Parent.findViewById(R.id.et_phone);
+        etPassworld = view_Parent.findViewById(R.id.et_passworld);
     }
 
     @Override
@@ -46,13 +57,38 @@ public class LoginPhoneFragment extends BaseFragment implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_submit:
-                ToastUtil.showToast(thisA, "请求登录接口...");
+                login();
                 break;
             case R.id.tv_forgetPwd:
                 IntentUtil.gotoActivity(thisA, ForgetPwdActivity.class);
                 break;
             default:
                 break;
+        }
+    }
+
+    private void login() {
+        String phone = etPhone.getText().toString().trim();
+        String password = etPassworld.getText().toString().trim();
+        if (StringUtil.isEmpty(phone)||StringUtil.isEmpty(password)){
+            ToastUtil.showToast(context,"账号密码不能为空");
+        }else {
+            UserBiz.login(context, phone, password, new RequestHandle() {
+                @Override
+                public void onSuccess(ResponseBean result) {
+                    String token = (String) result.getObject();
+                    if (!StringUtil.isEmpty(token)){
+                        TApplication.setToken(token);
+                    }
+
+                    IntentUtil.gotoActivity(context, MainActivity.class);
+                }
+
+                @Override
+                public void onFail(ResponseBean result) {
+                    ToastUtil.showToast(context,result.getInfo());
+                }
+            });
         }
     }
 }
