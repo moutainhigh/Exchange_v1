@@ -48,4 +48,91 @@ public class UserBiz extends BaseBiz{
 
                 });
     }
+
+    //短信发送接口
+    public static void sendMSG(Context context, String mobile, final MyRequestHandle mhandle) {
+
+        HashMap<String, String> params = getPostHeadMap();
+        params.put("mobile", mobile);
+
+        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.SEND_MSG_API,
+                params, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean responseBean) {
+                        mhandle.onSuccess(responseBean);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean responseBean) {
+                        mhandle.onFail(responseBean);
+                    }
+
+                });
+    }
+
+    //用户登录
+    public static void login(Context context, String mobile,String password, final MyRequestHandle mhandle) {
+
+        HashMap<String, String> params = getPostHeadMap();
+        params.put("mobile", mobile);
+        params.put("password", password);
+
+        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.LOGIN_API,
+                params, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean responseBean) {
+                        mhandle.onSuccess(responseBean);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean responseBean) {
+                        mhandle.onFail(responseBean);
+                    }
+
+                });
+    }
+
+    //银行卡四要素验证
+    public static void bankValid(Context context, String bankNo,String cardName,String cardNo, final MyRequestHandle mhandle) {
+
+        HashMap<String, String> params = getPostHeadMap();
+        params.put("bankNo", bankNo);
+        params.put("cardName", cardName);
+        params.put("cardNo", cardNo);
+
+        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.BANKVALID_API,
+                params, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean responseBean) {
+                        mhandle.onSuccess(responseBean);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean responseBean) {
+                        mhandle.onFail(responseBean);
+                    }
+
+                });
+    }
+
+    //用户激活/缴纳押金
+    public static void active(Context context, final MyRequestHandle mhandle) {
+
+        HashMap<String, String> params = getPostHeadMap();
+
+        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.ACTIVE_API,
+                params, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean responseBean) {
+                        mhandle.onSuccess(responseBean);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean responseBean) {
+                        mhandle.onFail(responseBean);
+                    }
+
+                });
+    }
+
 }
