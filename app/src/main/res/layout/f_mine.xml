@@ -20,17 +20,240 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="165dp"
+                android:background="@mipmap/mine_bg">
+
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="19dp"
+                    android:background="@mipmap/mine_red_top"
+                    android:layout_marginTop="25dp"
+                    android:text="禁止接单"/>
+
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="19dp"
+                    android:background="@mipmap/mine_yellow_top"
+                    android:layout_marginTop="44dp"
+                    android:text="正常发单"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="21dp"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="16dp"
+                    android:layout_centerVertical="true"
+                    android:text="风沙漠"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID:50217"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="103dp"
+                    />
+                
+                <LinearLayout
+                    android:layout_width="96dp"
+                    android:layout_height="29dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:background="@mipmap/mine_white_corn">
+
+                    <TextView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:background="@mipmap/mine_top_right_icon"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="激活账户"/>
+                    
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <!-- 游戏币 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="133dp"
+                android:layout_marginTop="-23dp"
+                android:background="@drawable/shape_ac_input"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginTop="23dp"
+                    android:textSize="12sp"
+                    android:text="游戏币"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginTop="44dp"
+                    android:textSize="12sp"
+                    android:text="DDB"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="19dp"
+                    android:layout_marginTop="23dp"
+                    android:textSize="11sp"
+                    android:text="DDB 1:1 CNY"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginBottom="24dp"
+                    android:textSize="30sp"
+                    android:text="0.00"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="19dp"
+                    android:layout_marginBottom="24dp"
+                    android:textColor="@color/blue"
+                    android:textSize="13sp"
+                    android:text="明细"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="@drawable/shape_ac_input"
+                android:gravity="center_vertical"
+                android:layout_marginTop="11dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="历史订单"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_gray"
+                    android:layout_marginLeft="19dp"/>
+
+                <TextView
+                    android:layout_width="8dp"
+                    android:layout_height="14dp"
+                    android:layout_marginRight="19dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@mipmap/right_attr"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/shape_ac_input"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="@dimen/dp_23"
+                        android:layout_height="@dimen/dp_23"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="22dp"
+                        android:background="@mipmap/mine1"/>
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="申请服务商"
+                        android:layout_marginLeft="13dp"
+                        android:textSize="13sp"/>
+                    
+                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="27dp"
+                    android:layout_gravity="center"
+                    android:background="@color/comment_gray"
+                    />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="@dimen/dp_23"
+                        android:layout_height="@dimen/dp_23"
+                        android:layout_marginLeft="35dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@mipmap/mine2"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="申请服务商"
+                        android:layout_marginLeft="13dp"
+                        android:textSize="13sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 必备工具 -->
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/dp_10"
-                android:ellipsize="end"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textSize="@dimen/sp_15"
-                android:text="我的页面"
-                tools:text="张三"/>
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
+            <View
+                style="@style/default_view_line"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
+
+            
+            <!-- 设置 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/shape_ac_input">
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:textColor="@color/red"
+                android:gravity="center"
+                android:text="退出登录"
+                android:background="@drawable/shape_ac_input"/>
 
         </LinearLayout>
 
