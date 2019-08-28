@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="16dp"
+        android:textSize="13sp"
+        android:text="充值账号"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_height="42dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:gravity="center"
+            android:text="个人账号"
+            android:textSize="13sp"
+            android:layout_weight="1"/>
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:gravity="center"
+            android:text="个人账号"
+            android:textSize="13sp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:layout_marginLeft="16dp"
+        android:textColor="@color/text_gray"
+        android:textSize="13sp"
+        android:text="充值金额"/>
+
+    <EditText
+        android:id="@+id/et_money"
+        style="@style/register_edit_input"
+        android:layout_marginTop="16dp"
+        android:hint="昵称" />
+
+    <EditText
+        android:id="@+id/et_account"
+        style="@style/register_edit_input"
+        android:layout_marginTop="16dp"
+        android:hint="昵称" />
+
+    <TextView
+        android:id="@+id/tv_submit"
+        style="@style/default_btn"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="40dp"
+        android:text="确认"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="21dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F93A50"
+            android:textSize="13sp"
+            android:text="注意事项："/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:textColor="#F93A50"
+            android:textSize="11sp"
+            android:text="汇款时禁止填写附言和留言信息！所有带附言
+和留言的汇款可能无法到账。"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:textColor="#F93A50"
+            android:textSize="11sp"
+            android:text="请严格使用选择的汇款卡进行汇款，使用其他
+卡号汇款的资金损失概不负责。"/>
+
+    </LinearLayout>
+
+</LinearLayout>
