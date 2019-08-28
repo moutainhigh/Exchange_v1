@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+    <com.exchange_v1.app.view.TitleView
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.flyco.tablayout.SlidingTabLayout
+        android:id="@+id/tl"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/white"
+        tl:tl_divider_color="#00000000"
+        tl:tl_indicator_color="@color/blue"
+        tl:tl_indicator_height="1.5dp"
+        tl:tl_indicator_width="123dp"
+        tl:tl_tab_space_equal="true"
+        tl:tl_textSelectColor="@color/blue"
+        tl:tl_textUnselectColor="#BFBFBFFF"
+        tl:tl_textsize="16dp"
+        tl:tl_underline_color="#00000000" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>
