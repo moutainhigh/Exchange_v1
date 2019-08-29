@@ -1,14 +1,18 @@
 package com.exchange_v1.app.fragment;
 
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
+import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Toast;
 
 import com.exchange_v1.R;
+import com.exchange_v1.app.adapter.CashVpAdapter;
 import com.exchange_v1.app.base.BaseFragment;
+import com.flyco.tablayout.SlidingTabLayout;
 
+import java.util.ArrayList;
 
 
 /**
@@ -16,27 +20,56 @@ import com.exchange_v1.app.base.BaseFragment;
  */
 public class MainCashFragment extends BaseFragment implements OnClickListener {
 
-    private static final int CARMERA_REQUEST_CODE = 1;
+    private ArrayList<Fragment> mFragments = new ArrayList<>();
+    private CashVpAdapter mAdapter;
+    private int currentItem = 0;
 
     @Override
     protected View getViews() {
         return View.inflate(context, R.layout.f_cash, null);
     }
 
-
     @Override
     protected void findViews() {
+        mFragments.add(new CashFragment());
+        mFragments.add(new CashFragment());
+
+        ViewPager vp = getView(R.id.vp);
+        mAdapter = new CashVpAdapter(getFragmentManager(),mFragments);
+        vp.setOffscreenPageLimit(2);
+        vp.setAdapter(mAdapter);
+        vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
+
+        SlidingTabLayout tabLayout = getView(R.id.tl);
+        tabLayout.setViewPager(vp);
+        vp.setCurrentItem(currentItem);
     }
 
 
     @Override
-    protected void initGetData() {
+    public void initGetData() {
 
     }
-
 
     @Override
     protected void widgetListener() {
+    }
+
+    @Override
+    protected void init() {
+
     }
 
     @Override
@@ -44,40 +77,8 @@ public class MainCashFragment extends BaseFragment implements OnClickListener {
 
     }
 
-
-
     @Override
-    protected void init() {
+    protected void onReceive(Context context, Intent intent) {
+        super.onReceive(context, intent);
     }
-
-
-    //targetSdkVersion如果是23以下，调用ActivityCompat.requestPermissions()，会弹出权限选择对话框，但是选择拒绝授权，
-    // onRequestPermissionsResult中的返回值却是PERMISSION_GRANTED,但选择同意授权，会把应用关闭重新开启当前activity，而不会调用onRequestPermissionsResult中的方法，
-    // 所以不要在targetSdkVersion设置为23以下，又把complierSdkversion设置为23，这样会出现上述的问题。最好的方式是把targetSdkVersion也设置为23，就可以解决。一切完美运行
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        // NOTE: delegate the permission handling to generated method
-        if (requestCode == CARMERA_REQUEST_CODE && grantResults.length > 0) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission Granted
-//                scanReful();
-            } else {
-                // Permission Denied
-                Toast.makeText(getActivity(), "需要开启权限才能使用照相机功能", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-
-    }
-
-
-    @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-    }
-
-
-
-
 }
