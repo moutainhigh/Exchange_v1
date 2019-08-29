@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@color/dimgray_f5"
-              android:orientation="vertical">
-
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout
-        android:id="@+id/main_mine_refresh_layout"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srlHeaderHeight="80dp"
-        app:srlPrimaryColor="@color/common_assist_bg_color">
+              >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -226,22 +218,309 @@
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"/>
+                android:layout_marginRight="16dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="22dp"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/shape_ac_input"
+                android:textSize="13sp"
+                android:text="必备工具"/>
             <View
                 style="@style/default_view_line"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"/>
 
-            
+            <!-- 第一行 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:paddingBottom="17dp"
+                android:paddingTop="17dp"
+                android:background="@drawable/shape_ac_input"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@mipmap/mine11"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:textSize="11sp"
+                        android:text="设备绑定"/>
+                    
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@mipmap/mine12"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:textSize="11sp"
+                        android:text="银行卡"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@mipmap/mine13"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:textSize="11sp"
+                        android:text="支付宝"/>
+
+                </LinearLayout>
+            </LinearLayout>
+            <!-- 第二行 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:paddingBottom="17dp"
+                android:paddingTop="17dp"
+                android:background="@drawable/shape_ac_input"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@mipmap/mine14"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:textSize="11sp"
+                        android:text="微信"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@mipmap/mine15"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:textSize="11sp"
+                        android:text="QQ"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@mipmap/mine16"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:textSize="11sp"
+                        android:text="云闪付"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 第三行 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="11dp"
+                android:paddingBottom="17dp"
+                android:paddingTop="17dp"
+                android:background="@drawable/shape_ac_input"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@mipmap/mine21"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:textSize="11sp"
+                        android:text="实名验证"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@mipmap/mine22"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:textSize="11sp"
+                        android:text="谷歌验证"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@mipmap/mine1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="23dp"
+                        android:textSize="11sp"
+                        android:text="位置及同城匹配"/>
+
+                </LinearLayout>
+            </LinearLayout>
+            <!-- 第四行 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:paddingBottom="17dp"
+                android:paddingTop="17dp"
+                android:background="@drawable/shape_ac_input"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@mipmap/mine24"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:textSize="11sp"
+                        android:text="邮箱认证"/>
+
+                </LinearLayout>
+
+                <!-- 占位 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="2">
+                </LinearLayout>
+
+            </LinearLayout>
+
             <!-- 设置 -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
+                android:background="@drawable/shape_ac_input"
+                android:gravity="center_vertical"
                 android:layout_marginTop="11dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:background="@drawable/shape_ac_input">
+                android:layout_marginRight="16dp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="设置"
+                    android:textSize="13sp"
+                    android:textColor="#878C8FFF"
+                    android:layout_marginLeft="19dp"/>
+
+                <TextView
+                    android:layout_width="8dp"
+                    android:layout_height="14dp"
+                    android:layout_marginRight="19dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@mipmap/right_attr"/>
             </RelativeLayout>
 
             <TextView
@@ -250,6 +529,7 @@
                 android:layout_marginTop="21dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:layout_marginBottom="20dp"
                 android:textColor="@color/red"
                 android:gravity="center"
                 android:text="退出登录"
@@ -257,5 +537,4 @@
 
         </LinearLayout>
 
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
-</LinearLayout>
+</ScrollView>
