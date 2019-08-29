@@ -151,6 +151,13 @@
             android:screenOrientation="portrait"
             android:theme="@style/CommActTheme"/>
 
+        <!-- 测试页面UI -->
+        <activity
+            android:name=".app.activity.demoActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommActTheme"/>
+
         <!-- =========================================极光推送部分=========================================== -->
         <!-- Required  SDK核心功能 -->
         <service
