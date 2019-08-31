@@ -11,11 +11,9 @@ import com.exchange_v1.app.bean.AddLoadBean;
 import com.exchange_v1.app.bean.LoginBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.bean.UserInfoBean;
-import com.exchange_v1.app.utils.CheckAppRoot;
 import com.exchange_v1.app.utils.FinishPrograme;
 import com.exchange_v1.app.utils.IntentUtil;
 import com.exchange_v1.app.utils.SpUtil;
-import com.exchange_v1.app.utils.ToastUtil;
 import com.exchange_v1.app.utils.UserInfoUtil;
 
 
@@ -64,10 +62,10 @@ public class LoadingActivity extends BaseActivity {
         if (TApplication.needSafe) {
             new FinishPrograme(context).exitPrograme();
         }
-        //检查手机是否已经被ROOT
-        if (CheckAppRoot.checkAppRoot()){
-            ToastUtil.showToast(this,"检测到您的手机已经root，为了您的账户安全，请避免在高风险环境下操作");
-        }
+//        //检查手机是否已经被ROOT
+//        if (CheckAppRoot.checkAppRoot()){
+//            ToastUtil.showToast(this,"检测到您的手机已经root，为了您的账户安全，请避免在高风险环境下操作");
+//        }
     }
 
 
