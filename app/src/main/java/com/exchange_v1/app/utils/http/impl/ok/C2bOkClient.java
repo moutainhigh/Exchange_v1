@@ -268,13 +268,10 @@ public class C2bOkClient implements IHttpMethod {
                 .header("Accept-Language", Locale.getDefault().toString())
                 .header("Connection", "Keep-Alive");
 
-        if (TApplication.iSOUTNET == 0) {
-            builder = builder.addHeader("Authorization", "Basic YndvaWw6YndvaWwxMjM=");
+        if (!TextUtils.isEmpty(TApplication.getToken())) {
+            builder = builder.addHeader("Authorization", TApplication.getToken());
         }
 
-        if (!TextUtils.isEmpty(TApplication.getToken())) {
-            builder = builder.addHeader("bwoil-token", TApplication.getToken());
-        }
         Request request = builder.post(null).build();
         call = mOkHttpClient.newCall(request);
         call.enqueue(getC2bCallback(callback));
@@ -293,9 +290,9 @@ public class C2bOkClient implements IHttpMethod {
 //                .header("encrypt", String.valueOf(isEncrypt))
                 .header("Connection", "Keep-Alive");
 
-//        if (TApplication.iSOUTNET == 0) {
-//            builder = builder.addHeader("Authorization", "Basic YndvaWw6YndvaWwxMjM=");
-//        }
+        if (!TextUtils.isEmpty(TApplication.getToken())) {
+            builder = builder.addHeader("Authorization", TApplication.getToken());
+        }
 
         Request request = builder.post(okJsonRequestPram2(params.getUrlParams())).build();
         call = mOkHttpClient.newCall(request);
@@ -321,12 +318,12 @@ public class C2bOkClient implements IHttpMethod {
                 .header("Content-Type", "multipart/form-data")
                 .header("Connection", "Keep-Alive");
 
-        if (TApplication.iSOUTNET == 0) {
-            builder = builder.addHeader("Authorization", "Basic YndvaWw6YndvaWwxMjM=");
-        }
+//        if (TApplication.iSOUTNET == 0) {
+//            builder = builder.addHeader("Authorization", "Basic YndvaWw6YndvaWwxMjM=");
+//        }
 
         if (!TextUtils.isEmpty(TApplication.getToken())) {
-            builder = builder.addHeader("bwoil-token", TApplication.getToken());
+            builder = builder.addHeader("Authorization", TApplication.getToken());
         }
 
         File files = new File(path);

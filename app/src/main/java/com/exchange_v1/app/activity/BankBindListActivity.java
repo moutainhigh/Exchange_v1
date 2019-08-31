@@ -67,15 +67,15 @@ public class BankBindListActivity extends BaseActivity implements View.OnClickLi
 
     private List<EqueitmentBindBean> getData() {
         List<EqueitmentBindBean> list = new ArrayList<>();
-//        for (int i = 0; i < 10; i++) {
-//            EqueitmentBindBean bean = new EqueitmentBindBean();
-//            bean.setBankName("建设银行"+i);
-//            bean.setBankStatus("已审核"+i);
-//            bean.setName("猪猪侠"+i);
-//            bean.setBankCard("123123123123_"+i);
-//            bean.setMoney("123_"+i);
-//            list.add(bean);
-//        }
+        for (int i = 0; i < 1; i++) {
+            EqueitmentBindBean bean = new EqueitmentBindBean();
+            bean.setBankName("建设银行"+i);
+            bean.setBankStatus("已审核"+i);
+            bean.setName("猪猪侠"+i);
+            bean.setBankCard("123123123123_"+i);
+            bean.setMoney("123_"+i);
+            list.add(bean);
+        }
         return list;
     }
 
@@ -84,7 +84,6 @@ public class BankBindListActivity extends BaseActivity implements View.OnClickLi
         switch (v.getId()) {
             case R.id.ll_add_view:
                 IntentUtil.gotoActivity(context,BankAddActivity.class);
-                ToastUtil.showToast(context,"绑定银行卡按钮");
                 break;
             default:
                 break;
