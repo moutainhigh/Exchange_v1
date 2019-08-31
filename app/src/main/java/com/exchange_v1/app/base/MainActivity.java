@@ -65,22 +65,12 @@ public class MainActivity extends BaseFragmentActivity {
      * 当前实体类
      */
     private Class<? extends Activity> c = this.getClass();
-    /**
-     * 云储油
-     */
-    private MyRadioView radio_cloud_oil;
-    /**
-     * 推荐有奖
-     */
-    private MyRadioView radio_recommend;
-    /**
-     * 我的账户
-     */
+
+    private MyRadioView radio_recharge;
+    private MyRadioView radio_cash;
     private MyRadioView radio_mine;
-    /**
-     * 加油服务
-     */
-    private MyRadioView radio_refuel;
+    private MyRadioView radio_home;
+
     /**
      * 当前选择项
      */
@@ -91,9 +81,7 @@ public class MainActivity extends BaseFragmentActivity {
      * 当前显示的Fragment
      */
     private int current_Fragment = -1;
-    /**
-     * 主页 （2.7版本主页变成加油页面）
-     */
+
     public final static int FRAGMENT_HOME = 0;
     //	/** 加油服务 */
     //	public final static int FRAGMENT_OIL = 1;
@@ -122,7 +110,7 @@ public class MainActivity extends BaseFragmentActivity {
     /**
      * 加油服务fragment
      */
-    private MainRechargeFragment fragment_oil;
+    private MainRechargeFragment fragment_recharge;
     /** 菜单fragment */
     //	private MenuFragment menuFragment;
     /** 有奖分享fragment */
@@ -130,7 +118,7 @@ public class MainActivity extends BaseFragmentActivity {
     /**
      * 底部第三个Tab点击的内容
      */
-    private MainCashFragment tabThirdF;
+    private MainCashFragment fragment_cash;
     /** 油价走势fragment */
     //	private OilPriceFragment fragment_oilPrice;
 
@@ -173,10 +161,10 @@ public class MainActivity extends BaseFragmentActivity {
         setStatusBarFullTransparent();
         setFitSystemWindow(false);
 
-        radio_cloud_oil = (MyRadioView) findViewById(R.id.main_radio_recharge);
-        radio_recommend = (MyRadioView) findViewById(R.id.main_radio_cash);
+        radio_recharge = (MyRadioView) findViewById(R.id.main_radio_recharge);
+        radio_cash = (MyRadioView) findViewById(R.id.main_radio_cash);
         radio_mine = (MyRadioView) findViewById(R.id.main_radio_mine);
-        radio_refuel = (MyRadioView) findViewById(R.id.main_radio_home);
+        radio_home = (MyRadioView) findViewById(R.id.main_radio_home);
         view_slider = findViewById(R.id.view_slider);
         Intent intentmain = getIntent();
         LoadingActivity.hasMain = 1;
@@ -193,9 +181,9 @@ public class MainActivity extends BaseFragmentActivity {
         mHander = new Handler();
         SpUtil.getSpUtil().putSPValue(SpUtil.IS_APPRUNING, true);
         initFragment();
-        radio_refuel.setImgRes(R.mipmap.index, R.mipmap.index_c);
-        radio_refuel.setCheck(true);
-        radio_current = radio_refuel;
+        radio_home.setImgRes(R.mipmap.index, R.mipmap.index_c);
+        radio_home.setCheck(true);
+        radio_current = radio_home;
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view_slider
                 .getLayoutParams();
         layoutParams.width = getResources().getDisplayMetrics().widthPixels / 4;
@@ -260,10 +248,10 @@ public class MainActivity extends BaseFragmentActivity {
 
     @Override
     protected void widgetListener() {
-        radio_cloud_oil.setOnClickListener(radioClick);
-        radio_recommend.setOnClickListener(radioClick);
+        radio_recharge.setOnClickListener(radioClick);
+        radio_cash.setOnClickListener(radioClick);
         radio_mine.setOnClickListener(radioClick);
-        radio_refuel.setOnClickListener(radioClick);
+        radio_home.setOnClickListener(radioClick);
 
 
     }
@@ -271,25 +259,17 @@ public class MainActivity extends BaseFragmentActivity {
     /**
      * 初始化子模块
      *
-     * @version 1.0
-     * @createTime 2015年8月19日, 下午1:46:34
-     * @updateTime 2015年8月19日, 下午1:46:34
-     * @createAuthor gushiyong
-     * @updateAuthor gushiyong
-     * @updateInfo (此处输入修改内容, 若无修改可不写.)
      */
     private void initFragment() {
 
         fragment_home = new MainHomeFragment();
-        //		fragment_oilPrice = new OilPriceFragment();
-        //tabThirdF = new MainActivitiesFragment();
-        tabThirdF = new MainCashFragment();
+        fragment_recharge = new MainRechargeFragment();
+        fragment_cash = new MainCashFragment();
         fragment_mine = new MainMineFragment();
-        fragment_oil = new MainRechargeFragment();
 
         addFragment(fragment_home);
-        addFragment(fragment_oil);
-        addFragment(tabThirdF);
+        addFragment(fragment_recharge);
+        addFragment(fragment_cash);
         addFragment(fragment_mine);
 
         switchView(FRAGMENT_HOME);
