@@ -10,7 +10,12 @@ import com.exchange_v1.R;
 import com.exchange_v1.app.activity.BankBindListActivity;
 import com.exchange_v1.app.activity.LoginActivity;
 import com.exchange_v1.app.base.BaseFragment;
+import com.exchange_v1.app.bean.MineUserInfoBean;
+import com.exchange_v1.app.bean.ResponseBean;
+import com.exchange_v1.app.biz.UserBiz;
+import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.IntentUtil;
+import com.exchange_v1.app.utils.ToastUtil;
 
 
 /**
@@ -22,6 +27,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
     private TextView tvExitLogin;
     private LinearLayout llBank;
 
+    private MineUserInfoBean userBean;
     @Override
     protected View getViews() {
         return View.inflate(context, R.layout.f_mine, null);
@@ -52,7 +58,22 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
 
     @Override
     protected void init() {
+        getUserInfo();
+    }
 
+    private void getUserInfo() {
+        UserBiz.userInfo(context, new RequestHandle() {
+            @Override
+            public void onSuccess(ResponseBean result) {
+                userBean = (MineUserInfoBean) result.getObject();
+
+            }
+
+            @Override
+            public void onFail(ResponseBean result) {
+                ToastUtil.showToast(context,result.getInfo());
+            }
+        });
     }
 
     @Override

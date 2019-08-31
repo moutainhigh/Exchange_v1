@@ -126,6 +126,8 @@ public class ServerConfig {
     public static String ACTIVE_API = SERVER_URL+"/agent/active";
     //修改密码
     public static String RESET_PWD_API = SERVER_URL+"/agent/retrieve";
+    //用户信息
+    public static String USER_INFO_API = SERVER_URL+"/agent/info";
 
     //文件上传接口
     public static String UPLOAD_API = SERVER_URL+"/file/upload";

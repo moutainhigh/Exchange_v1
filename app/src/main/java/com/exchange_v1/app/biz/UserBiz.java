@@ -2,6 +2,8 @@ package com.exchange_v1.app.biz;
 
 import android.content.Context;
 
+import com.exchange_v1.app.bean.BaseBean;
+import com.exchange_v1.app.bean.MineUserInfoBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.config.ServerConfig;
 import com.exchange_v1.app.network.MyRequestHandle;
@@ -166,6 +168,29 @@ public class UserBiz extends BaseBiz{
                         mhandle.onFail(responseBean);
                     }
 
+                });
+    }
+
+    /**
+     * 请求用户信息
+     *
+     */
+    public static void userInfo(Context context, final MyRequestHandle mhandle) {
+
+        HashMap<String, String> params = getPostHeadMap();
+
+        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.USER_INFO_API,
+                params, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean responseBean) {
+                        BaseBean.setGsonResponseObject(responseBean, MineUserInfoBean.class);
+                        mhandle.onSuccess(responseBean);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean responseBean) {
+                        mhandle.onFail(responseBean);
+                    }
                 });
     }
 
