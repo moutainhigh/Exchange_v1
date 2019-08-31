@@ -1,12 +1,13 @@
 package com.exchange_v1.app.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.exchange_v1.R;
+import com.exchange_v1.app.activity.BankBindListActivity;
 import com.exchange_v1.app.activity.LoginActivity;
 import com.exchange_v1.app.base.BaseFragment;
 import com.exchange_v1.app.utils.IntentUtil;
@@ -19,6 +20,7 @@ import com.exchange_v1.app.utils.IntentUtil;
 public class MainMineFragment extends BaseFragment implements OnClickListener {
 
     private TextView tvExitLogin;
+    private LinearLayout llBank;
 
     @Override
     protected View getViews() {
@@ -28,6 +30,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
     @Override
     protected void findViews() {
         tvExitLogin = findViewById(R.id.tv_exit_login);
+        llBank = findViewById(R.id.ll_bank);
     }
 
 
@@ -39,6 +42,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
     @Override
     protected void widgetListener() {
         tvExitLogin.setOnClickListener(this);
+        llBank.setOnClickListener(this);
     }
 
     @Override
@@ -57,21 +61,11 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
             case R.id.tv_exit_login:
                 IntentUtil.gotoActivity(context, LoginActivity.class);
                 break;
+            case R.id.ll_bank:
+                IntentUtil.gotoActivity(context, BankBindListActivity.class);
+                break;
             default:
                 break;
-        }
-    }
-
-    @Override
-    protected void onReceive(Context context, Intent intent) {
-        super.onReceive(context, intent);
-    }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (!isHidden()) {
         }
     }
 

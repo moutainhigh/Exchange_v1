@@ -108,7 +108,7 @@
             android:theme="@style/CommActTheme"/>
         <!-- 设备绑定列表界面 -->
         <activity
-            android:name=".app.activity.EqueitmentBindListActivity"
+            android:name=".app.activity.BankBindListActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/CommActTheme"/>
@@ -154,6 +154,13 @@
         <!-- 测试页面UI -->
         <activity
             android:name=".app.activity.demoActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommActTheme"/>
+
+        <!-- 测试页面UI -->
+        <activity
+            android:name=".app.activity.BankAddActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/CommActTheme"/>

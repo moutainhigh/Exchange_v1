@@ -89,7 +89,7 @@ public class demoActivity extends BaseActivity implements View.OnClickListener{
                 IntentUtil.gotoActivity(context, EqueitmentAddActivity.class);
                 break;
             case R.id.tv_btn6:
-                IntentUtil.gotoActivity(context, EqueitmentBindListActivity.class);
+                IntentUtil.gotoActivity(context, BankBindListActivity.class);
                 break;
             case R.id.tv_btn7:
                 IntentUtil.gotoActivity(context, CoinDetailActivity.class);
