@@ -35,7 +35,7 @@ public class MainCashFragment extends BaseFragment implements OnClickListener {
         mFragments.add(new CashFragment());
 
         ViewPager vp = getView(R.id.vp);
-        mAdapter = new CashVpAdapter(getFragmentManager(),mFragments);
+        mAdapter = new CashVpAdapter(getChildFragmentManager(),mFragments);
         vp.setOffscreenPageLimit(1);
         vp.setAdapter(mAdapter);
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
