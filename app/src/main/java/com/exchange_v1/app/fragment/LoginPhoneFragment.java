@@ -1,6 +1,7 @@
 package com.exchange_v1.app.fragment;
 
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -16,13 +17,16 @@ import com.exchange_v1.app.utils.IntentUtil;
 import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
 
+/**
+ * 手机登录fragment
+ */
 public class LoginPhoneFragment extends BaseFragment implements View.OnClickListener {
-
 
     private TextView tvSubmit;
     private TextView tvForgetPwd;
     private EditText etPhone;
     private EditText etPassworld;
+    private CheckBox cbPhone;
 
     @Override
     protected int getContentViewId() {
@@ -31,10 +35,11 @@ public class LoginPhoneFragment extends BaseFragment implements View.OnClickList
 
     @Override
     protected void findViews() {
-        tvSubmit = view_Parent.findViewById(R.id.tv_submit);
-        tvForgetPwd = view_Parent.findViewById(R.id.tv_forgetPwd);
-        etPhone = view_Parent.findViewById(R.id.et_phone);
-        etPassworld = view_Parent.findViewById(R.id.et_passworld);
+        tvSubmit = findViewById(R.id.tv_submit);
+        tvForgetPwd = findViewById(R.id.tv_forgetPwd);
+        etPhone = findViewById(R.id.et_phone);
+        etPassworld = findViewById(R.id.et_passworld);
+        cbPhone = findViewById(R.id.cb_phone);
     }
 
     @Override
@@ -50,7 +55,15 @@ public class LoginPhoneFragment extends BaseFragment implements View.OnClickList
 
     @Override
     protected void init() {
-
+        //设置保存账号
+        String account = TApplication.getAccount();
+        if (!StringUtil.isEmpty(account)){
+            etPhone.setText(account);
+            cbPhone.setChecked(true);
+        }else {
+            etPhone.setText("");
+            cbPhone.setChecked(false);
+        }
     }
 
     @Override
@@ -68,7 +81,7 @@ public class LoginPhoneFragment extends BaseFragment implements View.OnClickList
     }
 
     private void login() {
-        String phone = etPhone.getText().toString().trim();
+        final String phone = etPhone.getText().toString().trim();
         String password = etPassworld.getText().toString().trim();
         if (StringUtil.isEmpty(phone)||StringUtil.isEmpty(password)){
             ToastUtil.showToast(context,"账号密码不能为空");
@@ -82,6 +95,9 @@ public class LoginPhoneFragment extends BaseFragment implements View.OnClickList
                         TApplication.setToken(token);
                     }
 
+                    if (cbPhone.isChecked()){
+                        TApplication.setAccount(phone);
+                    }
                     IntentUtil.gotoActivityAndFinish(context, MainActivity.class);
                 }
 

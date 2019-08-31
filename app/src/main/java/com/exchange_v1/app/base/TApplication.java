@@ -187,6 +187,8 @@ public class TApplication extends Application {
     //设备Id
     public static String deviceId;
     public static C2bLocationClient c2bLocationClient;
+    //保存的账号
+    public static String account = null;
     //	public static BDLocationUtil bdLocationUtil = null;
 
     @Override
@@ -543,4 +545,17 @@ public class TApplication extends Application {
             }
         });
     }
+
+    public static void setAccount(String account) {
+        TApplication.account = account;
+        SpUtil.getSpUtil().setObject(context, "account", account);
+    }
+
+    public static String getAccount() {
+        if (TextUtils.isEmpty(account)) {
+            account = (String) SpUtil.getSpUtil().getObject(context, "account");
+        }
+        return account;
+    }
+
 }
