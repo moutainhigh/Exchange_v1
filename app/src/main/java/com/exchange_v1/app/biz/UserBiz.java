@@ -49,11 +49,18 @@ public class UserBiz extends BaseBiz{
                 });
     }
 
-    //短信发送接口
-    public static void sendMSG(Context context, String mobile, final MyRequestHandle mhandle) {
+    /**
+     * 短信发送接口
+     * @param context
+     * @param mobile 手机号
+     * @param type 0注册，1找回密码
+     * @param mhandle 回调
+     */
+    public static void sendMSG(Context context, String mobile,String type, final MyRequestHandle mhandle) {
 
         HashMap<String, String> params = getPostHeadMap();
         params.put("mobile", mobile);
+        params.put("type", type);
 
         NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.SEND_MSG_API,
                 params, new RequestHandle() {

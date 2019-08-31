@@ -96,7 +96,7 @@ public class ForgetPwdActivity extends BaseActivity implements View.OnClickListe
         if (StringUtil.isEmpty(phone)){
             ToastUtil.showToast(context,"手机号不能为空");
         }else {
-            UserBiz.sendMSG(context, phone, new RequestHandle() {
+            UserBiz.sendMSG(context, phone,"1", new RequestHandle() {
                 @Override
                 public void onSuccess(ResponseBean result) {
                     ToastUtil.showToast(context,"短信发送成功");

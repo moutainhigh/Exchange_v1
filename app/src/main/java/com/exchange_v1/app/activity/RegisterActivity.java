@@ -87,7 +87,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         if (StringUtil.isEmpty(phone)){
             ToastUtil.showToast(context,"手机号不能为空");
         }else {
-            UserBiz.sendMSG(context, phone, new RequestHandle() {
+            UserBiz.sendMSG(context, phone,"0", new RequestHandle() {
                 @Override
                 public void onSuccess(ResponseBean result) {
                     ToastUtil.showToast(context,"短信发送成功");
