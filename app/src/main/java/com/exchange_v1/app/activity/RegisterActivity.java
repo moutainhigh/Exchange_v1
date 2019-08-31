@@ -10,7 +10,6 @@ import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.UserBiz;
 import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.ISDoubleClickUtils;
-import com.exchange_v1.app.utils.IntentUtil;
 import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
 
@@ -67,7 +66,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_open_login:
-                IntentUtil.gotoActivity(context, LoginActivity.class);
+                finish();
+//                IntentUtil.gotoActivity(context, LoginActivity.class);
                 break;
             case R.id.tv_submit:
                 if (!ISDoubleClickUtils.isDoubleClick()) {//防止多次点击
@@ -114,6 +114,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             @Override
             public void onSuccess(ResponseBean result) {
                 ToastUtil.showToast(context,"注册成功！");
+                finish();
             }
 
             @Override
