@@ -34,7 +34,7 @@ public class MainRechargeFragment extends BaseFragment {
 
         ViewPager vp = getView(R.id.vp);
         mAdapter = new RechargeVpAdapter(getFragmentManager(),mFragments);
-        vp.setOffscreenPageLimit(2);
+        vp.setOffscreenPageLimit(1);
         vp.setAdapter(mAdapter);
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

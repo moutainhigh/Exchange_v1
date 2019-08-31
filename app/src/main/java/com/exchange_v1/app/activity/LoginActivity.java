@@ -40,7 +40,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
         ViewPager vp = getView(R.id.vp);
         mAdapter = new LoginAdapter(getSupportFragmentManager(),mFragments);
-        vp.setOffscreenPageLimit(2);
+        //预加载页面数，最小为1
+        vp.setOffscreenPageLimit(1);
         vp.setAdapter(mAdapter);
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

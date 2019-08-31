@@ -32,7 +32,7 @@ public class OrderListActivity extends BaseActivity implements View.OnClickListe
 
         ViewPager vp = getView(R.id.vp);
         mAdapter = new OrderVpAdapter(getSupportFragmentManager(),mFragments);
-        vp.setOffscreenPageLimit(3);
+        vp.setOffscreenPageLimit(2);
         vp.setAdapter(mAdapter);
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
