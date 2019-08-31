@@ -36,7 +36,6 @@ import android.widget.TextView;
 import com.exchange_v1.R;
 import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.UpdateBean;
-import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.config.FileConfig;
 import com.exchange_v1.app.config.RequestCode;
 import com.exchange_v1.app.view.CustomDialog;
@@ -793,8 +792,9 @@ public class DialogUtil {
                         //						 TApplication.clearToken();
                         TApplication.clearToken();
                         TApplication.IsOnTop = true;
-                        Intent intent = new Intent();
-                        intent.setAction(BroadcastFilters.ACTION_LGOIN_LOGOUT);
+
+//                        Intent intent = new Intent();
+//                        intent.setAction(BroadcastFilters.ACTION_LGOIN_LOGOUT);
                         //TApplication.context.sendBroadcast(intent);
 //                        Util.sendBroadcast(context, intent);
 

@@ -135,4 +135,31 @@ public class UserBiz extends BaseBiz{
                 });
     }
 
+    /**
+     * 重置密码操作
+     *
+     */
+    public static void resetPwd(Context context, String mobile,String password,String try_password,String msg_code, final MyRequestHandle mhandle) {
+
+        HashMap<String, String> params = getPostHeadMap();
+        params.put("mobile", mobile);
+        params.put("password", password);
+        params.put("try_password", try_password);
+        params.put("msg_code", msg_code);
+
+        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.RESET_PWD_API,
+                params, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean responseBean) {
+                        mhandle.onSuccess(responseBean);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean responseBean) {
+                        mhandle.onFail(responseBean);
+                    }
+
+                });
+    }
+
 }

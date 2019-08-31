@@ -3,7 +3,6 @@ package com.exchange_v1.app.network;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
-import android.content.Intent;
 import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
@@ -11,7 +10,6 @@ import com.exchange_v1.R;
 import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.BaseBiz;
-import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.config.ServerConfig;
 import com.exchange_v1.app.executor.ProcessDialogUtil;
 import com.exchange_v1.app.utils.DES3;
@@ -89,8 +87,9 @@ public class NewsBaseBiz {
                         String userNo = UserInfoUtil.getLoginBean().getAccount();
                         TApplication.setUserInfoBean(null);
                         UserInfoUtil.logout();
-                        Intent intent = new Intent();
-                        intent.setAction(BroadcastFilters.ACTION_LGOIN_LOGOUT);
+                        //token失效发广播
+//                        Intent intent = new Intent();
+//                        intent.setAction(BroadcastFilters.ACTION_LGOIN_LOGOUT);
                     }
                 }
             }

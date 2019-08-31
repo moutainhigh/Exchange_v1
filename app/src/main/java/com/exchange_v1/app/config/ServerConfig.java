@@ -124,6 +124,8 @@ public class ServerConfig {
     public static String BANKVALID_API = SERVER_URL+"/agent/bankValid";
     //用户激活/缴纳押金
     public static String ACTIVE_API = SERVER_URL+"/agent/active";
+    //修改密码
+    public static String RESET_PWD_API = SERVER_URL+"/agent/retrieve";
 
     //文件上传接口
     public static String UPLOAD_API = SERVER_URL+"/file/upload";

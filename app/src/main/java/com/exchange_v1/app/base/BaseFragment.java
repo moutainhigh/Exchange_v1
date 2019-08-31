@@ -204,11 +204,7 @@ public abstract class BaseFragment extends Fragment {
 
     private void setFilterActions() {
         // 添加广播过滤器，在此添加广播过滤器之后，所有的子类都将收到该广播
-        filter.addAction(BroadcastFilters.ACTION_TEST);
-        filter.addAction(BroadcastFilters.ACTION_TYPE_SWITCH);
-        filter.addAction(BroadcastFilters.ACTION_TYPE_SWITCH1);
-        filter.addAction(BroadcastFilters.ACTION_HOME_NUMBER);
-        filter.addAction(BroadcastFilters.ACTION_C2B_UPDATA_USER_DATA);
+        //???
     }
 
     private void registerReceiver() {
@@ -219,8 +215,7 @@ public abstract class BaseFragment extends Fragment {
                 thisF.onReceive(context, intent);
             }
         };
-        filter.addAction(BroadcastFilters.ACTION_HOME_ADVANCE);
-        filter.addAction(BroadcastFilters.ACTION_C2B_UPDATA_USER_DATA);
+        filter.addAction(BroadcastFilters.ACTION_FORGET_PWD_CLOSE);
         String permission = "Manifest.permission.bwoilpermiss";
         getActivity().registerReceiver(receiver, filter, permission, mHandler);
 
@@ -275,7 +270,8 @@ public abstract class BaseFragment extends Fragment {
      */
     protected void onReceive(Context context, Intent intent) {
         // 接受到广播之后做的处理操作
-        if (BroadcastFilters.ACTION_TEST.equals(intent.getAction())) {
+        if (BroadcastFilters.ACTION_FORGET_PWD_CLOSE.equals(intent.getAction())) {
+
         }
     }
 

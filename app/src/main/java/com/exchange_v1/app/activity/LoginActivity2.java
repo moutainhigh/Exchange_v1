@@ -20,7 +20,6 @@ import com.exchange_v1.app.base.BaseActivity;
 import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.LoginBean;
 import com.exchange_v1.app.bean.UserInfoBean;
-import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.config.RequestCode;
 import com.exchange_v1.app.utils.DataBaseUtil;
 import com.exchange_v1.app.utils.ISDoubleClickUtils;
@@ -756,9 +755,6 @@ public class LoginActivity2 extends BaseActivity implements OnClickListener {
 
     @Override
     protected void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(BroadcastFilters.ACTION_CLOSE_REGISTER)) {
-            finish();
-        }
         super.onReceive(context, intent);
     }
 

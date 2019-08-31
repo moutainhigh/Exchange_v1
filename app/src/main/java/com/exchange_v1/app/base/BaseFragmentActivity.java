@@ -21,7 +21,6 @@ import android.view.WindowManager;
 
 import com.exchange_v1.R;
 import com.exchange_v1.app.activity.AddLoadingActivity;
-import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.config.Constant;
 import com.exchange_v1.app.utils.C2bPushUtil;
 import com.exchange_v1.app.utils.DateUtil;
@@ -202,10 +201,6 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
 			//唤醒的时候重新计数并切发送广播，将数据上传给后台
 			TApplication.c2b_count = 0;
 
-			Intent intent = new Intent();
-			intent.setAction(BroadcastFilters.ACTION_C2B_TIMER);
-			Util.sendBroadcast(this, intent);
-//			LogUtil.out("BaseFragmentActivity--lockTime:" + (System.currentTimeMillis() - TApplication.getOutTime()));
 		}
 	}
 
@@ -321,16 +316,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
 				BaseFragmentActivity.this.onReceive(context, intent);
 			}
 		};
-		filter.addAction(BroadcastFilters.ACTION_TEST);
-		filter.addAction(BroadcastFilters.ACTION_TYPE_SWITCH);
-		filter.addAction(BroadcastFilters.ACTION_TYPE_SWITCH1);
-		filter.addAction(BroadcastFilters.ACTION_LGOIN_LOGOUT); // 注销
-		filter.addAction(BroadcastFilters.ACTION_HOME_REFURBISH); // 刷新主页
-		filter.addAction(BroadcastFilters.ACTION_HOME_ADVANCE);
-		filter.addAction(BroadcastFilters.ACTION_C2B_TIMER);  //  上传统计数据
-		filter.addAction(BroadcastFilters.ACTION_APP_CLOSE);
-		filter.addAction(BroadcastFilters.ACTION_OPEN_GESTURE);// 手势密码
-		//registerReceiver(receiver, filter);
+//		filter.addAction(BroadcastFilters.ACTION_TEST);
 
 		String permission= "Manifest.permission.bwoilpermiss";
 		registerReceiver(receiver, filter,permission,mHandler);
@@ -404,22 +390,11 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
 	/**
 	 * 广播监听回调
 	 *
-	 * @version 1.0
-	 * @createTime 2014年5月22日,下午1:40:30
-	 * @updateTime 2014年5月22日,下午1:40:30
-	 * @createAuthor CodeApe
-	 * @updateAuthor CodeApe
-	 * @updateInfo (此处输入修改内容,若无修改可不写.)
-	 *
-	 * @param context
-	 *            上下文
-	 * @param intent
-	 *            广播附带内容
 	 */
 	protected void onReceive(Context context, Intent intent) {
-		if (intent.getAction().equals(BroadcastFilters.ACTION_CHANGE_LANGUAGE)) {// 语言切换
-			resetView();
-		}
+//		if (intent.getAction().equals(BroadcastFilters.ACTION_CHANGE_LANGUAGE)) {// 语言切换
+//			resetView();
+//		}
 	}
 
 	protected boolean useEventBus() {

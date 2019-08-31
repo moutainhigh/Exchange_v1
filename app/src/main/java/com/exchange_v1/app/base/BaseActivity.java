@@ -262,10 +262,6 @@ public abstract class BaseActivity extends AppCompatActivity implements OnSoftKe
 			//唤醒的时候重新计数并切发送广播，将数据上传给后台
 			TApplication.c2b_count = 0;
 
-			Intent intent = new Intent();
-			intent.setAction(BroadcastFilters.ACTION_C2B_TIMER);
-			Util.sendBroadcast(this, intent);
-
 		}
 	}
 
@@ -315,37 +311,18 @@ public abstract class BaseActivity extends AppCompatActivity implements OnSoftKe
 		}
 	}
 
-	private void setFilterActions() {
-		filter.addAction(BroadcastFilters.ACTION_TEST);
-	}
 
 	private void registerReceiver() {
-		setFilterActions();
 		receiver = new BroadcastReceiver() {
 			@Override
 			public void onReceive(Context context, Intent intent) {
 				BaseActivity.this.onReceive(context, intent);
 			}
 		};
-		filter.addAction(BroadcastFilters.ACTION_BIND_ESSE_OVER);
-		filter.addAction(BroadcastFilters.ACTION_BUY_BACK); // 回购刷新
-		filter.addAction(BroadcastFilters.ACTION_ATTORN_CARD); // 转让刷新
-		filter.addAction(BroadcastFilters.ACTION_ATTORN_CASH); // 领取刷新
-		filter.addAction(BroadcastFilters.ACTION_ATTORN_DELETE); // 购物车刷新
-		filter.addAction(BroadcastFilters.ACTION_CLOSE_REGISTER); // 关闭注册界面
-		filter.addAction(BroadcastFilters.ACTION_HOME_ORDER_REFURBISH); // 订单列表刷新
-		filter.addAction(BroadcastFilters.ACTION_GOODSDETAILS_CLOSE); // 订单列表刷新
-		filter.addAction(BroadcastFilters.ACTION_HOME_CLOSE);
-		filter.addAction(BroadcastFilters.ACTION_C2B_UPDATA_USER_DATA);
-		filter.addAction(BroadcastFilters.ACTION_CLOSE_FAST_PAY);// 关闭快捷支付添加绑卡的界面
-		filter.addAction(BroadcastFilters.ACTION_CLOSE_FAST_PAY_PAYSELECT);// 关闭快捷支付 支付订单页 界面
-		filter.addAction(BroadcastFilters.ACTION_CLOSE_OIL_CARD_LIST_SUCCESS);// 我的加油省钱看是否领取成功进行列表的刷新
-		filter.addAction(BroadcastFilters.ACTION_CLOSE_PAY_RESULT_SUCCESS);// 支付成功后返回购买页面
+		filter.addAction(BroadcastFilters.ACTION_FORGET_PWD_CLOSE);
 		//todo
 		String permission= "Manifest.permission.bwoilpermiss";
 		registerReceiver(receiver, filter,permission,mHandler);
-
-
 	}
 
 	// 当有2个editText交替焦点 键盘就会闪
@@ -382,11 +359,7 @@ public abstract class BaseActivity extends AppCompatActivity implements OnSoftKe
 	 * @param intent
 	 */
 	protected void onReceive(Context context, Intent intent) {
-		if (intent.getAction().equals(BroadcastFilters.ACTION_TEST)) {
-			if (c.getName().equals(clazzName)) {
-				// ShowDialog
-			}
-		}
+
 	}
 
 	@Override
