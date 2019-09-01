@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.exchange_v1.R;
 import com.exchange_v1.app.bean.EqueitmentBindBean;
 import com.exchange_v1.app.interf.AdapterListener;
+import com.exchange_v1.app.utils.ToastUtil;
 
 import java.util.List;
 
@@ -72,28 +73,28 @@ public class EqueitmentBindListAdapter extends BaseAdapter {
         holder.btCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ToastUtil.showToast(context,"汇款卡");
             }
         });
 
         holder.btModifiy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ToastUtil.showToast(context,"修改");
             }
         });
 
         holder.btDisable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ToastUtil.showToast(context,"停用");
             }
         });
 
         holder.btDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ToastUtil.showToast(context,"删除");
             }
         });
 

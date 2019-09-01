@@ -7,7 +7,9 @@ import android.widget.ListView;
 import com.exchange_v1.R;
 import com.exchange_v1.app.adapter.EqueitmentBindListAdapter;
 import com.exchange_v1.app.base.BaseActivity;
+import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.EqueitmentBindBean;
+import com.exchange_v1.app.bean.MineUserInfoBean;
 import com.exchange_v1.app.interf.AdapterListener;
 import com.exchange_v1.app.utils.IntentUtil;
 import com.exchange_v1.app.utils.ToastUtil;
@@ -66,16 +68,24 @@ public class BankBindListActivity extends BaseActivity implements View.OnClickLi
     }
 
     private List<EqueitmentBindBean> getData() {
+
+        MineUserInfoBean mineUserInfo = TApplication.getMineUserInfo();
         List<EqueitmentBindBean> list = new ArrayList<>();
-        for (int i = 0; i < 1; i++) {
-            EqueitmentBindBean bean = new EqueitmentBindBean();
-            bean.setBankName("建设银行"+i);
-            bean.setBankStatus("已审核"+i);
-            bean.setName("猪猪侠"+i);
-            bean.setBankCard("123123123123_"+i);
-            bean.setMoney("123_"+i);
-            list.add(bean);
+        if (mineUserInfo!=null){
+                EqueitmentBindBean bean = new EqueitmentBindBean();
+                bean.setBankName(mineUserInfo.getBankName());
+                if (mineUserInfo.getBankAuth() == 1){
+                    bean.setBankStatus("已审核");
+                }else {
+                    bean.setBankStatus("未审核");
+                }
+
+                bean.setName(mineUserInfo.getCardName());
+                bean.setBankCard(mineUserInfo.getBankNo());
+                bean.setMoney(mineUserInfo.getBalance()+"/"+mineUserInfo.getFreezeBalance());
+                list.add(bean);
         }
+
         return list;
     }
 

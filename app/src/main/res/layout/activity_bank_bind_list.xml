@@ -1,60 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_gray">
+    android:background="@color/background_gray"
+    android:orientation="vertical">
 
     <com.exchange_v1.app.view.TitleView
         android:id="@+id/view_title"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ListView
+        android:id="@+id/lv_listview"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:headerDividersEnabled="false"
+        android:listSelector="@color/trans"
+        android:paddingBottom="10dp"
+        android:scrollbars="none" />
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/my_deal_refresh_layout"
+
+    <LinearLayout
+        android:id="@+id/ll_add_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srlHeaderHeight="80dp"
-        app:srlPrimaryColor="@color/common_assist_bg_color">
+        android:layout_height="80dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/shape_white_corner"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <ListView
-            android:id="@+id/lv_listview"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:headerDividersEnabled="false"
-            android:listSelector="@color/trans"
-            android:paddingBottom="10dp"
-            android:scrollbars="none" />
+        <TextView
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:background="@mipmap/add_icon" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:text="绑定银行卡"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
-        <LinearLayout
-            android:id="@+id/ll_add_view"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="19dp"
-            android:orientation="horizontal"
-            android:background="@drawable/shape_white_corner"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="17dp"
-                android:layout_height="17dp"
-                android:background="@mipmap/add_icon"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="7dp"
-                android:text="绑定银行卡"
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                />
-
-        </LinearLayout>
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </LinearLayout>
 </LinearLayout>
