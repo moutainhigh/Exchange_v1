@@ -32,7 +32,7 @@ public class MainCashFragment extends BaseFragment implements OnClickListener {
     @Override
     protected void findViews() {
         mFragments.add(new CashFragment());
-        mFragments.add(new CashFragment());
+        mFragments.add(new CashingFragment());
 
         ViewPager vp = getView(R.id.vp);
         mAdapter = new CashVpAdapter(getChildFragmentManager(),mFragments);

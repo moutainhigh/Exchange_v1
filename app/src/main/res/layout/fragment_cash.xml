@@ -23,19 +23,19 @@
         android:layout_marginLeft="16dp"
         android:textColor="@color/text_gray"
         android:textSize="13sp"
-        android:text="充值金额"/>
+        android:text="提现金额"/>
 
     <EditText
         android:id="@+id/et_money"
         style="@style/register_edit_input"
         android:layout_marginTop="16dp"
-        android:hint="昵称" />
+        android:hint="金额" />
 
     <EditText
         android:id="@+id/et_account"
         style="@style/register_edit_input"
         android:layout_marginTop="16dp"
-        android:hint="昵称" />
+        android:hint="银行卡号" />
 
     <TextView
         android:id="@+id/tv_submit"

@@ -30,7 +30,7 @@ public class MainRechargeFragment extends BaseFragment {
     @Override
     protected void findViews() {
         mFragments.add(new RechargeFragment());
-        mFragments.add(new RechargeFragment());
+        mFragments.add(new RechargeingFragment());
 
         ViewPager vp = getView(R.id.vp);
         mAdapter = new RechargeVpAdapter(getChildFragmentManager(),mFragments);
