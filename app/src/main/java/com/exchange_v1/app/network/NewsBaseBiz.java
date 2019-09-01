@@ -266,16 +266,6 @@ public class NewsBaseBiz {
         if (mhandle == null) {
             return;
         }
-        //		AsyncRequestParams params = null;
-        //		if (uploadFilePath != null){
-        //			File files = new File(uploadFilePath);
-        //			params = new AsyncRequestParams();
-        //			try {
-        //				params.put("file",files);
-        //			}catch (Exception e){
-        //
-        //			}
-        //		}
 
         ResponseBean cacheData = mhandle.getRequestCache();
         if (cacheData != null) {
@@ -287,7 +277,6 @@ public class NewsBaseBiz {
         final IResponseHandler handler = new IResponseHandler() {
             @Override
             public void onSuccess(ResponseBean responseBean) {
-                //				descResult(responseStr, responseBean);
                 if (!TextUtils.isEmpty(processMsg)) {
                     ProcessDialogUtil.dismissDialog();
                 }
@@ -309,7 +298,6 @@ public class NewsBaseBiz {
 
             @Override
             public void onCancel() {
-                // TODO Auto-generated method stub
                 mhandle.onCancel();
             }
 
@@ -331,11 +319,10 @@ public class NewsBaseBiz {
             ProcessDialogUtil.setOnDismissListener(new OnDismissListener() {
                 @Override
                 public void onDismiss(DialogInterface dialog) {
-                    //handler.sendCancelMessage();
+
                 }
             });
         }
-
 
         try {
             MyHttpClient.post(url, uploadFilePath, handler);
@@ -344,9 +331,6 @@ public class NewsBaseBiz {
             responseBean.setStatus(204);
             responseBean.setInfo(TApplication.context
                     .getString(R.string.exception_local_json_message));
-            // if (null != responseBody) {
-            // responseBean.setInfo(new String(responseBody));
-            // }
             mhandle.onFail(responseBean);
             e.printStackTrace();
         }

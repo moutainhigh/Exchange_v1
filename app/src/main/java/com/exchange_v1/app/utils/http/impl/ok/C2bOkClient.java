@@ -310,13 +310,8 @@ public class C2bOkClient implements IHttpMethod {
         Request.Builder builder = new Request.Builder()
                 .url(url)
                 .header("Accept-Language", Locale.getDefault().toString())
-                .header("encrypt", String.valueOf(true))
                 .header("Content-Type", "multipart/form-data")
                 .header("Connection", "Keep-Alive");
-
-//        if (TApplication.iSOUTNET == 0) {
-//            builder = builder.addHeader("Authorization", "Basic YndvaWw6YndvaWwxMjM=");
-//        }
 
         if (!TextUtils.isEmpty(TApplication.getToken())) {
             builder = builder.addHeader("Authorization", TApplication.getToken());
@@ -325,6 +320,7 @@ public class C2bOkClient implements IHttpMethod {
         File files = new File(path);
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
+                //参数名 file
                 .addFormDataPart("file", files.getName(), RequestBody.create(MediaType.parse("image/png"), files))//暂时指定图片
                 .build();
 

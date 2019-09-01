@@ -13,6 +13,7 @@
         />
 
     <RelativeLayout
+        android:id="@+id/rl_qr_png"
         android:layout_width="213dp"
         android:layout_height="213dp"
         android:layout_gravity="center_horizontal"
@@ -57,23 +58,78 @@
         android:textColor="@color/black"
         android:textSize="13sp" />
 
-    <EditText
-        style="@style/edit_input"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
         android:layout_marginTop="16dp"
-        android:hint=" 姓名" />
+        android:background="@drawable/shape_ac_input"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
 
-    <EditText
-        style="@style/edit_input"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="姓名"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/et_people_name"
+            style="@style/register_edit_input"
+            android:hint="请输入姓名" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
         android:layout_marginTop="16dp"
-        android:hint=" 银行卡号" />
+        android:background="@drawable/shape_ac_input"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
 
-    <EditText
-        style="@style/edit_input"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="银行卡号"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/et_id_card"
+            style="@style/register_edit_input"
+            android:hint="请输入准确卡号" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_ac_input"
         android:visibility="gone"
-        android:layout_marginTop="16dp"
-        android:hint=" 支付宝UID" />
+        android:gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="支付宝UID"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/et_UID"
+            style="@style/register_edit_input"
+            android:hint="请输入支付宝UID" />
+    </LinearLayout>
 
     <TextView
+        android:id="@+id/bt_submit"
         style="@style/default_btn"
         android:layout_marginTop="28dp"
         android:enabled="false"
