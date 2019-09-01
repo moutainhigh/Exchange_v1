@@ -10,6 +10,7 @@ import android.text.TextUtils;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.exchange_v1.R;
+import com.exchange_v1.app.bean.MineUserInfoBean;
 import com.exchange_v1.app.bean.UpdateBean;
 import com.exchange_v1.app.bean.UserInfoBean;
 import com.exchange_v1.app.navition.NativeAction;
@@ -189,7 +190,8 @@ public class TApplication extends Application {
     public static C2bLocationClient c2bLocationClient;
     //保存的账号
     public static String account = null;
-    //	public static BDLocationUtil bdLocationUtil = null;
+    //当前登录用户信息
+    public static MineUserInfoBean mineInfo = null;
 
     @Override
     public void onCreate() {
@@ -546,6 +548,11 @@ public class TApplication extends Application {
         });
     }
 
+    /**
+     * 保存登录账号
+     *
+     * @param account 登录账号
+     */
     public static void setAccount(String account) {
         TApplication.account = account;
         SpUtil.getSpUtil().setObject(context, "account", account);
@@ -556,6 +563,27 @@ public class TApplication extends Application {
             account = (String) SpUtil.getSpUtil().getObject(context, "account");
         }
         return account;
+    }
+
+    /**
+     * 保存登录用户的信息
+     *
+     * @param mineInfo
+     */
+    public static void setMineUserInfo(MineUserInfoBean mineInfo) {
+        TApplication.mineInfo = mineInfo;
+        SpUtil.setObject(context, "mineInfo" + mineInfo.getMobile(), mineInfo);
+    }
+
+    /**
+     * 获取用户登录信息
+     * @return
+     */
+    public static MineUserInfoBean getMineUserInfo() {
+        if (null == mineInfo) {
+            mineInfo = (MineUserInfoBean) SpUtil.getObject(TApplication.context, "mineInfo" + getAccount());
+        }
+        return mineInfo;
     }
 
 }
