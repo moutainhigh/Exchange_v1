@@ -132,7 +132,6 @@
         android:id="@+id/bt_submit"
         style="@style/default_btn"
         android:layout_marginTop="28dp"
-        android:enabled="false"
         android:text="确定二维码" />
 
     <TextView

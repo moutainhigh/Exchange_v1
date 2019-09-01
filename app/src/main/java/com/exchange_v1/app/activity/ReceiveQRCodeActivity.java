@@ -10,6 +10,7 @@ import com.exchange_v1.app.base.BaseActivity;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.FileBiz;
 import com.exchange_v1.app.network.RequestHandle;
+import com.exchange_v1.app.utils.IntentUtil;
 
 //通用收款码界面
 public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickListener {
@@ -56,7 +57,8 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_submit:
-                upLoadQrCode();
+//                upLoadQrCode();
+
                 break;
             case R.id.rl_qr_png://上传二维码按钮
                 selectPng();
@@ -67,7 +69,7 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
     }
 
     private void selectPng() {
-
+        IntentUtil.gotoActivity(context,SettingUserAvatarActivity.class);
     }
 
     //上传文件接口

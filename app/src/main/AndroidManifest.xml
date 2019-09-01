@@ -165,6 +165,13 @@
             android:screenOrientation="portrait"
             android:theme="@style/CommActTheme"/>
 
+        <!-- 上传图片界面 -->
+        <activity
+            android:name=".app.activity.SettingUserAvatarActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/WheelStyle"/>
+
         <!-- =========================================极光推送部分=========================================== -->
         <!-- Required  SDK核心功能 -->
         <service
