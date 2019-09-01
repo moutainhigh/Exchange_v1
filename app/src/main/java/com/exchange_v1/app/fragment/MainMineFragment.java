@@ -12,6 +12,7 @@ import com.exchange_v1.app.activity.BankBindListActivity;
 import com.exchange_v1.app.activity.CoinDetailActivity;
 import com.exchange_v1.app.activity.LoginActivity;
 import com.exchange_v1.app.activity.OrderListActivity;
+import com.exchange_v1.app.activity.ReceiveQRCodeActivity;
 import com.exchange_v1.app.base.BaseFragment;
 import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.MineUserInfoBean;
@@ -36,6 +37,8 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
     private TextView tvBalance;
     private TextView btCoinDetail;
     private RelativeLayout rlHositoryOrder;
+    private LinearLayout llAlipay;
+    private LinearLayout llWechatPay;
 
 
     private MineUserInfoBean userBean;
@@ -54,6 +57,9 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
         tvBalance = findViewById(R.id.tv_balance);
         btCoinDetail = findViewById(R.id.bt_coin_detail);
         rlHositoryOrder = findViewById(R.id.rl_hository_order);
+        llAlipay = findViewById(R.id.ll_alipay);
+        llWechatPay = findViewById(R.id.ll_wechatPay);
+
     }
 
 
@@ -69,6 +75,8 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
         llActiveAccount.setOnClickListener(this);
         btCoinDetail.setOnClickListener(this);
         rlHositoryOrder.setOnClickListener(this);
+        llAlipay.setOnClickListener(this);
+        llWechatPay.setOnClickListener(this);
     }
 
     @Override
@@ -126,6 +134,12 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
             case R.id.rl_hository_order://历史订单
                 IntentUtil.gotoActivity(context, OrderListActivity.class);
 
+                break;
+            case R.id.ll_alipay://支付宝
+                IntentUtil.gotoActivity(context, ReceiveQRCodeActivity.class);
+                break;
+            case R.id.ll_wechatPay://微信
+                IntentUtil.gotoActivity(context, ReceiveQRCodeActivity.class);
                 break;
             default:
                 break;

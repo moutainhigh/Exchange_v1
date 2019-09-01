@@ -291,6 +291,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_alipay"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -323,6 +324,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/ll_wechatPay"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
