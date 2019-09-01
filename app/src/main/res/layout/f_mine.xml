@@ -169,6 +169,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/ll_apply_service"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -197,6 +198,7 @@
                     android:background="@color/comment_gray"
                     />
                 <LinearLayout
+                    android:id="@+id/ll_apply_carry"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -213,7 +215,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="申请服务商"
+                        android:text="申请搬运代理"
                         android:layout_marginLeft="13dp"
                         android:textSize="13sp"/>
                 </LinearLayout>
@@ -422,6 +424,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_google_verify"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -443,6 +446,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_position"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -475,6 +479,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/ll_email_verify"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"

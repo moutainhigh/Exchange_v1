@@ -8,10 +8,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.exchange_v1.R;
+import com.exchange_v1.app.activity.ApplyCarryActivity;
+import com.exchange_v1.app.activity.ApplyServiceActivity;
 import com.exchange_v1.app.activity.BankBindListActivity;
 import com.exchange_v1.app.activity.CoinDetailActivity;
+import com.exchange_v1.app.activity.EmailVerifActivity;
+import com.exchange_v1.app.activity.GoogleCheckActivity;
 import com.exchange_v1.app.activity.LoginActivity;
 import com.exchange_v1.app.activity.OrderListActivity;
+import com.exchange_v1.app.activity.PositionSelectActivity;
 import com.exchange_v1.app.activity.ReceiveQRCodeActivity;
 import com.exchange_v1.app.base.BaseFragment;
 import com.exchange_v1.app.base.TApplication;
@@ -40,6 +45,14 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
     private LinearLayout llAlipay;
     private LinearLayout llWechatPay;
 
+    private LinearLayout llApplyService;
+    private LinearLayout llApplyCarry;
+    private LinearLayout llGoogleVerify;
+    private LinearLayout llPosition;
+    private LinearLayout llEmailVerify;
+
+
+
 
     private MineUserInfoBean userBean;
     @Override
@@ -60,6 +73,11 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
         llAlipay = findViewById(R.id.ll_alipay);
         llWechatPay = findViewById(R.id.ll_wechatPay);
 
+        llApplyService =  findViewById(R.id.ll_apply_service);
+        llApplyCarry =  findViewById(R.id.ll_apply_carry);
+        llGoogleVerify =  findViewById(R.id.ll_google_verify);
+        llPosition =  findViewById(R.id.ll_position);
+        llEmailVerify =  findViewById(R.id.ll_email_verify);
     }
 
 
@@ -77,6 +95,12 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
         rlHositoryOrder.setOnClickListener(this);
         llAlipay.setOnClickListener(this);
         llWechatPay.setOnClickListener(this);
+
+        llApplyService.setOnClickListener(this);
+        llApplyCarry.setOnClickListener(this);
+        llGoogleVerify.setOnClickListener(this);
+        llPosition.setOnClickListener(this);
+        llEmailVerify.setOnClickListener(this);
     }
 
     @Override
@@ -121,7 +145,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
             case R.id.tv_exit_login:
                 IntentUtil.gotoActivity(context, LoginActivity.class);
                 break;
-            case R.id.ll_bank:
+            case R.id.ll_bank://绑定银行卡
                 IntentUtil.gotoActivity(context, BankBindListActivity.class);
                 break;
             case R.id.ll_active_account://激活账户
@@ -140,6 +164,21 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
                 break;
             case R.id.ll_wechatPay://微信
                 IntentUtil.gotoActivity(context, ReceiveQRCodeActivity.class);
+                break;
+            case R.id.ll_apply_service://申请服务商
+                IntentUtil.gotoActivity(context, ApplyServiceActivity.class);
+                break;
+            case R.id.ll_apply_carry://申请搬运工代理
+                IntentUtil.gotoActivity(context, ApplyCarryActivity.class);
+                break;
+            case R.id.ll_google_verify://谷歌邮箱验证
+                IntentUtil.gotoActivity(context, GoogleCheckActivity.class);
+                break;
+            case R.id.ll_position://位置选择
+                IntentUtil.gotoActivity(context, PositionSelectActivity.class);
+                break;
+            case R.id.ll_email_verify://邮箱认证
+                IntentUtil.gotoActivity(context, EmailVerifActivity.class);
                 break;
             default:
                 break;
