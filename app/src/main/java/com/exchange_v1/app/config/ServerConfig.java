@@ -146,4 +146,10 @@ public class ServerConfig {
     //钱包变动记录
     public static String WALLETHISTORY_API = SERVER_URL+"/walletHistory/page";
 
+
+    //省市地区
+    public static String DISTRICT_API = SERVER_URL+"/district/tree";
+    //设置地区信息
+    public static String SET_DISTRICT_API = SERVER_URL+"/agent/bindDistrict";
+
 }
