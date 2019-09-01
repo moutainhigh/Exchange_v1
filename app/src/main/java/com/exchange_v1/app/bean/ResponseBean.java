@@ -35,17 +35,10 @@ public class ResponseBean extends BaseBean {
 	/**
 	 * 请求是否返回成功
 	 * 
-	 * @version 1.0
-	 * @createTime 2014年12月30日,下午11:19:49
-	 * @updateTime 2014年12月30日,下午11:19:49
-	 * @createAuthor CodeApe
-	 * @updateAuthor CodeApe
-	 * @updateInfo (此处输入修改内容,若无修改可不写.)
-	 * 
 	 * @return
 	 */
 	public boolean isSuccess() {
-		return ServerConfig.RESPONSE_STATUS_SUCCESS.equals(getStatus());
+		return ServerConfig.RESPONSE_STATUS_SUCCESS.equals(getStatus()+"");
 	}
 
 	public ResponseBean() {
