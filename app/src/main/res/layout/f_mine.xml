@@ -18,18 +18,19 @@
                 android:background="@mipmap/mine_bg">
 
                 <TextView
+                    android:id="@+id/tv_receptive"
                     android:layout_width="75dp"
                     android:layout_height="19dp"
                     android:background="@mipmap/mine_red_top"
                     android:layout_marginTop="25dp"
                     android:text="禁止接单"/>
 
-                <TextView
-                    android:layout_width="75dp"
-                    android:layout_height="19dp"
-                    android:background="@mipmap/mine_yellow_top"
-                    android:layout_marginTop="44dp"
-                    android:text="正常发单"/>
+                <!--<TextView-->
+                    <!--android:layout_width="75dp"-->
+                    <!--android:layout_height="19dp"-->
+                    <!--android:background="@mipmap/mine_yellow_top"-->
+                    <!--android:layout_marginTop="44dp"-->
+                    <!--android:text="正常发单"/>-->
 
                 <TextView
                     android:id="@+id/tv_user_name"

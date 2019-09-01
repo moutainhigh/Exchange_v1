@@ -40,6 +40,24 @@ public class MineUserInfoBean extends BaseBean {
     private String wxNo;
     private int freezeBalance;
     private String account;
+    private String id;
+    private String receptive;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getReceptive() {
+        return receptive;
+    }
+
+    public void setReceptive(String receptive) {
+        this.receptive = receptive;
+    }
 
     @Override
     protected void init(JSONObject jSon) throws JSONException {

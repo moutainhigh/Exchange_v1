@@ -41,6 +41,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
     private LinearLayout llActiveAccount;
     private TextView tvBalance;
     private TextView btCoinDetail;
+    private TextView tvReceptive;
     private RelativeLayout rlHositoryOrder;
     private LinearLayout llAlipay;
     private LinearLayout llWechatPay;
@@ -69,6 +70,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
         llActiveAccount = findViewById(R.id.ll_active_account);
         tvBalance = findViewById(R.id.tv_balance);
         btCoinDetail = findViewById(R.id.bt_coin_detail);
+        tvReceptive = findViewById(R.id.tv_receptive);
         rlHositoryOrder = findViewById(R.id.rl_hository_order);
         llAlipay = findViewById(R.id.ll_alipay);
         llWechatPay = findViewById(R.id.ll_wechatPay);
@@ -134,8 +136,15 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
      * 设置UI
      */
     private void setUserUI() {
+        if ("1".equals(userBean.getReceptive())){
+            tvReceptive.setText("正常发单");
+            tvReceptive.setBackgroundResource(R.mipmap.mine_yellow_top);
+        }else {
+            tvReceptive.setText("禁止接单");
+            tvReceptive.setBackgroundResource(R.mipmap.mine_red_top);
+        }
         tvUserName.setText(userBean.getAccount());
-        tvUserId.setText("ID:"+userBean.getMobile());
+        tvUserId.setText("ID:"+userBean.getId());
         tvBalance.setText(userBean.getBalance()+"");
     }
 
