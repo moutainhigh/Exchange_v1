@@ -14,6 +14,7 @@
         android:layout_marginLeft="16dp"
         android:textSize="13sp"
         android:text="充值账号"
+        android:visibility="gone"
         />
 
     <LinearLayout
@@ -22,7 +23,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_height="42dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="0dp"
@@ -66,7 +68,8 @@
         android:id="@+id/et_account"
         style="@style/register_edit_input"
         android:layout_marginTop="16dp"
-        android:hint="银行卡号" />
+        android:hint="银行卡号"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/tv_submit"

@@ -152,4 +152,11 @@ public class ServerConfig {
     //设置地区信息
     public static String SET_DISTRICT_API = SERVER_URL+"/agent/bindDistrict";
 
+    //预充值接口
+    public static String RECHARGE_REQUEST_API = SERVER_URL+"/recharge/request";
+    //确认充值接口
+    public static String RECHARGE_CONFIRM_API = SERVER_URL+"/recharge/confirm";
+    //取消充值接口
+    public static String RECHARGE_CANCEL_API = SERVER_URL+"/recharge/cancel";
+
 }
