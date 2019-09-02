@@ -158,7 +158,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
                 IntentUtil.gotoActivity(context, BankBindListActivity.class);
                 break;
             case R.id.ll_active_account://激活账户
-
+                activeAccount();
                 break;
             case R.id.bt_coin_detail://游戏币明细
                 IntentUtil.gotoActivity(context, CoinDetailActivity.class);
@@ -192,6 +192,23 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
             default:
                 break;
         }
+    }
+
+    /**
+     * 调用用户激活接口
+     */
+    private void activeAccount() {
+        UserBiz.active(context, new RequestHandle() {
+            @Override
+            public void onSuccess(ResponseBean result) {
+                ToastUtil.showToast(context,"用户激活成功");
+            }
+
+            @Override
+            public void onFail(ResponseBean result) {
+                ToastUtil.showToast(context,result.getInfo());
+            }
+        });
     }
 
     @Override
