@@ -9,7 +9,7 @@ import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 
 import com.baidu.mapapi.SDKInitializer;
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 import com.exchange_v1.app.bean.MineUserInfoBean;
 import com.exchange_v1.app.bean.UpdateBean;
 import com.exchange_v1.app.bean.UserInfoBean;

@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 import com.exchange_v1.app.activity.AddLoadingActivity;
 import com.exchange_v1.app.activity.LoginActivity;
 import com.exchange_v1.app.bean.AddLoadBean;

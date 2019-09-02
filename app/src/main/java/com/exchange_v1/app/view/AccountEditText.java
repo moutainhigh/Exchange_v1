@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 
 
 /**

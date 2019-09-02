@@ -7,7 +7,7 @@ import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 import com.exchange_v1.app.adapter.ViewPagerAdapter;
 import com.exchange_v1.app.utils.DisplayUtil;
 import com.exchange_v1.app.utils.IntentUtil;

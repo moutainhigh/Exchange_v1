@@ -5,7 +5,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 import com.exchange_v1.app.activity.ForgetPwdActivity;
 import com.exchange_v1.app.base.BaseFragment;
 import com.exchange_v1.app.base.MainActivity;

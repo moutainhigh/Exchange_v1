@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 import com.exchange_v1.app.activity.ApplyCarryActivity;
 import com.exchange_v1.app.activity.ApplyServiceActivity;
 import com.exchange_v1.app.activity.BankBindListActivity;

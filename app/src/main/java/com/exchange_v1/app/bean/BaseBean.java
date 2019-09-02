@@ -3,7 +3,7 @@ package com.exchange_v1.app.bean;
 import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.utils.StringUtil;
 

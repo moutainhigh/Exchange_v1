@@ -3,7 +3,7 @@ package com.exchange_v1.app.activity;
 import android.view.View;
 import android.widget.ListView;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 import com.exchange_v1.app.adapter.CoinDetailAdapter;
 import com.exchange_v1.app.base.BaseActivity;
 import com.exchange_v1.app.bean.CoinDetailBean;

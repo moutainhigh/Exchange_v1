@@ -18,7 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.utils.ViewUtils;
 import com.umeng.analytics.MobclickAgent;

@@ -23,7 +23,7 @@ import android.view.WindowManager;
 import android.view.animation.TranslateAnimation;
 import android.widget.RelativeLayout;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 import com.exchange_v1.app.fragment.MainCashFragment;
 import com.exchange_v1.app.fragment.MainMineFragment;
 import com.exchange_v1.app.fragment.MainHomeFragment;

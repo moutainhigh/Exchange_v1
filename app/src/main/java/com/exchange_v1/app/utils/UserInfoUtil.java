@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.LoginBean;
 import com.exchange_v1.app.bean.UserInfoBean;

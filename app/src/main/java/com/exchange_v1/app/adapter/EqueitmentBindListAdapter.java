@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 import com.exchange_v1.app.bean.EqueitmentBindBean;
 import com.exchange_v1.app.interf.AdapterListener;
 import com.exchange_v1.app.utils.ToastUtil;

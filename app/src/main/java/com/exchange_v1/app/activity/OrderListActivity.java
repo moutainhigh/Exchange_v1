@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 import com.exchange_v1.app.adapter.OrderVpAdapter;
 import com.exchange_v1.app.base.BaseActivity;
 import com.exchange_v1.app.fragment.OrderFragment;

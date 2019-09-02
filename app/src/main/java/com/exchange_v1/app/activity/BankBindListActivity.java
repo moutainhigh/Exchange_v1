@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 import com.exchange_v1.app.adapter.EqueitmentBindListAdapter;
 import com.exchange_v1.app.base.BaseActivity;
 import com.exchange_v1.app.base.TApplication;

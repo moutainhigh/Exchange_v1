@@ -19,7 +19,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 import com.exchange_v1.app.activity.AddLoadingActivity;
 import com.exchange_v1.app.config.Constant;
 import com.exchange_v1.app.utils.C2bPushUtil;

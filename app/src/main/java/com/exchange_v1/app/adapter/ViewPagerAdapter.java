@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 
 import java.util.ArrayList;
 

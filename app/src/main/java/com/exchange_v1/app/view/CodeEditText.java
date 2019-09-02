@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 
 
 /**

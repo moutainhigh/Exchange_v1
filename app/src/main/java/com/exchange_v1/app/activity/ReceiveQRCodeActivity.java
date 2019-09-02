@@ -5,7 +5,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.BaseActivity;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.FileBiz;

@@ -14,7 +14,7 @@ import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.EditText;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 
 
 /**

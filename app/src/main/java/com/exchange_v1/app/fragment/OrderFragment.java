@@ -3,7 +3,7 @@ package com.exchange_v1.app.fragment;
 import android.view.View;
 import android.widget.ListView;
 
-import com.exchange_v1.R;
+import com.exchange_v1.app.R;
 import com.exchange_v1.app.adapter.OrderListAdapter;
 import com.exchange_v1.app.base.BaseFragment;
 import com.exchange_v1.app.bean.OrderItemBean;
