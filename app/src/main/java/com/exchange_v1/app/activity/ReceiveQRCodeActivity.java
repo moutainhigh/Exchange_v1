@@ -11,7 +11,9 @@ import android.widget.TextView;
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.BaseActivity;
 import com.exchange_v1.app.bean.ResponseBean;
+import com.exchange_v1.app.bean.UpLoadBean;
 import com.exchange_v1.app.biz.FileBiz;
+import com.exchange_v1.app.biz.QrCodeBiz;
 import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.StringUtil;
@@ -28,6 +30,9 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
     private TextView btSubmit;
     private ImageView ivPic;
     private String picturePath;
+    private UpLoadBean upLoadBean;
+
+    private String payType = "0";//0支付宝，1微信
 
     @Override
     protected int getContentViewId() {
@@ -66,7 +71,7 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_submit:
-//                upLoadQrCode();
+                submitInfo();
 
                 break;
             case R.id.rl_qr_png://上传二维码按钮
@@ -75,6 +80,35 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
             default:
                 break;
         }
+    }
+
+    /**
+     * 绑定二维码
+     */
+    private void submitInfo() {
+        String name = etPeopleName.getText().toString().trim();
+        String card = etIdCard.getText().toString().trim();
+        if (!StringUtil.isEmpty(name)&&!StringUtil.isEmpty(card)){
+            if (upLoadBean!=null){
+                QrCodeBiz.bindQrCode(context, upLoadBean.getId(), payType, card, name, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean result) {
+                        ToastUtil.showToast(context,"绑定二维码成功");
+                        finish();
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean result) {
+                        ToastUtil.showToast(context,result.getInfo());
+                    }
+                });
+            }else {
+                ToastUtil.showToast(context,"二维码不存在，请重新选择二维码上传");
+            }
+        }else {
+            ToastUtil.showToast(context,"姓名和账号不能为空");
+        }
+
     }
 
     private void selectPng() {
@@ -92,6 +126,7 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
             public void onSuccess(ResponseBean result) {
                 Logger.i("上传图片成功");
                 ToastUtil.showToast(context,"收款码已上传");
+                upLoadBean = (UpLoadBean) result.getObject();
             }
 
             @Override
