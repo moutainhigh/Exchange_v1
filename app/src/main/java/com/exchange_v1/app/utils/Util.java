@@ -157,7 +157,7 @@ public class Util {
     }
 
     public static void sendBroadcast(Context context, Intent intent) {
-        String permission = "com.exchange_v1.app.Manifest.permission.bwoilpermiss";
+        String permission = com.exchange_v1.app.Manifest.permission.bwoilpermiss;
         context.sendBroadcast(intent, permission);
     }
 

@@ -7,6 +7,8 @@
 
     <uses-permission android:name="com.exchange_v1.app.bwoilpermiss"/>
     <uses-permission android:name="org.simalliance.openmobileapi.SMARTCARD"/>
+    <!-- 写外部存储器 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!-- 网络访问权限 -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <!-- Required 极光推送 一些系统要求的权限，如访问网络等 -->

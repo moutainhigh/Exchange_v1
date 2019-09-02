@@ -21,6 +21,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
+import com.exchange_v1.app.Manifest;
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.interf.DoAfterFinish;
@@ -320,8 +321,7 @@ public abstract class BaseActivity extends AppCompatActivity implements OnSoftKe
 			}
 		};
 		filter.addAction(BroadcastFilters.ACTION_FORGET_PWD_CLOSE);
-		//todo
-		String permission= "Manifest.permission.bwoilpermiss";
+		String permission= Manifest.permission.bwoilpermiss;
 		registerReceiver(receiver, filter,permission,mHandler);
 	}
 

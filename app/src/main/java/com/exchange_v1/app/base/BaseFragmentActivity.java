@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.exchange_v1.app.Manifest;
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.activity.AddLoadingActivity;
 import com.exchange_v1.app.config.Constant;
@@ -318,7 +319,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
 		};
 //		filter.addAction(BroadcastFilters.ACTION_TEST);
 
-		String permission= "Manifest.permission.bwoilpermiss";
+		String permission= Manifest.permission.bwoilpermiss;
 		registerReceiver(receiver, filter,permission,mHandler);
 
 	}

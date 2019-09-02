@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.exchange_v1.app.Manifest;
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.utils.ViewUtils;
@@ -216,7 +217,7 @@ public abstract class BaseFragment extends Fragment {
             }
         };
         filter.addAction(BroadcastFilters.ACTION_FORGET_PWD_CLOSE);
-        String permission = "Manifest.permission.bwoilpermiss";
+        String permission = Manifest.permission.bwoilpermiss;
         getActivity().registerReceiver(receiver, filter, permission, mHandler);
 
 
