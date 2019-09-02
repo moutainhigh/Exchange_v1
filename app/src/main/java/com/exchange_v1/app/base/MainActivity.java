@@ -412,6 +412,7 @@ public class MainActivity extends BaseFragmentActivity {
                     lastExitTime = System.currentTimeMillis();
                 } else {
                     finish();
+
                 }
 
             }
