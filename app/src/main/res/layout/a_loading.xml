@@ -10,9 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="牛牛搬运工"
-        android:textSize="30sp"
-        android:background="@color/white"/>
+        android:background="@mipmap/loading_png"/>
 
     <ImageView
         android:id="@+id/hide_iv"
