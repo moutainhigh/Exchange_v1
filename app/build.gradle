@@ -35,6 +35,8 @@ android {
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
+        //消除manifest中得黄色警告
+        disable 'GoogleAppIndexingWarning'
     }
 
     compileOptions {
