@@ -20,15 +20,26 @@ android {
             }
     }
     buildTypes {
-        release {
+        debug {
+            //是否开启混淆打包开关
             minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
-    //防止打包报错
+    //防止打包报错 lint检查忽略
     lintOptions {
+        checkReleaseBuilds false
         abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
 }
