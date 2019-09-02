@@ -128,6 +128,10 @@ public class ServerConfig {
     public static String RESET_PWD_API = SERVER_URL+"/agent/retrieve";
     //用户信息
     public static String USER_INFO_API = SERVER_URL+"/agent/info";
+    //用户打开接单
+    public static String ON_RECEPTIVE_API = SERVER_URL+"/agent/receptiveOn";
+    //用户关闭接单
+    public static String OFF_RECEPTIVE_API = SERVER_URL+"/agent/receptiveOff";
 
     //文件上传接口
     public static String UPLOAD_API = SERVER_URL+"/file/upload";

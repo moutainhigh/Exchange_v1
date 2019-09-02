@@ -194,4 +194,48 @@ public class UserBiz extends BaseBiz{
                 });
     }
 
+    /**
+     * 打开接单
+     *
+     */
+    public static void onReceptive(Context context, final MyRequestHandle mhandle) {
+
+        HashMap<String, String> params = getPostHeadMap();
+
+        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.ON_RECEPTIVE_API,
+                params, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean responseBean) {
+                        mhandle.onSuccess(responseBean);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean responseBean) {
+                        mhandle.onFail(responseBean);
+                    }
+                });
+    }
+
+    /**
+     * 用户关闭接单
+     *
+     */
+    public static void offReceptive(Context context, final MyRequestHandle mhandle) {
+
+        HashMap<String, String> params = getPostHeadMap();
+
+        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.OFF_RECEPTIVE_API,
+                params, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean responseBean) {
+                        mhandle.onSuccess(responseBean);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean responseBean) {
+                        mhandle.onFail(responseBean);
+                    }
+                });
+    }
+
 }

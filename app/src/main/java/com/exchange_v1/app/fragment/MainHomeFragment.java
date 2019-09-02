@@ -11,6 +11,10 @@ import android.widget.RadioButton;
 
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.BaseFragment;
+import com.exchange_v1.app.bean.ResponseBean;
+import com.exchange_v1.app.biz.UserBiz;
+import com.exchange_v1.app.network.RequestHandle;
+import com.exchange_v1.app.utils.ToastUtil;
 import com.flyco.tablayout.SlidingTabLayout;
 
 import java.util.ArrayList;
@@ -34,7 +38,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
     @Override
     protected void findViews() {
         mFragments.add(new HomeOrderReceiveFragment());
-        mFragments.add(new HomeOrderReceiveFragment());
+        mFragments.add(new HomeOrderReceivingFragment());
 
         ViewPager vp = getView(R.id.vp);
         mAdapter = new HomeVpAdapter(getChildFragmentManager(),mFragments);
@@ -77,11 +81,42 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                 if (radioCheck) {
                     radioButton.setChecked(false);
                     radioCheck = false;
+                    offReciver();
                 }else{
                     radioButton.setChecked(true);
                     radioCheck = true;
+                    onReciver();
                 }
 
+            }
+        });
+    }
+
+    //打开接单
+    private void onReciver() {
+        UserBiz.onReceptive(context, new RequestHandle() {
+            @Override
+            public void onSuccess(ResponseBean result) {
+                ToastUtil.showToast(context,"接单已经打开");
+            }
+
+            @Override
+            public void onFail(ResponseBean result) {
+                ToastUtil.showToast(context,result.getInfo());
+            }
+        });
+    }
+
+    private void offReciver() {
+        UserBiz.offReceptive(context, new RequestHandle() {
+            @Override
+            public void onSuccess(ResponseBean result) {
+                ToastUtil.showToast(context,"已关闭接单");
+            }
+
+            @Override
+            public void onFail(ResponseBean result) {
+                ToastUtil.showToast(context,result.getInfo());
             }
         });
     }
