@@ -14,7 +14,6 @@
         android:layout_marginLeft="16dp"
         android:textSize="13sp"
         android:text="充值账号"
-        android:visibility="gone"
         />
 
     <LinearLayout
@@ -23,8 +22,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_height="42dp"
-        android:orientation="horizontal"
-        android:visibility="gone">
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"

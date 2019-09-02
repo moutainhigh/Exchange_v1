@@ -22,11 +22,14 @@ public class RechargeBiz extends BaseBiz{
      *
      * @param context
      * @param mhandle
+     * @param cardType 0-个人账户，1-公司账户
+     *
      */
-    public static void prepare(Context context,String amount, final MyRequestHandle mhandle) {
+    public static void prepare(Context context,String amount,String cardType, final MyRequestHandle mhandle) {
 
         HashMap<String, String> params = getPostHeadMap();
         params.put("amount",amount);
+        params.put("cardType",cardType);
 
         NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.RECHARGE_REQUEST_API,
                 params, new RequestHandle() {

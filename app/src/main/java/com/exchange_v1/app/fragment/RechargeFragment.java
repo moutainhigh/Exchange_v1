@@ -1,14 +1,19 @@
 package com.exchange_v1.app.fragment;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.exchange_v1.app.R;
+import com.exchange_v1.app.activity.RechargeSecondActivity;
 import com.exchange_v1.app.base.BaseFragment;
+import com.exchange_v1.app.bean.PrepareRechargeBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.RechargeBiz;
 import com.exchange_v1.app.network.RequestHandle;
+import com.exchange_v1.app.utils.FieldConfig;
+import com.exchange_v1.app.utils.IntentUtil;
 import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
 
@@ -18,8 +23,7 @@ public class RechargeFragment extends BaseFragment implements View.OnClickListen
     private EditText etMoney;
     private EditText etAccount;
     private TextView tvSubmit;
-
-
+    private PrepareRechargeBean prepareBean;
 
 
     @Override
@@ -52,9 +56,14 @@ public class RechargeFragment extends BaseFragment implements View.OnClickListen
     private void getPrepareRechargeInfo() {
         String money = etMoney.getText().toString().trim();
         if (!StringUtil.isEmpty(money)){
-            RechargeBiz.prepare(context, money, new RequestHandle() {
+            RechargeBiz.prepare(context, money,"0", new RequestHandle() {
                 @Override
                 public void onSuccess(ResponseBean result) {
+                    prepareBean = (PrepareRechargeBean) result.getObject();
+
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(FieldConfig.intent_bean,prepareBean);
+                    IntentUtil.gotoActivity(context,RechargeSecondActivity.class,bundle);
 
                 }
 
