@@ -335,7 +335,7 @@ public class MainActivity extends BaseFragmentActivity {
         int badgeCount = SpUtil.getSPValue(this, JPushReceiver.BADGECOUNT, 0, JPushReceiver.BADGECOUNT, 0);
         if(badgeCount > 0){
             Intent intent = new Intent();
-            intent.setAction("com.brightoilonline.c2b_phone.REMOVE_BADGE");
+            intent.setAction("com.exchange_v1.app.REMOVE_BADGE");
             SpUtil.putSPValue(this, JPushReceiver.BADGECOUNT, 0, JPushReceiver.BADGECOUNT, 0);
             sendBroadcast(intent);
         }

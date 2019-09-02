@@ -118,7 +118,7 @@ public class JPushReceiver extends BroadcastReceiver {
         } else if (C2bPushUtil.ACTION_CONNECTION_CHANGE.equals(intent.getAction())) {
             boolean connected = intent.getBooleanExtra(C2bPushUtil.EXTRA_CONNECTION_CHANGE, false);
             //			Log.w(TAG, "[MyReceiver]" + intent.getAction() +" connected state change to "+connected);
-        } else if ("com.brightoilonline.c2b_phone.REMOVE_BADGE".equals(intent.getAction())) {
+        } else if ("com.exchange_v1.app.REMOVE_BADGE".equals(intent.getAction())) {
             //接收到移除所有badge
             removeBadgeNum(context);
         } else {

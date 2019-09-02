@@ -1,18 +1,18 @@
-package com.exchange_v1.app.utils.http.impl.async;//package com.brightoilonline.c2b_phone.utils.http.impl.async;
+package com.exchange_v1.app.utils.http.impl.async;//package com.exchange_v1.app.utils.http.impl.async;
 //
 //import android.content.Context;
 //
 //import com.alibaba.fastjson.JSON;
-//import com.brightoilonline.c2b_phone.R;
-//import com.brightoilonline.c2b_phone.bean.ResponseBean;
-//import com.brightoilonline.c2b_phone.config.ServerConfig;
-//import com.brightoilonline.c2b_phone.config.TApplication;
-//import com.brightoilonline.c2b_phone.utils.DES3;
-//import com.brightoilonline.c2b_phone.utils.HttpsUtil;
-//import com.brightoilonline.c2b_phone.utils.LogUtil;
-//import com.brightoilonline.c2b_phone.utils.http.AsyncRequestParams;
-//import com.brightoilonline.c2b_phone.utils.http.IHttpMethod;
-//import com.brightoilonline.c2b_phone.utils.http.IResponseHandler;
+//import com.exchange_v1.app.R;
+//import com.exchange_v1.app.bean.ResponseBean;
+//import com.exchange_v1.app.config.ServerConfig;
+//import com.exchange_v1.app.config.TApplication;
+//import com.exchange_v1.app.utils.DES3;
+//import com.exchange_v1.app.utils.HttpsUtil;
+//import com.exchange_v1.app.utils.LogUtil;
+//import com.exchange_v1.app.utils.http.AsyncRequestParams;
+//import com.exchange_v1.app.utils.http.IHttpMethod;
+//import com.exchange_v1.app.utils.http.IResponseHandler;
 //import com.loopj.android.http.AsyncHttpClient;
 //import com.loopj.android.http.AsyncHttpResponseHandler;
 //import com.loopj.android.http.RequestParams;
@@ -41,7 +41,7 @@ package com.exchange_v1.app.utils.http.impl.async;//package com.brightoilonline.
 //import cz.msebera.android.httpclient.params.HttpProtocolParams;
 //import cz.msebera.android.httpclient.protocol.HTTP;
 //
-//import static com.brightoilonline.c2b_phone.network.NewsBaseBiz.descResult;
+//import static com.exchange_v1.app.network.NewsBaseBiz.descResult;
 //
 ///**
 // * Created by zhuwd on 2017/3/15.

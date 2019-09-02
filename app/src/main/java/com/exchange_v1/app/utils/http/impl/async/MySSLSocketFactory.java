@@ -1,4 +1,4 @@
-package com.exchange_v1.app.utils.http.impl.async;//package com.brightoilonline.c2b_phone.utils.http.impl.async;
+package com.exchange_v1.app.utils.http.impl.async;//package com.exchange_v1.app.utils.http.impl.async;
 //
 //import java.io.IOException;
 //import java.net.InetAddress;

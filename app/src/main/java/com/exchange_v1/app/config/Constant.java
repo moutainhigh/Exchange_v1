@@ -14,7 +14,7 @@ public class Constant {
 	/** 英语 */
 	public static final int LANGUAGE_ENGLISH = 2;
 	/** 当前应用包名 */
-	public static final String MY_PKG_NAME = "com.brightoilonline.c2b_phone";
+	public static final String MY_PKG_NAME = "com.exchange_v1.app";
 	/** 接口版本号 */
 	public static final String VERSION_CODE = "1.0";
 
