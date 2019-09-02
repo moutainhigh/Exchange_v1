@@ -3,8 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.exchange_v1.app">
 
+    <permission android:name="com.exchange_v1.app.bwoilpermiss"/>
+
+    <uses-permission android:name="com.exchange_v1.app.bwoilpermiss"/>
     <uses-permission android:name="org.simalliance.openmobileapi.SMARTCARD"/>
-    <uses-permission android:name="com.brightoilonline.c2b_phone.bwoilpermiss"/>
     <!-- 网络访问权限 -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <!-- Required 极光推送 一些系统要求的权限，如访问网络等 -->
@@ -41,7 +43,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/CommActTheme">
             <intent-filter>
-                <action android:name="com.brightoilonline.c2b_phone.activity.main"/>
+                <action android:name="com.exchange_v1.app.activity.main"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
@@ -257,7 +259,7 @@
             android:exported="false"/>
         <!-- User defined.  For test only  用户自定义的广播接收器 -->
         <receiver
-            android:name=".app.receiver.JPushReceiver"
+            android:name=".receiver.JPushReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
@@ -274,7 +276,7 @@
                 <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
                 <action android:name="cn.jpush.android.intent.CONNECTION"/>
                 <!-- 清空桌面角标 -->
-                <action android:name="com.brightoilonline.c2b_phone.REMOVE_BADGE"/>
+                <action android:name="com.exchange_v1.app.REMOVE_BADGE"/>
                 <!-- 接收网络变化 连接/断开 since 1.6.3 -->
                 <category android:name="${applicationId}"/>
             </intent-filter>
