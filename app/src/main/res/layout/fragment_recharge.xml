@@ -16,13 +16,50 @@
         android:text="充值账号"
         />
 
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_height="42dp"
+        android:orientation="horizontal"
+        >
+
+        <RadioButton
+            android:id="@+id/rb_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="个人账号"
+            android:background="@drawable/shape_gray_stroke_btn"/>
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="match_parent"/>
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:id="@+id/rb_invest"
+            android:layout_weight="1"
+            android:text="公司账号"
+            android:gravity="center"
+            android:background="@drawable/shape_gray_stroke_btn"
+            />
+    </RadioGroup>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_marginTop="12dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_height="42dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone"
+        >
 
         <TextView
             android:layout_width="0dp"
