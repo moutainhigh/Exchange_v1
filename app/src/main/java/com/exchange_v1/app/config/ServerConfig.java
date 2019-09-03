@@ -149,6 +149,8 @@ public class ServerConfig {
     public static String WITHDRAW_PAGE_API = SERVER_URL+"/withdraw/page";
     //钱包变动记录
     public static String WALLETHISTORY_API = SERVER_URL+"/walletHistory/page";
+    //提现费率接口
+    public static String WITH_CHARGE_API = SERVER_URL+"/withdraw/withdrawCharge";
 
 
     //省市地区

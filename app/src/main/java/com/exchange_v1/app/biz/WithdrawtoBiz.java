@@ -95,4 +95,22 @@ public class WithdrawtoBiz extends BaseBiz{
                 });
     }
 
+    //提现费率接口
+    public static void withCharge(Context context,final MyRequestHandle mhandle) {
+        HashMap<String, String> params = getPostHeadMap();
+
+        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.WITH_CHARGE_API,
+                params, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean responseBean) {
+                        mhandle.onSuccess(responseBean);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean responseBean) {
+                        mhandle.onFail(responseBean);
+                    }
+
+                });
+    }
 }

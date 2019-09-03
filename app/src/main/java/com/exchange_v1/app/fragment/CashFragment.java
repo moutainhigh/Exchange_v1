@@ -61,6 +61,27 @@ public class CashFragment extends BaseFragment implements View.OnClickListener {
     @Override
     protected void init() {
         setInitUi();
+        getRate();
+    }
+
+    /**
+     * 请求费率的接口
+     */
+    private void getRate() {
+
+        WithdrawtoBiz.withCharge(context, new RequestHandle() {
+            @Override
+            public void onSuccess(ResponseBean result) {
+                String rate = (String) result.getObject();
+                tvCharge.setText(rate+"%");
+
+            }
+
+            @Override
+            public void onFail(ResponseBean result) {
+                ToastUtil.showToast(context,result.getInfo());
+            }
+        });
     }
 
     /**
@@ -113,6 +134,17 @@ public class CashFragment extends BaseFragment implements View.OnClickListener {
 
     private void sendCode() {
 
+        UserBiz.sendMSG(context, mineUserInfo.getMobile(), "2", new RequestHandle() {
+            @Override
+            public void onSuccess(ResponseBean result) {
+                ToastUtil.showToast(context,"验证码已发送");
+            }
+
+            @Override
+            public void onFail(ResponseBean result) {
+                ToastUtil.showToast(context,result.getInfo());
+            }
+        });
     }
 
     private void submit() {
