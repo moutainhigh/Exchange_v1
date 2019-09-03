@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="13dp"
-        android:textColor="@color/black"
-        android:layout_marginLeft="16dp"
-        android:textSize="13sp"
         android:text="提现金额"
-        />
+        android:textColor="@color/comment_gray"
+        android:textSize="13sp" />
 
 
     <TextView
+        android:id="@+id/tv_balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
         android:layout_marginLeft="16dp"
-        android:textColor="@color/text_gray"
-        android:textSize="13sp"
-        android:text="提现金额"/>
+        android:layout_marginTop="21dp"
+        android:text="可用:0.00"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
 
     <EditText
         android:id="@+id/et_money"
@@ -31,19 +31,103 @@
         android:layout_marginTop="16dp"
         android:hint="金额" />
 
-    <EditText
-        android:id="@+id/et_account"
-        style="@style/register_edit_input"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:hint="银行卡号" />
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/tv_bank_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:text="建设银行" />
+
+        <TextView
+            android:id="@+id/tv_bank_card"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="66023 456748 315649" />
+
+    </LinearLayout>
+
+    <View
+        style="@style/default_view_line"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" />
+
+    <!-- 验证码 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_msg_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:hint="短信验证码"
+            android:inputType="number"
+            android:textColorHint="@color/edittext_hint_gray" />
+
+        <TextView
+            android:id="@+id/tv_send_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取验证码"
+            android:textColor="@color/blue"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+    <View
+        style="@style/default_view_line"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手续费" />
+
+        <TextView
+            android:id="@+id/tv_charge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="0.00 DB"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/tv_submit"
         style="@style/default_btn"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="40dp"
-        android:text="确认"
-        />
+        android:text="确认" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,27 +138,27 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="注意事项："
             android:textColor="#F93A50"
-            android:textSize="13sp"
-            android:text="注意事项："/>
+            android:textSize="13sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
-            android:textColor="#F93A50"
-            android:textSize="11sp"
             android:text="汇款时禁止填写附言和留言信息！所有带附言
-和留言的汇款可能无法到账。"/>
+和留言的汇款可能无法到账。"
+            android:textColor="#F93A50"
+            android:textSize="11sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
-            android:textColor="#F93A50"
-            android:textSize="11sp"
             android:text="请严格使用选择的汇款卡进行汇款，使用其他
-卡号汇款的资金损失概不负责。"/>
+卡号汇款的资金损失概不负责。"
+            android:textColor="#F93A50"
+            android:textSize="11sp" />
 
     </LinearLayout>
 
