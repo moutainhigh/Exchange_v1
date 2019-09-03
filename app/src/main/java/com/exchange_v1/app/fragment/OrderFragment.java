@@ -61,6 +61,7 @@ public class OrderFragment extends BaseFragment implements View.OnClickListener 
 
             @Override
             public void onFail(ResponseBean result) {
+
                 ToastUtil.showToast(context,result.getInfo());
             }
         });
