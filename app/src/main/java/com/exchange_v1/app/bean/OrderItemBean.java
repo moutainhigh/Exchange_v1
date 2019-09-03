@@ -1,6 +1,9 @@
 package com.exchange_v1.app.bean;
 
-public class OrderItemBean {
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class OrderItemBean extends BaseBean{
 
     private String tvChong;
     private String tvGotMoney;
@@ -73,5 +76,10 @@ public class OrderItemBean {
 
     public void setTvOrderInfo(String tvOrderInfo) {
         this.tvOrderInfo = tvOrderInfo;
+    }
+
+    @Override
+    protected void init(JSONObject jSon) throws JSONException {
+
     }
 }

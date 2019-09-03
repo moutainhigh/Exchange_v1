@@ -7,6 +7,10 @@ import com.exchange_v1.app.R;
 import com.exchange_v1.app.adapter.OrderListAdapter;
 import com.exchange_v1.app.base.BaseFragment;
 import com.exchange_v1.app.bean.OrderItemBean;
+import com.exchange_v1.app.bean.ResponseBean;
+import com.exchange_v1.app.biz.OrderBiz;
+import com.exchange_v1.app.network.RequestHandle;
+import com.exchange_v1.app.utils.ToastUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.util.ArrayList;
@@ -44,6 +48,22 @@ public class OrderFragment extends BaseFragment implements View.OnClickListener 
         List<OrderItemBean> list = getData();
         mAdapter = new OrderListAdapter(context,list);
         lvListview.setAdapter(mAdapter);
+
+        getOrderList();
+    }
+
+    private void getOrderList() {
+        OrderBiz.getOrderList(context, "0", "1", "10", new RequestHandle() {
+            @Override
+            public void onSuccess(ResponseBean result) {
+
+            }
+
+            @Override
+            public void onFail(ResponseBean result) {
+                ToastUtil.showToast(context,result.getInfo());
+            }
+        });
     }
 
     @Override

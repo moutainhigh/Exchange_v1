@@ -165,4 +165,7 @@ public class ServerConfig {
     //取消充值接口
     public static String RECHARGE_CANCEL_API = SERVER_URL+"/recharge/cancel";
 
+    //支付订单查询
+    public static String ORDER_LIST_API = SERVER_URL+"/paymentOrder/page";
+
 }
