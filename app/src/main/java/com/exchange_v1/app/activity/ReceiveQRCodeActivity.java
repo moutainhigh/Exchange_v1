@@ -132,6 +132,10 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
             @Override
             public void onFail(ResponseBean result) {
                 ToastUtil.showToast(context,result.getInfo());
+                //如果上传失败了，就重新选择图片上传
+                ivPic.setVisibility(View.GONE);
+                rlQrPng.setVisibility(View.VISIBLE);
+
             }
         });
     }
