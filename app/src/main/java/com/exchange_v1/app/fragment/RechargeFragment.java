@@ -25,6 +25,10 @@ public class RechargeFragment extends BaseFragment implements View.OnClickListen
     private TextView tvSubmit;
     private PrepareRechargeBean prepareBean;
 
+    private TextView tvLeftBtn;
+    private TextView tvRightBtn;
+
+    private boolean leftClick = true;
 
     @Override
     protected int getContentViewId() {
@@ -36,6 +40,9 @@ public class RechargeFragment extends BaseFragment implements View.OnClickListen
         etMoney = findViewById(R.id.et_money);
         etAccount = findViewById(R.id.et_account);
         tvSubmit = findViewById(R.id.tv_submit);
+
+        tvLeftBtn = (TextView) findViewById(R.id.tv_left_btn);
+        tvRightBtn = (TextView) findViewById(R.id.tv_right_btn);
     }
 
     @Override
@@ -46,6 +53,9 @@ public class RechargeFragment extends BaseFragment implements View.OnClickListen
     @Override
     protected void widgetListener() {
         tvSubmit.setOnClickListener(this);
+
+        tvLeftBtn.setOnClickListener(clickListener);
+        tvRightBtn.setOnClickListener(clickListener);
     }
 
     @Override
@@ -56,7 +66,7 @@ public class RechargeFragment extends BaseFragment implements View.OnClickListen
     private void getPrepareRechargeInfo() {
         String money = etMoney.getText().toString().trim();
         if (!StringUtil.isEmpty(money)){
-            RechargeBiz.prepare(context, money,"0", new RequestHandle() {
+            RechargeBiz.prepare(context, money,leftClick?"0":"1", new RequestHandle() {
                 @Override
                 public void onSuccess(ResponseBean result) {
                     prepareBean = (PrepareRechargeBean) result.getObject();
@@ -88,4 +98,28 @@ public class RechargeFragment extends BaseFragment implements View.OnClickListen
                 break;
         }
     }
+
+    private View.OnClickListener clickListener = new View.OnClickListener(){
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.tv_left_btn:
+                    tvLeftBtn.setBackgroundResource(R.drawable.shape_blue_stroke_btn);
+                    tvLeftBtn.setTextColor(getResources().getColor(R.color.blue));
+                    tvRightBtn.setBackgroundResource(R.drawable.shape_gray_stroke_btn);
+                    tvRightBtn.setTextColor(getResources().getColor(R.color.text_gray));
+                    leftClick = true;
+                    break;
+                case R.id.tv_right_btn:
+                    tvLeftBtn.setBackgroundResource(R.drawable.shape_gray_stroke_btn);
+                    tvLeftBtn.setTextColor(getResources().getColor(R.color.text_gray));
+                    tvRightBtn.setBackgroundResource(R.drawable.shape_blue_stroke_btn);
+                    tvRightBtn.setTextColor(getResources().getColor(R.color.blue));
+                    leftClick = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 }

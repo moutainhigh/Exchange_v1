@@ -440,5 +440,6 @@
     <color name="edittext_hint_gray">#E2E2E2</color>
     <color name="background_gray">#F6F7FB</color>
     <color name="text_gray">#BFBFBFFF</color>
+    <color name="btn_text_blue">#3083DFFF</color>
 
 </resources>
