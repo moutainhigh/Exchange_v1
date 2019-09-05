@@ -1,6 +1,7 @@
 package com.exchange_v1.app.fragment;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
@@ -26,6 +27,9 @@ import com.exchange_v1.app.biz.UserBiz;
 import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.IntentUtil;
 import com.exchange_v1.app.utils.ToastUtil;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 
 /**
@@ -52,7 +56,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
     private LinearLayout llPosition;
     private LinearLayout llEmailVerify;
 
-
+    private SmartRefreshLayout mainMineRefreshLayout;
 
 
     private MineUserInfoBean userBean;
@@ -80,6 +84,9 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
         llGoogleVerify =  findViewById(R.id.ll_google_verify);
         llPosition =  findViewById(R.id.ll_position);
         llEmailVerify =  findViewById(R.id.ll_email_verify);
+
+        mainMineRefreshLayout = findViewById(R.id.main_mine_refresh_layout);
+        mainMineRefreshLayout.setEnableLoadMore(false);
     }
 
 
@@ -103,6 +110,13 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
         llGoogleVerify.setOnClickListener(this);
         llPosition.setOnClickListener(this);
         llEmailVerify.setOnClickListener(this);
+
+        mainMineRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                getUserInfo();
+            }
+        });
     }
 
     @Override
@@ -123,6 +137,10 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
                 //保存用户登录信息
                 TApplication.setMineUserInfo(userBean);
                 setUserUI();
+
+                if (mainMineRefreshLayout != null) {
+                    mainMineRefreshLayout.finishRefresh();
+                }
             }
 
             @Override

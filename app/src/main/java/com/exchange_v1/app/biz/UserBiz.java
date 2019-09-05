@@ -179,7 +179,7 @@ public class UserBiz extends BaseBiz{
 
         HashMap<String, String> params = getPostHeadMap();
 
-        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.USER_INFO_API,
+        NewsBaseBiz.postRequest(context, "", true, ServerConfig.USER_INFO_API,
                 params, new RequestHandle() {
                     @Override
                     public void onSuccess(ResponseBean responseBean) {
