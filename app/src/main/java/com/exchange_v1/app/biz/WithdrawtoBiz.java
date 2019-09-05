@@ -2,6 +2,8 @@ package com.exchange_v1.app.biz;
 
 import android.content.Context;
 
+import com.exchange_v1.app.bean.BaseBean;
+import com.exchange_v1.app.bean.CashFree;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.config.ServerConfig;
 import com.exchange_v1.app.network.MyRequestHandle;
@@ -96,13 +98,15 @@ public class WithdrawtoBiz extends BaseBiz{
     }
 
     //提现费率接口
-    public static void withCharge(Context context,final MyRequestHandle mhandle) {
+    public static void withCharge(Context context,String money,final MyRequestHandle mhandle) {
         HashMap<String, String> params = getPostHeadMap();
+        params.put("money",money);
 
         NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.WITH_CHARGE_API,
                 params, new RequestHandle() {
                     @Override
                     public void onSuccess(ResponseBean responseBean) {
+                        BaseBean.setGsonResponseObject(responseBean,CashFree.class);
                         mhandle.onSuccess(responseBean);
                     }
 

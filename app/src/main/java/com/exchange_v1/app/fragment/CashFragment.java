@@ -1,5 +1,8 @@
 package com.exchange_v1.app.fragment;
 
+import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -7,6 +10,7 @@ import android.widget.TextView;
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.BaseFragment;
 import com.exchange_v1.app.base.TApplication;
+import com.exchange_v1.app.bean.CashFree;
 import com.exchange_v1.app.bean.MineUserInfoBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.UserBiz;
@@ -27,7 +31,10 @@ public class CashFragment extends BaseFragment implements View.OnClickListener {
     private TextView tvCharge;
     private TextView tvSubmit;
     private MineUserInfoBean mineUserInfo;
+    private CashFree rateBean;
 
+    private Handler handler = new Handler();
+    private String editString;
 
     @Override
     protected int getContentViewId() {
@@ -56,30 +63,72 @@ public class CashFragment extends BaseFragment implements View.OnClickListener {
     protected void widgetListener() {
         tvSendMsg.setOnClickListener(this);
         tvSubmit.setOnClickListener(this);
+
+        etMoney.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count) {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                if(delayRun!=null){
+                    //每次editText有变化的时候，则移除上次发出的延迟线程
+                    handler.removeCallbacks(delayRun);
+                }
+                editString = s.toString();
+
+                //延迟800ms，如果不再输入字符，则执行该线程的run方法
+                handler.postDelayed(delayRun, 800);
+
+
+            }
+        });
     }
 
     @Override
     protected void init() {
         setInitUi();
-        getRate();
     }
 
     /**
-     * 请求费率的接口
+     * 延迟线程，看是否还有下一个字符输入
      */
-    private void getRate() {
+    private Runnable delayRun = new Runnable() {
 
-        WithdrawtoBiz.withCharge(context, new RequestHandle() {
+        @Override
+        public void run() {
+            //在这里调用服务器的接口，获取数据
+            getRate(editString);
+        }
+    };
+
+
+
+    /**
+     * 请求费率的接口
+     * @param editString 输入的金额
+     */
+    private void getRate(String editString) {
+
+        WithdrawtoBiz.withCharge(context, editString,new RequestHandle() {
             @Override
             public void onSuccess(ResponseBean result) {
-                String rate = (String) result.getObject();
-                tvCharge.setText(rate+"%");
-
+                rateBean = (CashFree) result.getObject();
+                //设置手续费
+                tvCharge.setText(rateBean.getFee());
             }
 
             @Override
             public void onFail(ResponseBean result) {
-                ToastUtil.showToast(context,result.getInfo());
+                tvCharge.setText(result.getInfo());
             }
         });
     }
@@ -115,7 +164,6 @@ public class CashFragment extends BaseFragment implements View.OnClickListener {
         tvBalance.setText(mineUserInfo.getBalance()+"");
         tvBankName.setText(mineUserInfo.getBankName());
         tvBankCard.setText(mineUserInfo.getBankNo());
-        tvCharge.setText("1.00");//手续费
     }
 
     @Override

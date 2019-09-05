@@ -150,7 +150,7 @@ public class ServerConfig {
     //钱包变动记录
     public static String WALLETHISTORY_API = SERVER_URL+"/walletHistory/page";
     //提现费率接口
-    public static String WITH_CHARGE_API = SERVER_URL+"/withdraw/withdrawCharge";
+    public static String WITH_CHARGE_API = SERVER_URL+"/withdraw/fee";
 
 
     //省市地区

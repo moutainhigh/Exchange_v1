@@ -41,8 +41,8 @@ public class RechargeFragment extends BaseFragment implements View.OnClickListen
         etAccount = findViewById(R.id.et_account);
         tvSubmit = findViewById(R.id.tv_submit);
 
-        tvLeftBtn = (TextView) findViewById(R.id.tv_left_btn);
-        tvRightBtn = (TextView) findViewById(R.id.tv_right_btn);
+        tvLeftBtn = findViewById(R.id.tv_left_btn);
+        tvRightBtn = findViewById(R.id.tv_right_btn);
     }
 
     @Override
