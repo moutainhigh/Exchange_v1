@@ -8,9 +8,12 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.BaseFragment;
+import com.exchange_v1.app.base.TApplication;
+import com.exchange_v1.app.bean.MineUserInfoBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.UserBiz;
 import com.exchange_v1.app.network.RequestHandle;
@@ -30,6 +33,10 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
     private RadioButton radioButton;
     private boolean radioCheck;
 
+    private MineUserInfoBean userBean;
+    private TextView tvBalance;
+    private TextView tvFreeze;
+
     @Override
     protected View getViews() {
         return View.inflate(context, R.layout.f_home, null);
@@ -37,6 +44,9 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     protected void findViews() {
+        tvBalance = findViewById(R.id.tv_balance);
+        tvFreeze = findViewById(R.id.tv_freeze);
+
         mFragments.add(new HomeOrderReceiveFragment());
         mFragments.add(new HomeOrderReceivingFragment());
 
@@ -123,7 +133,29 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     protected void init() {
+        getUserInfo();
+    }
 
+    /**
+     * 获取用户数据
+     */
+    private void getUserInfo() {
+        UserBiz.userInfo(context, new RequestHandle() {
+            @Override
+            public void onSuccess(ResponseBean result) {
+                userBean = (MineUserInfoBean) result.getObject();
+                //保存用户登录信息
+                TApplication.setMineUserInfo(userBean);
+                //设置用户信息
+                tvBalance.setText(userBean.getBalance()+"");
+                tvFreeze.setText(userBean.getFreezeBalance()+"");
+            }
+
+            @Override
+            public void onFail(ResponseBean result) {
+                ToastUtil.showToast(context,result.getInfo());
+            }
+        });
     }
 
     @Override
