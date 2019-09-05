@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/dimgray_f5"
-              >
+
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_mine_refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:srlHeaderHeight="80dp"
+    app:srlPrimaryColor="@color/common_assist_bg_color">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/dimgray_f5"
             android:orientation="vertical">
 
             <RelativeLayout
@@ -21,58 +29,57 @@
                     android:id="@+id/tv_receptive"
                     android:layout_width="75dp"
                     android:layout_height="19dp"
-                    android:background="@mipmap/mine_red_top"
                     android:layout_marginTop="25dp"
-                    android:text="禁止接单"/>
+                    android:background="@mipmap/mine_red_top"
+                    android:text="禁止接单" />
 
                 <!--<TextView-->
-                    <!--android:layout_width="75dp"-->
-                    <!--android:layout_height="19dp"-->
-                    <!--android:background="@mipmap/mine_yellow_top"-->
-                    <!--android:layout_marginTop="44dp"-->
-                    <!--android:text="正常发单"/>-->
+                <!--android:layout_width="75dp"-->
+                <!--android:layout_height="19dp"-->
+                <!--android:background="@mipmap/mine_yellow_top"-->
+                <!--android:layout_marginTop="44dp"-->
+                <!--android:text="正常发单"/>-->
 
                 <TextView
                     android:id="@+id/tv_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="21dp"
-                    android:textColor="@color/white"
-                    android:layout_marginLeft="16dp"
                     android:layout_centerVertical="true"
-                    android:text="风沙漠"/>
+                    android:layout_marginLeft="16dp"
+                    android:text="风沙漠"
+                    android:textColor="@color/white"
+                    android:textSize="21dp" />
 
                 <TextView
                     android:id="@+id/tv_user_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ID:50217"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="103dp"
-                    />
-                
+                    android:text="ID:50217" />
+
                 <LinearLayout
                     android:id="@+id/ll_active_account"
                     android:layout_width="96dp"
                     android:layout_height="29dp"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginRight="16dp"
-                    android:orientation="horizontal"
+                    android:background="@mipmap/mine_white_corn"
                     android:gravity="center"
-                    android:background="@mipmap/mine_white_corn">
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:background="@mipmap/mine_top_right_icon"
-                        />
+                        android:background="@mipmap/mine_top_right_icon" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
-                        android:text="激活账户"/>
-                    
+                        android:text="激活账户" />
+
                 </LinearLayout>
             </RelativeLayout>
 
@@ -81,35 +88,35 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="133dp"
-                android:layout_marginTop="-23dp"
-                android:background="@drawable/shape_ac_input"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp">
+                android:layout_marginTop="-23dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/shape_ac_input">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="19dp"
                     android:layout_marginTop="23dp"
-                    android:textSize="12sp"
-                    android:text="游戏币"/>
+                    android:text="游戏币"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="19dp"
                     android:layout_marginTop="44dp"
-                    android:textSize="12sp"
-                    android:text="DDB"/>
+                    android:text="DDB"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="19dp"
                     android:layout_marginTop="23dp"
-                    android:textSize="11sp"
-                    android:text="DDB 1:1 CNY"/>
+                    android:layout_marginRight="19dp"
+                    android:text="DDB 1:1 CNY"
+                    android:textSize="11sp" />
 
                 <TextView
                     android:id="@+id/tv_balance"
@@ -118,109 +125,109 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginLeft="19dp"
                     android:layout_marginBottom="24dp"
-                    android:textSize="30sp"
-                    android:text="0.00"/>
+                    android:text="0.00"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/bt_coin_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
                     android:layout_marginRight="19dp"
                     android:layout_marginBottom="24dp"
+                    android:text="明细"
                     android:textColor="@color/blue"
-                    android:textSize="13sp"
-                    android:text="明细"/>
+                    android:textSize="13sp" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/rl_hository_order"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
-                android:background="@drawable/shape_ac_input"
-                android:gravity="center_vertical"
-                android:layout_marginTop="11dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp">
+                android:layout_marginTop="11dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/shape_ac_input"
+                android:gravity="center_vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="19dp"
                     android:text="历史订单"
-                    android:textSize="13sp"
                     android:textColor="@color/text_gray"
-                    android:layout_marginLeft="19dp"/>
+                    android:textSize="13sp" />
 
                 <TextView
                     android:layout_width="8dp"
                     android:layout_height="14dp"
-                    android:layout_marginRight="19dp"
                     android:layout_alignParentRight="true"
-                    android:background="@mipmap/right_attr"/>
+                    android:layout_marginRight="19dp"
+                    android:background="@mipmap/right_attr" />
             </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="63dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
                 android:layout_marginTop="11dp"
+                android:layout_marginRight="16dp"
                 android:background="@drawable/shape_ac_input"
                 android:orientation="horizontal"
-                android:visibility="gone"
-                >
+                android:visibility="gone">
 
                 <LinearLayout
                     android:id="@+id/ll_apply_service"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="@dimen/dp_23"
                         android:layout_height="@dimen/dp_23"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="22dp"
-                        android:background="@mipmap/mine1"/>
-                    
+                        android:background="@mipmap/mine1" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="申请服务商"
                         android:layout_marginLeft="13dp"
-                        android:textSize="13sp"/>
-                    
+                        android:text="申请服务商"
+                        android:textSize="13sp" />
+
                 </LinearLayout>
+
                 <View
                     android:layout_width="1dp"
                     android:layout_height="27dp"
                     android:layout_gravity="center"
-                    android:background="@color/comment_gray"
-                    />
+                    android:background="@color/comment_gray" />
+
                 <LinearLayout
                     android:id="@+id/ll_apply_carry"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="@dimen/dp_23"
                         android:layout_height="@dimen/dp_23"
-                        android:layout_marginLeft="35dp"
                         android:layout_gravity="center_vertical"
-                        android:background="@mipmap/mine2"/>
+                        android:layout_marginLeft="35dp"
+                        android:background="@mipmap/mine2" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="申请搬运代理"
                         android:layout_marginLeft="13dp"
-                        android:textSize="13sp"/>
+                        android:text="申请搬运代理"
+                        android:textSize="13sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -229,17 +236,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="11dp"
                 android:layout_marginRight="16dp"
+                android:background="@drawable/shape_ac_input"
                 android:gravity="center_vertical"
                 android:paddingLeft="22dp"
-                android:layout_marginTop="11dp"
-                android:background="@drawable/shape_ac_input"
-                android:textSize="13sp"
-                android:text="必备工具"/>
+                android:text="必备工具"
+                android:textSize="13sp" />
+
             <View
                 style="@style/default_view_line"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"/>
+                android:layout_marginRight="16dp" />
 
             <!-- 第一行 -->
             <LinearLayout
@@ -247,51 +255,51 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:paddingBottom="17dp"
-                android:paddingTop="17dp"
                 android:background="@drawable/shape_ac_input"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingTop="17dp"
+                android:paddingBottom="17dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="22dp"
                         android:layout_height="22dp"
-                        android:background="@mipmap/mine11"/>
+                        android:background="@mipmap/mine11" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="11dp"
-                        android:textSize="11sp"
-                        android:text="设备绑定"/>
-                    
+                        android:text="设备绑定"
+                        android:textSize="11sp" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/ll_bank"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="22dp"
                         android:layout_height="22dp"
-                        android:background="@mipmap/mine12"/>
+                        android:background="@mipmap/mine12" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="11dp"
-                        android:textSize="11sp"
-                        android:text="银行卡"/>
+                        android:text="银行卡"
+                        android:textSize="11sp" />
 
                 </LinearLayout>
 
@@ -299,21 +307,21 @@
                     android:id="@+id/ll_alipay"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="22dp"
                         android:layout_height="22dp"
-                        android:background="@mipmap/mine13"/>
+                        android:background="@mipmap/mine13" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="11dp"
-                        android:textSize="11sp"
-                        android:text="支付宝"/>
+                        android:text="支付宝"
+                        android:textSize="11sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -323,72 +331,72 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:paddingBottom="17dp"
-                android:paddingTop="17dp"
                 android:background="@drawable/shape_ac_input"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingTop="17dp"
+                android:paddingBottom="17dp">
 
                 <LinearLayout
                     android:id="@+id/ll_wechatPay"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="22dp"
                         android:layout_height="22dp"
-                        android:background="@mipmap/mine14"/>
+                        android:background="@mipmap/mine14" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="11dp"
-                        android:textSize="11sp"
-                        android:text="微信"/>
+                        android:text="微信"
+                        android:textSize="11sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="22dp"
                         android:layout_height="22dp"
-                        android:background="@mipmap/mine15"/>
+                        android:background="@mipmap/mine15" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="11dp"
-                        android:textSize="11sp"
-                        android:text="QQ"/>
+                        android:text="QQ"
+                        android:textSize="11sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="22dp"
                         android:layout_height="22dp"
-                        android:background="@mipmap/mine16"/>
+                        android:background="@mipmap/mine16" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="11dp"
-                        android:textSize="11sp"
-                        android:text="云闪付"/>
+                        android:text="云闪付"
+                        android:textSize="11sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -398,31 +406,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
                 android:layout_marginTop="11dp"
-                android:paddingBottom="17dp"
-                android:paddingTop="17dp"
+                android:layout_marginRight="16dp"
                 android:background="@drawable/shape_ac_input"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingTop="17dp"
+                android:paddingBottom="17dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="22dp"
                         android:layout_height="22dp"
-                        android:background="@mipmap/mine21"/>
+                        android:background="@mipmap/mine21" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="11dp"
-                        android:textSize="11sp"
-                        android:text="实名验证"/>
+                        android:text="实名验证"
+                        android:textSize="11sp" />
 
                 </LinearLayout>
 
@@ -430,21 +438,21 @@
                     android:id="@+id/ll_google_verify"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="22dp"
                         android:layout_height="22dp"
-                        android:background="@mipmap/mine22"/>
+                        android:background="@mipmap/mine22" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="11dp"
-                        android:textSize="11sp"
-                        android:text="谷歌验证"/>
+                        android:text="谷歌验证"
+                        android:textSize="11sp" />
 
                 </LinearLayout>
 
@@ -452,21 +460,21 @@
                     android:id="@+id/ll_position"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="22dp"
                         android:layout_height="22dp"
-                        android:background="@mipmap/mine1"/>
+                        android:background="@mipmap/mine1" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="23dp"
-                        android:textSize="11sp"
-                        android:text="位置及同城匹配"/>
+                        android:text="位置及同城匹配"
+                        android:textSize="11sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -476,30 +484,30 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:paddingBottom="17dp"
-                android:paddingTop="17dp"
                 android:background="@drawable/shape_ac_input"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingTop="17dp"
+                android:paddingBottom="17dp">
 
                 <LinearLayout
                     android:id="@+id/ll_email_verify"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="22dp"
                         android:layout_height="22dp"
-                        android:background="@mipmap/mine24"/>
+                        android:background="@mipmap/mine24" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="11dp"
-                        android:textSize="11sp"
-                        android:text="邮箱认证"/>
+                        android:text="邮箱认证"
+                        android:textSize="11sp" />
 
                 </LinearLayout>
 
@@ -507,10 +515,9 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="2"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_weight="2">
-                </LinearLayout>
+                    android:orientation="vertical"></LinearLayout>
 
             </LinearLayout>
 
@@ -518,41 +525,42 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
-                android:background="@drawable/shape_ac_input"
-                android:gravity="center_vertical"
-                android:layout_marginTop="11dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp">
+                android:layout_marginTop="11dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/shape_ac_input"
+                android:gravity="center_vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="19dp"
                     android:text="设置"
-                    android:textSize="13sp"
                     android:textColor="#878C8FFF"
-                    android:layout_marginLeft="19dp"/>
+                    android:textSize="13sp" />
 
                 <TextView
                     android:layout_width="8dp"
                     android:layout_height="14dp"
-                    android:layout_marginRight="19dp"
                     android:layout_alignParentRight="true"
-                    android:background="@mipmap/right_attr"/>
+                    android:layout_marginRight="19dp"
+                    android:background="@mipmap/right_attr" />
             </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_exit_login"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
-                android:layout_marginTop="21dp"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="21dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="20dp"
-                android:textColor="@color/red"
+                android:background="@drawable/shape_ac_input"
                 android:gravity="center"
                 android:text="退出登录"
-                android:background="@drawable/shape_ac_input"/>
+                android:textColor="@color/red" />
 
         </LinearLayout>
 
-</ScrollView>
+    </ScrollView>
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>
