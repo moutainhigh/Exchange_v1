@@ -49,6 +49,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
     private RelativeLayout rlHositoryOrder;
     private LinearLayout llAlipay;
     private LinearLayout llWechatPay;
+    private TextView tvActiveState;
 
     private LinearLayout llApplyService;
     private LinearLayout llApplyCarry;
@@ -78,6 +79,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
         rlHositoryOrder = findViewById(R.id.rl_hository_order);
         llAlipay = findViewById(R.id.ll_alipay);
         llWechatPay = findViewById(R.id.ll_wechatPay);
+        tvActiveState = findViewById(R.id.tv_active_state);
 
         llApplyService =  findViewById(R.id.ll_apply_service);
         llApplyCarry =  findViewById(R.id.ll_apply_carry);
@@ -161,6 +163,13 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
             tvReceptive.setText("禁止接单");
             tvReceptive.setBackgroundResource(R.mipmap.mine_red_top);
         }
+        if (userBean.getPledgeState() == 1){
+            tvActiveState.setText("已激活");
+            llActiveAccount.setEnabled(false);
+        }else {
+            tvActiveState.setText("激活账户");
+            llActiveAccount.setEnabled(true);
+        }
         tvUserName.setText(userBean.getAccount());
         tvUserId.setText("ID:"+userBean.getId());
         tvBalance.setText(userBean.getBalance()+"");
@@ -220,6 +229,8 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
             @Override
             public void onSuccess(ResponseBean result) {
                 ToastUtil.showToast(context,"用户激活成功");
+                tvActiveState.setText("已激活");
+                llActiveAccount.setEnabled(false);
             }
 
             @Override

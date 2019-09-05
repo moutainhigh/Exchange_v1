@@ -42,6 +42,15 @@ public class MineUserInfoBean extends BaseBean {
     private String account;
     private String id;
     private String receptive;
+    private int pledgeState;
+
+    public int getPledgeState() {
+        return pledgeState;
+    }
+
+    public void setPledgeState(int pledgeState) {
+        this.pledgeState = pledgeState;
+    }
 
     public String getId() {
         return id;
