@@ -44,12 +44,12 @@
 -keep public class * extends android.content.ContentProvider
 -keep public class * extends java.lang.Throwable {*;}
 -keep public class * extends java.lang.Exception {*;}
--keep class com.brightoilonline.c2b_phone.interf.WebInterface{*;}
--keep class com.brightoilonline.c2b_phone.interf.SpecialH5WebInterface{*;}
--keep class com.brightoilonline.c2b_phone.interf.RedeemCodeWebInterface{*;}
--keep class com.brightoilonline.c2b_phone.utils.ui.webview.** { *;}
--keep class com.brightoilonline.c2b_phone.activity.home.webpage.** { *;}
--keep class com.brightoilonline.c2b_phone.bean.** { *;}
+-keep class com.exchange_v1.app.interf.WebInterface{*;}
+-keep class com.exchange_v1.app.interf.SpecialH5WebInterface{*;}
+-keep class com.exchange_v1.app.interf.RedeemCodeWebInterface{*;}
+-keep class com.exchange_v1.app.utils.ui.webview.** { *;}
+-keep class com.exchange_v1.app.activity.home.webpage.** { *;}
+-keep class com.exchange_v1.app.bean.** { *;}
 
 #混淆摩窗代码.
 -keep class com.tencent.mm.sdk.** {*;}
@@ -80,7 +80,7 @@
 #----------------------------------------------------------------------------
 -keep class **.R$* {*;}
 -keep class **.R{*;}
--keep public class com.brightoilonline.c2b_phone.R$*{
+-keep public class com.exchange_v1.app.R$*{
 	public static final int *;
 }
 
@@ -429,7 +429,7 @@
 -keepclassmembers class * {
    public <init> (org.json.JSONObject);
 }
--keep public class com.brightoilonline.c2b_phone.R$*{
+-keep public class com.exchange_v1.app.R$*{
 public static final int *;
 }
 -keepclassmembers enum * {
@@ -469,8 +469,6 @@ public static final int *;
 -keep class com.baidu.bottom.** { *; }
 -keep class com.baidu.kirin.** { *; }
 -keep class com.baidu.mobstat.** { *; }
-#保险bean类混淆
--keep class com.brightoilonline.c2b_phone.activity.insurance.bean** { *; }
 
 #网页七鱼
 -dontwarn com.qiyukf.**
