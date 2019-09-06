@@ -10,8 +10,11 @@ import com.exchange_v1.app.activity.AddLoadingActivity;
 import com.exchange_v1.app.activity.LoginActivity;
 import com.exchange_v1.app.bean.AddLoadBean;
 import com.exchange_v1.app.bean.LoginBean;
+import com.exchange_v1.app.bean.MineUserInfoBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.bean.UserInfoBean;
+import com.exchange_v1.app.biz.UserBiz;
+import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.FinishPrograme;
 import com.exchange_v1.app.utils.IntentUtil;
 import com.exchange_v1.app.utils.SpUtil;
@@ -138,12 +141,27 @@ public class LoadingActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        //延迟两秒去 主页
+        //延迟1秒，token登录
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                IntentUtil.gotoActivityAndFinish(LoadingActivity.this,
-                        LoginActivity.class);
+                UserBiz.userInfo(context, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean result) {
+                        MineUserInfoBean userBean = (MineUserInfoBean) result.getObject();
+                        TApplication.setMineUserInfo(userBean);
+                        //登录到主页
+                        IntentUtil.gotoActivityAndFinish(LoadingActivity.this,
+                                MainActivity.class);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean result) {
+                        IntentUtil.gotoActivityAndFinish(LoadingActivity.this,
+                                LoginActivity.class);
+                    }
+                });
+
             }
         }, 1000);
     }
