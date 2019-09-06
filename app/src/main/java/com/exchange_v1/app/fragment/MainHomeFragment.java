@@ -16,6 +16,7 @@ import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.MineUserInfoBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.UserBiz;
+import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.ToastUtil;
 import com.flyco.tablayout.SlidingTabLayout;
@@ -51,7 +52,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
         mFragments.add(new HomeOrderReceivingFragment());
 
         ViewPager vp = getView(R.id.vp);
-        mAdapter = new HomeVpAdapter(getChildFragmentManager(),mFragments);
+        mAdapter = new HomeVpAdapter(getChildFragmentManager(), mFragments);
         vp.setOffscreenPageLimit(1);
         vp.setAdapter(mAdapter);
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -92,7 +93,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                     radioButton.setChecked(false);
                     radioCheck = false;
                     offReciver();
-                }else{
+                } else {
                     radioButton.setChecked(true);
                     radioCheck = true;
                     onReciver();
@@ -107,12 +108,12 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
         UserBiz.onReceptive(context, new RequestHandle() {
             @Override
             public void onSuccess(ResponseBean result) {
-                ToastUtil.showToast(context,"接单已经打开");
+                ToastUtil.showToast(context, "接单已经打开");
             }
 
             @Override
             public void onFail(ResponseBean result) {
-                ToastUtil.showToast(context,result.getInfo());
+                ToastUtil.showToast(context, result.getInfo());
             }
         });
     }
@@ -121,41 +122,27 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
         UserBiz.offReceptive(context, new RequestHandle() {
             @Override
             public void onSuccess(ResponseBean result) {
-                ToastUtil.showToast(context,"已关闭接单");
+                ToastUtil.showToast(context, "已关闭接单");
             }
 
             @Override
             public void onFail(ResponseBean result) {
-                ToastUtil.showToast(context,result.getInfo());
+                ToastUtil.showToast(context, result.getInfo());
             }
         });
     }
 
     @Override
     protected void init() {
-        getUserInfo();
+        setUIView(TApplication.getMineUserInfo());
     }
 
-    /**
-     * 获取用户数据
-     */
-    private void getUserInfo() {
-        UserBiz.userInfo(context, new RequestHandle() {
-            @Override
-            public void onSuccess(ResponseBean result) {
-                userBean = (MineUserInfoBean) result.getObject();
-                //保存用户登录信息
-                TApplication.setMineUserInfo(userBean);
-                //设置用户信息
-                tvBalance.setText(userBean.getBalance()+"");
-                tvFreeze.setText(userBean.getFreezeBalance()+"");
-            }
-
-            @Override
-            public void onFail(ResponseBean result) {
-                ToastUtil.showToast(context,result.getInfo());
-            }
-        });
+    private void setUIView(MineUserInfoBean userBean) {
+        if (userBean != null) {
+            //设置用户信息
+            tvBalance.setText(userBean.getBalance() + "");
+            tvFreeze.setText(userBean.getFreezeBalance() + "");
+        }
     }
 
     @Override
@@ -167,6 +154,9 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
     @Override
     protected void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
+        if (intent.getAction().equals(BroadcastFilters.ACTION_UPDATE_USER_INFO)) {
+            setUIView(TApplication.getMineUserInfo());
+        }
     }
 
 

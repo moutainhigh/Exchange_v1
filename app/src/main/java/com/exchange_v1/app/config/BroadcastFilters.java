@@ -9,4 +9,7 @@ public class BroadcastFilters {
 	/** 关闭修改密码一界面 */
 	public static final String ACTION_FORGET_PWD_CLOSE = "com_exchange_app_action_forget_pwd_close";
 
+	/** 更新用户信息 */
+	public static final String ACTION_UPDATE_USER_INFO = "com_exchange_app_action_update_user_info";
+
 }

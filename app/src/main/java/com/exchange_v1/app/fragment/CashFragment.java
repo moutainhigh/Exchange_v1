@@ -1,5 +1,7 @@
 package com.exchange_v1.app.fragment;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,8 +17,8 @@ import com.exchange_v1.app.bean.MineUserInfoBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.UserBiz;
 import com.exchange_v1.app.biz.WithdrawtoBiz;
+import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.network.RequestHandle;
-import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
 
@@ -30,7 +32,6 @@ public class CashFragment extends BaseFragment implements View.OnClickListener {
     private TextView tvSendMsg;
     private TextView tvCharge;
     private TextView tvSubmit;
-    private MineUserInfoBean mineUserInfo;
     private CashFree rateBean;
 
     private Handler handler = new Handler();
@@ -95,7 +96,7 @@ public class CashFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     protected void init() {
-        setInitUi();
+        setCashView(TApplication.getMineUserInfo());
     }
 
     /**
@@ -133,37 +134,12 @@ public class CashFragment extends BaseFragment implements View.OnClickListener {
         });
     }
 
-    /**
-     * 设置界面ui
-     */
-    private void setInitUi() {
-        //通过用户数据，获取用户信息
-        mineUserInfo = TApplication.getMineUserInfo();
-        if (mineUserInfo == null){
-            UserBiz.userInfo(context, new RequestHandle() {
-                @Override
-                public void onSuccess(ResponseBean result) {
-                    mineUserInfo = (MineUserInfoBean)result.getObject();
-                    setCashView();
-                }
-
-                @Override
-                public void onFail(ResponseBean result) {
-                    Logger.i("获取用户数据失败");
-                }
-            });
-        }else {
-            setCashView();
+    private void setCashView(MineUserInfoBean bean) {
+        if (bean!=null){
+            tvBalance.setText(bean.getBalance()+"");
+            tvBankName.setText(bean.getBankName());
+            tvBankCard.setText(bean.getBankNo());
         }
-
-    }
-
-
-    private void setCashView() {
-        //赋值
-        tvBalance.setText(mineUserInfo.getBalance()+"");
-        tvBankName.setText(mineUserInfo.getBankName());
-        tvBankCard.setText(mineUserInfo.getBankNo());
     }
 
     @Override
@@ -182,7 +158,7 @@ public class CashFragment extends BaseFragment implements View.OnClickListener {
 
     private void sendCode() {
 
-        UserBiz.sendMSG(context, mineUserInfo.getMobile(), "2", new RequestHandle() {
+        UserBiz.sendMSG(context, TApplication.getMineUserInfo().getMobile(), "2", new RequestHandle() {
             @Override
             public void onSuccess(ResponseBean result) {
                 ToastUtil.showToast(context,"验证码已发送");
@@ -213,5 +189,13 @@ public class CashFragment extends BaseFragment implements View.OnClickListener {
             ToastUtil.showToast(context,"提现金额不能为空");
         }
 
+    }
+
+    @Override
+    protected void onReceive(Context context, Intent intent) {
+        super.onReceive(context, intent);
+        if (intent.getAction().equals(BroadcastFilters.ACTION_UPDATE_USER_INFO)) {
+            setCashView(TApplication.getMineUserInfo());
+        }
     }
 }

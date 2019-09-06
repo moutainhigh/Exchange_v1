@@ -217,6 +217,7 @@ public abstract class BaseFragment extends Fragment {
             }
         };
         filter.addAction(BroadcastFilters.ACTION_FORGET_PWD_CLOSE);
+        filter.addAction(BroadcastFilters.ACTION_UPDATE_USER_INFO);
         String permission = Manifest.permission.bwoilpermiss;
         getActivity().registerReceiver(receiver, filter, permission, mHandler);
 
@@ -270,10 +271,7 @@ public abstract class BaseFragment extends Fragment {
      * @param intent
      */
     protected void onReceive(Context context, Intent intent) {
-        // 接受到广播之后做的处理操作
-        if (BroadcastFilters.ACTION_FORGET_PWD_CLOSE.equals(intent.getAction())) {
 
-        }
     }
 
     /**

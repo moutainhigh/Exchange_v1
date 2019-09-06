@@ -24,9 +24,11 @@ import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.MineUserInfoBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.UserBiz;
+import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.IntentUtil;
 import com.exchange_v1.app.utils.ToastUtil;
+import com.exchange_v1.app.utils.Util;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
@@ -147,6 +149,11 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
                 if (mainMineRefreshLayout != null) {
                     mainMineRefreshLayout.finishRefresh();
                 }
+
+                //用户更新了发广播
+                Intent intent = new Intent();
+                intent.setAction(BroadcastFilters.ACTION_UPDATE_USER_INFO);
+                Util.sendBroadcast(context, intent);
             }
 
             @Override
