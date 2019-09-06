@@ -124,6 +124,10 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
+        if (!hidden) {
+            //更新用户信息
+            getUserInfo();
+        }
     }
 
     @Override

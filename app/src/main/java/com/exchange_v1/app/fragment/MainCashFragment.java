@@ -78,6 +78,14 @@ public class MainCashFragment extends BaseFragment implements OnClickListener {
     }
 
     @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden){
+
+        }
+    }
+
+    @Override
     protected void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
     }
