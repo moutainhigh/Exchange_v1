@@ -19,6 +19,7 @@ import com.exchange_v1.app.biz.UserBiz;
 import com.exchange_v1.app.biz.WithdrawtoBiz;
 import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.network.RequestHandle;
+import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
 
@@ -195,6 +196,7 @@ public class CashFragment extends BaseFragment implements View.OnClickListener {
     protected void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
         if (intent.getAction().equals(BroadcastFilters.ACTION_UPDATE_USER_INFO)) {
+            Logger.i("提现收到了广播");
             setCashView(TApplication.getMineUserInfo());
         }
     }

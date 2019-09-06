@@ -159,6 +159,9 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
             @Override
             public void onFail(ResponseBean result) {
                 ToastUtil.showToast(context,result.getInfo());
+                if (mainMineRefreshLayout != null) {
+                    mainMineRefreshLayout.finishRefresh();
+                }
             }
         });
     }

@@ -18,6 +18,7 @@ import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.UserBiz;
 import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.network.RequestHandle;
+import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.ToastUtil;
 import com.flyco.tablayout.SlidingTabLayout;
 
@@ -155,6 +156,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
     protected void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
         if (intent.getAction().equals(BroadcastFilters.ACTION_UPDATE_USER_INFO)) {
+            Logger.i("首页收到了广播");
             setUIView(TApplication.getMineUserInfo());
         }
     }
