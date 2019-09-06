@@ -18,6 +18,7 @@ import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.FinishPrograme;
 import com.exchange_v1.app.utils.IntentUtil;
 import com.exchange_v1.app.utils.SpUtil;
+import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.UserInfoUtil;
 
 
@@ -145,25 +146,37 @@ public class LoadingActivity extends BaseActivity {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                UserBiz.userInfo(context, new RequestHandle() {
-                    @Override
-                    public void onSuccess(ResponseBean result) {
-                        MineUserInfoBean userBean = (MineUserInfoBean) result.getObject();
-                        TApplication.setMineUserInfo(userBean);
-                        //登录到主页
-                        IntentUtil.gotoActivityAndFinish(LoadingActivity.this,
-                                MainActivity.class);
-                    }
-
-                    @Override
-                    public void onFail(ResponseBean result) {
-                        IntentUtil.gotoActivityAndFinish(LoadingActivity.this,
-                                LoginActivity.class);
-                    }
-                });
-
+                tokenLogin();
             }
         }, 1000);
+    }
+
+    private void tokenLogin() {
+        String account = TApplication.getAccount();
+        if (!StringUtil.isEmpty(account)){
+            UserBiz.userInfo(context, new RequestHandle() {
+                @Override
+                public void onSuccess(ResponseBean result) {
+                    MineUserInfoBean userBean = (MineUserInfoBean) result.getObject();
+                    TApplication.setMineUserInfo(userBean);
+                    //登录到主页
+                    IntentUtil.gotoActivityAndFinish(LoadingActivity.this,
+                            MainActivity.class);
+                }
+
+                @Override
+                public void onFail(ResponseBean result) {
+                    openLoginActivity();
+                }
+            });
+        }else {
+            openLoginActivity();
+        }
+    }
+
+    private void openLoginActivity() {
+        IntentUtil.gotoActivityAndFinish(LoadingActivity.this,
+                LoginActivity.class);
     }
 
 
