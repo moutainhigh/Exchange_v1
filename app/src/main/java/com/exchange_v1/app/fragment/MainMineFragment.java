@@ -1,5 +1,6 @@
 package com.exchange_v1.app.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -266,4 +267,11 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
 
     }
 
+    @Override
+    protected void onReceive(Context context, Intent intent) {
+        super.onReceive(context, intent);
+        if (intent.getAction().equals(BroadcastFilters.ACTION_UPDATE_LOGIN_USER)){
+            getUserInfo();
+        }
+    }
 }

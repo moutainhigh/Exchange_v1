@@ -1,5 +1,6 @@
 package com.exchange_v1.app.fragment;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -12,10 +13,12 @@ import com.exchange_v1.app.base.MainActivity;
 import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.UserBiz;
+import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.IntentUtil;
 import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
+import com.exchange_v1.app.utils.Util;
 
 /**
  * 手机登录fragment
@@ -95,9 +98,15 @@ public class LoginPhoneFragment extends BaseFragment implements View.OnClickList
                         TApplication.setToken(token);
                     }
 
+                    //主动登录后，更新UI
+                    Intent intent = new Intent();
+                    intent.setAction(BroadcastFilters.ACTION_UPDATE_LOGIN_USER);
+                    Util.sendBroadcast(context, intent);
+
                     if (cbPhone.isChecked()){
                         TApplication.setAccount(phone);
                     }
+
                     IntentUtil.gotoActivityAndFinish(context, MainActivity.class);
                 }
 

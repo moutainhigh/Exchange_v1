@@ -12,4 +12,6 @@ public class BroadcastFilters {
 	/** 更新用户信息 */
 	public static final String ACTION_UPDATE_USER_INFO = "com_exchange_app_action_update_user_info";
 
+	/** 登录后更新我的UI */
+	public static final String ACTION_UPDATE_LOGIN_USER = "com_exchange_app_action_update_login_user";
 }
