@@ -16,9 +16,10 @@ import java.util.HashMap;
 public class WithdrawtoBiz extends BaseBiz{
 
     //佣金提现
-    public static void brokerage(Context context, String money,final MyRequestHandle mhandle) {
+    public static void brokerage(Context context, String money,String msg_code,final MyRequestHandle mhandle) {
         HashMap<String, String> params = getPostHeadMap();
         params.put("money", money);
+        params.put("msg_code", msg_code);
 
         NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.BROKERAGE_API,
                 params, new RequestHandle() {

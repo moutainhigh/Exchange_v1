@@ -174,8 +174,9 @@ public class CashFragment extends BaseFragment implements View.OnClickListener {
 
     private void submit() {
         String money = etMoney.getText().toString().trim();
+        String code = etMsgCode.getText().toString().trim();
         if (!StringUtil.isEmpty(money)){
-            WithdrawtoBiz.brokerage(context, money, new RequestHandle() {
+            WithdrawtoBiz.brokerage(context, money,code, new RequestHandle() {
                 @Override
                 public void onSuccess(ResponseBean result) {
                     ToastUtil.showToast(context,"提现成功");
