@@ -15,6 +15,7 @@ import com.exchange_v1.app.bean.UpdateBean;
 import com.exchange_v1.app.bean.UserInfoBean;
 import com.exchange_v1.app.navition.NativeAction;
 import com.exchange_v1.app.utils.ApkUtil;
+import com.exchange_v1.app.utils.C2bPushUtil;
 import com.exchange_v1.app.utils.DES3;
 import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.SpUtil;
@@ -214,7 +215,7 @@ public class TApplication extends Application {
 //        initNetBitmap();
 //
 ////        ApplicationConfig.isOutNet = (iSOUTNET == 0) ? 0 : 1;
-////        C2bPushUtil.init(context);
+        C2bPushUtil.init(context);
 //
 //        init_UM_Share();
 //        //计数功能

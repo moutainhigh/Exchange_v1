@@ -151,9 +151,9 @@ public class MainActivity extends BaseFragmentActivity {
 
     }
 
-    //阻止activity保存fragment的状态,fragment防止重绘
-    public void onSaveInstanceState(Bundle outState) {
-    }
+//    //阻止activity保存fragment的状态,fragment防止重绘
+//    public void onSaveInstanceState(Bundle outState) {
+//    }
 
     @Override
     protected void findViews() {
@@ -212,7 +212,7 @@ public class MainActivity extends BaseFragmentActivity {
             @Override
             public void run() {
                 if (Util.isLogin(MainActivity.this)) {
-                    C2bPushUtil.bindingJPush(MainActivity.this, true, TApplication.getUserInfoBean().getUserNo());
+                    C2bPushUtil.bindingJPush(MainActivity.this, true, TApplication.getMineUserInfo().getId());
                     //					bindingJPush(true,TApplication.getUserInfoBean().getUserNo());
                 }
             }
@@ -483,13 +483,13 @@ public class MainActivity extends BaseFragmentActivity {
                 // Permission Granted
                 if (Util.isLogin(MainActivity.this)) {
                     //					bindingJPush(true,TApplication.getUserInfoBean().getUserNo());
-                    C2bPushUtil.bindingJPush(MainActivity.this, true, TApplication.getUserInfoBean().getUserNo());
+                    C2bPushUtil.bindingJPush(MainActivity.this, true, TApplication.getMineUserInfo().getId());
                 }
             }
         } else if (requestCode == C2bPushUtil.WRITE_EXTERNAL_STORAGE_JPUSH_UNBIND_CODE) {
             if (Util.isLogin(MainActivity.this)) {
                 //				bindingJPush(false,TApplication.getUserInfoBean().getUserNo());
-                C2bPushUtil.bindingJPush(MainActivity.this, false, TApplication.getUserInfoBean().getUserNo());
+                C2bPushUtil.bindingJPush(MainActivity.this, false, TApplication.getMineUserInfo().getId());
             }
         }
     }

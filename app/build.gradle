@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "com.exchange_v1"
+        applicationId "com.exchange_v1.app"
         minSdkVersion 14
         targetSdkVersion 28
         versionCode 1
@@ -44,6 +44,11 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+    }
 }
 
 dependencies {

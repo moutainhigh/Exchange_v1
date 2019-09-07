@@ -129,7 +129,7 @@ public class Util {
     }
 
     public static boolean isLogin() {
-        if (null == TApplication.getUserInfoBean()) {
+        if (null == TApplication.getMineUserInfo()) {
             return false;
         }
         return true;
