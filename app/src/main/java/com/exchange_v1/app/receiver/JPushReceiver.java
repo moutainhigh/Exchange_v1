@@ -16,14 +16,17 @@ import com.alibaba.fastjson.JSON;
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.MainActivity;
 import com.exchange_v1.app.base.TApplication;
+import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.event.JPushRegIdEvent;
 import com.exchange_v1.app.utils.ActivityUtils;
 import com.exchange_v1.app.utils.C2bPushUtil;
 import com.exchange_v1.app.utils.DateUtil;
 import com.exchange_v1.app.utils.DialogUtil;
+import com.exchange_v1.app.utils.FieldConfig;
 import com.exchange_v1.app.utils.HandlerUtil;
 import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.SpUtil;
+import com.exchange_v1.app.utils.ToastUtil;
 import com.exchange_v1.app.utils.Util;
 import com.exchange_v1.app.view.CustomDialog;
 
@@ -65,15 +68,16 @@ public class JPushReceiver extends BroadcastReceiver {
             //获取regId成功
             //ToastUtil.showToast(context,TApplication.jpush_regId);
             EventBus.getDefault().post(new JPushRegIdEvent());
-            //			Log.d(TAG, "[MyReceiver] 接收Registration Id : " + regId);
+            Logger.d(TAG, "[MyReceiver] 接收Registration Id : " + regId);
             //send the Registration Id to your server...
 
         } else if (C2bPushUtil.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) {
-            //			Log.d(TAG, "[MyReceiver] 接收到推送下来的自定义消息: " + bundle.getString(C2bPushUtil.EXTRA_MESSAGE));
+            Logger.d(TAG, "[MyReceiver] 接收到推送下来的自定义消息: " + bundle.getString(C2bPushUtil.EXTRA_MESSAGE));
             acceptCustomMessage(context, bundle, -1);
 
         } else if (C2bPushUtil.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
-            //			Log.d(TAG, "[MyReceiver] 接收到推送下来的通知");
+            //通知栏推送
+            Logger.d(TAG, "[MyReceiver] 接收到推送下来的通知");
             final int notifactionId = bundle.getInt(C2bPushUtil.EXTRA_NOTIFICATION_ID);
             String extra_data = bundle.getString(C2bPushUtil.EXTRA_MESSAGE);
 
@@ -104,7 +108,7 @@ public class JPushReceiver extends BroadcastReceiver {
              */
             jumpActivityByType(context, bundle);
 
-            //            Log.d(TAG, "[MyReceiver] 用户点击打开了通知");
+            Logger.d(TAG, "[MyReceiver] 用户点击打开了通知");
             //        	//打开自定义的Activity
             //        	Intent i = new Intent(context, MainActivity.class);
             //        	i.putExtras(bundle);
@@ -113,17 +117,17 @@ public class JPushReceiver extends BroadcastReceiver {
             //        	context.startActivity(i);
 
         } else if (C2bPushUtil.ACTION_RICHPUSH_CALLBACK.equals(intent.getAction())) {
-            //			Log.d(TAG, "[MyReceiver] 用户收到到RICH PUSH CALLBACK: " + bundle.getString(C2bPushUtil.EXTRA_EXTRA));
+            Logger.d(TAG, "[MyReceiver] 用户收到到RICH PUSH CALLBACK: " + bundle.getString(C2bPushUtil.EXTRA_EXTRA));
             //在这里根据 JPushInterface.EXTRA_EXTRA 的内容处理代码，比如打开新的Activity， 打开一个网页等..
 
         } else if (C2bPushUtil.ACTION_CONNECTION_CHANGE.equals(intent.getAction())) {
             boolean connected = intent.getBooleanExtra(C2bPushUtil.EXTRA_CONNECTION_CHANGE, false);
-            //			Log.w(TAG, "[MyReceiver]" + intent.getAction() +" connected state change to "+connected);
+            Logger.d(TAG, "[MyReceiver]" + intent.getAction() +" connected state change to "+connected);
         } else if ("com.exchange_v1.app.REMOVE_BADGE".equals(intent.getAction())) {
             //接收到移除所有badge
             removeBadgeNum(context);
         } else {
-            //			Log.d(TAG, "[MyReceiver] Unhandled intent - " + intent.getAction());
+            Logger.d(TAG, "[MyReceiver] Unhandled intent - " + intent.getAction());
         }
     }
 
@@ -255,41 +259,17 @@ public class JPushReceiver extends BroadcastReceiver {
 
 
     //send msg to MainActivity
+    //给订单页发送
     private void processCustomMessage(final Context context, final Bundle bundle, int notifactionId) {
 
         String msg = bundle.getString(C2bPushUtil.EXTRA_ALERT);
         String extras = bundle.getString(C2bPushUtil.EXTRA_EXTRA);
         String title = null;
-        String type_bn = null;
-        String product_name = null;
-        String product_id = null;
-        String period = null;
-        String is_show_h5 = null;
-        String url = null;
+        String order = null;
 
         com.alibaba.fastjson.JSONObject json = JSON.parseObject(extras);
-        if (json.containsKey("title")) {
-            title = json.getString("title");
-        }
-        if (json.containsKey("url")) {
-            url = json.getString("url");
-        }
-        if (json.containsKey("type_bn")) {
-            type_bn = json.getString("type_bn");
-        }
-        if (json.containsKey("product_name")) {
-            product_name = json.getString("product_name");
-        }
-        if (json.containsKey("product_id")) {
-            product_id = json.getString("product_id");
-        }
-        if (json.containsKey("period")) {
-            period = json.getString("period");
-        }
-
-        //判断是否是跳到微众联名卡首页
-        if (json.containsKey("is_show_h5")) {
-            is_show_h5 = json.getString("is_show_h5");
+        if (json.containsKey("order")) {
+            order = json.getString("order");
         }
 
         if (TextUtils.isEmpty(extras) || TextUtils.isEmpty(msg)) {
@@ -299,22 +279,30 @@ public class JPushReceiver extends BroadcastReceiver {
         if (!Util.isApplicationBroughtToBackground(context) && !isDialogShow) {
             Activity activity = ActivityUtils.getCurrentActivity();
             if (activity != null) {
-                //				if (activity instanceof AddLoadingActivity) {
-                //					delayedMsg(context, bundle);
-                //					return;
-                //				}
-                //				if (activity instanceof LoadingActivity) {
-                //					delayedMsg(context, bundle);
-                //					return;
-                //				}
-                //创建弹出框
+                ToastUtil.showToast(activity,"收到订单号为:"+order);
+                Logger.d("订单号为："+order);
+
+//                //创建弹出框
+//                DialogV273 dialog = getDialogByType(activity, title, url, product_id, product_name, type_bn, period, is_show_h5);
+//                dialog.setCancelable(false);
+//                dialog.setTitle(title);
+//                dialog.setMessage(msg);
+//                if (notifactionId > 0) {
+//                    NotificationManager notiManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+//                    notiManager.cancel(notifactionId);
+//                }
+//                dialog.show();
+//                isDialogShow = true;
+//                dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+//                    @Override
+//                    public void onDismiss(DialogInterface dialog) {
+//                        isDialogShow = false;
+//                    }
+//                });
+            }else {
+
             }
         }
-        //		else {
-        //			SpUtil.setSPJPushTime(DateUtil.getDate("yyyy-MM-dd"));
-        //			SpUtil.setSPJPushMsg(msg);
-        //			SpUtil.setSPJPushTitle(title);
-        //		}
     }
 
     //自定义消息
@@ -323,38 +311,15 @@ public class JPushReceiver extends BroadcastReceiver {
         String msg = bundle.getString(C2bPushUtil.EXTRA_MESSAGE);
         String extras = bundle.getString(C2bPushUtil.EXTRA_EXTRA);
         String title = null;
-        String type_bn = null;
-        String product_name = null;
-        String product_id = null;
-        String period = null;
-        String is_show_h5 = null;
-        String url = null;
+        String order = null;
+
 
         com.alibaba.fastjson.JSONObject json = JSON.parseObject(extras);
-        if (json.containsKey("title")) {
-            title = json.getString("title");
-        }
-        if (json.containsKey("url")) {
-            url = json.getString("url");
-        }
-        if (json.containsKey("type_bn")) {
-            type_bn = json.getString("type_bn");
-        }
-        if (json.containsKey("product_name")) {
-            product_name = json.getString("product_name");
-        }
-        if (json.containsKey("product_id")) {
-            product_id = json.getString("product_id");
-        }
-        if (json.containsKey("period")) {
-            period = json.getString("period");
+        if (json.containsKey("order")) {
+            order = json.getString("order");
         }
 
-        //判断是否是跳到微众联名卡首页
-        if (json.containsKey("is_show_h5")) {
-            is_show_h5 = json.getString("is_show_h5");
-        }
-
+        Logger.d("order为："+order);
 
         if (TextUtils.isEmpty(extras) || TextUtils.isEmpty(msg)) {
             return;
@@ -363,14 +328,24 @@ public class JPushReceiver extends BroadcastReceiver {
         if (!Util.isApplicationBroughtToBackground(context) && !isDialogShow) {
             Activity activity = ActivityUtils.getCurrentActivity();
             if (activity != null) {
-                //				if (activity instanceof AddLoadingActivity) {
-                //					delayedMsg(context, bundle);
-                //					return;
-                //				}
-                //				if (activity instanceof LoadingActivity) {
-                //					delayedMsg(context, bundle);
-                //					return;
-                //				}
+                if (activity instanceof MainActivity) {
+                    Logger.d("程序在前台运行");
+
+                    //发送广播给前台
+                    Intent intent = new Intent();
+                    intent.setAction(BroadcastFilters.ACTION_ORDER);
+                    intent.putExtra(FieldConfig.intent_str,order);
+                    Logger.d("发广播");
+                    context.sendBroadcast(intent);
+//                    Util.sendBroadcast(TApplication.context,intent);
+
+//                    delayedMsg(context, bundle);
+                    return;
+                }
+//                if (activity instanceof LoadingActivity) {
+//                    delayedMsg(context, bundle);
+//                    return;
+//                }
             }
         } else {
             SpUtil.setSPJPushTime(DateUtil.getDate("yyyy-MM-dd"));

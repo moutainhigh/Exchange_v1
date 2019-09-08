@@ -18,4 +18,7 @@ public class BroadcastFilters {
 	/** 主动关闭mainActivity */
 	public static final String ACTION_CLOSE_MAIN = "com_exchange_app_action_close_main";
 
+	/** 收到订单推送 */
+	public static final String ACTION_ORDER = "com_exchange_app_action_order";
+
 }
