@@ -214,7 +214,6 @@ public class MainActivity extends BaseFragmentActivity {
             public void run() {
                 if (Util.isLogin(MainActivity.this)) {
                     C2bPushUtil.bindingJPush(MainActivity.this, true, TApplication.getMineUserInfo().getId());
-                    //					bindingJPush(true,TApplication.getUserInfoBean().getUserNo());
                 }
             }
         }, 1000);

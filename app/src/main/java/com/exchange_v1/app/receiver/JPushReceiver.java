@@ -22,6 +22,7 @@ import com.exchange_v1.app.utils.C2bPushUtil;
 import com.exchange_v1.app.utils.DateUtil;
 import com.exchange_v1.app.utils.DialogUtil;
 import com.exchange_v1.app.utils.HandlerUtil;
+import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.SpUtil;
 import com.exchange_v1.app.utils.Util;
 import com.exchange_v1.app.view.CustomDialog;
@@ -55,7 +56,7 @@ public class JPushReceiver extends BroadcastReceiver {
     public void onReceive(final Context context, Intent intent) {
         final Bundle bundle = intent.getExtras();
         if (bundle != null) {
-            //			Log.d(TAG, "[MyReceiver] onReceive - " + intent.getAction() + ", extras: " + printBundle(bundle));
+            Logger.d(TAG, "[MyReceiver] onReceive - " + intent.getAction() + ", extras: " + printBundle(bundle));
         }
 
         if (C2bPushUtil.ACTION_REGISTRATION_ID.equals(intent.getAction())) {

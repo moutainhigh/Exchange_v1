@@ -12,6 +12,9 @@ import android.text.TextUtils;
 
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.TApplication;
+import com.exchange_v1.app.bean.ResponseBean;
+import com.exchange_v1.app.biz.JpushBiz;
+import com.exchange_v1.app.network.RequestHandle;
 
 import java.util.Set;
 
@@ -119,20 +122,44 @@ public class C2bPushUtil {
                 }
                 TApplication.jpush_regId=regId;
                 final String device_id = Installation.idNoLocation(activity);
-                final String memberId=userNo;
-                final String alias=userNo;
+                final String alias=TApplication.getMineUserInfo().getId();
                 if(bindFla){
                     JPushInterface.setAlias(activity,userNo,new TagAliasCallback(){
 
                         @Override
                         public void gotResult(int i, String s, Set<String> set) {
+                            if(i ==0) {
+                                //成功设置
+                                JpushBiz.bindJpush(activity,TApplication.jpush_regId,device_id, alias, new RequestHandle() {
+                                    @Override
+                                    public void onSuccess(ResponseBean result) {
+                                    }
 
+                                    @Override
+                                    public void onFail(ResponseBean result) {
+                                    }
+                                });
+                            }
                         }
                     });
                 }else{
                     JPushInterface.setAlias(activity, "", new TagAliasCallback() {
                         @Override
                         public void gotResult(int i, String s, Set<String> set) {
+                            if(i==0) {
+                                //取消成功
+                                JpushBiz.unBindJpush(activity, new RequestHandle() {
+                                    @Override
+                                    public void onSuccess(ResponseBean result) {
+
+                                    }
+
+                                    @Override
+                                    public void onFail(ResponseBean result) {
+
+                                    }
+                                });
+                            }
                         }
                     });
                 }
