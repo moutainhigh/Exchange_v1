@@ -335,10 +335,7 @@ public class JPushReceiver extends BroadcastReceiver {
                     Intent intent = new Intent();
                     intent.setAction(BroadcastFilters.ACTION_ORDER);
                     intent.putExtra(FieldConfig.intent_str,order);
-                    Logger.d("发广播");
                     context.sendBroadcast(intent);
-//                    Util.sendBroadcast(TApplication.context,intent);
-
 //                    delayedMsg(context, bundle);
                     return;
                 }
