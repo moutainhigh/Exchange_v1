@@ -577,6 +577,14 @@ public class TApplication extends Application {
     }
 
     /**
+     * 清除用户信息
+     */
+    public static void clearMineUserInfo() {
+        SpUtil.setObject(context, "mineInfo" + mineInfo.getMobile(), null);
+        TApplication.mineInfo = null;
+    }
+
+    /**
      * 获取用户登录信息
      * @return
      */

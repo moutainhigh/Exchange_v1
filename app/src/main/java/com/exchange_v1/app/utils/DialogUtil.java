@@ -34,6 +34,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.exchange_v1.app.R;
+import com.exchange_v1.app.activity.LoginActivity;
 import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.UpdateBean;
 import com.exchange_v1.app.config.FileConfig;
@@ -752,13 +753,6 @@ public class DialogUtil {
     /**
      * 显示退出对话框
      *
-     * @param context
-     * @version 1.0
-     * @createTime 2013-10-2,上午10:36:57
-     * @updateTime 2013-10-2,上午10:36:57
-     * @createAuthor 罗文忠
-     * @updateAuthor 罗文忠
-     * @updateInfo (此处输入修改内容, 若无修改可不写.)
      */
     public static void showExitsDg(final Context context, final boolean quitActivity) {
 
@@ -768,48 +762,22 @@ public class DialogUtil {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // TODO Auto-generated method stub
                         dialog.dismiss();
-                        String userNo = "";
-                        if (TApplication.getUserInfoBean() != null) {
-                            userNo = TApplication.getUserInfoBean().getUserNo();
-                        }
+                        IntentUtil.gotoActivity(context, LoginActivity.class);
+                        //退出置空
+                        TApplication.setSecretKey("");
+                        TApplication.clearMineUserInfo();
+                        TApplication.clearToken();
+
                         if (quitActivity) {
                             ((Activity) context).finish();
                         }
-                        //退出置空
-                        TApplication.setSecretKey("");
-                        logout(context);
-                        //友盟、百度统计埋点--退出登录
-                        CountUtil.sendDataForStatistics(context, "MyPage_Set_logout");
-                        //C2B 统计
-                        CountUtil.sendC2bLoginOut(context);
-
-                        UserInfoUtil.logout();
-                        TApplication.setUserInfoBean(null);
-//                        TApplication.setUserAccountBean(null);
-                        //						 TApplication.token=null;
-                        //						 TApplication.clearToken();
-                        TApplication.clearToken();
-                        TApplication.IsOnTop = true;
-
-//                        Intent intent = new Intent();
-//                        intent.setAction(BroadcastFilters.ACTION_LGOIN_LOGOUT);
-                        //TApplication.context.sendBroadcast(intent);
-//                        Util.sendBroadcast(context, intent);
-
-//                        EventBus.getDefault().post(new LoginEvent(false, userNo));
-//                        EventBus.getDefault().post(new UpdateHomeEvent());
-//                        EventBus.getDefault().post(new MainMenuEvent(300));
-
-
                     }
                 })
                 .setNegativeButton("取消", new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // TODO Auto-generated method stub
 
                         dialog.dismiss();
                     }

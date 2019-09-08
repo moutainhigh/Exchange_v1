@@ -16,7 +16,6 @@ import com.exchange_v1.app.activity.BankBindListActivity;
 import com.exchange_v1.app.activity.CoinDetailActivity;
 import com.exchange_v1.app.activity.EmailVerifActivity;
 import com.exchange_v1.app.activity.GoogleCheckActivity;
-import com.exchange_v1.app.activity.LoginActivity;
 import com.exchange_v1.app.activity.OrderListActivity;
 import com.exchange_v1.app.activity.PositionSelectActivity;
 import com.exchange_v1.app.activity.ReceiveQRCodeActivity;
@@ -27,6 +26,7 @@ import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.UserBiz;
 import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.network.RequestHandle;
+import com.exchange_v1.app.utils.DialogUtil;
 import com.exchange_v1.app.utils.IntentUtil;
 import com.exchange_v1.app.utils.ToastUtil;
 import com.exchange_v1.app.utils.Util;
@@ -194,9 +194,11 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_exit_login:
-                IntentUtil.gotoActivity(context, LoginActivity.class);
-                //主动退出，要清楚token信息
-                TApplication.clearToken();
+                DialogUtil.showExitsDg(context);
+
+//                IntentUtil.gotoActivity(context, LoginActivity.class);
+//                //主动退出，要清楚token信息
+//                TApplication.clearToken();
                 break;
             case R.id.ll_bank://绑定银行卡
                 IntentUtil.gotoActivity(context, BankBindListActivity.class);
