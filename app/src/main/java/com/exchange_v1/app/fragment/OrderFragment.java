@@ -1,5 +1,7 @@
 package com.exchange_v1.app.fragment;
 
+import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.ListView;
 
@@ -12,6 +14,9 @@ import com.exchange_v1.app.biz.OrderBiz;
 import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.ToastUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +26,21 @@ public class OrderFragment extends BaseFragment implements View.OnClickListener 
     private SmartRefreshLayout refreshLayout;
     private ListView lvListview;
     private OrderListAdapter mAdapter;
+
+    private List<OrderItemBean> orderList;
+    private String OrderType;//请求的订单类型
+
+    private int page = 1;
+    private String limit="10";//每页条数
+    private boolean isLoadMoreToast = false;
+
+    public static OrderFragment newInstance(String type) {
+        Bundle args = new Bundle();
+        args.putString("OrderType", type);
+        OrderFragment fragment = new OrderFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     protected int getContentViewId() {
@@ -35,34 +55,78 @@ public class OrderFragment extends BaseFragment implements View.OnClickListener 
 
     @Override
     protected void initGetData() {
-
+        Bundle arguments = getArguments();
+        OrderType = arguments.getString("OrderType");
     }
 
     @Override
     protected void widgetListener() {
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                page = 1;
+                isLoadMoreToast = false;
+                getOrderList(true, false);
+            }
+        });
 
+        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                page++;
+                getOrderList(false, false);
+            }
+        });
     }
 
     @Override
     protected void init() {
-        List<OrderItemBean> list = getData();
-        mAdapter = new OrderListAdapter(context,list);
+        orderList = new ArrayList<OrderItemBean>();
+        mAdapter = new OrderListAdapter(context,orderList);
         lvListview.setAdapter(mAdapter);
-
-        getOrderList();
+        //获取数据
+        refreshLayout.autoRefresh();
     }
 
-    private void getOrderList() {
-        OrderBiz.getOrderList(context, "0", "1", "10", new RequestHandle() {
+    private void getOrderList(final boolean isRefresh, boolean needDialog) {
+        String processText = "";
+        if (needDialog) {
+            processText = getString(R.string.process_dialog_wait);
+        }
+
+        OrderBiz.getOrderList(context,processText, OrderType, "1", limit, new RequestHandle() {
             @Override
             public void onSuccess(ResponseBean result) {
+                orderList = (List<OrderItemBean>) result.getObject();
 
+                if (null == orderList || orderList.size() < 10) {
+                    refreshLayout.finishLoadMoreWithNoMoreData();
+                    if (isLoadMoreToast) {
+                        ToastUtil.showToast(context, "没有更多数据了");
+                    }
+                    isLoadMoreToast = true;
+                } else {
+                    refreshLayout.finishLoadMore();
+                }
+
+                if (isRefresh) {
+                    refreshLayout.finishRefresh();
+                    mAdapter.getList().clear();
+                    mAdapter.getList().addAll(orderList);
+                    lvListview.setAdapter(mAdapter);
+                } else {
+                    refreshLayout.finishLoadMore();
+//                    int currentPostion = mAdapter.getList().size();
+                    mAdapter.getList().addAll(orderList);
+                    mAdapter.notifyDataSetChanged();
+                }
             }
 
             @Override
             public void onFail(ResponseBean result) {
-
                 ToastUtil.showToast(context,result.getInfo());
+                refreshLayout.finishRefresh();
+                refreshLayout.finishLoadMore();
             }
         });
     }
@@ -72,18 +136,4 @@ public class OrderFragment extends BaseFragment implements View.OnClickListener 
 
     }
 
-    private List<OrderItemBean> getData() {
-        List<OrderItemBean> list = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            OrderItemBean bean = new OrderItemBean();
-            bean.setTvGotMoney("到账金额：2000.00");
-            bean.setTvOrderMoney("订单金额：2000.00");
-            bean.setTvCardName("建设银行卡");
-            bean.setTvCardType("商户充值");
-            bean.setTvTime("2019.8.27 18:31:22");
-            bean.setTvOrderInfo("ID:2057  商户订单/内部订单：ssni4470");
-            list.add(bean);
-        }
-        return list;
-    }
 }

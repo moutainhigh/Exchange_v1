@@ -22,6 +22,14 @@ public class OrderListAdapter extends BaseAdapter {
         this.list = list;
     }
 
+    public List<OrderItemBean> getList() {
+        return list;
+    }
+
+    public void setList(List<OrderItemBean> list) {
+        this.list = list;
+    }
+
     @Override
     public int getCount() {
         return list.size();
@@ -56,12 +64,13 @@ public class OrderListAdapter extends BaseAdapter {
             holder = (itemHolder) convertView.getTag();
         }
 
-        holder.tvGotMoney.setText(bean.getTvGotMoney());
-        holder.tvOrderMoney.setText(bean.getTvOrderMoney());
-        holder.tvCardName.setText(bean.getTvCardName());
-        holder.tvCardType.setText(bean.getTvCardType());
-        holder.tvOrderInfo.setText(bean.getTvOrderInfo());
-        holder.tvTime.setText(bean.getTvTime());
+        //数据填充
+        holder.tvGotMoney.setText("到账金额: "+bean.getPaymentMoney());
+        holder.tvOrderMoney.setText("订单金额: "+bean.getPaymentMoney());
+        holder.tvCardName.setText("蹦砂卡拉卡");
+        holder.tvCardType.setText("类型: 商户充值");
+        holder.tvOrderInfo.setText("商户订单号: "+bean.getTenantNo());
+        holder.tvTime.setText("完成时间: "+bean.getPaymentTime());
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -26,9 +26,9 @@ public class OrderListActivity extends BaseActivity implements View.OnClickListe
     @Override
     protected void findViews() {
 
-        mFragments.add(new OrderFragment());
-        mFragments.add(new OrderFragment());
-        mFragments.add(new OrderFragment());
+        mFragments.add(OrderFragment.newInstance("0"));
+        mFragments.add(OrderFragment.newInstance("1"));
+        mFragments.add(OrderFragment.newInstance("2"));
 
         ViewPager vp = getView(R.id.vp);
         mAdapter = new OrderVpAdapter(getSupportFragmentManager(),mFragments);

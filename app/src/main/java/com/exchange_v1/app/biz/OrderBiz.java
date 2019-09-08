@@ -2,6 +2,8 @@ package com.exchange_v1.app.biz;
 
 import android.content.Context;
 
+import com.exchange_v1.app.bean.BaseBean;
+import com.exchange_v1.app.bean.OrderItemBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.config.ServerConfig;
 import com.exchange_v1.app.network.MyRequestHandle;
@@ -22,18 +24,18 @@ public class OrderBiz extends BaseBiz{
      * @param limit 每页查询多少数据
      * @param mhandle
      */
-    public static void getOrderList(Context context, String search, String page, String limit, MyRequestHandle mhandle) {
+    public static void getOrderList(Context context,String processMsg, String search, String page, String limit, MyRequestHandle mhandle) {
 
         HashMap<String, String> params = getPostHeadMap();
         params.put("search",search);
         params.put("page",page);
         params.put("limit",limit);
 
-        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.ORDER_LIST_API,
+        NewsBaseBiz.postRequest(context, processMsg, true, ServerConfig.ORDER_LIST_API,
                 params, new RequestHandle() {
                     @Override
                     public void onSuccess(ResponseBean responseBean) {
-//                        BaseBean.setGsonResponseObjectList(responseBean, OrderItemBean.class,"");
+                        BaseBean.setGsonResponseObjectList(responseBean, OrderItemBean.class,"");
                         mhandle.onSuccess(responseBean);
                     }
 

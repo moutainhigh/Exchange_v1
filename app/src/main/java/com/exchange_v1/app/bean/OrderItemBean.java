@@ -4,82 +4,93 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class OrderItemBean extends BaseBean{
+    /**
+     * paymentNo : 5794557958
+     * createTime : 2019-08-31 23:01:04
+     * tenantNo : 5794557958
+     * id : 0021259885794557959
+     * paymentMoney : 100
+     * state : 1
+     * paymentTime : 2019-08-31 23:22:24
+     * paymentType : ALI_BY
+     */
 
-    private String tvChong;
-    private String tvGotMoney;
-    private String tvOrderMoney;
-    private String tvPic;
-    private String tvCardName;
-    private String tvCardType;
-    private String tvTime;
-    private String tvOrderInfo;
+    private String paymentNo;
+    private String createTime;
+    private String tenantNo;
+    private String id;
+    private String paymentMoney;
+    private int state;
+    private String paymentTime;
+    private String paymentType;
 
-    public String getTvChong() {
-        return tvChong;
-    }
-
-    public void setTvChong(String tvChong) {
-        this.tvChong = tvChong;
-    }
-
-    public String getTvGotMoney() {
-        return tvGotMoney;
-    }
-
-    public void setTvGotMoney(String tvGotMoney) {
-        this.tvGotMoney = tvGotMoney;
-    }
-
-    public String getTvOrderMoney() {
-        return tvOrderMoney;
-    }
-
-    public void setTvOrderMoney(String tvOrderMoney) {
-        this.tvOrderMoney = tvOrderMoney;
-    }
-
-    public String getTvPic() {
-        return tvPic;
-    }
-
-    public void setTvPic(String tvPic) {
-        this.tvPic = tvPic;
-    }
-
-    public String getTvCardName() {
-        return tvCardName;
-    }
-
-    public void setTvCardName(String tvCardName) {
-        this.tvCardName = tvCardName;
-    }
-
-    public String getTvCardType() {
-        return tvCardType;
-    }
-
-    public void setTvCardType(String tvCardType) {
-        this.tvCardType = tvCardType;
-    }
-
-    public String getTvTime() {
-        return tvTime;
-    }
-
-    public void setTvTime(String tvTime) {
-        this.tvTime = tvTime;
-    }
-
-    public String getTvOrderInfo() {
-        return tvOrderInfo;
-    }
-
-    public void setTvOrderInfo(String tvOrderInfo) {
-        this.tvOrderInfo = tvOrderInfo;
-    }
 
     @Override
     protected void init(JSONObject jSon) throws JSONException {
 
+    }
+
+    public String getPaymentNo() {
+        return paymentNo;
+    }
+
+    public void setPaymentNo(String paymentNo) {
+        this.paymentNo = paymentNo;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getTenantNo() {
+        return tenantNo;
+    }
+
+    public void setTenantNo(String tenantNo) {
+        this.tenantNo = tenantNo;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getPaymentMoney() {
+        return paymentMoney;
+    }
+
+    public void setPaymentMoney(String paymentMoney) {
+        this.paymentMoney = paymentMoney;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public String getPaymentTime() {
+        return paymentTime;
+    }
+
+    public void setPaymentTime(String paymentTime) {
+        this.paymentTime = paymentTime;
+    }
+
+    public String getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(String paymentType) {
+        this.paymentType = paymentType;
     }
 }
