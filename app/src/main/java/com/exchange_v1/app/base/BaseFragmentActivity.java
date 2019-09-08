@@ -22,6 +22,7 @@ import android.view.WindowManager;
 import com.exchange_v1.app.Manifest;
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.activity.AddLoadingActivity;
+import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.config.Constant;
 import com.exchange_v1.app.utils.C2bPushUtil;
 import com.exchange_v1.app.utils.DateUtil;
@@ -317,7 +318,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
 				BaseFragmentActivity.this.onReceive(context, intent);
 			}
 		};
-//		filter.addAction(BroadcastFilters.ACTION_TEST);
+		filter.addAction(BroadcastFilters.ACTION_CLOSE_MAIN);
 
 		String permission= Manifest.permission.bwoilpermiss;
 		registerReceiver(receiver, filter,permission,mHandler);

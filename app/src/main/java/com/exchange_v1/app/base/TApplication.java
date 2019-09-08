@@ -580,8 +580,10 @@ public class TApplication extends Application {
      * 清除用户信息
      */
     public static void clearMineUserInfo() {
-        SpUtil.setObject(context, "mineInfo" + mineInfo.getMobile(), null);
-        TApplication.mineInfo = null;
+        if (mineInfo!=null){
+            SpUtil.setObject(context, "mineInfo" + mineInfo.getMobile(), null);
+            TApplication.mineInfo = null;
+        }
     }
 
     /**

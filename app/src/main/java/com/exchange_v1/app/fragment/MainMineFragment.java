@@ -196,9 +196,6 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
             case R.id.tv_exit_login:
                 DialogUtil.showExitsDg(context);
 
-//                IntentUtil.gotoActivity(context, LoginActivity.class);
-//                //主动退出，要清楚token信息
-//                TApplication.clearToken();
                 break;
             case R.id.ll_bank://绑定银行卡
                 IntentUtil.gotoActivity(context, BankBindListActivity.class);

@@ -3,19 +3,23 @@ package com.exchange_v1.app.network;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
+import android.content.Intent;
 import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.exchange_v1.app.R;
+import com.exchange_v1.app.activity.LoginActivity;
 import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.BaseBiz;
+import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.config.ServerConfig;
 import com.exchange_v1.app.executor.ProcessDialogUtil;
 import com.exchange_v1.app.utils.DES3;
+import com.exchange_v1.app.utils.IntentUtil;
 import com.exchange_v1.app.utils.LogUtil;
 import com.exchange_v1.app.utils.Logger;
-import com.exchange_v1.app.utils.UserInfoUtil;
+import com.exchange_v1.app.utils.Util;
 import com.exchange_v1.app.utils.http.AsyncRequestParams;
 import com.exchange_v1.app.utils.http.IResponseHandler;
 import com.exchange_v1.app.utils.http.MyHttpClient;
@@ -82,14 +86,17 @@ public class NewsBaseBiz {
                     /**
                      * 处理token失效的问题 重新登录
                      */
-                    if ("90000".equals(responseBean.getStatus())) {
+                    if (604 == responseBean.getStatus()) {
+                        //重新去到登录界面
+                        IntentUtil.gotoActivity(context, LoginActivity.class);
                         TApplication.clearToken();
-                        String userNo = UserInfoUtil.getLoginBean().getAccount();
-                        TApplication.setUserInfoBean(null);
-                        UserInfoUtil.logout();
-                        //token失效发广播
-//                        Intent intent = new Intent();
-//                        intent.setAction(BroadcastFilters.ACTION_LGOIN_LOGOUT);
+                        TApplication.clearMineUserInfo();
+
+                        //finish掉 MainActivity 页面
+                        Intent intent = new Intent();
+                        intent.setAction(BroadcastFilters.ACTION_CLOSE_MAIN);
+                        Util.sendBroadcast(context,intent);
+
                     }
                 }
             }

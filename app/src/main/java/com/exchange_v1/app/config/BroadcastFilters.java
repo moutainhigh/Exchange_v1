@@ -14,4 +14,8 @@ public class BroadcastFilters {
 
 	/** 登录后更新我的UI */
 	public static final String ACTION_UPDATE_LOGIN_USER = "com_exchange_app_action_update_login_user";
+
+	/** 主动关闭mainActivity */
+	public static final String ACTION_CLOSE_MAIN = "com_exchange_app_action_close_main";
+
 }

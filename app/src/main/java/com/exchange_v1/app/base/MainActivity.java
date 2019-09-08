@@ -24,9 +24,10 @@ import android.view.animation.TranslateAnimation;
 import android.widget.RelativeLayout;
 
 import com.exchange_v1.app.R;
+import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.fragment.MainCashFragment;
-import com.exchange_v1.app.fragment.MainMineFragment;
 import com.exchange_v1.app.fragment.MainHomeFragment;
+import com.exchange_v1.app.fragment.MainMineFragment;
 import com.exchange_v1.app.fragment.MainRechargeFragment;
 import com.exchange_v1.app.receiver.JPushReceiver;
 import com.exchange_v1.app.utils.C2bPushUtil;
@@ -424,6 +425,9 @@ public class MainActivity extends BaseFragmentActivity {
     @Override
     protected void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
+        if (intent.getAction().equals(BroadcastFilters.ACTION_CLOSE_MAIN)) {// 结束当前activity
+            finish();
+        }
     }
 
     Runnable loginCallback = new Runnable() {

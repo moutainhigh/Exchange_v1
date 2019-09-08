@@ -322,6 +322,8 @@ public abstract class BaseActivity extends AppCompatActivity implements OnSoftKe
 		};
 		filter.addAction(BroadcastFilters.ACTION_FORGET_PWD_CLOSE);
 		filter.addAction(BroadcastFilters.ACTION_UPDATE_USER_INFO);
+		filter.addAction(BroadcastFilters.ACTION_CLOSE_MAIN);
+
 		String permission= Manifest.permission.bwoilpermiss;
 		registerReceiver(receiver, filter,permission,mHandler);
 	}
