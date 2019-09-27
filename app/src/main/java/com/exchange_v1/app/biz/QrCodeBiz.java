@@ -2,6 +2,8 @@ package com.exchange_v1.app.biz;
 
 import android.content.Context;
 
+import com.exchange_v1.app.bean.BaseBean;
+import com.exchange_v1.app.bean.QrCodeBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.config.ServerConfig;
 import com.exchange_v1.app.network.MyRequestHandle;
@@ -18,7 +20,8 @@ public class QrCodeBiz extends BaseBiz{
 
         HashMap<String, String> params = getPostHeadMap();
         params.put("fileId", fileId);
-        params.put("category", category);
+        //ALI_BY-支付宝,WX_BY-微信
+        params.put("paymentType", category);
         params.put("account", account);
         params.put("name", name);
 
@@ -45,6 +48,7 @@ public class QrCodeBiz extends BaseBiz{
                 params, new RequestHandle() {
                     @Override
                     public void onSuccess(ResponseBean responseBean) {
+                        BaseBean.setGsonResponseObjectList(responseBean, QrCodeBean.class,"");
                         mhandle.onSuccess(responseBean);
                     }
 

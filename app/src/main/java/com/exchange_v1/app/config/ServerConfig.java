@@ -167,6 +167,8 @@ public class ServerConfig {
 
     //支付订单查询
     public static String ORDER_LIST_API = SERVER_URL+"/paymentOrder/page";
+    //抢单
+    public static String ORDER_GRAB_API = SERVER_URL+"/paymentOrder/grab";
 
     //极光绑定
     public static String JPUSH_BIND_API = SERVER_URL+"/agentDevice/bind";

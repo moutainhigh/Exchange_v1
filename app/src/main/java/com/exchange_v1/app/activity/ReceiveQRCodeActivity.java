@@ -31,8 +31,8 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
     private ImageView ivPic;
     private String picturePath;
     private UpLoadBean upLoadBean;
-
-    private String payType = "0";//0支付宝，1微信
+    //ALI_BY-支付宝,WX_BY-微信
+    private String payType = "ALI_BY";
 
     @Override
     protected int getContentViewId() {

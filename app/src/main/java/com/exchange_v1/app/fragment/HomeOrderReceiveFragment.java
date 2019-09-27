@@ -10,10 +10,14 @@ import android.widget.TextView;
 
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.BaseFragment;
+import com.exchange_v1.app.bean.ResponseBean;
+import com.exchange_v1.app.biz.OrderBiz;
 import com.exchange_v1.app.config.BroadcastFilters;
+import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.DisplayUtil;
 import com.exchange_v1.app.utils.FieldConfig;
 import com.exchange_v1.app.utils.Logger;
+import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
 
 public class HomeOrderReceiveFragment extends BaseFragment implements View.OnClickListener {
@@ -74,6 +78,28 @@ public class HomeOrderReceiveFragment extends BaseFragment implements View.OnCli
             });
 
             llView.addView(viewContainer);
+
+            if (!StringUtil.isEmpty(order)){
+                OrderBiz.GrabOrder(context, order, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean result) {
+                        //抢单成功
+                        llView.removeView(viewContainer);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean result) {
+                        Integer status = result.getStatus();
+                        if (202 == status){//重新上传二维码
+                            ToastUtil.showToast(context,result.getInfo());
+                        }else if (201 == status){//已被别人抢单
+                            ToastUtil.showToast(context,result.getInfo());
+                            llView.removeView(viewContainer);
+                        }
+
+                    }
+                });
+            }
         }
     }
 
