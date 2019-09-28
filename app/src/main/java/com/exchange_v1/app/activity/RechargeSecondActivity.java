@@ -2,7 +2,6 @@ package com.exchange_v1.app.activity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.exchange_v1.app.R;
@@ -20,8 +19,8 @@ import com.exchange_v1.app.utils.ToastUtil;
 public class RechargeSecondActivity extends BaseActivity implements View.OnClickListener{
 
     private TextView tvMoneyTitle;
-    private EditText etCard;
-    private EditText etBankName;
+    private TextView etCard;
+    private TextView etBankName;
     private TextView tvLeftCancle;
     private TextView rightConfirm;
     private PrepareRechargeBean bean;
@@ -43,9 +42,6 @@ public class RechargeSecondActivity extends BaseActivity implements View.OnClick
 
     @Override
     protected void initGetData() {
-        titleView.setBackBtn();
-        titleView.setTitle("订单详情");
-
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             bean = (PrepareRechargeBean) bundle.getSerializable(FieldConfig.intent_bean);
