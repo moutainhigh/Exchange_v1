@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.exchange_v1.app.bean.BaseBean;
 import com.exchange_v1.app.bean.PrepareRechargeBean;
+import com.exchange_v1.app.bean.RechargeBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.config.ServerConfig;
 import com.exchange_v1.app.network.MyRequestHandle;
@@ -88,6 +89,32 @@ public class RechargeBiz extends BaseBiz{
                 params, new RequestHandle() {
                     @Override
                     public void onSuccess(ResponseBean responseBean) {
+                        mhandle.onSuccess(responseBean);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean responseBean) {
+                        mhandle.onFail(responseBean);
+                    }
+
+                });
+    }
+
+    /**
+     * 充值列表
+     *
+     */
+    public static void list(Context context,String page,String limit, final MyRequestHandle mhandle) {
+
+        HashMap<String, String> params = getPostHeadMap();
+        params.put("page",page);
+        params.put("limit",limit);
+
+        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.RECHARGE_LIST_API,
+                params, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean responseBean) {
+                        BaseBean.setGsonResponseObjectList(responseBean, RechargeBean.class,"");
                         mhandle.onSuccess(responseBean);
                     }
 

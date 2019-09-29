@@ -164,6 +164,8 @@ public class ServerConfig {
     public static String RECHARGE_CONFIRM_API = SERVER_URL+"/recharge/confirm";
     //取消充值接口
     public static String RECHARGE_CANCEL_API = SERVER_URL+"/recharge/cancel";
+    //充值列表接口
+    public static String RECHARGE_LIST_API = SERVER_URL+"/recharge/list";
 
     //支付订单查询
     public static String ORDER_LIST_API = SERVER_URL+"/paymentOrder/page";
