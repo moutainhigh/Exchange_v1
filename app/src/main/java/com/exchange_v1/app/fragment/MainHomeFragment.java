@@ -19,6 +19,7 @@ import com.exchange_v1.app.biz.UserBiz;
 import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.Logger;
+import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
 import com.flyco.tablayout.SlidingTabLayout;
 
@@ -95,9 +96,16 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                     radioCheck = false;
                     offReciver();
                 } else {
-                    radioButton.setChecked(true);
-                    radioCheck = true;
-                    onReciver();
+                    MineUserInfoBean mineUserInfo = TApplication.getMineUserInfo();
+                    String cityId = mineUserInfo.getCityId();
+                    String provinceId = mineUserInfo.getProvinceId();
+                    if (!StringUtil.isEmpty(cityId)&&!StringUtil.isEmpty(provinceId)){//地区设置不为空才能开启抢单
+                        radioButton.setChecked(true);
+                        radioCheck = true;
+                        onReciver();
+                    }else {
+                        ToastUtil.showToast(context,"必须设置地区，才能开启抢单！");
+                    }
                 }
 
             }
