@@ -20,15 +20,36 @@
         android:textSize="14sp"
         android:text="登录地(选)"/>
 
-    <Spinner
-        android:id="@+id/sp_location"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@drawable/shape_ac_input"
+        android:orientation="horizontal"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        />
+        android:layout_marginRight="16dp">
+
+        <Spinner
+            android:id="@+id/sp_province_location"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="48dp"
+            android:background="@drawable/shape_ac_input"
+            />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+
+        <Spinner
+            android:id="@+id/sp_city_location"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="48dp"
+            android:background="@drawable/shape_ac_input"
+            />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +57,8 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <CheckBox
             android:layout_width="wrap_content"

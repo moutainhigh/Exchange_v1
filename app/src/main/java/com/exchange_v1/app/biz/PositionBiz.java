@@ -35,10 +35,17 @@ public class PositionBiz extends BaseBiz{
                 });
     }
 
-    //设置地区信息
-    public static void setPosition(Context context,String cityId, final MyRequestHandle mhandle) {
+    /**
+     * 设置地区信息
+     * @param context
+     * @param provinceId 省份ID
+     * @param cityId 地区ID
+     * @param mhandle
+     */
+    public static void setPosition(Context context,String provinceId,String cityId, final MyRequestHandle mhandle) {
 
         HashMap<String, String> params = getPostHeadMap();
+        params.put("provinceId",provinceId);
         params.put("cityId",cityId);
 
         NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.SET_DISTRICT_API,
