@@ -17,6 +17,7 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -72,7 +73,11 @@ public class RechargeingFragment extends BaseFragment implements View.OnClickLis
 
     @Override
     protected void init() {
-
+        rechargeList = new ArrayList<RechargeBean>();
+        mAdapter = new RechargeListAdapter(context,rechargeList);
+        lvListview.setAdapter(mAdapter);
+        //获取数据
+        refreshLayout.autoRefresh();
     }
 
     private void getRechargeList(final boolean isRefresh, boolean needDialog) {
