@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.exchange_v1.app.bean.BaseBean;
 import com.exchange_v1.app.bean.CashFree;
+import com.exchange_v1.app.bean.CashingBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.config.ServerConfig;
 import com.exchange_v1.app.network.MyRequestHandle;
@@ -66,6 +67,7 @@ public class WithdrawtoBiz extends BaseBiz{
                 params, new RequestHandle() {
                     @Override
                     public void onSuccess(ResponseBean responseBean) {
+                        BaseBean.setGsonResponseObjectList(responseBean, CashingBean.class,"");
                         mhandle.onSuccess(responseBean);
                     }
 

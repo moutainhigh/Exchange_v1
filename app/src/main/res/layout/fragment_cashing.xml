@@ -4,10 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="暂无"/>
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/order_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlHeaderHeight="80dp"
+        app:srlPrimaryColor="@color/common_assist_bg_color">
+
+        <ListView
+            android:id="@+id/lv_listview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:headerDividersEnabled="false"
+            android:listSelector="@color/trans"
+            android:paddingBottom="10dp"
+            android:scrollbars="none" />
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
 </LinearLayout>
