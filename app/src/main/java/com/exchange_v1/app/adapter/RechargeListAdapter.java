@@ -55,6 +55,8 @@ public class RechargeListAdapter extends BaseAdapter {
 
             holder.tvMoney = (TextView) convertView.findViewById(R.id.tv_money);
             holder.tvTime = (TextView) convertView.findViewById(R.id.tv_time);
+            holder.tvState = (TextView) convertView.findViewById(R.id.tv_state);
+            holder.tvOrderNo = (TextView) convertView.findViewById(R.id.tv_orderNo);
             convertView.setTag(holder);
         } else {
             holder = (itemHolder) convertView.getTag();
@@ -63,6 +65,17 @@ public class RechargeListAdapter extends BaseAdapter {
         //数据填充
         holder.tvMoney.setText("充值金额: "+bean.getAmount());
         holder.tvTime.setText("充值时间: "+bean.getCreateTime());
+        if ("0".equals(bean.getState())){
+            holder.tvState.setText("充值状态: "+"待转账");
+        }else if ("1".equals(bean.getState())){
+            holder.tvState.setText("充值状态: "+"已转账");
+        }else if ("2".equals(bean.getState())){
+            holder.tvState.setText("充值状态: "+"已确认");
+        }else if ("3".equals(bean.getState())){
+            holder.tvState.setText("充值状态: "+"已超时/已取消");
+        }
+
+        holder.tvOrderNo.setText("充值单号："+ bean.getOrderNo());
 
 //        convertView.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -77,6 +90,8 @@ public class RechargeListAdapter extends BaseAdapter {
 
         private TextView tvMoney;
         private TextView tvTime;
+        private TextView tvState;
+        private TextView tvOrderNo;
 
     }
 
