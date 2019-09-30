@@ -85,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="34dp"
-                android:text="卡号"
+                android:text="银行卡号"
                 android:textColor="#627176FF"
                 android:textSize="9sp" />
 
@@ -99,6 +99,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/tv_copy_cardNo"
                 android:layout_width="33dp"
                 android:layout_height="26dp"
                 android:layout_marginLeft="10dp"
@@ -121,7 +122,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="34dp"
-                android:text="银行"
+                android:text="姓名"
                 android:textColor="#627176FF"
                 android:textSize="9sp" />
 
@@ -131,11 +132,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:text="猪猪侠"
                 android:textColor="#333333FF"
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/tv_copy_user_name"
                 android:layout_width="33dp"
                 android:layout_height="26dp"
                 android:layout_marginLeft="10dp"
@@ -173,6 +174,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/tv_copy_bank"
                 android:layout_width="33dp"
                 android:layout_height="26dp"
                 android:layout_marginLeft="10dp"
