@@ -1,5 +1,6 @@
 package com.exchange_v1.app.activity;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -8,12 +9,17 @@ import android.widget.TextView;
 
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.BaseActivity;
+import com.exchange_v1.app.base.TApplication;
+import com.exchange_v1.app.bean.MineUserInfoBean;
 import com.exchange_v1.app.bean.PositionBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.PositionBiz;
+import com.exchange_v1.app.biz.UserBiz;
+import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.ISDoubleClickUtils;
 import com.exchange_v1.app.utils.ToastUtil;
+import com.exchange_v1.app.utils.Util;
 
 import java.util.List;
 
@@ -46,6 +52,9 @@ public class PositionSelectActivity extends BaseActivity implements View.OnClick
     protected void initGetData() {
         titleView.setBackBtn();
         titleView.setTitle("位置选择");
+
+        //地区设置成功后，刷新用户信息
+        getUserInfo();
 
     }
 
@@ -89,10 +98,35 @@ public class PositionSelectActivity extends BaseActivity implements View.OnClick
         provinceSpiner.setAdapter(provinceAdapter);
         citySpiner.setAdapter(cityAdapter);
 
-        for (PositionBean bean:positionList){
-            provinceAdapter.add(bean.getName());
+        int Prosition = 0;
+        for (int i = 0; i < positionList.size(); i++) {
+            //通过循环遍历id，获取位置
+            if (TApplication.getMineUserInfo().getProvinceId().equals(positionList.get(i).getId())) {
+                Prosition = i;
+            }
+            provinceAdapter.add(positionList.get(i).getName());
         }
+        //回显
+        provinceSpiner.setSelection(Prosition,true);
         provinceAdapter.notifyDataSetChanged();//刷新
+
+        //城市
+        if (Prosition !=0 ){
+            int cityPos = 0;
+            cityAdapter.clear();
+            List<PositionBean.ChildsBean> childs = positionList.get(Prosition).getChilds();
+            for (int j=0;j<childs.size();j++){
+                if (childs.get(j).getC_id().equals(TApplication.getMineUserInfo().getCityId())){
+                    cityPos = j;
+                }
+                cityAdapter.add(childs.get(j).getC_name());
+            }
+
+            //回显城市
+            citySpiner.setSelection(cityPos,true);
+            cityAdapter.notifyDataSetChanged();//刷新
+
+        }
 
         provinceSpiner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -158,5 +192,25 @@ public class PositionSelectActivity extends BaseActivity implements View.OnClick
             }
         }
 
+    }
+
+    private void getUserInfo() {
+        UserBiz.userInfo(context, new RequestHandle() {
+            @Override
+            public void onSuccess(ResponseBean result) {
+                MineUserInfoBean userBean = (MineUserInfoBean) result.getObject();
+                //保存用户登录信息
+                TApplication.setMineUserInfo(userBean);
+                //用户更新了发广播
+                Intent intent = new Intent();
+                intent.setAction(BroadcastFilters.ACTION_UPDATE_USER_INFO);
+                Util.sendBroadcast(context, intent);
+            }
+
+            @Override
+            public void onFail(ResponseBean result) {
+                ToastUtil.showToast(context,result.getInfo());
+            }
+        });
     }
 }

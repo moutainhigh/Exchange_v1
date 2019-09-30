@@ -181,9 +181,6 @@ public class TApplication extends Application {
      */
     public static int c2b_count = 0;
 
-    // 手势密码拉起时长
-    public static long lockTime = 10 * 60 * 1000;
-
     //是否点击启动页广告
     public static boolean isClickLoading = false;
     //设备Id
@@ -193,6 +190,11 @@ public class TApplication extends Application {
     public static String account = null;
     //当前登录用户信息
     public static MineUserInfoBean mineInfo = null;
+
+    //省份选择的位置
+    public static int proPos ;
+    //城市选择的位置
+    public static int cityPos ;
 
     @Override
     public void onCreate() {
@@ -595,6 +597,30 @@ public class TApplication extends Application {
             mineInfo = (MineUserInfoBean) SpUtil.getObject(TApplication.context, "mineInfo" + getAccount());
         }
         return mineInfo;
+    }
+
+    public static void setProPosition(int proPos) {
+        TApplication.proPos = proPos;
+        SpUtil.setObject(context, "proPos", proPos);
+    }
+
+    public static int getProPosition() {
+        if (0 == proPos) {
+//            proPos = (int) SpUtil.getObject(TApplication.context, "proPos");
+        }
+        return proPos;
+    }
+
+    public static void setCityPosition(int cityPosition) {
+        TApplication.cityPos = cityPosition;
+        SpUtil.setObject(context, "cityPosition", cityPosition);
+    }
+
+    public static int getCityPosition() {
+        if (0 == cityPos) {
+//            cityPos = (int) SpUtil.getObject(TApplication.context, "cityPosition");
+        }
+        return cityPos;
     }
 
 }
