@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F7FB"
@@ -29,10 +30,12 @@
         android:background="@color/white">
 
         <TextView
+            android:id="@+id/tv_left_top_name"
             android:layout_width="69dp"
             android:layout_height="19dp"
             android:background="@mipmap/yun_bg"
-            android:text="云闪付"
+            tools:text="支付宝"
+            android:gravity="center"
             android:textColor="@color/white"
             android:textSize="13sp" />
 
@@ -48,14 +51,14 @@
 
     </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:text="小时，请每十小时重新获取并上传更新，避免影响接单！"
-        android:textColor="@color/red"
-        android:textSize="9sp" />
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:text="小时，请每十小时重新获取并上传更新，避免影响接单！"-->
+        <!--android:textColor="@color/red"-->
+        <!--android:textSize="9sp" />-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -77,6 +80,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tv_people_name_head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -86,7 +90,7 @@
         <EditText
             android:id="@+id/et_people_name"
             style="@style/register_edit_input"
-            android:hint="请输入姓名" />
+             />
     </LinearLayout>
 
     <LinearLayout
@@ -100,6 +104,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tv_id_card_head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -109,10 +114,11 @@
         <EditText
             android:id="@+id/et_id_card"
             style="@style/register_edit_input"
-            android:hint="请输入准确卡号" />
+             />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_UID"
         android:layout_width="match_parent"
         android:layout_height="42dp"
         android:layout_marginTop="16dp"
@@ -133,7 +139,7 @@
         <EditText
             android:id="@+id/et_UID"
             style="@style/register_edit_input"
-            android:hint="请输入支付宝UID" />
+             />
     </LinearLayout>
 
     <TextView

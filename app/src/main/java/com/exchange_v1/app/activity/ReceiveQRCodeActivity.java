@@ -1,10 +1,14 @@
 package com.exchange_v1.app.activity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -15,6 +19,8 @@ import com.exchange_v1.app.bean.UpLoadBean;
 import com.exchange_v1.app.biz.FileBiz;
 import com.exchange_v1.app.biz.QrCodeBiz;
 import com.exchange_v1.app.network.RequestHandle;
+import com.exchange_v1.app.utils.FieldConfig;
+import com.exchange_v1.app.utils.IntentUtil;
 import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
@@ -27,12 +33,28 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
     private EditText etPeopleName;
     private EditText etIdCard;
     private EditText etUID;
+
+    private TextView tvLeftTopName;
+    private TextView tvPeopleNameHead;
+    private TextView tvIdCardHead;
+    private LinearLayout llUID;
+
     private TextView btSubmit;
     private ImageView ivPic;
     private String picturePath;
     private UpLoadBean upLoadBean;
-    //ALI_BY-支付宝,WX_BY-微信
-    private String payType = "ALI_BY";
+    //支付宝
+    public static final  String ALIBY = "ALI_BY";
+    //微信
+    public static final  String WXBY = "WX_BY";
+    //上传二维码的类型
+    private String codeType;
+
+    public static void openActivity(Context context, String type) {
+        Bundle b = new Bundle();
+        b.putString(FieldConfig.intent_str, type);
+        IntentUtil.gotoActivity((Activity) context, ReceiveQRCodeActivity.class, b);
+    }
 
     @Override
     protected int getContentViewId() {
@@ -48,12 +70,32 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
         btSubmit = (TextView) findViewById(R.id.bt_submit);
         ivPic = findViewById(R.id.iv_pic);
 
+        tvLeftTopName = (TextView) findViewById(R.id.tv_left_top_name);
+        tvPeopleNameHead = (TextView) findViewById(R.id.tv_people_name_head);
+        tvIdCardHead = (TextView) findViewById(R.id.tv_id_card_head);
+        llUID = (LinearLayout) findViewById(R.id.ll_UID);
     }
 
     @Override
     protected void initGetData() {
         titleView.setBackBtn();
         titleView.setTitle("通用收款码");
+
+        Bundle bundle = getBundle();
+        codeType = bundle.getString(FieldConfig.intent_str);
+
+        if (ALIBY.equals(codeType)){//支付宝
+            tvLeftTopName.setText("支付宝");
+            tvPeopleNameHead.setText("支付宝昵称 ");
+            tvIdCardHead.setText("支付宝账号 ");
+//            llUID.setVisibility(View.VISIBLE);
+        }else if (WXBY.equals(codeType)){//微信
+            tvLeftTopName.setText("微信");
+            tvPeopleNameHead.setText("微信昵称 ");
+            tvIdCardHead.setText("微信账号 ");
+//            llUID.setVisibility(View.GONE);
+        }
+
     }
 
     @Override
@@ -90,7 +132,7 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
         String card = etIdCard.getText().toString().trim();
         if (!StringUtil.isEmpty(name)&&!StringUtil.isEmpty(card)){
             if (upLoadBean!=null){
-                QrCodeBiz.bindQrCode(context, upLoadBean.getId(), payType, card, name, new RequestHandle() {
+                QrCodeBiz.bindQrCode(context, upLoadBean.getId(), codeType, card, name, new RequestHandle() {
                     @Override
                     public void onSuccess(ResponseBean result) {
                         ToastUtil.showToast(context,"绑定二维码成功");

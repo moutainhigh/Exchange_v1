@@ -212,10 +212,10 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
 
                 break;
             case R.id.ll_alipay://支付宝
-                IntentUtil.gotoActivity(context, ReceiveQRCodeActivity.class);
+                ReceiveQRCodeActivity.openActivity(context,ReceiveQRCodeActivity.ALIBY);
                 break;
             case R.id.ll_wechatPay://微信
-                IntentUtil.gotoActivity(context, ReceiveQRCodeActivity.class);
+                ReceiveQRCodeActivity.openActivity(context,ReceiveQRCodeActivity.WXBY);
                 break;
             case R.id.ll_apply_service://申请服务商
                 IntentUtil.gotoActivity(context, ApplyServiceActivity.class);
