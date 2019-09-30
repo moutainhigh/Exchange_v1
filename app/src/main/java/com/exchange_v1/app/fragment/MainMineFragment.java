@@ -14,8 +14,6 @@ import com.exchange_v1.app.activity.ApplyCarryActivity;
 import com.exchange_v1.app.activity.ApplyServiceActivity;
 import com.exchange_v1.app.activity.BankBindListActivity;
 import com.exchange_v1.app.activity.CoinDetailActivity;
-import com.exchange_v1.app.activity.EmailVerifActivity;
-import com.exchange_v1.app.activity.GoogleCheckActivity;
 import com.exchange_v1.app.activity.OrderListActivity;
 import com.exchange_v1.app.activity.PositionSelectActivity;
 import com.exchange_v1.app.activity.ReceiveQRCodeActivity;
@@ -59,6 +57,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
     private LinearLayout llGoogleVerify;
     private LinearLayout llPosition;
     private LinearLayout llEmailVerify;
+    private LinearLayout llRealName;
 
     private SmartRefreshLayout mainMineRefreshLayout;
 
@@ -89,6 +88,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
         llGoogleVerify =  findViewById(R.id.ll_google_verify);
         llPosition =  findViewById(R.id.ll_position);
         llEmailVerify =  findViewById(R.id.ll_email_verify);
+        llRealName =  findViewById(R.id.ll_real_name);
 
         mainMineRefreshLayout = findViewById(R.id.main_mine_refresh_layout);
         mainMineRefreshLayout.setEnableLoadMore(false);
@@ -115,6 +115,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
         llGoogleVerify.setOnClickListener(this);
         llPosition.setOnClickListener(this);
         llEmailVerify.setOnClickListener(this);
+        llRealName.setOnClickListener(this);
 
         mainMineRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
@@ -224,13 +225,18 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
                 IntentUtil.gotoActivity(context, ApplyCarryActivity.class);
                 break;
             case R.id.ll_google_verify://谷歌邮箱验证
-                IntentUtil.gotoActivity(context, GoogleCheckActivity.class);
+//                IntentUtil.gotoActivity(context, GoogleCheckActivity.class);
+                ToastUtil.showToast(context,"此功能暂未开放");
                 break;
             case R.id.ll_position://位置选择
                 IntentUtil.gotoActivity(context, PositionSelectActivity.class);
                 break;
             case R.id.ll_email_verify://邮箱认证
-                IntentUtil.gotoActivity(context, EmailVerifActivity.class);
+//                IntentUtil.gotoActivity(context, EmailVerifActivity.class);
+                ToastUtil.showToast(context,"此功能暂未开放");
+                break;
+            case R.id.ll_real_name://实名认证
+                ToastUtil.showToast(context,"此功能暂未开放");
                 break;
             default:
                 break;
