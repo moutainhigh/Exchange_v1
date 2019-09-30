@@ -41,7 +41,7 @@ public class LoginEmailFragment extends BaseFragment implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_submit:
-                ToastUtil.showToast(thisA, "请求登录接口...");
+                ToastUtil.showToast(thisA, "功能正在开发中...");
                 break;
             default:
                 break;
