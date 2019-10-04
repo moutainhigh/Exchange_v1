@@ -89,7 +89,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="11sp"
-            android:text="汇款卡"/>
+            android:text="汇款卡"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/bt_modifiy"
@@ -105,7 +106,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="21dp"
             android:textSize="11sp"
-            android:text="停用"/>
+            android:text="停用"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/bt_delete"
