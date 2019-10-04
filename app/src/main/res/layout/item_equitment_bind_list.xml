@@ -58,7 +58,8 @@
         android:text="轮讯额度/剩额度度："
         android:textSize="13sp"
         android:layout_marginTop="8dp"
-        android:layout_marginLeft="16dp"/>
+        android:layout_marginLeft="16dp"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/tv_money"
@@ -67,7 +68,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginLeft="16dp"
         android:text="20000.00/0.00"
-        android:textSize="13sp"/>
+        android:textSize="13sp"
+        android:visibility="gone"/>
 
     <!-- 底部四个按钮 -->
     <LinearLayout
