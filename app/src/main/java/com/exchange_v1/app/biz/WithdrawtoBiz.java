@@ -63,7 +63,7 @@ public class WithdrawtoBiz extends BaseBiz{
         params.put("page", page);
         params.put("limit", limit);
 
-        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.WITHDRAW_PAGE_API,
+        NewsBaseBiz.postRequest(context, "", true, ServerConfig.WITHDRAW_PAGE_API,
                 params, new RequestHandle() {
                     @Override
                     public void onSuccess(ResponseBean responseBean) {
