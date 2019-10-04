@@ -132,6 +132,8 @@ public class ServerConfig {
     public static String ON_RECEPTIVE_API = SERVER_URL+"/agent/receptiveOn";
     //用户关闭接单
     public static String OFF_RECEPTIVE_API = SERVER_URL+"/agent/receptiveOff";
+    //停用/移除银行卡
+    public static String BANK_REMOVE_API = SERVER_URL+"/agent/bankRemove";
 
     //文件上传接口
     public static String UPLOAD_API = SERVER_URL+"/file/upload";

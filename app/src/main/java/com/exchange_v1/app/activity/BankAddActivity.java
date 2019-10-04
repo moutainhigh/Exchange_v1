@@ -1,14 +1,18 @@
 package com.exchange_v1.app.activity;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.BaseActivity;
+import com.exchange_v1.app.base.TApplication;
+import com.exchange_v1.app.bean.EqueitmentBindBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.UserBiz;
 import com.exchange_v1.app.network.RequestHandle;
+import com.exchange_v1.app.utils.FieldConfig;
 import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
 
@@ -40,6 +44,17 @@ public class BankAddActivity extends BaseActivity implements View.OnClickListene
     protected void initGetData() {
         titleView.setBackBtn();
         titleView.setTitle("绑定银行卡");
+        //身份证号码
+        String cardNo = TApplication.getMineUserInfo().getCardNo();
+
+        //回显数据
+        Bundle bundle = getBundle();
+        if (bundle!=null){
+            EqueitmentBindBean bean = (EqueitmentBindBean) bundle.get(FieldConfig.intent_bean);
+            etName.setText(bean.getName());
+            etIdCard.setText(bean.getBankCard());
+            etIdentCard.setText(cardNo);
+        }
     }
 
     @Override

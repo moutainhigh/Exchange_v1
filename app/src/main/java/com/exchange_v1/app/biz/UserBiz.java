@@ -238,4 +238,25 @@ public class UserBiz extends BaseBiz{
                 });
     }
 
+    /**
+     * 删除银行卡
+     *
+     */
+    public static void removeBank(Context context, final MyRequestHandle mhandle) {
+
+        HashMap<String, String> params = getPostHeadMap();
+
+        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.BANK_REMOVE_API,
+                params, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean responseBean) {
+                        mhandle.onSuccess(responseBean);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean responseBean) {
+                        mhandle.onFail(responseBean);
+                    }
+                });
+    }
 }

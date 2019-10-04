@@ -1,6 +1,8 @@
 package com.exchange_v1.app.bean;
 
-public class EqueitmentBindBean {
+import java.io.Serializable;
+
+public class EqueitmentBindBean implements Serializable {
 
     private String bankName;
     private String bankStatus;

@@ -9,7 +9,6 @@ import android.widget.TextView;
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.bean.EqueitmentBindBean;
 import com.exchange_v1.app.interf.AdapterListener;
-import com.exchange_v1.app.utils.ToastUtil;
 
 import java.util.List;
 
@@ -70,40 +69,27 @@ public class EqueitmentBindListAdapter extends BaseAdapter {
         holder.tvBankCard.setText(bean.getBankCard());
         holder.tvMoney.setText(bean.getMoney());
 
-        holder.btCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ToastUtil.showToast(context,"汇款卡");
-            }
-        });
-
         holder.btModifiy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtil.showToast(context,"修改");
-            }
-        });
-
-        holder.btDisable.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ToastUtil.showToast(context,"停用");
+                listener.onItemClick(position, v);
             }
         });
 
         holder.btDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtil.showToast(context,"删除");
-            }
-        });
-
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 listener.onItemClick(position, v);
             }
         });
+
+        //全局点击
+//        convertView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                listener.onItemClick(position, v);
+//            }
+//        });
         return convertView;
     }
 
