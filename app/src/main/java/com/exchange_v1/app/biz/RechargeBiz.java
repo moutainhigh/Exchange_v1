@@ -110,7 +110,7 @@ public class RechargeBiz extends BaseBiz{
         params.put("page",page);
         params.put("limit",limit);
 
-        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.RECHARGE_LIST_API,
+        NewsBaseBiz.postRequest(context, "", true, ServerConfig.RECHARGE_LIST_API,
                 params, new RequestHandle() {
                     @Override
                     public void onSuccess(ResponseBean responseBean) {
