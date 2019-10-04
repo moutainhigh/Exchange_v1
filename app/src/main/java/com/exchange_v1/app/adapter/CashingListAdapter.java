@@ -65,11 +65,11 @@ public class CashingListAdapter extends BaseAdapter {
         //数据填充
         holder.tvMoney.setText("提现金额: "+bean.getAmount());
         holder.tvTime.setText("提现时间: "+bean.getCreateTime());
-        if ("0".equals(bean.getState())){
+        if (0 == bean.getState()){
             holder.tvState.setText("提现状态: "+"提现中");
-        }else if ("1".equals(bean.getState())){
+        }else if (1 == bean.getState()){
             holder.tvState.setText("提现状态: "+"已转账");
-        }else if ("2".equals(bean.getState())){
+        }else if (2 == bean.getState()){
             holder.tvState.setText("提现状态: "+"已拒绝");
         }
 
