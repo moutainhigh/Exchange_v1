@@ -1,59 +1,87 @@
 package com.exchange_v1.app.bean;
 
-public class CoinDetailBean {
+import org.json.JSONException;
+import org.json.JSONObject;
 
-    private String type;
-    private String money;
-    private String number1;
-    private String balance;
-    private String number2;
-    private String time;
+public class CoinDetailBean extends BaseBean{
 
-    public String getType() {
-        return type;
+
+    /**
+     * amount : 300
+     * walletChange : PLEDGE
+     * createTime : 2019-09-02 23:55:03
+     * id : 0023191576729616384
+     * beforAmount : 10000
+     * changeMsg : 缴纳押金
+     * afterAmount : 9700
+     */
+
+    private int amount;
+    private String walletChange;
+    private String createTime;
+    private String id;
+    private int beforAmount;
+    private String changeMsg;
+    private int afterAmount;
+
+    @Override
+    protected void init(JSONObject jSon) throws JSONException {
+
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public int getAmount() {
+        return amount;
     }
 
-    public String getMoney() {
-        return money;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
-    public void setMoney(String money) {
-        this.money = money;
+    public String getWalletChange() {
+        return walletChange;
     }
 
-    public String getNumber1() {
-        return number1;
+    public void setWalletChange(String walletChange) {
+        this.walletChange = walletChange;
     }
 
-    public void setNumber1(String number1) {
-        this.number1 = number1;
+    public String getCreateTime() {
+        return createTime;
     }
 
-    public String getBalance() {
-        return balance;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
-    public void setBalance(String balance) {
-        this.balance = balance;
+    public String getId() {
+        return id;
     }
 
-    public String getNumber2() {
-        return number2;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setNumber2(String number2) {
-        this.number2 = number2;
+    public int getBeforAmount() {
+        return beforAmount;
     }
 
-    public String getTime() {
-        return time;
+    public void setBeforAmount(int beforAmount) {
+        this.beforAmount = beforAmount;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public String getChangeMsg() {
+        return changeMsg;
+    }
+
+    public void setChangeMsg(String changeMsg) {
+        this.changeMsg = changeMsg;
+    }
+
+    public int getAfterAmount() {
+        return afterAmount;
+    }
+
+    public void setAfterAmount(int afterAmount) {
+        this.afterAmount = afterAmount;
     }
 }

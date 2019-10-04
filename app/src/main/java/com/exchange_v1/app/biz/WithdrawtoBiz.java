@@ -5,6 +5,7 @@ import android.content.Context;
 import com.exchange_v1.app.bean.BaseBean;
 import com.exchange_v1.app.bean.CashFree;
 import com.exchange_v1.app.bean.CashingBean;
+import com.exchange_v1.app.bean.CoinDetailBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.config.ServerConfig;
 import com.exchange_v1.app.network.MyRequestHandle;
@@ -85,10 +86,11 @@ public class WithdrawtoBiz extends BaseBiz{
         params.put("page", page);
         params.put("limit", limit);
 
-        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.WALLETHISTORY_API,
+        NewsBaseBiz.postRequest(context, "", true, ServerConfig.WALLETHISTORY_API,
                 params, new RequestHandle() {
                     @Override
                     public void onSuccess(ResponseBean responseBean) {
+                        BaseBean.setGsonResponseObjectList(responseBean, CoinDetailBean.class,"");
                         mhandle.onSuccess(responseBean);
                     }
 

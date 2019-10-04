@@ -13,6 +13,7 @@ import com.exchange_v1.app.R;
 import com.exchange_v1.app.activity.ApplyCarryActivity;
 import com.exchange_v1.app.activity.ApplyServiceActivity;
 import com.exchange_v1.app.activity.BankBindListActivity;
+import com.exchange_v1.app.activity.CoinDetailActivity;
 import com.exchange_v1.app.activity.OrderListActivity;
 import com.exchange_v1.app.activity.PositionSelectActivity;
 import com.exchange_v1.app.activity.ReceiveQRCodeActivity;
@@ -204,8 +205,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
                 activeAccount();
                 break;
             case R.id.bt_coin_detail://游戏币明细
-//                IntentUtil.gotoActivity(context, CoinDetailActivity.class);
-                ToastUtil.showToast(context,"此功能暂未开放");
+                IntentUtil.gotoActivity(context, CoinDetailActivity.class);
                 break;
             case R.id.rl_hository_order://历史订单
                 IntentUtil.gotoActivity(context, OrderListActivity.class);
