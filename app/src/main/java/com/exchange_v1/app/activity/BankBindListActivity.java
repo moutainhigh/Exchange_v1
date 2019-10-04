@@ -34,7 +34,6 @@ public class BankBindListActivity extends BaseActivity implements View.OnClickLi
         lvListview = (ListView) findViewById(R.id.lv_listview);
         llAddView = (LinearLayout) findViewById(R.id.ll_add_view);
 
-
     }
 
     @Override
@@ -50,6 +49,16 @@ public class BankBindListActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     protected void init() {
+
+        //查看是否有绑定的银行卡
+        int bankAuth = TApplication.getMineUserInfo().getBankAuth();
+        if (bankAuth == 0){
+            llAddView.setVisibility(View.VISIBLE);
+            lvListview.setVisibility(View.GONE);
+        }else if (bankAuth == 1){//已经验证
+            llAddView.setVisibility(View.GONE);
+            lvListview.setVisibility(View.VISIBLE);
+        }
 
         List<EqueitmentBindBean> list = getData();
 
