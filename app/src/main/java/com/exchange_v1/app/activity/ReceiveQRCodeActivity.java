@@ -37,7 +37,10 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
     private TextView tvLeftTopName;
     private TextView tvPeopleNameHead;
     private TextView tvIdCardHead;
+    private TextView tvInputText;
     private LinearLayout llUID;
+    private LinearLayout llName;
+    private LinearLayout llCard;
 
     private TextView btSubmit;
     private ImageView ivPic;
@@ -47,6 +50,8 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
     public static final  String ALIBY = "ALI_BY";
     //微信
     public static final  String WXBY = "WX_BY";
+    //qq
+    public static final  String JHBY = "JH_BY";
     //上传二维码的类型
     private String codeType;
 
@@ -73,7 +78,10 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
         tvLeftTopName = (TextView) findViewById(R.id.tv_left_top_name);
         tvPeopleNameHead = (TextView) findViewById(R.id.tv_people_name_head);
         tvIdCardHead = (TextView) findViewById(R.id.tv_id_card_head);
+        tvInputText = (TextView) findViewById(R.id.tv_input_text);
         llUID = (LinearLayout) findViewById(R.id.ll_UID);
+        llName = (LinearLayout) findViewById(R.id.ll_name);
+        llCard = (LinearLayout) findViewById(R.id.ll_card);
     }
 
     @Override
@@ -94,6 +102,13 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
             tvPeopleNameHead.setText("微信昵称 ");
             tvIdCardHead.setText("微信账号 ");
 //            llUID.setVisibility(View.GONE);
+        }else if (JHBY.equals(codeType)){//QQ
+            tvLeftTopName.setText("QQ");
+            llName.setVisibility(View.GONE);
+            llCard.setVisibility(View.GONE);
+            tvInputText.setVisibility(View.GONE);
+//            tvPeopleNameHead.setText("微信昵称 ");
+//            tvIdCardHead.setText("微信账号 ");
         }
 
     }

@@ -50,6 +50,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
     private RelativeLayout rlHositoryOrder;
     private LinearLayout llAlipay;
     private LinearLayout llWechatPay;
+    private LinearLayout llQQPay;
     private TextView tvActiveState;
 
     private LinearLayout llApplyService;
@@ -81,6 +82,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
         rlHositoryOrder = findViewById(R.id.rl_hository_order);
         llAlipay = findViewById(R.id.ll_alipay);
         llWechatPay = findViewById(R.id.ll_wechatPay);
+        llQQPay = findViewById(R.id.ll_QQPay);
         tvActiveState = findViewById(R.id.tv_active_state);
 
         llApplyService =  findViewById(R.id.ll_apply_service);
@@ -109,6 +111,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
         rlHositoryOrder.setOnClickListener(this);
         llAlipay.setOnClickListener(this);
         llWechatPay.setOnClickListener(this);
+        llQQPay.setOnClickListener(this);
 
         llApplyService.setOnClickListener(this);
         llApplyCarry.setOnClickListener(this);
@@ -216,6 +219,9 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
                 break;
             case R.id.ll_wechatPay://微信
                 ReceiveQRCodeActivity.openActivity(context,ReceiveQRCodeActivity.WXBY);
+                break;
+            case R.id.ll_QQPay://qq
+                ReceiveQRCodeActivity.openActivity(context,ReceiveQRCodeActivity.JHBY);
                 break;
             case R.id.ll_apply_service://申请服务商
                 IntentUtil.gotoActivity(context, ApplyServiceActivity.class);
