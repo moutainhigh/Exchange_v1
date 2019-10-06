@@ -19,6 +19,7 @@ import com.exchange_v1.app.biz.UserBiz;
 import com.exchange_v1.app.biz.WithdrawtoBiz;
 import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.network.RequestHandle;
+import com.exchange_v1.app.utils.CountDownTimerUtils;
 import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
@@ -163,6 +164,9 @@ public class CashFragment extends BaseFragment implements View.OnClickListener {
             @Override
             public void onSuccess(ResponseBean result) {
                 ToastUtil.showToast(context,"验证码已发送");
+                // 倒计时
+                CountDownTimerUtils mCountDownTimerUtils = new CountDownTimerUtils(tvSendMsg, 180000, 1000);
+                mCountDownTimerUtils.start();
             }
 
             @Override
