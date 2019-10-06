@@ -103,7 +103,7 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
             tvIdCardHead.setText("微信账号 ");
 //            llUID.setVisibility(View.GONE);
         }else if (JHBY.equals(codeType)){//QQ
-            tvLeftTopName.setText("QQ");
+            tvLeftTopName.setText("聚合码");
             llName.setVisibility(View.GONE);
             llCard.setVisibility(View.GONE);
             tvInputText.setVisibility(View.GONE);
