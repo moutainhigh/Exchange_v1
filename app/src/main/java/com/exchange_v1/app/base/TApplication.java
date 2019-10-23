@@ -14,10 +14,8 @@ import com.exchange_v1.app.bean.MineUserInfoBean;
 import com.exchange_v1.app.bean.UpdateBean;
 import com.exchange_v1.app.bean.UserInfoBean;
 import com.exchange_v1.app.navition.NativeAction;
-import com.exchange_v1.app.utils.ApkUtil;
 import com.exchange_v1.app.utils.C2bPushUtil;
 import com.exchange_v1.app.utils.DES3;
-import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.SpUtil;
 import com.exchange_v1.app.utils.UserInfoUtil;
 import com.exchange_v1.app.utils.imageloader.ImageLoaderUtil;
@@ -32,8 +30,6 @@ import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-
-import java.util.HashMap;
 
 
 /**
@@ -71,10 +67,6 @@ public class TApplication extends Application {
      */
     public static int VERSION_CODE;
     /**
-     * 网络请求状态信息集合
-     */
-    public static HashMap<String, String> mMapStatus;
-    /**
      * 应用是否在最前
      */
     public static boolean IsOnTop = true;
@@ -90,14 +82,6 @@ public class TApplication extends Application {
      * 指纹
      */
     private static String appMd5;
-//    /**
-//     * 字体
-//     */
-//    public static Typeface face;
-    /**
-     * 选择的储油模式 -1:未选择 0:云储油 1:大众储油
-     */
-    public static int oilMode = 1;
     /**
      * token
      */
@@ -109,18 +93,6 @@ public class TApplication extends Application {
 
     public static int APP_VERSION = 1;
 
-    /**
-     * 第一次设置 默认密保问题false设置成功后为true
-     */
-    public static boolean isFirst = false;
-    /**
-     * 第一次设置 交易密码false设置成功后为true
-     */
-    public static boolean isFistSetPassword = false;
-    /**
-     * 第一次设置 实名认证false设置成功后为true
-     */
-    public static boolean isFistValueName = false;
     /**
      * 是否请求外网，0表示外网，1表示内网
      */
@@ -138,19 +110,6 @@ public class TApplication extends Application {
     //我的图标是否需要显示红点
     private  static boolean isShowMineRed=false;
 
-    /**
-     * 第一次点击我的账户眼睛false设置成功后为true
-     */
-    public static boolean isFirstMyEye = false;
-    /**
-     * 第一次点击我的油卡眼睛false设置成功后为true
-     */
-    public static boolean isFirstOilEye = false;
-
-    /**
-     * 体验卡id 如果我的订单没有数据用于跳转体验卡
-     */
-    public static String PRODUCT_ID;
     public static boolean needSafe = false;
 
 
@@ -158,23 +117,6 @@ public class TApplication extends Application {
      * 极光推送的唯一标识
      */
     public static String jpush_regId;
-    /**
-     * 现金券展示文字的标识
-     */
-    public static String tipC;
-    /**
-     * 现金券展示文字的标识  两个状态：状态为1 时，取后台返回字段  状态为0时，取自己的值
-     */
-    public static String tipStatus;
-    /**
-     * 微众开户返回页面的标识
-     */
-    public static String redirectUrl = "c2b_bwoil_webank://upload";
-
-    /**
-     * 页面跳转的标识
-     */
-    public static String pageName;
 
     /**
      * app留存时长计数值
@@ -205,10 +147,7 @@ public class TApplication extends Application {
 
         screenWidth = getResources().getDisplayMetrics().widthPixels;
         screenHight = getResources().getDisplayMetrics().heightPixels;
-//        face = Typeface.createFromAsset(context.getAssets(),
-//                "fonts/Helvetica.ttf");
 
-        init_DB();
 //        initBaiduLBS();
 
 //        initImageLoader(this);
@@ -220,8 +159,6 @@ public class TApplication extends Application {
         C2bPushUtil.init(context);
 //
 //        init_UM_Share();
-//        //计数功能
-//        Timer();
 //
 //        deviceId = Installation.idNoLocation(this);
 
@@ -292,12 +229,6 @@ public class TApplication extends Application {
 
     public static void startBdLocation() {
         c2bLocationClient.start();
-    }
-    /**
-     * 初始化数据库
-     */
-    private void init_DB() {
-//        DataBaseManage.createPulibicDataBase();
     }
 
     /**
@@ -412,60 +343,6 @@ public class TApplication extends Application {
 
         //初始化图片框架.
         ImageLoaderUtil.init(imageOptions);
-        //		File cacheDir = StorageUtils.getOwnCacheDirectory(context,
-        //				"imageloader/Cache");
-        //		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
-        //				context)
-        //				.memoryCacheExtraOptions(480, 800)
-        //				// max
-        //				// width,
-        //				// max
-        //				// height，即保存的每个缓存文件的最大长宽
-        //				.discCacheExtraOptions(480, 800, null)
-        //				// Can
-        //				// slow
-        //				// ImageLoader,
-        //				// use
-        //				// it
-        //				// carefully
-        //				// (Better
-        //				// don't
-        //				// use
-        //				// it)/设置缓存的详细信息，最好不要设置这个
-        //				.threadPoolSize(3)
-        //				// 线程池内加载的数量
-        //				.threadPriority(Thread.NORM_PRIORITY - 2)
-        //				.denyCacheImageMultipleSizesInMemory()
-        //				.memoryCache(new UsingFreqLimitedMemoryCache(2 * 1024 * 1024))
-        //				// You
-        //				// can
-        //				// pass
-        //				// your
-        //				// own
-        //				// memory
-        //				// cache
-        //				// implementation/你可以通过自己的内存缓存实现
-        //				.memoryCacheSize(2 * 1024 * 1024)
-        //				.discCacheSize(50 * 1024 * 1024)
-        //				.discCacheFileNameGenerator(new Md5FileNameGenerator())
-        //				// 将保存的时候的URI名称用MD5
-        //				// 加密
-        //				.tasksProcessingOrder(QueueProcessingType.LIFO)
-        //				.discCacheFileCount(100)
-        //				// 缓存的文件数量
-        //				.discCache(new UnlimitedDiskCache(cacheDir))
-        //				// 自定义缓存路径
-        //				.defaultDisplayImageOptions(DisplayImageOptions.createSimple())
-        //				.imageDownloader(
-        //						new BaseImageDownloader(context, 5 * 1000, 30 * 1000)) // connectTimeout
-        //																				// (5
-        //																				// s),
-        //																				// readTimeout
-        //																				// (30
-        //																				// s)超时时间
-        //				.writeDebugLogs() // Remove for release app
-        //				.build();// 开始构建
-        //		ImageLoader.getInstance().init(config);
 
     }
 
@@ -497,37 +374,6 @@ public class TApplication extends Application {
     {
         //增加QQ的配置
 //        PlatformConfig.setQQZone("1105007983", "C6iiGIhUpdTvuMB5");
-    }
-
-    /**
-     * 计数器功能
-     */
-    private void Timer() {
-
-        String processName = ApkUtil.getProcessName(this, android.os.Process.myPid());
-        if (!TextUtils.isEmpty(processName) && processName.equals(this.getPackageName())) {//判断进程名，保证只有主进程运行
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    Logger.d("Timer() start to running timer");
-                    while (true) {
-                        try {
-                            Thread.sleep(5000);
-
-                            if (TApplication.IS_FRONT) {//处于前台进程才会加1
-                                ++c2b_count;
-                                SpUtil.getSpUtil().putSPValue(getString(R.string.spkey_app_timmer), c2b_count);//每 5 秒存一次sp
-                            }
-                            //后台进程时间
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            Logger.d("Timer() thread error...");
-                        }
-                    }
-                }
-            }).start();
-        }
-
     }
 
     //static 代码段可以防止内存泄露
