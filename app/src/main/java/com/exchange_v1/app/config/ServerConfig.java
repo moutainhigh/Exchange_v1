@@ -112,7 +112,7 @@ public class ServerConfig {
     public static final String SERVER_VERSION_URL = "http://buddy.t.com/Api/version/typeid/0";
 
     //URL前缀
-    public static String SERVER_URL = "http://yy961410800.oicp.net";
+    public static String SERVER_URL = "http://api.meilishenghuo.cn";
 
     //注册
     public static String REGISTER_API = SERVER_URL+"/agent/register";
