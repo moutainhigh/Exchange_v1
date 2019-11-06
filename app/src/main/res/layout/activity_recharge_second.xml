@@ -10,6 +10,7 @@
         android:background="@mipmap/recharge_head_bg" />
 
     <TextView
+        android:id="@+id/tv_back"
         android:layout_width="8dp"
         android:layout_height="16dp"
         android:layout_marginLeft="16dp"

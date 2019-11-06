@@ -20,6 +20,7 @@ import com.exchange_v1.app.utils.Util;
 public class RechargeSecondActivity extends BaseActivity implements View.OnClickListener{
 
     private TextView tvMoneyTitle;
+    private TextView tvBack;
     private TextView etCard;
     private TextView etUserName;
     private TextView etBankName;
@@ -39,6 +40,7 @@ public class RechargeSecondActivity extends BaseActivity implements View.OnClick
     @Override
     protected void findViews() {
         tvMoneyTitle =  findViewById(R.id.tv_money_title);
+        tvBack =  findViewById(R.id.tv_back);
         etCard =  findViewById(R.id.et_card);
         etUserName =  findViewById(R.id.et_user_name);
         etBankName =  findViewById(R.id.et_bank_name);
@@ -64,6 +66,7 @@ public class RechargeSecondActivity extends BaseActivity implements View.OnClick
 
     @Override
     protected void widgetListener() {
+        tvBack.setOnClickListener(this);
         tvLeftCancle.setOnClickListener(this);
         rightConfirm.setOnClickListener(this);
 
@@ -85,6 +88,9 @@ public class RechargeSecondActivity extends BaseActivity implements View.OnClick
                 break;
             case R.id.right_confirm://确认订单
                 confirmRequest();
+                break;
+            case R.id.tv_back://返回
+                cancleRequest();
                 break;
             case R.id.tv_copy_cardNo://复制卡号
                 if (Util.copy(context,etCard.getText().toString().trim())){
@@ -131,7 +137,7 @@ public class RechargeSecondActivity extends BaseActivity implements View.OnClick
         RechargeBiz.cancel(context, bean.getId(), new RequestHandle() {
             @Override
             public void onSuccess(ResponseBean result) {
-                ToastUtil.showToast(context,"取消订单成功！");
+                ToastUtil.showToast(context,"充值订单已取消");
                 finish();
             }
 
