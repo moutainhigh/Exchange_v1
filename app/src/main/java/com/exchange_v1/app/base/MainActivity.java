@@ -24,11 +24,14 @@ import android.view.animation.TranslateAnimation;
 import android.widget.RelativeLayout;
 
 import com.exchange_v1.app.R;
+import com.exchange_v1.app.bean.ResponseBean;
+import com.exchange_v1.app.biz.FileBiz;
 import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.fragment.MainCashFragment;
 import com.exchange_v1.app.fragment.MainHomeFragment;
 import com.exchange_v1.app.fragment.MainMineFragment;
 import com.exchange_v1.app.fragment.MainRechargeFragment;
+import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.receiver.JPushReceiver;
 import com.exchange_v1.app.utils.C2bPushUtil;
 import com.exchange_v1.app.utils.CountIdUtil;
@@ -173,9 +176,6 @@ public class MainActivity extends BaseFragmentActivity {
     }
 
 
-    /**
-     * 摩窗对应跳转
-     */
     @Override
     protected void init() {
         // 记录程序运行状态
@@ -199,6 +199,7 @@ public class MainActivity extends BaseFragmentActivity {
                     ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                             WRITE_EXTERNAL_STORAGE_REQUEST_CODE);
                 } else {
+//                    //版本升级弹窗
 //                    checkUpdate();
                 }
             }
@@ -540,6 +541,43 @@ public class MainActivity extends BaseFragmentActivity {
             statusBarHeight = getResources().getDimensionPixelSize(resourceId);
         }
         return statusBarHeight;
+    }
+
+    /**
+     * 版本升级检查
+     */
+    private void checkUpdate() {
+        FileBiz.checkUpdate(getBaseContext(), new RequestHandle() {
+            @Override
+            public void onSuccess(ResponseBean result) {
+
+//                UpdateBean bean = (UpdateBean) result.getObject();
+//                if (bean == null) {//为空不处理
+//                    return;
+//                }
+//                String url = bean.getUrl();
+//                String vesion = StringUtil.getNumbers(bean.getVersion());
+//                vesion = vesion.replace(".", "");
+//                Double vision_d = 0.0;
+//                try{
+//                    vision_d = Double.valueOf(vesion);//服务器版本号
+//                }catch (Exception e){
+//                    e.printStackTrace();
+//                }
+//                int visioncode = UpdateManager
+//                        .getVersionCode(MainActivity.this);// 本地版本号
+//
+//                if (url != null && (visioncode < vision_d)) {
+//                    DialogUtil.showUpdate(MainActivity.this, bean);
+//                }
+            }
+
+            @Override
+            public void onFail(ResponseBean result) {
+
+            }
+
+        });
     }
 
 }

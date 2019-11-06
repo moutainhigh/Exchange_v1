@@ -10,6 +10,8 @@ import com.exchange_v1.app.network.MyRequestHandle;
 import com.exchange_v1.app.network.NewsBaseBiz;
 import com.exchange_v1.app.network.RequestHandle;
 
+import java.util.HashMap;
+
 public class FileBiz extends BaseBiz{
 
 
@@ -30,6 +32,29 @@ public class FileBiz extends BaseBiz{
                         mhandle.onFail(responseBean);
                     }
 
+                });
+    }
+
+
+    /**
+     * 版本更新接口
+     *
+     */
+    public static void checkUpdate(Context context, final MyRequestHandle mhandle) {
+
+        HashMap<String, String> params = getPostHeadMap();
+
+        NewsBaseBiz.postRequest(context, "", true, ServerConfig.VERSION_UPDATE_API,
+                params, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean responseBean) {
+                        mhandle.onSuccess(responseBean);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean responseBean) {
+                        mhandle.onFail(responseBean);
+                    }
                 });
     }
 

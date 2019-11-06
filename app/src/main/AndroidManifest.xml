@@ -210,6 +210,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/CommActTheme" />
 
+        <!-- ======================================== -->
+        <!-- 升级service -->
+        <service
+            android:name=".utils.service.UpdateService"
+            android:enabled="true"/>
+
         <!-- =========================================极光推送部分=========================================== -->
         <!-- Required  SDK核心功能 -->
         <service

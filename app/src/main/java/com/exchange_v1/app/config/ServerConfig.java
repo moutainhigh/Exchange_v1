@@ -178,4 +178,8 @@ public class ServerConfig {
     public static String JPUSH_BIND_API = SERVER_URL+"/agentDevice/bind";
     //极光解绑
     public static String JPUSH_UNBIND_API = SERVER_URL+"/agentDevice/unbind";
+
+    //版本升级
+    public static String VERSION_UPDATE_API = SERVER_URL+"";
+
 }

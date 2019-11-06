@@ -39,8 +39,10 @@ import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.UpdateBean;
 import com.exchange_v1.app.config.FileConfig;
 import com.exchange_v1.app.config.RequestCode;
+import com.exchange_v1.app.utils.service.UpdateService;
 import com.exchange_v1.app.view.CustomDialog;
 import com.exchange_v1.app.view.HorizontalCustomDialog;
+import com.exchange_v1.app.view.UpdateDialog;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -1234,5 +1236,106 @@ public class DialogUtil {
         dialog.show();
     }
 
+    /**
+     * 版本更新弹窗
+     *
+     * @param context
+     * @param bean
+     */
+    public static void showUpdate(final Context context, final UpdateBean bean) {
+        if (!bean.getUrl().trim().replaceAll(" ", "").startsWith("http")) {
+            return;
+        }
+        UpdateDialog dialog = new UpdateDialog(context);
+        dialog.setCancelable(false);
+        if (bean == null
+                || bean.getUrl().equals(
+                UpdateManager.getVersionCode(context) - 0.1)) {
+            dialog.setContentStr(context
+                    .getString(R.string.activity_setting_update_isnew));
+            dialog.setUpdateBtnText("确定");
+        } else {
+            dialog.setOnUpdateListener(new UpdateDialog.OnUpdateListener() {
+                @Override
+                public void onUpdateClick(UpdateDialog dialog) {
+                    Intent intent = new Intent(context, UpdateService.class);
+                    intent.putExtra("size", bean.getFile_Size());
+                    // intent.putExtra("size", "10000");
+                    intent.putExtra("path", bean.getUrl());
+                    //					Log.i("log:", bean.getUrl());
+                    // intent.setAction("com.bwoonline.marineo_phone.service.UpdateService");
+                    context.startService(intent);
+                    if (dialog.isIsNeedDismiss()) {
+                        dialog.dismiss();
+                    } else {
+                        final TextView tv = dialog.getUpdateBtn();
+
+                        Runnable update = new Runnable() {
+                            @Override
+                            public void run() {
+                                String downloadStr = "下载中";
+                                String tvStr = tv.getText().toString();
+                                int downloadStrTemp = tvStr.length();
+                                int lastDownloadStr = (downloadStr + "...").length();
+                                final StringBuffer updateStr = new StringBuffer();
+                                //								System.out.println(String.format("downloadStrTemp:%d > downloadStr.length():%d",downloadStrTemp,lastDownloadStr));
+                                if (downloadStrTemp > lastDownloadStr) {
+                                    updateStr.append(downloadStr).append(".");
+                                } else {
+                                    updateStr.append(tvStr).append(".");
+                                }
+
+                                if (SpUtil.isApkDownloadOK()) {
+                                    HandlerUtil.runOnUI(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            String clickInstall = "点击安装";
+                                            ViewUtils.setEnabledTrue(tv);
+                                            TVUtils.setText(tv, clickInstall);
+                                            tv.setOnClickListener(getOnClickInstallAPk(bean, context));
+                                        }
+                                    });
+                                } else {
+                                    HandlerUtil.getBackgroundHandle().postDelayed(this, 500);
+                                    HandlerUtil.runOnUI(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            TVUtils.setText(tv, updateStr.toString());
+                                        }
+                                    });
+                                }
+                            }
+                        };
+                        HandlerUtil.getBackgroundHandle().postDelayed(update, 500);
+                        ViewUtils.setEnabledFalse(tv);
+
+                    }
+
+                    TApplication.updateBean = null;
+                    TApplication.isShowUpdate = true;
+                }
+            });
+
+            String messge = bean.getNote();
+
+            if (bean.getIs_sure().equals("1")) { // 强制更新
+                // 不可取消
+                dialog.setCloseVis(View.GONE);
+                dialog.setIsNeedDismiss(false);
+            }
+            if (StringUtil.isEmpty(messge)) {
+                messge = context.getString(R.string.activity_setting_update_hasnew);
+            }
+
+            dialog.setContentStr(messge);
+        }
+        if (ContextUtils.getRealContext(context) instanceof Activity) {
+            Activity activity = (Activity) ContextUtils.getRealContext(context);
+            if (ActivityUtils.isDestroyed(activity)) {
+                return;
+            }
+        }
+        dialog.show();
+    }
 
 }
