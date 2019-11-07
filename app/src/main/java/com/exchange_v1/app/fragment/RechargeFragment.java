@@ -2,12 +2,15 @@ package com.exchange_v1.app.fragment;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.activity.RechargeSecondActivity;
 import com.exchange_v1.app.base.BaseFragment;
+import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.PrepareRechargeBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.RechargeBiz;
@@ -21,12 +24,15 @@ import com.exchange_v1.app.utils.ToastUtil;
 public class RechargeFragment extends BaseFragment implements View.OnClickListener {
 
     private EditText etMoney;
-    private EditText etAccount;
     private TextView tvSubmit;
     private PrepareRechargeBean prepareBean;
 
     private TextView tvLeftBtn;
     private TextView tvRightBtn;
+    private TextView tvBankName;
+
+    private Spinner accountSpinner;
+    private ArrayAdapter<String> accountAdapter;
 
     private boolean leftClick = true;
 
@@ -38,16 +44,35 @@ public class RechargeFragment extends BaseFragment implements View.OnClickListen
     @Override
     protected void findViews() {
         etMoney = findViewById(R.id.et_money);
-        etAccount = findViewById(R.id.et_account);
         tvSubmit = findViewById(R.id.tv_submit);
 
         tvLeftBtn = findViewById(R.id.tv_left_btn);
         tvRightBtn = findViewById(R.id.tv_right_btn);
+
+        tvBankName = findViewById(R.id.tv_bank_name);
+        accountSpinner = findViewById(R.id.sp_account);
+
     }
 
     @Override
     protected void initGetData() {
 
+
+    }
+
+    private void setSpinner() {
+        String[] bankArr = new String[1];
+        bankArr[0] = TApplication.getMineUserInfo().getBankNo();
+
+        //适配器
+        accountAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item,bankArr);
+        //设置样式
+        accountAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //加载适配器
+        accountSpinner.setAdapter(accountAdapter);
+//        accountAdapter.add(TApplication.getMineUserInfo().getBankNo());
+        //默认选择第一个
+        accountSpinner.setSelection(0,true);
     }
 
     @Override
@@ -60,7 +85,8 @@ public class RechargeFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     protected void init() {
-
+        setSpinner();
+        tvBankName.setText(TApplication.getMineUserInfo().getBankName());
     }
 
     private void getPrepareRechargeInfo() {

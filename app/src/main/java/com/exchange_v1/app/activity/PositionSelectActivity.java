@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.BaseActivity;
 import com.exchange_v1.app.base.TApplication;
@@ -76,6 +77,7 @@ public class PositionSelectActivity extends BaseActivity implements View.OnClick
             @Override
             public void onSuccess(ResponseBean result) {
                 positionList = result.getArraylist(PositionBean.class);
+                String s = JSON.toJSONString(positionList);
                 setSpanerView();
             }
 
@@ -137,6 +139,9 @@ public class PositionSelectActivity extends BaseActivity implements View.OnClick
                     cityAdapter.add(city.getC_name());
                 }
                 cityAdapter.notifyDataSetChanged();//刷新
+
+                setCitySpinerItemSelectedListener();
+
             }
 
             @Override
@@ -145,6 +150,10 @@ public class PositionSelectActivity extends BaseActivity implements View.OnClick
             }
         });
 
+
+    }
+
+    private void setCitySpinerItemSelectedListener() {
         citySpiner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
