@@ -198,6 +198,8 @@ public class PositionSelectActivity extends BaseActivity implements View.OnClick
                         ToastUtil.showToast(context,result.getInfo());
                     }
                 });
+            }else {
+                ToastUtil.showToast(context,"获取地区信息不完整，请返回后重试");
             }
         }
 

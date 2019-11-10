@@ -19,7 +19,7 @@ public class PositionBiz extends BaseBiz{
 
         HashMap<String, String> params = getPostHeadMap();
 
-        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.DISTRICT_API,
+        NewsBaseBiz.postRequest(context, "系统正在加载...", false, ServerConfig.DISTRICT_API,
                 params, new RequestHandle() {
                     @Override
                     public void onSuccess(ResponseBean responseBean) {
@@ -48,7 +48,7 @@ public class PositionBiz extends BaseBiz{
         params.put("provinceId",provinceId);
         params.put("cityId",cityId);
 
-        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.SET_DISTRICT_API,
+        NewsBaseBiz.postRequest(context, "系统正在加载...", false, ServerConfig.SET_DISTRICT_API,
                 params, new RequestHandle() {
                     @Override
                     public void onSuccess(ResponseBean responseBean) {
