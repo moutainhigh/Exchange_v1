@@ -176,7 +176,7 @@
                 android:layout_marginRight="16dp"
                 android:background="@drawable/shape_ac_input"
                 android:orientation="horizontal"
-                >
+                android:visibility="gone">
 
                 <LinearLayout
                     android:id="@+id/ll_apply_service"
