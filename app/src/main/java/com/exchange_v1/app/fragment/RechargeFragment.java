@@ -1,6 +1,9 @@
 package com.exchange_v1.app.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -35,6 +38,10 @@ public class RechargeFragment extends BaseFragment implements View.OnClickListen
     private ArrayAdapter<String> accountAdapter;
 
     private boolean leftClick = true;
+    private Handler handler = new Handler();
+    private String editString;
+
+    private Boolean inputCheck = true;
 
     @Override
     protected int getContentViewId() {
@@ -81,6 +88,37 @@ public class RechargeFragment extends BaseFragment implements View.OnClickListen
 
         tvLeftBtn.setOnClickListener(clickListener);
         tvRightBtn.setOnClickListener(clickListener);
+
+        etMoney.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count) {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                if (inputCheck){
+                    if(delayRun!=null){
+                        //每次editText有变化的时候，则移除上次发出的延迟线程
+                        handler.removeCallbacks(delayRun);
+                    }
+                    editString = s.toString();
+
+                    //延迟800ms，如果不再输入字符，则执行该线程的run方法
+                    handler.postDelayed(delayRun, 800);
+                }else {
+                    inputCheck = true;
+                }
+
+            }
+        });
     }
 
     @Override
@@ -89,28 +127,56 @@ public class RechargeFragment extends BaseFragment implements View.OnClickListen
         tvBankName.setText(TApplication.getMineUserInfo().getBankName());
     }
 
-    private void getPrepareRechargeInfo() {
-        String money = etMoney.getText().toString().trim();
-        if (!StringUtil.isEmpty(money)){
-            RechargeBiz.prepare(context, money,leftClick?"0":"1", new RequestHandle() {
+    /**
+     * 延迟线程，看是否还有下一个字符输入
+     */
+    private Runnable delayRun = new Runnable() {
+
+        @Override
+        public void run() {
+            //在这里调用服务器的接口，获取数据
+            getPrepareRechargeInfo(editString);
+        }
+    };
+
+    private void commit() {
+
+        if (prepareBean!=null){
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(FieldConfig.intent_bean,prepareBean);
+            IntentUtil.gotoActivity(context,RechargeSecondActivity.class,bundle);
+        }else {
+            ToastUtil.showToast(context,"没有获取到订单详情数据，请重新输入金额");
+        }
+
+    }
+
+    private void getPrepareRechargeInfo(String editString) {
+
+//        String money = etMoney.getText().toString().trim();
+        if (!StringUtil.isEmpty(editString)){
+            RechargeBiz.prepare(context, editString,leftClick?"0":"1", new RequestHandle() {
                 @Override
                 public void onSuccess(ResponseBean result) {
+                    inputCheck = false;
                     prepareBean = (PrepareRechargeBean) result.getObject();
-
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable(FieldConfig.intent_bean,prepareBean);
-                    IntentUtil.gotoActivity(context,RechargeSecondActivity.class,bundle);
+                    etMoney.setText(prepareBean.getAmount()+"");
 
                 }
 
                 @Override
                 public void onFail(ResponseBean result) {
+                    inputCheck = true;
                     ToastUtil.showToast(context,result.getInfo());
+
                 }
             });
         }else {
+            inputCheck = true;
             ToastUtil.showToast(context,"金额不能为空");
+
         }
+
     }
 
     @Override
@@ -118,7 +184,7 @@ public class RechargeFragment extends BaseFragment implements View.OnClickListen
         switch (v.getId()) {
             case R.id.tv_submit:
                 //提交
-                getPrepareRechargeInfo();
+                commit();
                 break;
             default:
                 break;
