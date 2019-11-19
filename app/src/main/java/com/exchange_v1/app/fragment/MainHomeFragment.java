@@ -2,10 +2,12 @@ package com.exchange_v1.app.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -18,11 +20,13 @@ import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.UserBiz;
 import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.network.RequestHandle;
+import com.exchange_v1.app.utils.JWebSocketClient;
 import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
 import com.flyco.tablayout.SlidingTabLayout;
 
+import java.net.URI;
 import java.util.ArrayList;
 
 /**
@@ -39,6 +43,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
     private MineUserInfoBean userBean;
     private TextView tvBalance;
     private TextView tvFreeze;
+    private JWebSocketClient client;
 
     @Override
     protected View getViews() {
@@ -114,17 +119,42 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
     //打开接单
     private void onReciver() {
-        UserBiz.onReceptive(context, new RequestHandle() {
-            @Override
-            public void onSuccess(ResponseBean result) {
-                ToastUtil.showToast(context, "接单已经打开");
-            }
+//        UserBiz.onReceptive(context, new RequestHandle() {
+//            @Override
+//            public void onSuccess(ResponseBean result) {
+//                ToastUtil.showToast(context, "接单已经打开");
+//            }
+//
+//            @Override
+//            public void onFail(ResponseBean result) {
+//                ToastUtil.showToast(context, result.getInfo());
+//            }
+//        });
 
+        URI uri = URI.create("ws://*******");
+        client = new JWebSocketClient(uri) {
             @Override
-            public void onFail(ResponseBean result) {
-                ToastUtil.showToast(context, result.getInfo());
+            public void onMessage(String message) {
+                //message就是接收到的消息
+                Log.e("JWebSClientService", message);
             }
-        });
+        };
+
+        //连接时可以使用connect()方法或connectBlocking()方法，建议使用connectBlocking()方法，connectBlocking多出一个等待操作，会先连接再发送。
+        try {
+            client.connectBlocking();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //发送消息
+        if (client != null && client.isOpen()) {
+            client.send("你好");
+        }
+
+        //开启心跳检测
+        mHandler.postDelayed(heartBeatRunnable, HEART_BEAT_RATE);
+
     }
 
     private void offReciver() {
@@ -140,6 +170,60 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
             }
         });
     }
+
+    /**
+     * 断开websocket连接
+     */
+    private void closeConnect(JWebSocketClient client) {
+        try {
+            if (null != client) {
+                client.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            client = null;
+        }
+    }
+
+    private static final long HEART_BEAT_RATE = 10 * 1000;//每隔10秒进行一次对长连接的心跳检测
+    private Handler mHandler = new Handler();
+    private Runnable heartBeatRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (client != null) {
+                if (client.isClosed()) {
+                    reconnectWs();
+                }
+            } else {
+                //如果client已为空，重新初始化websocket
+
+                //todo
+//                initSocketClient();
+            }
+            //定时对长连接进行心跳检测
+            mHandler.postDelayed(this, HEART_BEAT_RATE);
+        }
+    };
+
+    /**
+     * 开启重连
+     */
+    private void reconnectWs() {
+        mHandler.removeCallbacks(heartBeatRunnable);
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    //重连
+                    client.reconnectBlocking();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
 
     @Override
     protected void init() {
