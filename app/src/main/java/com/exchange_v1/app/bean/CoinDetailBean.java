@@ -16,24 +16,24 @@ public class CoinDetailBean extends BaseBean{
      * afterAmount : 9700
      */
 
-    private int amount;
+    private double amount;
     private String walletChange;
     private String createTime;
     private String id;
-    private int beforAmount;
+    private double beforAmount;
     private String changeMsg;
-    private int afterAmount;
+    private double afterAmount;
 
     @Override
     protected void init(JSONObject jSon) throws JSONException {
 
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
@@ -61,11 +61,11 @@ public class CoinDetailBean extends BaseBean{
         this.id = id;
     }
 
-    public int getBeforAmount() {
+    public double getBeforAmount() {
         return beforAmount;
     }
 
-    public void setBeforAmount(int beforAmount) {
+    public void setBeforAmount(double beforAmount) {
         this.beforAmount = beforAmount;
     }
 
@@ -77,11 +77,11 @@ public class CoinDetailBean extends BaseBean{
         this.changeMsg = changeMsg;
     }
 
-    public int getAfterAmount() {
+    public double getAfterAmount() {
         return afterAmount;
     }
 
-    public void setAfterAmount(int afterAmount) {
+    public void setAfterAmount(double afterAmount) {
         this.afterAmount = afterAmount;
     }
 }
