@@ -12,17 +12,18 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.BaseFragment;
 import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.MineUserInfoBean;
-import com.exchange_v1.app.bean.ResponseBean;
-import com.exchange_v1.app.biz.UserBiz;
+import com.exchange_v1.app.bean.WebBean;
 import com.exchange_v1.app.config.BroadcastFilters;
-import com.exchange_v1.app.network.RequestHandle;
+import com.exchange_v1.app.utils.FieldConfig;
 import com.exchange_v1.app.utils.JWebSocketClient;
 import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.StringUtil;
+import com.exchange_v1.app.utils.StringUtils;
 import com.exchange_v1.app.utils.ToastUtil;
 import com.flyco.tablayout.SlidingTabLayout;
 
@@ -119,6 +120,14 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
     //打开接单
     private void onReciver() {
+        initSocketClient();
+//        //发送消息
+//        if (client != null && client.isOpen()) {
+//            client.send("你好");
+//        }
+        //开启心跳检测
+        mHandler.postDelayed(heartBeatRunnable, HEART_BEAT_RATE);
+
 //        UserBiz.onReceptive(context, new RequestHandle() {
 //            @Override
 //            public void onSuccess(ResponseBean result) {
@@ -130,45 +139,27 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 //                ToastUtil.showToast(context, result.getInfo());
 //            }
 //        });
-
-        URI uri = URI.create("ws://*******");
-        client = new JWebSocketClient(uri) {
-            @Override
-            public void onMessage(String message) {
-                //message就是接收到的消息
-                Log.e("JWebSClientService", message);
-            }
-        };
-
-        //连接时可以使用connect()方法或connectBlocking()方法，建议使用connectBlocking()方法，connectBlocking多出一个等待操作，会先连接再发送。
-        try {
-            client.connectBlocking();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        //发送消息
-        if (client != null && client.isOpen()) {
-            client.send("你好");
-        }
-
-        //开启心跳检测
-        mHandler.postDelayed(heartBeatRunnable, HEART_BEAT_RATE);
-
     }
 
+    /**
+     * 关闭接单
+     *
+     */
     private void offReciver() {
-        UserBiz.offReceptive(context, new RequestHandle() {
-            @Override
-            public void onSuccess(ResponseBean result) {
-                ToastUtil.showToast(context, "已关闭接单");
-            }
+        closeConnect(client);
+        ToastUtil.showToast(context, "已关闭接单");
 
-            @Override
-            public void onFail(ResponseBean result) {
-                ToastUtil.showToast(context, result.getInfo());
-            }
-        });
+//        UserBiz.offReceptive(context, new RequestHandle() {
+//            @Override
+//            public void onSuccess(ResponseBean result) {
+//                ToastUtil.showToast(context, "已关闭接单");
+//            }
+//
+//            @Override
+//            public void onFail(ResponseBean result) {
+//                ToastUtil.showToast(context, result.getInfo());
+//            }
+//        });
     }
 
     /**
@@ -186,7 +177,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
         }
     }
 
-    private static final long HEART_BEAT_RATE = 10 * 1000;//每隔10秒进行一次对长连接的心跳检测
+    private static final long HEART_BEAT_RATE = 300 * 1000;//每隔五分钟 进行一次对长连接的心跳检测
     private Handler mHandler = new Handler();
     private Runnable heartBeatRunnable = new Runnable() {
         @Override
@@ -197,14 +188,57 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                 }
             } else {
                 //如果client已为空，重新初始化websocket
+                initSocketClient();
+                //这里不需要再开启心跳检测了
 
-                //todo
-//                initSocketClient();
             }
             //定时对长连接进行心跳检测
             mHandler.postDelayed(this, HEART_BEAT_RATE);
         }
     };
+
+    /**
+     * 初始化websocket
+     */
+    private void initSocketClient() {
+        String token = TApplication.getToken();
+        String webUrl = "ws://linyingqiang.imdo.co/ws?info="+token;
+
+        URI uri = URI.create(webUrl);
+        client = new JWebSocketClient(uri) {
+            @Override
+            public void onMessage(String message) {
+                //message就是接收到的消息
+                Log.e("JWebSClientService", message);
+                if (!StringUtils.isEmpty(message)){
+                    WebBean webBean = JSON.parseObject(message, WebBean.class);
+
+                    String orderId = webBean.getData().getOrderId();
+                    if (webBean!=null&&webBean.getCommand() == 100&&!StringUtils.isEmpty(orderId)){
+                        //发送广播给前台
+                        Intent intent = new Intent();
+                        intent.setAction(BroadcastFilters.ACTION_ORDER);
+                        intent.putExtra(FieldConfig.intent_str,orderId);
+                        context.sendBroadcast(intent);
+                    }else if (webBean!=null&&webBean.getCommand() == 101&&!StringUtils.isEmpty(orderId)){
+                        //发送广播给前台
+                        Intent intent = new Intent();
+                        intent.setAction(BroadcastFilters.ACTION_ORDER);
+                        intent.putExtra(FieldConfig.intent_str,orderId);
+                        context.sendBroadcast(intent);
+                    }
+                }
+
+            }
+        };
+
+        //连接时可以使用connect()方法或connectBlocking()方法，建议使用connectBlocking()方法，connectBlocking多出一个等待操作，会先连接再发送。
+        try {
+            client.connectBlocking();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * 开启重连

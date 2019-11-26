@@ -20,5 +20,6 @@ public class BroadcastFilters {
 
 	/** 收到订单推送 */
 	public static final String ACTION_ORDER = "com_exchange_app_action_order";
-
+	/** 收到订单被抢走推送 */
+	public static final String ACTION_ORDER_CANCLE = "com_exchange_app_action_order_cancle";
 }

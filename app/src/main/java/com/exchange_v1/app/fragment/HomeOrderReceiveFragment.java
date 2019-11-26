@@ -69,6 +69,9 @@ public class HomeOrderReceiveFragment extends BaseFragment implements View.OnCli
             TextView tvOrderId = viewContainer.findViewById(R.id.tv_order_id);
             TextView buy = viewContainer.findViewById(R.id.tv_buy);
             tvOrderId.setText(order);
+            //给父容器设置id
+            viewContainer.setId(Integer.parseInt(order));
+
             buy.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -79,12 +82,17 @@ public class HomeOrderReceiveFragment extends BaseFragment implements View.OnCli
 
             llView.addView(viewContainer);
 
+            //自动抢单接口
             if (!StringUtil.isEmpty(order)){
                 OrderBiz.GrabOrder(context, order, new RequestHandle() {
                     @Override
                     public void onSuccess(ResponseBean result) {
                         //抢单成功
                         llView.removeView(viewContainer);
+                        // TODO: 2019/11/26
+                        //把单号挪到进行中去，进行中的单号怎么才算结束？
+
+
                     }
 
                     @Override
@@ -100,7 +108,17 @@ public class HomeOrderReceiveFragment extends BaseFragment implements View.OnCli
                     }
                 });
             }
+        }else if (intent.getAction().equals(BroadcastFilters.ACTION_ORDER_CANCLE)){//取消生成的orderid
+            String order = intent.getStringExtra(FieldConfig.intent_str);
+            int count = llView.getChildCount();
+            for (int i = 0; i < count; i++) {
+                View view = llView.getChildAt(i);
+                if (view.getId() == Integer.parseInt(order)){
+                    llView.removeView(view);
+                }
+            }
         }
+
     }
 
 }
