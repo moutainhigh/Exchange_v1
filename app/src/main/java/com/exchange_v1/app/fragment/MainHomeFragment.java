@@ -103,14 +103,16 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                     offReciver();
                 } else {
                     MineUserInfoBean mineUserInfo = TApplication.getMineUserInfo();
-                    String cityId = mineUserInfo.getCityId();
-                    String provinceId = mineUserInfo.getProvinceId();
-                    if (!StringUtil.isEmpty(cityId)&&!StringUtil.isEmpty(provinceId)){//地区设置不为空才能开启抢单
-                        radioButton.setChecked(true);
-                        radioCheck = true;
-                        onReciver();
-                    }else {
-                        ToastUtil.showToast(context,"必须设置地区，才能开启抢单！");
+                    if (mineUserInfo!=null){
+                        String cityId = mineUserInfo.getCityId();
+                        String provinceId = mineUserInfo.getProvinceId();
+                        if (!StringUtil.isEmpty(cityId)&&!StringUtil.isEmpty(provinceId)){//地区设置不为空才能开启抢单
+                            radioButton.setChecked(true);
+                            radioCheck = true;
+                            onReciver();
+                        }else {
+                            ToastUtil.showToast(context,"必须设置地区，才能开启抢单！");
+                        }
                     }
                 }
 
