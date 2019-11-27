@@ -188,6 +188,9 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                 if (client.isClosed()) {
                     reconnectWs();
                 }
+                //发送心跳包
+                client.send("{command:99}");
+                Log.i("JWebSocketClient", "发送心跳包");
             } else {
                 //如果client已为空，重新初始化websocket
                 initSocketClient();
@@ -204,7 +207,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
      */
     private void initSocketClient() {
         String token = TApplication.getToken();
-        String webUrl = "ws://linyingqiang.imdo.co/ws?info="+token;
+        String webUrl = "ws://ws.meilishenghuo.cn/ws?info="+token;
 
         URI uri = URI.create(webUrl);
         client = new JWebSocketClient(uri) {
@@ -217,15 +220,17 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
                     String orderId = webBean.getData().getOrderId();
                     if (webBean!=null&&webBean.getCommand() == 100&&!StringUtils.isEmpty(orderId)){
+                        Log.i("JWebSClientService", "收到command 100 单号为："+orderId);
                         //发送广播给前台
                         Intent intent = new Intent();
                         intent.setAction(BroadcastFilters.ACTION_ORDER);
                         intent.putExtra(FieldConfig.intent_str,orderId);
                         context.sendBroadcast(intent);
                     }else if (webBean!=null&&webBean.getCommand() == 101&&!StringUtils.isEmpty(orderId)){
+                        Log.i("JWebSClientService", "收到command 101 被抢走的单号为："+orderId);
                         //发送广播给前台
                         Intent intent = new Intent();
-                        intent.setAction(BroadcastFilters.ACTION_ORDER);
+                        intent.setAction(BroadcastFilters.ACTION_ORDER_CANCLE);
                         intent.putExtra(FieldConfig.intent_str,orderId);
                         context.sendBroadcast(intent);
                     }

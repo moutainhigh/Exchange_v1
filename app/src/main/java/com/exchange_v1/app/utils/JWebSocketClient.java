@@ -9,13 +9,17 @@ import org.java_websocket.handshake.ServerHandshake;
 import java.net.URI;
 
 public class JWebSocketClient extends WebSocketClient {
+    private URI serverUri;
+
     public JWebSocketClient(URI serverUri) {
         super(serverUri,new Draft_6455());
+        this.serverUri = serverUri;
     }
 
     @Override
     public void onOpen(ServerHandshake handshakedata) {
         Log.e("JWebSocketClient", "onOpen()");
+        Log.e("JWebSocketClient", "URI : "+serverUri);
     }
 
     @Override
