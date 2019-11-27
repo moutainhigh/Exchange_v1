@@ -2,6 +2,9 @@ package com.exchange_v1.app.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -30,6 +33,7 @@ import com.exchange_v1.app.utils.StringUtils;
 import com.exchange_v1.app.utils.ToastUtil;
 import com.flyco.tablayout.SlidingTabLayout;
 
+import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
 
@@ -47,11 +51,15 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
     private boolean autoGrab;
     //是否开启抢单
     private boolean openGrab;
+    //是否在线
+    private boolean onLine = true;
 
     private MineUserInfoBean userBean;
     private TextView tvBalance;
     private TextView tvFreeze;
     private JWebSocketClient client;
+    //离线在线按钮
+    private TextView tvOnline;
 
     @Override
     protected View getViews() {
@@ -90,6 +98,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
         radioButton = findViewById(R.id.rb_1);
         openGrabBtn = findViewById(R.id.rb_2);
+        tvOnline = findViewById(R.id.tv_online);
     }
 
 
@@ -151,6 +160,41 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
             }
         });
+
+        tvOnline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onLine){
+                    tvOnline.setText("离线");
+                    onLine = false;
+                }else {
+                    tvOnline.setText("在线");
+                    onLine = true;
+                }
+
+                getOnVoice();
+            }
+        });
+    }
+
+    private void getOnVoice() {
+        AssetManager assetManager;
+        MediaPlayer player = null;
+        player = new MediaPlayer();
+        assetManager = getResources().getAssets();
+        try {
+            AssetFileDescriptor fileDescriptor = null;
+            if (onLine){
+                fileDescriptor = assetManager.openFd("on.mp3");
+            }else {
+                fileDescriptor = assetManager.openFd("off.mp3");
+            }
+            player.setDataSource(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getStartOffset());
+            player.prepare();
+            player.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //打开接单
