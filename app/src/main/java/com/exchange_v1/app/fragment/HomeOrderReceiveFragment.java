@@ -123,10 +123,11 @@ public class HomeOrderReceiveFragment extends BaseFragment implements View.OnCli
                         ToastUtil.showToast(context,"抢单成功");
                     }
                     llView.removeView(childView);
-                    // TODO: 2019/11/26
-                    //把单号挪到进行中去，进行中的单号怎么才算结束？
-
-
+                    //把单号挪到进行中去
+                    Intent intent = new Intent();
+                    intent.setAction(BroadcastFilters.ACTION_ORDER_ING);
+                    intent.putExtra(FieldConfig.intent_str,order);
+                    context.sendBroadcast(intent);
                 }
 
                 @Override

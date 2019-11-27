@@ -71,4 +71,28 @@ public class OrderBiz extends BaseBiz{
                 });
     }
 
+    /**
+     * 进行中抢单，确认按钮接口
+     *
+     */
+    public static void GrabOrderConfirm(Context context, String orderId, MyRequestHandle mhandle) {
+
+        HashMap<String, String> params = getPostHeadMap();
+        params.put("orderId",orderId);
+
+        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.ORDER_GRAB_CONFIRM_API,
+                params, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean responseBean) {
+                        mhandle.onSuccess(responseBean);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean responseBean) {
+                        mhandle.onFail(responseBean);
+                    }
+
+                });
+    }
+
 }
