@@ -104,15 +104,27 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="9dp"
-            android:text="接单"
+            android:layout_marginRight="5dp"
+            android:text="开启接单"
+            android:textSize="11sp"
+            android:textColor="@color/black"/>
+        <RadioButton
+            android:id="@+id/rb_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="自动抢单"
             android:textSize="11sp"
             android:textColor="@color/black"/>
         <RadioButton
             android:id="@+id/rb_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="21dp"/>
+            android:layout_marginRight="10dp"/>
     </LinearLayout>
     <android.support.v4.view.ViewPager
         android:id="@+id/vp"

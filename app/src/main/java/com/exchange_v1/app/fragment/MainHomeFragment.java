@@ -17,8 +17,11 @@ import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.BaseFragment;
 import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.MineUserInfoBean;
+import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.bean.WebBean;
+import com.exchange_v1.app.biz.UserBiz;
 import com.exchange_v1.app.config.BroadcastFilters;
+import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.FieldConfig;
 import com.exchange_v1.app.utils.JWebSocketClient;
 import com.exchange_v1.app.utils.Logger;
@@ -39,8 +42,11 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
     private int currentItem = 0;
 
     private RadioButton radioButton;
-    //是否自动抢单，默认为false
-    private boolean radioCheck;
+    private RadioButton openGrabBtn;
+    //是否开启自动抢单，默认为false
+    private boolean autoGrab;
+    //是否开启抢单
+    private boolean openGrab;
 
     private MineUserInfoBean userBean;
     private TextView tvBalance;
@@ -83,6 +89,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
         vp.setCurrentItem(currentItem);
 
         radioButton = findViewById(R.id.rb_1);
+        openGrabBtn = findViewById(R.id.rb_2);
     }
 
 
@@ -94,13 +101,13 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     protected void widgetListener() {
-        radioButton.setOnClickListener(new View.OnClickListener() {
+        //开启抢单
+        openGrabBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (radioCheck) {
-                    radioButton.setChecked(false);
-                    radioCheck = false;
+                if (openGrab) {
+                    openGrabBtn.setChecked(false);
+                    openGrab = false;
                     offReciver();
                 } else {
                     MineUserInfoBean mineUserInfo = TApplication.getMineUserInfo();
@@ -108,9 +115,34 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                         String cityId = mineUserInfo.getCityId();
                         String provinceId = mineUserInfo.getProvinceId();
                         if (!StringUtil.isEmpty(cityId)&&!StringUtil.isEmpty(provinceId)){//地区设置不为空才能开启抢单
-                            radioButton.setChecked(true);
-                            radioCheck = true;
+                            openGrabBtn.setChecked(true);
+                            openGrab = true;
                             onReciver();
+                        }else {
+                            ToastUtil.showToast(context,"必须设置地区，才能开启抢单！");
+                        }
+                    }
+                }
+            }
+        });
+
+        radioButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (autoGrab) {
+                    radioButton.setChecked(false);
+                    autoGrab = false;
+                    ToastUtil.showToast(context, "已关闭自动接单");
+                } else {
+                    MineUserInfoBean mineUserInfo = TApplication.getMineUserInfo();
+                    if (mineUserInfo!=null){
+                        String cityId = mineUserInfo.getCityId();
+                        String provinceId = mineUserInfo.getProvinceId();
+                        if (!StringUtil.isEmpty(cityId)&&!StringUtil.isEmpty(provinceId)){//地区设置不为空才能开启抢单
+                            radioButton.setChecked(true);
+                            autoGrab = true;
+                            ToastUtil.showToast(context, "自动接单已经打开");
                         }else {
                             ToastUtil.showToast(context,"必须设置地区，才能开启抢单！");
                         }
@@ -123,18 +155,17 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
     //打开接单
     private void onReciver() {
-        ToastUtil.showToast(context, "自动接单已经打开");
-//        UserBiz.onReceptive(context, new RequestHandle() {
-//            @Override
-//            public void onSuccess(ResponseBean result) {
-//                ToastUtil.showToast(context, "接单已经打开");
-//            }
-//
-//            @Override
-//            public void onFail(ResponseBean result) {
-//                ToastUtil.showToast(context, result.getInfo());
-//            }
-//        });
+        UserBiz.onReceptive(context, new RequestHandle() {
+            @Override
+            public void onSuccess(ResponseBean result) {
+                ToastUtil.showToast(context, "接单已经打开");
+            }
+
+            @Override
+            public void onFail(ResponseBean result) {
+                ToastUtil.showToast(context, result.getInfo());
+            }
+        });
     }
 
     /**
@@ -142,19 +173,17 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
      *
      */
     private void offReciver() {
-        ToastUtil.showToast(context, "已关闭自动接单");
+        UserBiz.offReceptive(context, new RequestHandle() {
+            @Override
+            public void onSuccess(ResponseBean result) {
+                ToastUtil.showToast(context, "已关闭接单");
+            }
 
-//        UserBiz.offReceptive(context, new RequestHandle() {
-//            @Override
-//            public void onSuccess(ResponseBean result) {
-//                ToastUtil.showToast(context, "已关闭接单");
-//            }
-//
-//            @Override
-//            public void onFail(ResponseBean result) {
-//                ToastUtil.showToast(context, result.getInfo());
-//            }
-//        });
+            @Override
+            public void onFail(ResponseBean result) {
+                ToastUtil.showToast(context, result.getInfo());
+            }
+        });
     }
 
     /**
@@ -222,7 +251,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                         Intent intent = new Intent();
                         intent.setAction(BroadcastFilters.ACTION_ORDER);
                         intent.putExtra(FieldConfig.intent_str,orderId);
-                        intent.putExtra(FieldConfig.intent_str2,radioCheck);
+                        intent.putExtra(FieldConfig.intent_str2, autoGrab);
                         context.sendBroadcast(intent);
                     }else if (webBean!=null&&webBean.getCommand() == 101&&!StringUtils.isEmpty(orderId)){
                         Log.i("JWebSClientService", "收到command 101 被抢走的单号为："+orderId);
@@ -230,7 +259,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                         Intent intent = new Intent();
                         intent.setAction(BroadcastFilters.ACTION_ORDER_CANCLE);
                         intent.putExtra(FieldConfig.intent_str,orderId);
-                        intent.putExtra(FieldConfig.intent_str2,radioCheck);
+                        intent.putExtra(FieldConfig.intent_str2, autoGrab);
                         context.sendBroadcast(intent);
                     }
                 }
