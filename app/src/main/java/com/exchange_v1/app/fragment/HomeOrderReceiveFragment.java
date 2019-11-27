@@ -80,15 +80,17 @@ public class HomeOrderReceiveFragment extends BaseFragment implements View.OnCli
             buy.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ToastUtil.showToast(context,"点击了抢单 单号："+order);
-                    llView.removeView(viewContainer);
+                    Logger.i("手动抢单的单号："+order);
+                    //手动抢单，调用抢单接口
+                    grabOrder(context, order, viewContainer,false);
+
                 }
             });
 
             llView.addView(viewContainer);
             //自动抢单
             if (autoOpen){
-                grabOrder(context, order, viewContainer);
+                grabOrder(context, order, viewContainer,true);
             }
 
         }else if (intent.getAction().equals(BroadcastFilters.ACTION_ORDER_CANCLE)){//取消生成的orderid
@@ -105,20 +107,22 @@ public class HomeOrderReceiveFragment extends BaseFragment implements View.OnCli
     }
 
     /**
-     * 自动抢单的接口
+     * 抢单的接口
      *
      * @param context
      * @param order 订单号
-     * @param viewContainer 添加的View
+     * @param childView 添加的View
+     * @param auto 是否自动抢单
      */
-    private void grabOrder(Context context, String order, View viewContainer) {
-        //自动抢单接口
+    private void grabOrder(Context context, String order, View childView,Boolean auto) {
         if (!StringUtil.isEmpty(order)){
             OrderBiz.GrabOrder(context, order, new RequestHandle() {
                 @Override
                 public void onSuccess(ResponseBean result) {
-                    //抢单成功
-                    llView.removeView(viewContainer);
+                    if (!auto){
+                        ToastUtil.showToast(context,"抢单成功");
+                    }
+                    llView.removeView(childView);
                     // TODO: 2019/11/26
                     //把单号挪到进行中去，进行中的单号怎么才算结束？
 
@@ -128,14 +132,18 @@ public class HomeOrderReceiveFragment extends BaseFragment implements View.OnCli
                 @Override
                 public void onFail(ResponseBean result) {
                     Integer status = result.getStatus();
-                    if (202 == status){//重新上传二维码
+                    if (!auto){
                         ToastUtil.showToast(context,result.getInfo());
-                    }else if (201 == status){//已被别人抢单
-                        ToastUtil.showToast(context,result.getInfo());
-                        llView.removeView(viewContainer);
                     }
 
+                    if (202 == status){//重新上传二维码
+
+                    }else if (201 == status){//已被别人抢单
+                        llView.removeView(childView);
+                    }
+                    Logger.i("抢单接口失败："+result.getInfo());
                 }
+
             });
         }
     }
