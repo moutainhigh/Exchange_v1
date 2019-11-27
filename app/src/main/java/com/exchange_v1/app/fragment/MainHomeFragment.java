@@ -39,6 +39,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
     private int currentItem = 0;
 
     private RadioButton radioButton;
+    //是否自动抢单，默认为false
     private boolean radioCheck;
 
     private MineUserInfoBean userBean;
@@ -122,14 +123,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
     //打开接单
     private void onReciver() {
-        initSocketClient();
-//        //发送消息
-//        if (client != null && client.isOpen()) {
-//            client.send("你好");
-//        }
-        //开启心跳检测
-        mHandler.postDelayed(heartBeatRunnable, HEART_BEAT_RATE);
-
+        ToastUtil.showToast(context, "自动接单已经打开");
 //        UserBiz.onReceptive(context, new RequestHandle() {
 //            @Override
 //            public void onSuccess(ResponseBean result) {
@@ -148,8 +142,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
      *
      */
     private void offReciver() {
-        closeConnect(client);
-        ToastUtil.showToast(context, "已关闭接单");
+        ToastUtil.showToast(context, "已关闭自动接单");
 
 //        UserBiz.offReceptive(context, new RequestHandle() {
 //            @Override
@@ -187,10 +180,14 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
             if (client != null) {
                 if (client.isClosed()) {
                     reconnectWs();
+                }else {
+                    if (client.isOpen()){//开启的状态下，发送心跳包
+                        //发送心跳包
+                        client.send("{command:99}");
+                        Log.i("JWebSocketClient", "发送心跳包");
+                    }
                 }
-                //发送心跳包
-                client.send("{command:99}");
-                Log.i("JWebSocketClient", "发送心跳包");
+
             } else {
                 //如果client已为空，重新初始化websocket
                 initSocketClient();
@@ -225,6 +222,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                         Intent intent = new Intent();
                         intent.setAction(BroadcastFilters.ACTION_ORDER);
                         intent.putExtra(FieldConfig.intent_str,orderId);
+                        intent.putExtra(FieldConfig.intent_str2,radioCheck);
                         context.sendBroadcast(intent);
                     }else if (webBean!=null&&webBean.getCommand() == 101&&!StringUtils.isEmpty(orderId)){
                         Log.i("JWebSClientService", "收到command 101 被抢走的单号为："+orderId);
@@ -232,6 +230,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                         Intent intent = new Intent();
                         intent.setAction(BroadcastFilters.ACTION_ORDER_CANCLE);
                         intent.putExtra(FieldConfig.intent_str,orderId);
+                        intent.putExtra(FieldConfig.intent_str2,radioCheck);
                         context.sendBroadcast(intent);
                     }
                 }
@@ -269,6 +268,11 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
     @Override
     protected void init() {
         setUIView(TApplication.getMineUserInfo());
+        //开启websocket,接单
+        initSocketClient();
+        //开启心跳检测
+        mHandler.postDelayed(heartBeatRunnable, HEART_BEAT_RATE);
+
     }
 
     private void setUIView(MineUserInfoBean userBean) {

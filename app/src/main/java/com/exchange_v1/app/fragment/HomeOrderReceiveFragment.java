@@ -62,8 +62,10 @@ public class HomeOrderReceiveFragment extends BaseFragment implements View.OnCli
     @Override
     protected void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
+        String order = intent.getStringExtra(FieldConfig.intent_str);
+        Boolean autoOpen = intent.getBooleanExtra(FieldConfig.intent_str2,false);
+
         if (intent.getAction().equals(BroadcastFilters.ACTION_ORDER)) {// 收到订单通知，展示订单
-            String order = intent.getStringExtra(FieldConfig.intent_str);
             Logger.i("订单号为："+order);
             View viewContainer = LayoutInflater.from(thisA).inflate(R.layout.item_jpush_order, null);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DisplayUtil.dip2px(context, 60));
@@ -84,11 +86,12 @@ public class HomeOrderReceiveFragment extends BaseFragment implements View.OnCli
             });
 
             llView.addView(viewContainer);
-
-//            grabOrder(context, order, viewContainer);
+            //自动抢单
+            if (autoOpen){
+                grabOrder(context, order, viewContainer);
+            }
 
         }else if (intent.getAction().equals(BroadcastFilters.ACTION_ORDER_CANCLE)){//取消生成的orderid
-            String order = intent.getStringExtra(FieldConfig.intent_str);
             Log.i(TAG,"取消订单："+order);
             int count = llView.getChildCount();
             for (int i = 0; i < count; i++) {
