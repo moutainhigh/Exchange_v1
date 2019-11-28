@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.exchange_v1.app.bean.BaseBean;
 import com.exchange_v1.app.bean.OrderItemBean;
+import com.exchange_v1.app.bean.OrderReceivingBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.config.ServerConfig;
 import com.exchange_v1.app.network.MyRequestHandle;
@@ -84,6 +85,30 @@ public class OrderBiz extends BaseBiz{
                 params, new RequestHandle() {
                     @Override
                     public void onSuccess(ResponseBean responseBean) {
+                        mhandle.onSuccess(responseBean);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean responseBean) {
+                        mhandle.onFail(responseBean);
+                    }
+
+                });
+    }
+
+    /**
+     * 进行中抢单列表接口
+     *
+     */
+    public static void GrabOrderList(Context context, MyRequestHandle mhandle) {
+
+        HashMap<String, String> params = getPostHeadMap();
+
+        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.ORDER_GRAB_LIST_API,
+                params, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean responseBean) {
+                        BaseBean.setGsonResponseObjectList(responseBean, OrderReceivingBean.class,"");
                         mhandle.onSuccess(responseBean);
                     }
 

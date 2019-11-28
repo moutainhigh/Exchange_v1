@@ -175,6 +175,8 @@ public class ServerConfig {
     public static String ORDER_GRAB_API = SERVER_URL+"/paymentOrder/grab";
     //进行中确认
     public static String ORDER_GRAB_CONFIRM_API = SERVER_URL+"/paymentOrder/confirm";
+    //进行中列表
+    public static String ORDER_GRAB_LIST_API = SERVER_URL+"/paymentOrder/list";
 
     //极光绑定
     public static String JPUSH_BIND_API = SERVER_URL+"/agentDevice/bind";
