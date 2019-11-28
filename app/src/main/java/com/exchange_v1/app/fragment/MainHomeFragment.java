@@ -60,6 +60,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
     private JWebSocketClient client;
     //离线在线按钮
     private TextView tvOnline;
+    private MediaPlayer player;
 
     @Override
     protected View getViews() {
@@ -104,7 +105,9 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public void initGetData() {
-
+        //创建播放对象
+        player = new MediaPlayer();
+        getOnVoice();
     }
 
 
@@ -172,15 +175,29 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                     onLine = true;
                 }
 
+                //播放中的音乐，要关闭声音然后再播放
+                closeMedia();
+                //播放
                 getOnVoice();
             }
         });
     }
 
+    /**
+     * 暂停正在播放的声音
+     */
+    private void closeMedia() {
+        if (player != null) {
+            if (player.isPlaying()) {
+                player.stop();
+            }
+            player.release();
+        }
+    }
+
     private void getOnVoice() {
         AssetManager assetManager;
-        MediaPlayer player = null;
-        player = new MediaPlayer();
+
         assetManager = getResources().getAssets();
         try {
             AssetFileDescriptor fileDescriptor = null;

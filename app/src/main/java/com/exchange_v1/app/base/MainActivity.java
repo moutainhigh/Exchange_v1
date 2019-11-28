@@ -5,10 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.AssetFileDescriptor;
-import android.content.res.AssetManager;
 import android.graphics.Color;
-import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -47,7 +44,6 @@ import com.exchange_v1.app.utils.Util;
 import com.exchange_v1.app.view.MyRadioView;
 import com.umeng.analytics.MobclickAgent;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -248,23 +244,6 @@ public class MainActivity extends BaseFragmentActivity {
         String token = TApplication.getToken();
             //用户未登陆， 去监测是否在启动页点击启动图片
 
-        //已在线语音播报
-        getOnVoice();
-    }
-
-    private void getOnVoice() {
-        AssetManager assetManager;
-        MediaPlayer player = null;
-        player = new MediaPlayer();
-        assetManager = getResources().getAssets();
-        try {
-            AssetFileDescriptor fileDescriptor = assetManager.openFd("on.mp3");
-            player.setDataSource(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getStartOffset());
-            player.prepare();
-            player.start();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 
