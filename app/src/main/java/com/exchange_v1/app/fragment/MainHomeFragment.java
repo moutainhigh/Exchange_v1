@@ -220,11 +220,18 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
             @Override
             public void onSuccess(ResponseBean result) {
                 ToastUtil.showToast(context, "接单已经打开");
+                //初始化websocket
+                initSocketClient();
+                //开启心跳检测
+                mHandler.postDelayed(heartBeatRunnable, HEART_BEAT_RATE);
+
             }
 
             @Override
             public void onFail(ResponseBean result) {
                 ToastUtil.showToast(context, result.getInfo());
+                //关闭websockt连接
+                closeConnect(client);
             }
         });
     }
@@ -238,6 +245,9 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
             @Override
             public void onSuccess(ResponseBean result) {
                 ToastUtil.showToast(context, "已关闭接单");
+
+                //关闭websockt连接
+                closeConnect(client);
             }
 
             @Override
@@ -247,20 +257,6 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
         });
     }
 
-    /**
-     * 断开websocket连接
-     */
-    private void closeConnect(JWebSocketClient client) {
-        try {
-            if (null != client) {
-                client.close();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            client = null;
-        }
-    }
 
     private static final long HEART_BEAT_RATE = 300 * 1000;//每隔五分钟 进行一次对长连接的心跳检测
     private Handler mHandler = new Handler();
@@ -354,14 +350,24 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
         }.start();
     }
 
+    /**
+     * 断开websocket连接
+     */
+    private void closeConnect(JWebSocketClient client) {
+        try {
+            if (null != client) {
+                client.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            client = null;
+        }
+    }
 
     @Override
     protected void init() {
         setUIView(TApplication.getMineUserInfo());
-        //开启websocket,接单
-        initSocketClient();
-        //开启心跳检测
-        mHandler.postDelayed(heartBeatRunnable, HEART_BEAT_RATE);
 
     }
 
