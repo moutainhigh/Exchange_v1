@@ -5,6 +5,7 @@ import android.content.Context;
 import com.exchange_v1.app.bean.BaseBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.bean.UpLoadBean;
+import com.exchange_v1.app.bean.UpdateApkBean;
 import com.exchange_v1.app.config.ServerConfig;
 import com.exchange_v1.app.network.MyRequestHandle;
 import com.exchange_v1.app.network.NewsBaseBiz;
@@ -48,6 +49,7 @@ public class FileBiz extends BaseBiz{
                 params, new RequestHandle() {
                     @Override
                     public void onSuccess(ResponseBean responseBean) {
+                        BaseBean.setGsonResponseObject(responseBean, UpdateApkBean.class);
                         mhandle.onSuccess(responseBean);
                     }
 

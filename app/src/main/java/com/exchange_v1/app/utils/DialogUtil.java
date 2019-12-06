@@ -36,7 +36,7 @@ import android.widget.TextView;
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.activity.LoginActivity;
 import com.exchange_v1.app.base.TApplication;
-import com.exchange_v1.app.bean.UpdateBean;
+import com.exchange_v1.app.bean.UpdateApkBean;
 import com.exchange_v1.app.config.FileConfig;
 import com.exchange_v1.app.config.RequestCode;
 import com.exchange_v1.app.utils.service.UpdateService;
@@ -391,11 +391,11 @@ public class DialogUtil {
 
 
     @NonNull
-    private static View.OnClickListener getOnClickInstallAPk(final UpdateBean bean, final Context context) {
+    private static View.OnClickListener getOnClickInstallAPk(final UpdateApkBean bean, final Context context) {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String apkPath = bean.getUrl();
+                String apkPath = bean.getAndroidUrl();
                 ApkUtil.installApk(new File(FileConfig.PATH_DOWNLOAD
                         + apkPath.substring(apkPath.lastIndexOf("/") + 1)));
             }
@@ -1242,14 +1242,14 @@ public class DialogUtil {
      * @param context
      * @param bean
      */
-    public static void showUpdate(final Context context, final UpdateBean bean) {
-        if (!bean.getUrl().trim().replaceAll(" ", "").startsWith("http")) {
+    public static void showUpdate(final Context context, final UpdateApkBean bean) {
+        if (!bean.getAndroidUrl().trim().replaceAll(" ", "").startsWith("http")) {
             return;
         }
         UpdateDialog dialog = new UpdateDialog(context);
         dialog.setCancelable(false);
         if (bean == null
-                || bean.getUrl().equals(
+                || bean.getAndroidUrl().equals(
                 UpdateManager.getVersionCode(context) - 0.1)) {
             dialog.setContentStr(context
                     .getString(R.string.activity_setting_update_isnew));
@@ -1259,9 +1259,9 @@ public class DialogUtil {
                 @Override
                 public void onUpdateClick(UpdateDialog dialog) {
                     Intent intent = new Intent(context, UpdateService.class);
-                    intent.putExtra("size", bean.getFile_Size());
+                    intent.putExtra("size", "15MB size");
                     // intent.putExtra("size", "10000");
-                    intent.putExtra("path", bean.getUrl());
+                    intent.putExtra("path", bean.getAndroidUrl());
                     //					Log.i("log:", bean.getUrl());
                     // intent.setAction("com.bwoonline.marineo_phone.service.UpdateService");
                     context.startService(intent);
@@ -1316,13 +1316,15 @@ public class DialogUtil {
                 }
             });
 
-            String messge = bean.getNote();
+            //更新内容content
+            String messge = context.getString(R.string.activity_setting_update_hasnew);
 
-            if (bean.getIs_sure().equals("1")) { // 强制更新
-                // 不可取消
-                dialog.setCloseVis(View.GONE);
-                dialog.setIsNeedDismiss(false);
-            }
+////            强制更新
+//            if (bean.getIs_sure().equals("1")) { // 强制更新
+//                // 不可取消
+//                dialog.setCloseVis(View.GONE);
+//                dialog.setIsNeedDismiss(false);
+//            }
             if (StringUtil.isEmpty(messge)) {
                 messge = context.getString(R.string.activity_setting_update_hasnew);
             }

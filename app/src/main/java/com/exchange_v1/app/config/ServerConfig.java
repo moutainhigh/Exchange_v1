@@ -184,6 +184,6 @@ public class ServerConfig {
     public static String JPUSH_UNBIND_API = SERVER_URL+"/agentDevice/unbind";
 
     //版本升级
-    public static String VERSION_UPDATE_API = SERVER_URL+"";
+    public static String VERSION_UPDATE_API = SERVER_URL+"/upgrade/latest";
 
 }

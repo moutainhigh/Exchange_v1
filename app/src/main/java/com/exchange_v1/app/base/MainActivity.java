@@ -25,6 +25,7 @@ import android.widget.RelativeLayout;
 
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.bean.ResponseBean;
+import com.exchange_v1.app.bean.UpdateApkBean;
 import com.exchange_v1.app.biz.FileBiz;
 import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.fragment.MainCashFragment;
@@ -36,9 +37,12 @@ import com.exchange_v1.app.receiver.JPushReceiver;
 import com.exchange_v1.app.utils.C2bPushUtil;
 import com.exchange_v1.app.utils.CountIdUtil;
 import com.exchange_v1.app.utils.CountUtil;
+import com.exchange_v1.app.utils.DialogUtil;
 import com.exchange_v1.app.utils.DisplayUtil;
 import com.exchange_v1.app.utils.SpUtil;
+import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
+import com.exchange_v1.app.utils.UpdateManager;
 import com.exchange_v1.app.utils.UserInfoUtil;
 import com.exchange_v1.app.utils.Util;
 import com.exchange_v1.app.view.MyRadioView;
@@ -199,8 +203,8 @@ public class MainActivity extends BaseFragmentActivity {
                     ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                             WRITE_EXTERNAL_STORAGE_REQUEST_CODE);
                 } else {
-//                    //版本升级弹窗
-//                    checkUpdate();
+                    //版本升级弹窗
+                    checkUpdate();
                 }
             }
         }, 3000);
@@ -551,25 +555,25 @@ public class MainActivity extends BaseFragmentActivity {
             @Override
             public void onSuccess(ResponseBean result) {
 
-//                UpdateBean bean = (UpdateBean) result.getObject();
-//                if (bean == null) {//为空不处理
-//                    return;
-//                }
-//                String url = bean.getUrl();
-//                String vesion = StringUtil.getNumbers(bean.getVersion());
-//                vesion = vesion.replace(".", "");
-//                Double vision_d = 0.0;
-//                try{
-//                    vision_d = Double.valueOf(vesion);//服务器版本号
-//                }catch (Exception e){
-//                    e.printStackTrace();
-//                }
-//                int visioncode = UpdateManager
-//                        .getVersionCode(MainActivity.this);// 本地版本号
-//
-//                if (url != null && (visioncode < vision_d)) {
-//                    DialogUtil.showUpdate(MainActivity.this, bean);
-//                }
+                UpdateApkBean bean = (UpdateApkBean) result.getObject();
+                if (bean == null) {//为空不处理
+                    return;
+                }
+                String url = bean.getAndroidUrl();
+                String vesion = StringUtil.getNumbers(bean.getAndroidVersion());
+                vesion = vesion.replace(".", "");
+                Double vision_d = 0.0;
+                try{
+                    vision_d = Double.valueOf(vesion);//服务器版本号
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                int visioncode = UpdateManager
+                        .getVersionCode(MainActivity.this);// 本地版本号
+
+                if (url != null && (visioncode < vision_d)) {
+                    DialogUtil.showUpdate(MainActivity.this, bean);
+                }
             }
 
             @Override
