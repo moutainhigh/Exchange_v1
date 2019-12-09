@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="20dp"
@@ -85,7 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:text="2019.07.26 / 22:27:48 完成"
+        tools:text="2019.07.26 / 22:27:48 完成"
         android:textSize="9dp"
         android:textColor="#ABB1B1FF"
         android:layout_marginLeft="40dp"/>
@@ -126,6 +127,7 @@
             android:layout_alignParentRight="true"
             android:textSize="11sp"
             android:text="查看详情"
+            android:visibility="gone"
             />
 
     </RelativeLayout>

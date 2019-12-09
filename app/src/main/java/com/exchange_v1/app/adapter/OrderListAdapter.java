@@ -70,7 +70,7 @@ public class OrderListAdapter extends BaseAdapter {
         holder.tvCardName.setText("蹦砂卡拉卡");
         holder.tvCardType.setText("类型: 商户充值");
         holder.tvOrderInfo.setText("商户订单号: "+bean.getTenantNo());
-        holder.tvTime.setText("完成时间: "+bean.getPaymentTime());
+        holder.tvTime.setText("完成时间: "+bean.getConfirmTime());
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -22,6 +22,16 @@ public class OrderItemBean extends BaseBean{
     private String paymentMoney;
     private int state;
     private String paymentTime;
+    private String confirmTime;
+
+    public String getConfirmTime() {
+        return confirmTime;
+    }
+
+    public void setConfirmTime(String confirmTime) {
+        this.confirmTime = confirmTime;
+    }
+
     private String paymentType;
 
 
