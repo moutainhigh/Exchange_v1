@@ -185,5 +185,7 @@ public class ServerConfig {
 
     //版本升级
     public static String VERSION_UPDATE_API = SERVER_URL+"/upgrade/latest";
+    //申请服务商
+    public static String SERVICES_REQUEST_API = SERVER_URL+"/services/request";
 
 }

@@ -259,4 +259,27 @@ public class UserBiz extends BaseBiz{
                     }
                 });
     }
+
+    /**
+     * 申请服务商
+     *
+     */
+    public static void servicesRequest(Context context, final MyRequestHandle mhandle) {
+
+        HashMap<String, String> params = getPostHeadMap();
+
+        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.SERVICES_REQUEST_API,
+                params, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean responseBean) {
+                        mhandle.onSuccess(responseBean);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean responseBean) {
+                        mhandle.onFail(responseBean);
+                    }
+                });
+    }
+
 }

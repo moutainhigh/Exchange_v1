@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.BaseActivity;
+import com.exchange_v1.app.base.TApplication;
+import com.exchange_v1.app.bean.MineUserInfoBean;
 import com.exchange_v1.app.utils.ToastUtil;
 
 //申请搬运代理
@@ -16,6 +18,7 @@ public class ApplyCarryActivity extends BaseActivity implements View.OnClickList
     private EditText etPassword;
     private EditText etBalance;
     private TextView tvSubmit;
+    private TextView tvAccountMount;
 
     @Override
     protected int getContentViewId() {
@@ -30,6 +33,7 @@ public class ApplyCarryActivity extends BaseActivity implements View.OnClickList
         etPassword = (EditText) findViewById(R.id.et_password);
         etBalance = (EditText) findViewById(R.id.et_balance);
         tvSubmit = (TextView) findViewById(R.id.tv_submit);
+        tvAccountMount = (TextView) findViewById(R.id.tv_account_mount);
 
     }
 
@@ -37,6 +41,9 @@ public class ApplyCarryActivity extends BaseActivity implements View.OnClickList
     protected void initGetData() {
         titleView.setBackBtn();
         titleView.setTitle("申请搬运代理");
+
+        MineUserInfoBean mineUserInfo = TApplication.getMineUserInfo();
+        tvAccountMount.setText("余额为："+mineUserInfo.getBalance()+" DDB");
     }
 
     @Override

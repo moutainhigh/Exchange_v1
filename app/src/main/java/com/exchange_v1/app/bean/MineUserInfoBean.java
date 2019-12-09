@@ -28,8 +28,8 @@ public class MineUserInfoBean extends BaseBean {
     private String bankName;
     private String cityId;
     private String cardNo;
-    private int balance;
-    private int isAgent;
+    private double balance;
+    private double isAgent;
     private String bankNo;
     private String stock;
     private int bankAuth;
@@ -38,7 +38,7 @@ public class MineUserInfoBean extends BaseBean {
     private String provinceId;
     private String qqNo;
     private String wxNo;
-    private int freezeBalance;
+    private double freezeBalance;
     private String account;
     private String id;
     private String receptive;
@@ -105,19 +105,19 @@ public class MineUserInfoBean extends BaseBean {
         this.cardNo = cardNo;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
-    public int getIsAgent() {
+    public double getIsAgent() {
         return isAgent;
     }
 
-    public void setIsAgent(int isAgent) {
+    public void setIsAgent(double isAgent) {
         this.isAgent = isAgent;
     }
 
@@ -185,11 +185,11 @@ public class MineUserInfoBean extends BaseBean {
         this.wxNo = wxNo;
     }
 
-    public int getFreezeBalance() {
+    public double getFreezeBalance() {
         return freezeBalance;
     }
 
-    public void setFreezeBalance(int freezeBalance) {
+    public void setFreezeBalance(double freezeBalance) {
         this.freezeBalance = freezeBalance;
     }
 
