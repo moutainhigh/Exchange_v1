@@ -11,17 +11,17 @@ public class OrderReceivingBean extends BaseBean{
 //    paymentMoney：支付金额
 //    paymentType：支付类型
 
-    private int id;
+    private String id;
     private String state;
     private String systemNo;
     private double paymentMoney;
     private String paymentType;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
