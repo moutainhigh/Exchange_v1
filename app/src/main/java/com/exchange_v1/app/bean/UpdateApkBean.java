@@ -16,10 +16,19 @@ public class UpdateApkBean extends BaseBean {
     private String iosUrl;
     private String androidVersion;
     private String iosVersion;
+    private int iosForce;//是否强制升级 ，0否，1是
 
     @Override
     protected void init(JSONObject jSon) throws JSONException {
 
+    }
+
+    public int getIosForce() {
+        return iosForce;
+    }
+
+    public void setIosForce(int iosForce) {
+        this.iosForce = iosForce;
     }
 
     public String getAndroidUrl() {
