@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.BaseActivity;
+import com.exchange_v1.app.utils.ToastUtil;
 
 //申请搬运代理
 public class ApplyCarryActivity extends BaseActivity implements View.OnClickListener {
@@ -40,7 +41,7 @@ public class ApplyCarryActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected void widgetListener() {
-
+        tvSubmit.setOnClickListener(this);
     }
 
     @Override
@@ -50,6 +51,12 @@ public class ApplyCarryActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.tv_submit:
+                ToastUtil.showToast(context,"功能待开放,敬请期待");
+                break;
+            default:
+                break;
+        }
     }
 }
