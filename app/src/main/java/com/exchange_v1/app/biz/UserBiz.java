@@ -262,11 +262,15 @@ public class UserBiz extends BaseBiz{
 
     /**
      * 申请服务商
+     *  QQ号
+     *  微信号
      *
      */
-    public static void servicesRequest(Context context, final MyRequestHandle mhandle) {
+    public static void servicesRequest(Context context,String qqNumber,String phoneNumber, final MyRequestHandle mhandle) {
 
         HashMap<String, String> params = getPostHeadMap();
+        params.put("qqNumber",qqNumber);
+        params.put("phoneNumber",phoneNumber);
 
         NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.SERVICES_REQUEST_API,
                 params, new RequestHandle() {
