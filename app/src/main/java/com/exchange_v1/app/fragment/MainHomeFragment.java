@@ -105,8 +105,6 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public void initGetData() {
-        //创建播放对象
-        player = new MediaPlayer();
         getOnVoice();
     }
 
@@ -177,8 +175,10 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
                 //播放中的音乐，要关闭声音然后再播放
                 closeMedia();
+
                 //播放
                 getOnVoice();
+
             }
         });
     }
@@ -190,12 +190,15 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
         if (player != null) {
             if (player.isPlaying()) {
                 player.stop();
+                player.release();
             }
-            player.release();
         }
     }
 
     private void getOnVoice() {
+        //创建播放对象
+        player = new MediaPlayer();
+
         AssetManager assetManager;
 
         assetManager = getResources().getAssets();
@@ -206,7 +209,9 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
             }else {
                 fileDescriptor = assetManager.openFd("off.mp3");
             }
-            player.setDataSource(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getStartOffset());
+
+//            player.reset();
+            player.setDataSource(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getLength());
             player.prepare();
             player.start();
         } catch (IOException e) {
