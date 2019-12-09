@@ -41,7 +41,13 @@ public class ApplyServiceActivity extends BaseActivity implements View.OnClickLi
         titleView.setTitle("申请服务商");
 
         MineUserInfoBean mineUserInfo = TApplication.getMineUserInfo();
-        tvAccountMount.setText("余额为："+mineUserInfo.getBalance()+" DDB");
+        if (mineUserInfo.getBalance()<50000.00){
+            tvAccountMount.setText("您的余额不足50,000 DDB，请先 充值");
+            //发广播跳转到充值模块？
+
+        }else {
+            tvAccountMount.setText("余额为："+mineUserInfo.getBalance()+" DDB");
+        }
 
     }
 
