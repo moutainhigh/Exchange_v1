@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.BaseActivity;
+import com.exchange_v1.app.bean.QrInfoBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.bean.UpLoadBean;
 import com.exchange_v1.app.biz.FileBiz;
@@ -24,6 +25,8 @@ import com.exchange_v1.app.utils.IntentUtil;
 import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
+import com.exchange_v1.app.utils.imageloader.ImageLoaderUtil;
+import com.exchange_v1.app.utils.imageloader.ImageOptions;
 import com.wildma.pictureselector.PictureSelector;
 
 //通用收款码界面
@@ -54,6 +57,8 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
     public static final  String JHBY = "JH_BY";
     //上传二维码的类型
     private String codeType;
+
+    private QrInfoBean bean;
 
     public static void openActivity(Context context, String type) {
         Bundle b = new Bundle();
@@ -122,6 +127,33 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
     @Override
     protected void init() {
 
+        QrCodeBiz.getQrCodeInfo(context, codeType, new RequestHandle() {
+            @Override
+            public void onSuccess(ResponseBean result) {
+                bean = (QrInfoBean) result.getObject();
+                if (bean != null) {
+                    ivPic.setVisibility(View.VISIBLE);
+                    rlQrPng.setVisibility(View.GONE);
+
+                    ImageOptions options = new ImageOptions.Builder()
+                            .showImageForEmptyUri(R.mipmap.loading_bg1)
+                            .showImageOnFail(R.mipmap.loading_bg1)
+                            .cacheInMemory(true) // 设置下载的图片是否缓存在内存中
+                            .cacheOnDisk(true) // 设置下载的图片是否缓存在SD卡中
+                            .build();
+                    ImageLoaderUtil.showImage(bean.getPath(), ivPic, options);
+
+                    etPeopleName.setText(bean.getName());
+                    etIdCard.setText(bean.getAccount());
+
+                }
+            }
+
+            @Override
+            public void onFail(ResponseBean result) {
+//                ToastUtil.showToast(context,result.getInfo());
+            }
+        });
     }
 
     @Override

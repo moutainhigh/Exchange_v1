@@ -142,6 +142,8 @@ public class ServerConfig {
     public static String BIND_QRCODE_API = SERVER_URL+"/qrCode/upload";
     //用户二维码列表
     public static String QRCODE_LIST_API = SERVER_URL+"/qrCode/list";
+    //二维码回显
+    public static String QRCODE_INFO_API = SERVER_URL+"/qrCode/info";
 
     //佣金提现
     public static String BROKERAGE_API = SERVER_URL+"/withdraw/brokerage";

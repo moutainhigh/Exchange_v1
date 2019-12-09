@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.exchange_v1.app.bean.BaseBean;
 import com.exchange_v1.app.bean.QrCodeBean;
+import com.exchange_v1.app.bean.QrInfoBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.config.ServerConfig;
 import com.exchange_v1.app.network.MyRequestHandle;
@@ -49,6 +50,28 @@ public class QrCodeBiz extends BaseBiz{
                     @Override
                     public void onSuccess(ResponseBean responseBean) {
                         BaseBean.setGsonResponseObjectList(responseBean, QrCodeBean.class,"");
+                        mhandle.onSuccess(responseBean);
+                    }
+
+                    @Override
+                    public void onFail(ResponseBean responseBean) {
+                        mhandle.onFail(responseBean);
+                    }
+
+                });
+    }
+
+
+    //二维码回显  type：ALI_BY-支付宝。JH_BY-聚合。WX_BY-微信
+    public static void getQrCodeInfo(Context context,String type, final MyRequestHandle mhandle) {
+        HashMap<String, String> params = getPostHeadMap();
+        params.put("type",type);
+
+        NewsBaseBiz.postRequest(context, "系统正在加载...", true, ServerConfig.QRCODE_INFO_API,
+                params, new RequestHandle() {
+                    @Override
+                    public void onSuccess(ResponseBean responseBean) {
+                        BaseBean.setGsonResponseObject(responseBean, QrInfoBean.class);
                         mhandle.onSuccess(responseBean);
                     }
 

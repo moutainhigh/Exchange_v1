@@ -51,6 +51,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
     private LinearLayout llAlipay;
     private LinearLayout llWechatPay;
     private LinearLayout llQQPay;
+    private LinearLayout llYunPay;
     private TextView tvActiveState;
 
     private LinearLayout llApplyService;
@@ -83,6 +84,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
         llAlipay = findViewById(R.id.ll_alipay);
         llWechatPay = findViewById(R.id.ll_wechatPay);
         llQQPay = findViewById(R.id.ll_QQPay);
+        llYunPay = findViewById(R.id.ll_YunPay);
         tvActiveState = findViewById(R.id.tv_active_state);
 
         llApplyService =  findViewById(R.id.ll_apply_service);
@@ -112,6 +114,7 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
         llAlipay.setOnClickListener(this);
         llWechatPay.setOnClickListener(this);
         llQQPay.setOnClickListener(this);
+        llYunPay.setOnClickListener(this);
 
         llApplyService.setOnClickListener(this);
         llApplyCarry.setOnClickListener(this);
@@ -222,6 +225,9 @@ public class MainMineFragment extends BaseFragment implements OnClickListener {
                 break;
             case R.id.ll_QQPay://qq
                 ReceiveQRCodeActivity.openActivity(context,ReceiveQRCodeActivity.JHBY);
+                break;
+            case R.id.ll_YunPay://雲閃付
+                ToastUtil.showToast(context,"功能尚未開放");
                 break;
             case R.id.ll_apply_service://申请服务商
                 IntentUtil.gotoActivity(context, ApplyServiceActivity.class);
