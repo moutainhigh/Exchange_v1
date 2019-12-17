@@ -34,7 +34,6 @@ import com.exchange_v1.app.fragment.MainMineFragment;
 import com.exchange_v1.app.fragment.MainRechargeFragment;
 import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.receiver.JPushReceiver;
-import com.exchange_v1.app.utils.C2bPushUtil;
 import com.exchange_v1.app.utils.CountIdUtil;
 import com.exchange_v1.app.utils.CountUtil;
 import com.exchange_v1.app.utils.DialogUtil;
@@ -214,14 +213,14 @@ public class MainActivity extends BaseFragmentActivity {
         //		menuFragment.getView().getLayoutParams().width= (int)(DisplayUtil.getScreenWidth(this)-DisplayUtil.dip2px(this,80));
         //		mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.RIGHT);
         // 绑定极光推送
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (Util.isLogin(MainActivity.this)) {
-                    C2bPushUtil.bindingJPush(MainActivity.this, true, TApplication.getMineUserInfo().getId());
-                }
-            }
-        }, 1000);
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                if (Util.isLogin(MainActivity.this)) {
+//                    C2bPushUtil.bindingJPush(MainActivity.this, true, TApplication.getMineUserInfo().getId());
+//                }
+//            }
+//        }, 1000);
 
 
         String account = UserInfoUtil.getLoginBean().getAccount();
@@ -486,20 +485,21 @@ public class MainActivity extends BaseFragmentActivity {
                 // Permission Granted
             }
 
-        } else if (requestCode == C2bPushUtil.WRITE_EXTERNAL_STORAGE_JPUSH_BIND_CODE) {
-            if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission Granted
-                if (Util.isLogin(MainActivity.this)) {
-                    //					bindingJPush(true,TApplication.getUserInfoBean().getUserNo());
-                    C2bPushUtil.bindingJPush(MainActivity.this, true, TApplication.getMineUserInfo().getId());
-                }
-            }
-        } else if (requestCode == C2bPushUtil.WRITE_EXTERNAL_STORAGE_JPUSH_UNBIND_CODE) {
-            if (Util.isLogin(MainActivity.this)) {
-                //				bindingJPush(false,TApplication.getUserInfoBean().getUserNo());
-                C2bPushUtil.bindingJPush(MainActivity.this, false, TApplication.getMineUserInfo().getId());
-            }
         }
+//        else if (requestCode == C2bPushUtil.WRITE_EXTERNAL_STORAGE_JPUSH_BIND_CODE) {
+//            if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//                // Permission Granted
+//                if (Util.isLogin(MainActivity.this)) {
+//                    //					bindingJPush(true,TApplication.getUserInfoBean().getUserNo());
+//                    C2bPushUtil.bindingJPush(MainActivity.this, true, TApplication.getMineUserInfo().getId());
+//                }
+//            }
+//        } else if (requestCode == C2bPushUtil.WRITE_EXTERNAL_STORAGE_JPUSH_UNBIND_CODE) {
+//            if (Util.isLogin(MainActivity.this)) {
+//                //				bindingJPush(false,TApplication.getUserInfoBean().getUserNo());
+//                C2bPushUtil.bindingJPush(MainActivity.this, false, TApplication.getMineUserInfo().getId());
+//            }
+//        }
     }
 
 
