@@ -3,8 +3,10 @@ package com.exchange_v1.app.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -12,6 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.exchange_v1.app.R;
 import com.exchange_v1.app.base.BaseActivity;
 import com.exchange_v1.app.bean.QrInfoBean;
@@ -25,8 +30,6 @@ import com.exchange_v1.app.utils.IntentUtil;
 import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
-import com.exchange_v1.app.utils.imageloader.ImageLoaderUtil;
-import com.exchange_v1.app.utils.imageloader.ImageOptions;
 import com.wildma.pictureselector.PictureSelector;
 
 //通用收款码界面
@@ -142,13 +145,20 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
 //                    rlQrPng.setVisibility(View.GONE);
                     tvCenterBtn.setVisibility(View.GONE);
 
-                    ImageOptions options = new ImageOptions.Builder()
-                            .showImageForEmptyUri(R.mipmap.loading_bg1)
-                            .showImageOnFail(R.mipmap.loading_bg1)
-                            .cacheInMemory(true) // 设置下载的图片是否缓存在内存中
-                            .cacheOnDisk(true) // 设置下载的图片是否缓存在SD卡中
-                            .build();
-                    ImageLoaderUtil.showImage(bean.getPath(), rlQrPng, options);
+                    String path = bean.getPath();
+                    path = path.replace("\"", "");
+                    Logger.i(path);
+
+                    Glide.with(thisA)
+                            .load(path)
+                            .asBitmap()
+                            .into(new SimpleTarget<Bitmap>() { // 括号里可以指定图片宽高
+                                @Override
+                                public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                                    Drawable drawable = new BitmapDrawable(resource);
+                                    rlQrPng.setBackgroundDrawable(drawable);
+                                }
+                            });
 
                     etPeopleName.setText(bean.getName());
                     etIdCard.setText(bean.getAccount());
