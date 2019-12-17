@@ -14,9 +14,11 @@ import com.exchange_v1.app.R;
 import com.exchange_v1.app.activity.RechargeSecondActivity;
 import com.exchange_v1.app.base.BaseFragment;
 import com.exchange_v1.app.base.TApplication;
+import com.exchange_v1.app.bean.MineUserInfoBean;
 import com.exchange_v1.app.bean.PrepareRechargeBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.RechargeBiz;
+import com.exchange_v1.app.biz.UserBiz;
 import com.exchange_v1.app.network.RequestHandle;
 import com.exchange_v1.app.utils.FieldConfig;
 import com.exchange_v1.app.utils.IntentUtil;
@@ -69,17 +71,36 @@ public class RechargeFragment extends BaseFragment implements View.OnClickListen
 
     private void setSpinner() {
         String[] bankArr = new String[1];
-        bankArr[0] = TApplication.getMineUserInfo().getBankNo();
 
-        //适配器
-        accountAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item,bankArr);
-        //设置样式
-        accountAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //加载适配器
-        accountSpinner.setAdapter(accountAdapter);
+        UserBiz.userInfo(context, new RequestHandle() {
+            @Override
+            public void onSuccess(ResponseBean result) {
+                MineUserInfoBean userBean = (MineUserInfoBean) result.getObject();
+                //保存用户登录信息
+                TApplication.setMineUserInfo(userBean);
+
+                bankArr[0] = userBean.getBankNo();
+
+                //适配器
+                accountAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item,bankArr);
+                //设置样式
+                accountAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                //加载适配器
+                accountSpinner.setAdapter(accountAdapter);
 //        accountAdapter.add(TApplication.getMineUserInfo().getBankNo());
-        //默认选择第一个
-        accountSpinner.setSelection(0,true);
+                //默认选择第一个
+                accountSpinner.setSelection(0,true);
+
+
+                tvBankName.setText(userBean.getBankName());
+            }
+
+            @Override
+            public void onFail(ResponseBean result) {
+            }
+        });
+
+
     }
 
     @Override
@@ -124,7 +145,7 @@ public class RechargeFragment extends BaseFragment implements View.OnClickListen
     @Override
     protected void init() {
         setSpinner();
-        tvBankName.setText(TApplication.getMineUserInfo().getBankName());
+
     }
 
     /**
