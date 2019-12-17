@@ -98,16 +98,19 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
         codeType = bundle.getString(FieldConfig.intent_str);
 
         if (ALIBY.equals(codeType)){//支付宝
+            titleView.setTitle("支付宝收款码");
             tvLeftTopName.setText("支付宝");
             tvPeopleNameHead.setText("支付宝昵称 ");
             tvIdCardHead.setText("支付宝账号 ");
 //            llUID.setVisibility(View.VISIBLE);
         }else if (WXBY.equals(codeType)){//微信
+            titleView.setTitle("微信收款码");
             tvLeftTopName.setText("微信");
             tvPeopleNameHead.setText("微信昵称 ");
             tvIdCardHead.setText("微信账号 ");
 //            llUID.setVisibility(View.GONE);
         }else if (JHBY.equals(codeType)){//QQ
+            titleView.setTitle("QQ收款码");
             tvLeftTopName.setText("聚合码");
             llName.setVisibility(View.GONE);
             llCard.setVisibility(View.GONE);
