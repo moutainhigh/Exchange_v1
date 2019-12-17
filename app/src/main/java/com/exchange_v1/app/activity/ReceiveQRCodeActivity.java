@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -46,7 +46,9 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
     private LinearLayout llCard;
 
     private TextView btSubmit;
-    private ImageView ivPic;
+//    private ImageView ivPic;
+    private TextView tvCenterBtn;
+
     private String picturePath;
     private UpLoadBean upLoadBean;
     //支付宝
@@ -78,7 +80,8 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
         etIdCard = (EditText) findViewById(R.id.et_id_card);
         etUID = (EditText) findViewById(R.id.et_UID);
         btSubmit = (TextView) findViewById(R.id.bt_submit);
-        ivPic = findViewById(R.id.iv_pic);
+        tvCenterBtn = (TextView) findViewById(R.id.tv_center_btn);
+//        ivPic = findViewById(R.id.iv_pic);
 
         tvLeftTopName = (TextView) findViewById(R.id.tv_left_top_name);
         tvPeopleNameHead = (TextView) findViewById(R.id.tv_people_name_head);
@@ -135,8 +138,9 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
             public void onSuccess(ResponseBean result) {
                 bean = (QrInfoBean) result.getObject();
                 if (bean != null) {
-                    ivPic.setVisibility(View.VISIBLE);
-                    rlQrPng.setVisibility(View.GONE);
+//                    ivPic.setVisibility(View.VISIBLE);
+//                    rlQrPng.setVisibility(View.GONE);
+                    tvCenterBtn.setVisibility(View.GONE);
 
                     ImageOptions options = new ImageOptions.Builder()
                             .showImageForEmptyUri(R.mipmap.loading_bg1)
@@ -144,7 +148,7 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
                             .cacheInMemory(true) // 设置下载的图片是否缓存在内存中
                             .cacheOnDisk(true) // 设置下载的图片是否缓存在SD卡中
                             .build();
-                    ImageLoaderUtil.showImage(bean.getPath(), ivPic, options);
+                    ImageLoaderUtil.showImage(bean.getPath(), rlQrPng, options);
 
                     etPeopleName.setText(bean.getName());
                     etIdCard.setText(bean.getAccount());
@@ -225,9 +229,9 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
             public void onFail(ResponseBean result) {
                 ToastUtil.showToast(context,result.getInfo());
                 //如果上传失败了，就重新选择图片上传
-                ivPic.setVisibility(View.GONE);
-                rlQrPng.setVisibility(View.VISIBLE);
-
+//                ivPic.setVisibility(View.GONE);
+//                rlQrPng.setVisibility(View.VISIBLE);
+                tvCenterBtn.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -239,10 +243,11 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
         if (requestCode == PictureSelector.SELECT_REQUEST_CODE) {
             if (data != null) {
                 picturePath = data.getStringExtra(PictureSelector.PICTURE_PATH);
-                ivPic.setVisibility(View.VISIBLE);
-                ivPic.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+//                ivPic.setVisibility(View.VISIBLE);
+//                ivPic.setImageBitmap(BitmapFactory.decodeFile(picturePath));
 
-                rlQrPng.setVisibility(View.GONE);
+                rlQrPng.setBackgroundDrawable(new BitmapDrawable(BitmapFactory.decodeFile(picturePath)));
+                tvCenterBtn.setVisibility(View.GONE);
 
                 if (!StringUtil.isEmpty(picturePath)){
                     upLoadQrCode(picturePath);

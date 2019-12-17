@@ -40,6 +40,7 @@
             android:textSize="13sp" />
 
         <TextView
+            android:id="@+id/tv_center_btn"
             android:layout_width="128dp"
             android:layout_height="29dp"
             android:layout_centerInParent="true"
