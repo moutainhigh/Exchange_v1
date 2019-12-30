@@ -1,19 +1,21 @@
 package com.exchange_v1.app.adapter;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.exchange_v1.app.R;
+import com.exchange_v1.app.base.TApplication;
 import com.exchange_v1.app.bean.OrderReceivingBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.OrderBiz;
 import com.exchange_v1.app.network.RequestHandle;
-import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
+import com.exchange_v1.app.view.MyDialog;
 
 import java.util.List;
 
@@ -59,23 +61,82 @@ public class OrderReceivingAdapter extends BaseAdapter {
             convertView = View.inflate(context, R.layout.item_jpush_order_ing, null);
 
             holder.tvOrderId = (TextView) convertView.findViewById(R.id.tv_order_id);
-            holder.tvAffirm = (TextView) convertView.findViewById(R.id.tv_affirm);
+            holder.tvOrderTime = (TextView) convertView.findViewById(R.id.tv_order_time);
+            holder.tvOrderAmount = (TextView) convertView.findViewById(R.id.tv_order_amount);
+//            holder.tvAffirm = (TextView) convertView.findViewById(R.id.tv_affirm);
             convertView.setTag(holder);
         } else {
             holder = (OrderReceivingAdapter.itemHolder) convertView.getTag();
         }
 
         //数据填充
-        holder.tvOrderId.setText(bean.getSystemNo());
-        holder.tvAffirm.setOnClickListener(new View.OnClickListener() {
+        holder.tvOrderId.setText("订单号："+bean.getSystemNo());
+        holder.tvOrderTime.setText(bean.getCreateTime());
+        holder.tvOrderAmount.setText("￥ "+bean.getPaymentMoney()+"");
+
+        convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Logger.i("进行中订单确认："+bean.getSystemNo());
-                    //进行中确认
-                grabOrdercComfirm(context, bean.getSystemNo());
+                LayoutInflater LayoutInflater =
+                        (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View view = LayoutInflater.inflate(R.layout.order_ing_item_dialog, null);
+                TextView account = view.findViewById(R.id.tv_account);
+                TextView orderNo = view.findViewById(R.id.tv_orderNo);
+                TextView tvSubmit = view.findViewById(R.id.tv_submit);
+                TextView tvOrder = view.findViewById(R.id.tv_order);
+                TextView tvTime = view.findViewById(R.id.tv_time);
+                TextView tvName = view.findViewById(R.id.tv_name);
+                TextView orderId = view.findViewById(R.id.tv_orderId);
+                TextView receptiveId = view.findViewById(R.id.tv_receptive_id);
+                TextView tvType = view.findViewById(R.id.tv_type);
 
+                account.setText(TApplication.getMineUserInfo().getAccount());
+                orderNo.setText(bean.getId()+"/"+bean.getSystemNo());
+                tvOrder.setText(bean.getId());
+                tvTime.setText(bean.getCreateTime());
+                tvName.setText(TApplication.getMineUserInfo().getCardName());
+                orderId.setText(bean.getId());
+                receptiveId.setText(bean.getSystemNo());
+                String codeType = bean.getPaymentType();
+                if ("ALI_BY".equals(codeType)){//支付宝
+                    tvType.setText("支付宝");
+                }else if ("WX_BY".equals(codeType)){
+                    tvType.setText("微信");
+                }else if ("JH_BY".equals(codeType)){
+                    tvType.setText("QQ");
+                }
+
+                MyDialog mMyDialog = new MyDialog(context, 0, 0, view, R.style.DialogTheme);
+                mMyDialog.setCancelable(true);
+                mMyDialog.show();
+
+                tvSubmit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        LayoutInflater LayoutInflater2 =
+                                (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                        View view2= LayoutInflater2.inflate(R.layout.order_ing_confirm_dialog, null);
+                        MyDialog mMyDialog2 = new MyDialog(context, 0, 0, view2, R.style.DialogTheme);
+                        mMyDialog2.setCancelable(true);
+                        mMyDialog2.show();
+
+
+                        mMyDialog.dismiss();
+                    }
+                });
             }
         });
+
+
+//        holder.tvAffirm.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Logger.i("进行中订单确认："+bean.getSystemNo());
+//                    //进行中确认
+//                grabOrdercComfirm(context, bean.getSystemNo());
+//
+//            }
+//        });
 
         return convertView;
     }
@@ -102,6 +163,8 @@ public class OrderReceivingAdapter extends BaseAdapter {
 
         private TextView tvOrderId;
         private TextView tvAffirm;
+        private TextView tvOrderTime;
+        private TextView tvOrderAmount;
 
     }
 }

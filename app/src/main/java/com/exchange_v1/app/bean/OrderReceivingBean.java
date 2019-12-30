@@ -16,6 +16,15 @@ public class OrderReceivingBean extends BaseBean{
     private String systemNo;
     private double paymentMoney;
     private String paymentType;
+    private String createTime;
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
 
     public String getId() {
         return id;
