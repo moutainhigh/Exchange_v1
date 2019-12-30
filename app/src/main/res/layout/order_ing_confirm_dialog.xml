@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@mipmap/comfrim_dialog" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="请再次确认是否已收款造成损失自己负责！"
+        android:textColor="#141414"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/et_amout"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/all_txt_f5"
+        android:hint="请输入实际收款金额" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cancel_btn"
+            style="@style/text_btn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="取  消"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/confirm_btn"
+            style="@style/text_btn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="确  认"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+</LinearLayout>

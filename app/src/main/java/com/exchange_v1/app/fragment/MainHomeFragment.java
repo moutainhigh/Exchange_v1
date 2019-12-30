@@ -31,6 +31,7 @@ import com.exchange_v1.app.utils.Logger;
 import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.StringUtils;
 import com.exchange_v1.app.utils.ToastUtil;
+import com.exchange_v1.app.view.MyDialog;
 import com.flyco.tablayout.SlidingTabLayout;
 
 import java.io.IOException;
@@ -57,10 +58,13 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
     private MineUserInfoBean userBean;
     private TextView tvBalance;
     private TextView tvFreeze;
+    private TextView tvCustomer;
     private JWebSocketClient client;
     //离线在线按钮
     private TextView tvOnline;
     private MediaPlayer player;
+
+    private MyDialog mMyDialog;
 
     @Override
     protected View getViews() {
@@ -71,6 +75,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
     protected void findViews() {
         tvBalance = findViewById(R.id.tv_balance);
         tvFreeze = findViewById(R.id.tv_freeze);
+        tvCustomer = findViewById(R.id.tv_customer);
 
         mFragments.add(new HomeOrderReceiveFragment());
         mFragments.add(new HomeOrderReceivingFragment());
@@ -181,6 +186,26 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
             }
         });
+
+//        tvCustomer.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                View view = getLayoutInflater().inflate(R.layout.order_ing_item_dialog, null);
+//                TextView orderId = view.findViewById(R.id.tv_orderId);
+//                TextView tvSubmit = view.findViewById(R.id.tv_submit);
+//                orderId.setText("123");
+//                tvSubmit.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        ToastUtil.showToast(context,"确认付款了");
+//                        mMyDialog.dismiss();
+//                    }
+//                });
+//                mMyDialog = new MyDialog(thisA, 0, 0, view, R.style.DialogTheme);
+//                mMyDialog.setCancelable(true);
+//                mMyDialog.show();
+//            }
+//        });
     }
 
     /**
@@ -307,6 +332,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                     WebBean webBean = JSON.parseObject(message, WebBean.class);
 
                     String orderId = webBean.getData().getOrderId();
+                    String paymentMoney = webBean.getData().getPaymentMoney();
                     if (webBean!=null&&webBean.getCommand() == 100&&!StringUtils.isEmpty(orderId)){
                         Log.i("JWebSClientService", "收到command 100 单号为："+orderId);
                         //发送广播给前台
@@ -314,6 +340,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                         intent.setAction(BroadcastFilters.ACTION_ORDER);
                         intent.putExtra(FieldConfig.intent_str,orderId);
                         intent.putExtra(FieldConfig.intent_str2, autoGrab);
+                        intent.putExtra(FieldConfig.intent_str3, paymentMoney);
                         context.sendBroadcast(intent);
                     }else if (webBean!=null&&webBean.getCommand() == 101&&!StringUtils.isEmpty(orderId)){
                         Log.i("JWebSClientService", "收到command 101 被抢走的单号为："+orderId);

@@ -38,11 +38,35 @@ public class WebBean {
     }
 
     public static class DataBean {
-        /**
-         * orderId : 0032858419186630656
-         */
 
         private String orderId;
+        private String systemNo;
+        private String paymentMoney;
+        private String paymentType;
+
+        public String getSystemNo() {
+            return systemNo;
+        }
+
+        public void setSystemNo(String systemNo) {
+            this.systemNo = systemNo;
+        }
+
+        public String getPaymentMoney() {
+            return paymentMoney;
+        }
+
+        public void setPaymentMoney(String paymentMoney) {
+            this.paymentMoney = paymentMoney;
+        }
+
+        public String getPaymentType() {
+            return paymentType;
+        }
+
+        public void setPaymentType(String paymentType) {
+            this.paymentType = paymentType;
+        }
 
         public String getOrderId() {
             return orderId;

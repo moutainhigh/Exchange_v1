@@ -63,6 +63,7 @@ public class HomeOrderReceiveFragment extends BaseFragment implements View.OnCli
     protected void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
         String order = intent.getStringExtra(FieldConfig.intent_str);
+        String money = intent.getStringExtra(FieldConfig.intent_str3);
         Boolean autoOpen = intent.getBooleanExtra(FieldConfig.intent_str2,false);
 
         if (intent.getAction().equals(BroadcastFilters.ACTION_ORDER)) {// 收到订单通知，展示订单
@@ -73,7 +74,11 @@ public class HomeOrderReceiveFragment extends BaseFragment implements View.OnCli
             //动态创建UI
             TextView tvOrderId = viewContainer.findViewById(R.id.tv_order_id);
             TextView buy = viewContainer.findViewById(R.id.tv_buy);
-            tvOrderId.setText(order);
+            //订单金额
+            TextView amount = viewContainer.findViewById(R.id.tv_order_amount);
+
+            tvOrderId.setText("订单号： "+order);
+            amount.setText("￥ "+ money);
             //给父容器设置TAG
             viewContainer.setTag(order);
 
