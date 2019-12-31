@@ -220,7 +220,7 @@ public class ReceiveQRCodeActivity extends BaseActivity implements View.OnClickL
     private void selectPng() {
         PictureSelector
                 .create(thisA, PictureSelector.SELECT_REQUEST_CODE)
-                .selectPicture(true, 200, 200, 1, 1);
+                .selectPicture(false, 200, 200, 1, 1);
 
 //        IntentUtil.gotoActivity(context,SettingUserAvatarActivity.class);
     }
