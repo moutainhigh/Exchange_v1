@@ -222,6 +222,7 @@ public abstract class BaseFragment extends Fragment {
         filter.addAction(BroadcastFilters.ACTION_ORDER);
         filter.addAction(BroadcastFilters.ACTION_ORDER_CANCLE);
         filter.addAction(BroadcastFilters.ACTION_ORDER_ING);
+        filter.addAction(BroadcastFilters.ACTION_ORDER_ING_REFRESH);
 
         String permission = Manifest.permission.bwoilpermiss;
         getActivity().registerReceiver(receiver, filter, permission, mHandler);

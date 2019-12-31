@@ -24,5 +24,7 @@ public class BroadcastFilters {
 	public static final String ACTION_ORDER_CANCLE = "com_exchange_app_action_order_cancle";
 	/** 收到订单进行中 */
 	public static final String ACTION_ORDER_ING = "com_exchange_app_action_order_ing";
+	/** 收到订单进行中刷新 */
+	public static final String ACTION_ORDER_ING_REFRESH = "com_exchange_app_action_order_ing_refresh";
 
 }

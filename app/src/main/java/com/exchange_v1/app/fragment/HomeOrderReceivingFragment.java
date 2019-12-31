@@ -1,6 +1,7 @@
 package com.exchange_v1.app.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -12,7 +13,9 @@ import com.exchange_v1.app.base.BaseFragment;
 import com.exchange_v1.app.bean.OrderReceivingBean;
 import com.exchange_v1.app.bean.ResponseBean;
 import com.exchange_v1.app.biz.OrderBiz;
+import com.exchange_v1.app.config.BroadcastFilters;
 import com.exchange_v1.app.network.RequestHandle;
+import com.exchange_v1.app.utils.FieldConfig;
 import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.ToastUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -133,10 +136,13 @@ public class HomeOrderReceivingFragment extends BaseFragment implements View.OnC
 
     }
 
-//    @Override
-//    protected void onReceive(Context context, Intent intent) {
-//        super.onReceive(context, intent);
-//        String order = intent.getStringExtra(FieldConfig.intent_str);
+    @Override
+    protected void onReceive(Context context, Intent intent) {
+        super.onReceive(context, intent);
+        String order = intent.getStringExtra(FieldConfig.intent_str);
+        if (intent.getAction().equals(BroadcastFilters.ACTION_ORDER_ING_REFRESH)) {
+            refreshLayout.autoRefresh();
+        }
 //        if (intent.getAction().equals(BroadcastFilters.ACTION_ORDER_ING)) {// 收到进行中的订单
 //            Logger.i("进行中的订单号为："+order);
 //            View viewContainer = LayoutInflater.from(thisA).inflate(R.layout.item_jpush_order_ing, null);
@@ -166,8 +172,8 @@ public class HomeOrderReceivingFragment extends BaseFragment implements View.OnC
 //
 //            llView.addView(viewContainer);
 //        }
-//
-//    }
+
+    }
 
     private void grabOrdercComfirm(Context context, String order, View childView) {
         if (!StringUtil.isEmpty(order)){
