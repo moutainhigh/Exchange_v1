@@ -87,4 +87,6 @@ dependencies {
     //使用java-websocket
     implementation "org.java-websocket:Java-WebSocket:1.4.0"
 
+    implementation group: 'com.google.guava', name: 'guava', version: '28.0-android'
+
 }

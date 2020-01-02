@@ -21,6 +21,8 @@ import com.exchange_v1.app.utils.StringUtil;
 import com.exchange_v1.app.utils.StringUtils;
 import com.exchange_v1.app.utils.ToastUtil;
 import com.exchange_v1.app.view.MyDialog;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
 import java.util.List;
 
@@ -29,6 +31,8 @@ public class OrderReceivingAdapter extends BaseAdapter {
     private Context context;
 
     public OrderReceivingAdapter(Context context, List<OrderReceivingBean> list) {
+        //去重
+        Lists.newArrayList(Sets.newHashSet(list));
         this.context = context;
         this.list = list;
     }
