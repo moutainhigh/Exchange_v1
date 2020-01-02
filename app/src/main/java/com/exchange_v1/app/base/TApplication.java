@@ -141,6 +141,8 @@ public class TApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        // 初始化MultiDex
+        MultiDex.install(this);
         context = getApplicationContext();
 
         init_VmPolicy();
