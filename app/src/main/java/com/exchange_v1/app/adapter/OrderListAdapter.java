@@ -59,6 +59,9 @@ public class OrderListAdapter extends BaseAdapter {
             holder.tvCardType = (TextView) convertView.findViewById(R.id.tv_card_type);
             holder.tvTime = (TextView) convertView.findViewById(R.id.tv_time);
             holder.tvOrderInfo = (TextView) convertView.findViewById(R.id.tv_order_info);
+
+
+
             convertView.setTag(holder);
         } else {
             holder = (itemHolder) convertView.getTag();
@@ -71,6 +74,14 @@ public class OrderListAdapter extends BaseAdapter {
         holder.tvCardType.setText("类型: 商户充值");
         holder.tvOrderInfo.setText("商户订单号: "+bean.getTenantNo());
         holder.tvTime.setText("完成时间: "+bean.getConfirmTime());
+        //1-确认中,2-已完成,3-已超时
+        if (1 == bean.getState()){
+            holder.tvPic.setBackgroundResource(R.mipmap.order_uncomfirm_icon);
+        }else if (2 == bean.getState()){
+            holder.tvPic.setBackgroundResource(R.mipmap.order_finish_icon);
+        }else if (3 == bean.getState()){
+            holder.tvPic.setBackgroundResource(R.mipmap.order_time_out_icon);
+        }
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
