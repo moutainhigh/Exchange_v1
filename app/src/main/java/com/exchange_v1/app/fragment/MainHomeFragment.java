@@ -399,8 +399,30 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     protected void init() {
-        setUIView(TApplication.getMineUserInfo());
+        setUIView();
 
+    }
+
+    private void setUIView() {
+
+        UserBiz.userInfo(context, new RequestHandle() {
+            @Override
+            public void onSuccess(ResponseBean result) {
+                userBean = (MineUserInfoBean) result.getObject();
+                TApplication.setMineUserInfo(userBean);
+
+                if (userBean != null) {
+                    //设置用户信息
+                    tvBalance.setText(userBean.getBalance() + "");
+                    tvFreeze.setText(userBean.getFreezeBalance() + "");
+                }
+            }
+
+            @Override
+            public void onFail(ResponseBean result) {
+                ToastUtil.showToast(context,result.getInfo());
+            }
+        });
     }
 
     private void setUIView(MineUserInfoBean userBean) {
