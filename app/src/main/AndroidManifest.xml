@@ -209,6 +209,12 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/CommActTheme" />
+        <!-- 进行中详情页面 -->
+        <activity
+            android:name=".activity.OrderReceivingDetailActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommActTheme" />
 
         <!-- ======================================== -->
         <!-- 升级service -->
