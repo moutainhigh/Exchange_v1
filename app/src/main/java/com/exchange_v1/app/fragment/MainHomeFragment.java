@@ -34,6 +34,8 @@ import com.exchange_v1.app.utils.ToastUtil;
 import com.exchange_v1.app.view.MyDialog;
 import com.flyco.tablayout.SlidingTabLayout;
 
+import org.java_websocket.handshake.ServerHandshake;
+
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
@@ -110,7 +112,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public void initGetData() {
-        getOnVoice();
+//        getOnVoice();
     }
 
 
@@ -167,25 +169,25 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
             }
         });
 
-        tvOnline.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (onLine) {
-                    tvOnline.setText("离线");
-                    onLine = false;
-                } else {
-                    tvOnline.setText("在线");
-                    onLine = true;
-                }
-
-                //播放中的音乐，要关闭声音然后再播放
-                closeMedia();
-
-                //播放
-                getOnVoice();
-
-            }
-        });
+//        tvOnline.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (onLine) {
+//                    tvOnline.setText("离线");
+//                    onLine = false;
+//                } else {
+//                    tvOnline.setText("在线");
+//                    onLine = true;
+//                }
+//
+//                //播放中的音乐，要关闭声音然后再播放
+//                closeMedia();
+//
+//                //播放
+//                getOnVoice();
+//
+//            }
+//        });
 
 //        tvCustomer.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -250,6 +252,12 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
             @Override
             public void onSuccess(ResponseBean result) {
                 ToastUtil.showToast(context, "接单已经打开");
+                tvOnline.setText("在线");
+                onLine = true;
+                //播放中的音乐，要关闭声音然后再播放
+                closeMedia();
+                //开启后改变在线离线状态
+                getOnVoice();
                 //初始化websocket
                 initSocketClient();
                 //开启心跳检测
@@ -274,7 +282,12 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
             @Override
             public void onSuccess(ResponseBean result) {
                 ToastUtil.showToast(context, "已关闭接单");
-
+                tvOnline.setText("离线");
+                onLine = false;
+                //播放中的音乐，要关闭声音然后再播放
+                closeMedia();
+                //播放
+                getOnVoice();
                 //关闭websockt连接
                 closeConnect(client);
             }
@@ -358,6 +371,18 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                         context.sendBroadcast(intent);
                     }
                 }
+
+            }
+
+            @Override
+            public void onOpen(ServerHandshake handshakedata) {
+                super.onOpen(handshakedata);
+
+            }
+
+            @Override
+            public void onClose(int code, String reason, boolean remote) {
+                super.onClose(code, reason, remote);
 
             }
         };
