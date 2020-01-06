@@ -126,15 +126,15 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                     offReciver();
                 } else {
                     MineUserInfoBean mineUserInfo = TApplication.getMineUserInfo();
-                    if (mineUserInfo!=null){
+                    if (mineUserInfo != null) {
                         String cityId = mineUserInfo.getCityId();
                         String provinceId = mineUserInfo.getProvinceId();
-                        if (!StringUtil.isEmpty(cityId)&&!StringUtil.isEmpty(provinceId)){//地区设置不为空才能开启抢单
+                        if (!StringUtil.isEmpty(cityId) && !StringUtil.isEmpty(provinceId)) {//地区设置不为空才能开启抢单
                             openGrabBtn.setChecked(true);
                             openGrab = true;
                             onReciver();
-                        }else {
-                            ToastUtil.showToast(context,"必须设置地区，才能开启抢单！");
+                        } else {
+                            ToastUtil.showToast(context, "必须设置地区，才能开启抢单！");
                         }
                     }
                 }
@@ -151,15 +151,15 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                     ToastUtil.showToast(context, "已关闭自动接单");
                 } else {
                     MineUserInfoBean mineUserInfo = TApplication.getMineUserInfo();
-                    if (mineUserInfo!=null){
+                    if (mineUserInfo != null) {
                         String cityId = mineUserInfo.getCityId();
                         String provinceId = mineUserInfo.getProvinceId();
-                        if (!StringUtil.isEmpty(cityId)&&!StringUtil.isEmpty(provinceId)){//地区设置不为空才能开启抢单
+                        if (!StringUtil.isEmpty(cityId) && !StringUtil.isEmpty(provinceId)) {//地区设置不为空才能开启抢单
                             radioButton.setChecked(true);
                             autoGrab = true;
                             ToastUtil.showToast(context, "自动接单已经打开");
-                        }else {
-                            ToastUtil.showToast(context,"必须设置地区，才能开启抢单！");
+                        } else {
+                            ToastUtil.showToast(context, "必须设置地区，才能开启抢单！");
                         }
                     }
                 }
@@ -170,10 +170,10 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
         tvOnline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (onLine){
+                if (onLine) {
                     tvOnline.setText("离线");
                     onLine = false;
-                }else {
+                } else {
                     tvOnline.setText("在线");
                     onLine = true;
                 }
@@ -229,9 +229,9 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
         assetManager = getResources().getAssets();
         try {
             AssetFileDescriptor fileDescriptor = null;
-            if (onLine){
+            if (onLine) {
                 fileDescriptor = assetManager.openFd("on.mp3");
-            }else {
+            } else {
                 fileDescriptor = assetManager.openFd("off.mp3");
             }
 
@@ -268,7 +268,6 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
     /**
      * 关闭接单
-     *
      */
     private void offReciver() {
         UserBiz.offReceptive(context, new RequestHandle() {
@@ -296,8 +295,8 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
             if (client != null) {
                 if (client.isClosed()) {
                     reconnectWs();
-                }else {
-                    if (client.isOpen()){//开启的状态下，发送心跳包
+                } else {
+                    if (client.isOpen()) {//开启的状态下，发送心跳包
                         //发送心跳包
                         client.send("{command:99}");
                         Log.i("JWebSocketClient", "发送心跳包");
@@ -323,7 +322,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
      */
     private void initSocketClient() {
         String token = TApplication.getToken();
-        String webUrl = "ws://ws.meilishenghuo.cn/ws?info="+token;
+        String webUrl = "ws://ws.meilishenghuo.cn/ws?info=" + token;
 
         URI uri = URI.create(webUrl);
         client = new JWebSocketClient(uri) {
@@ -331,34 +330,33 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
             public void onMessage(String message) {
                 //message就是接收到的消息
                 Log.e("JWebSClientService", message);
-                if (!StringUtils.isEmpty(message)){
+                if (!StringUtils.isEmpty(message)) {
                     WebBean webBean = JSON.parseObject(message, WebBean.class);
 
                     String orderId = webBean.getData().getOrderId();
-                    //不重复的，才发送广播
-                    if (!oldOrderId.equals(orderId)){
-                        oldOrderId = orderId;
-                        String paymentMoney = webBean.getData().getPaymentMoney();
-                        if (webBean!=null&&webBean.getCommand() == 100&&!StringUtils.isEmpty(orderId)){
-                            Log.i("JWebSClientService", "收到command 100 单号为："+orderId);
+                    String paymentMoney = webBean.getData().getPaymentMoney();
+                    if (webBean != null && webBean.getCommand() == 100 && !StringUtils.isEmpty(orderId)) {
+                        //不重复的，才发送广播
+                        if (!oldOrderId.equals(orderId)) {
+                            oldOrderId = orderId;
+                            Log.i("JWebSClientService", "收到command 100 单号为：" + orderId);
                             //发送广播给前台
                             Intent intent = new Intent();
                             intent.setAction(BroadcastFilters.ACTION_ORDER);
-                            intent.putExtra(FieldConfig.intent_str,orderId);
+                            intent.putExtra(FieldConfig.intent_str, orderId);
                             intent.putExtra(FieldConfig.intent_str2, autoGrab);
                             intent.putExtra(FieldConfig.intent_str3, paymentMoney);
                             context.sendBroadcast(intent);
-                        }else if (webBean!=null&&webBean.getCommand() == 101&&!StringUtils.isEmpty(orderId)){
-                            Log.i("JWebSClientService", "收到command 101 被抢走的单号为："+orderId);
-                            //发送广播给前台
-                            Intent intent = new Intent();
-                            intent.setAction(BroadcastFilters.ACTION_ORDER_CANCLE);
-                            intent.putExtra(FieldConfig.intent_str,orderId);
-                            intent.putExtra(FieldConfig.intent_str2, autoGrab);
-                            context.sendBroadcast(intent);
                         }
+                    } else if (webBean != null && webBean.getCommand() == 101 && !StringUtils.isEmpty(orderId)) {
+                        Log.i("JWebSClientService", "收到command 101 被抢走的单号为：" + orderId);
+                        //发送广播给前台
+                        Intent intent = new Intent();
+                        intent.setAction(BroadcastFilters.ACTION_ORDER_CANCLE);
+                        intent.putExtra(FieldConfig.intent_str, orderId);
+                        intent.putExtra(FieldConfig.intent_str2, autoGrab);
+                        context.sendBroadcast(intent);
                     }
-
                 }
 
             }
@@ -428,7 +426,7 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
 
             @Override
             public void onFail(ResponseBean result) {
-                ToastUtil.showToast(context,result.getInfo());
+                ToastUtil.showToast(context, result.getInfo());
             }
         });
     }
