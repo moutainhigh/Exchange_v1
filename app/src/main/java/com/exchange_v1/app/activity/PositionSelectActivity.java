@@ -54,9 +54,6 @@ public class PositionSelectActivity extends BaseActivity implements View.OnClick
         titleView.setBackBtn();
         titleView.setTitle("位置选择");
 
-        //地区设置成功后，刷新用户信息
-        getUserInfo();
-
     }
 
     @Override
@@ -83,7 +80,7 @@ public class PositionSelectActivity extends BaseActivity implements View.OnClick
 
             @Override
             public void onFail(ResponseBean result) {
-                ToastUtil.showToast(context,result.getInfo());
+                ToastUtil.showToast(context, result.getInfo());
             }
 
         });
@@ -109,23 +106,23 @@ public class PositionSelectActivity extends BaseActivity implements View.OnClick
             provinceAdapter.add(positionList.get(i).getName());
         }
         //回显
-        provinceSpiner.setSelection(Prosition,true);
+        provinceSpiner.setSelection(Prosition, true);
         provinceAdapter.notifyDataSetChanged();//刷新
 
         //城市
-        if (Prosition !=0 ){
+        if (Prosition != 0) {
             int cityPos = 0;
             cityAdapter.clear();
             List<PositionBean.ChildsBean> childs = positionList.get(Prosition).getChilds();
-            for (int j=0;j<childs.size();j++){
-                if (childs.get(j).getC_id().equals(TApplication.getMineUserInfo().getCityId())){
+            for (int j = 0; j < childs.size(); j++) {
+                if (childs.get(j).getC_id().equals(TApplication.getMineUserInfo().getCityId())) {
                     cityPos = j;
                 }
                 cityAdapter.add(childs.get(j).getC_name());
             }
 
             //回显城市
-            citySpiner.setSelection(cityPos,true);
+            citySpiner.setSelection(cityPos, true);
             cityAdapter.notifyDataSetChanged();//刷新
 
         }
@@ -135,7 +132,7 @@ public class PositionSelectActivity extends BaseActivity implements View.OnClick
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 currentPosition = positionList.get(position);
                 cityAdapter.clear();
-                for (PositionBean.ChildsBean city:currentPosition.getChilds()){
+                for (PositionBean.ChildsBean city : currentPosition.getChilds()) {
                     cityAdapter.add(city.getC_name());
                 }
                 cityAdapter.notifyDataSetChanged();//刷新
@@ -182,24 +179,26 @@ public class PositionSelectActivity extends BaseActivity implements View.OnClick
 
     private void commitPosition() {
         int selectedItemPosition = provinceSpiner.getSelectedItemPosition();
-        if (selectedItemPosition>0){
+        if (selectedItemPosition > 0) {
             PositionBean bean = positionList.get(selectedItemPosition);
 
-            if (currentPosition!=null&&currentChildsBean!=null){
-                PositionBiz.setPosition(context, currentPosition.getId(),currentChildsBean.getC_id(), new RequestHandle() {
+            if (currentPosition != null && currentChildsBean != null) {
+                PositionBiz.setPosition(context, currentPosition.getId(), currentChildsBean.getC_id(), new RequestHandle() {
                     @Override
                     public void onSuccess(ResponseBean result) {
-                        ToastUtil.showToast(context,"设置地区成功！");
-                        finish();
+                        ToastUtil.showToast(context, "设置地区成功！");
+                        //设置成功后更新用户数据
+                        getUserInfo();
+
                     }
 
                     @Override
                     public void onFail(ResponseBean result) {
-                        ToastUtil.showToast(context,result.getInfo());
+                        ToastUtil.showToast(context, result.getInfo());
                     }
                 });
-            }else {
-                ToastUtil.showToast(context,"获取地区信息不完整，请返回后重试");
+            } else {
+                ToastUtil.showToast(context, "获取地区信息不完整，请返回后重试");
             }
         }
 
@@ -216,11 +215,13 @@ public class PositionSelectActivity extends BaseActivity implements View.OnClick
                 Intent intent = new Intent();
                 intent.setAction(BroadcastFilters.ACTION_UPDATE_USER_INFO);
                 Util.sendBroadcast(context, intent);
+                //更新完用户信息以后再关闭
+                finish();
             }
 
             @Override
             public void onFail(ResponseBean result) {
-                ToastUtil.showToast(context,result.getInfo());
+                ToastUtil.showToast(context, result.getInfo());
             }
         });
     }
