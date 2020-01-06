@@ -57,7 +57,7 @@
             android:gravity="center"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:text="在线"/>
+            android:text="离线"/>
     </LinearLayout>
 
     <LinearLayout
