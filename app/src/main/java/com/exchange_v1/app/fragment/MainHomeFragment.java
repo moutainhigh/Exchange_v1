@@ -315,6 +315,9 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
         }
     };
 
+    //去重要用到的orderId
+    String oldOrderId = "";
+
     /**
      * 初始化websocket
      */
@@ -332,25 +335,30 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                     WebBean webBean = JSON.parseObject(message, WebBean.class);
 
                     String orderId = webBean.getData().getOrderId();
-                    String paymentMoney = webBean.getData().getPaymentMoney();
-                    if (webBean!=null&&webBean.getCommand() == 100&&!StringUtils.isEmpty(orderId)){
-                        Log.i("JWebSClientService", "收到command 100 单号为："+orderId);
-                        //发送广播给前台
-                        Intent intent = new Intent();
-                        intent.setAction(BroadcastFilters.ACTION_ORDER);
-                        intent.putExtra(FieldConfig.intent_str,orderId);
-                        intent.putExtra(FieldConfig.intent_str2, autoGrab);
-                        intent.putExtra(FieldConfig.intent_str3, paymentMoney);
-                        context.sendBroadcast(intent);
-                    }else if (webBean!=null&&webBean.getCommand() == 101&&!StringUtils.isEmpty(orderId)){
-                        Log.i("JWebSClientService", "收到command 101 被抢走的单号为："+orderId);
-                        //发送广播给前台
-                        Intent intent = new Intent();
-                        intent.setAction(BroadcastFilters.ACTION_ORDER_CANCLE);
-                        intent.putExtra(FieldConfig.intent_str,orderId);
-                        intent.putExtra(FieldConfig.intent_str2, autoGrab);
-                        context.sendBroadcast(intent);
+                    //不重复的，才发送广播
+                    if (!oldOrderId.equals(orderId)){
+                        oldOrderId = orderId;
+                        String paymentMoney = webBean.getData().getPaymentMoney();
+                        if (webBean!=null&&webBean.getCommand() == 100&&!StringUtils.isEmpty(orderId)){
+                            Log.i("JWebSClientService", "收到command 100 单号为："+orderId);
+                            //发送广播给前台
+                            Intent intent = new Intent();
+                            intent.setAction(BroadcastFilters.ACTION_ORDER);
+                            intent.putExtra(FieldConfig.intent_str,orderId);
+                            intent.putExtra(FieldConfig.intent_str2, autoGrab);
+                            intent.putExtra(FieldConfig.intent_str3, paymentMoney);
+                            context.sendBroadcast(intent);
+                        }else if (webBean!=null&&webBean.getCommand() == 101&&!StringUtils.isEmpty(orderId)){
+                            Log.i("JWebSClientService", "收到command 101 被抢走的单号为："+orderId);
+                            //发送广播给前台
+                            Intent intent = new Intent();
+                            intent.setAction(BroadcastFilters.ACTION_ORDER_CANCLE);
+                            intent.putExtra(FieldConfig.intent_str,orderId);
+                            intent.putExtra(FieldConfig.intent_str2, autoGrab);
+                            context.sendBroadcast(intent);
+                        }
                     }
+
                 }
 
             }
