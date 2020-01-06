@@ -109,6 +109,21 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
         tvOnline = findViewById(R.id.tv_online);
     }
 
+    private boolean firstResume;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (firstResume) {
+            if (openGrab) {
+                Logger.i("锁屏幕后回来检测屏幕有没有亮起~");
+                //判断websockt状态，断线要重新连接
+                checkClientStateAndConnect();
+            }
+        } else {
+            firstResume = true;
+        }
+    }
 
     @Override
     public void initGetData() {
@@ -305,27 +320,30 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
     private Runnable heartBeatRunnable = new Runnable() {
         @Override
         public void run() {
-            if (client != null) {
-                if (client.isClosed()) {
-                    reconnectWs();
-                } else {
-                    if (client.isOpen()) {//开启的状态下，发送心跳包
-                        //发送心跳包
-                        client.send("{command:99}");
-                        Log.i("JWebSocketClient", "发送心跳包");
-                    }
-                }
-
-            } else {
-                //如果client已为空，重新初始化websocket
-                initSocketClient();
-                //这里不需要再开启心跳检测了
-
-            }
+            checkClientStateAndConnect();
             //定时对长连接进行心跳检测
             mHandler.postDelayed(this, HEART_BEAT_RATE);
         }
     };
+
+    private void checkClientStateAndConnect() {
+        if (client != null) {
+            if (client.isClosed()) {
+                reconnectWs();
+            } else {
+                if (client.isOpen()) {//开启的状态下，发送心跳包
+                    //发送心跳包
+                    client.send("{command:99}");
+                    Log.i("JWebSocketClient", "发送心跳包");
+                }
+            }
+
+        } else {
+            //如果client已为空，重新初始化websocket
+            initSocketClient();
+            //这里不需要再开启心跳检测了
+        }
+    }
 
     //去重要用到的orderId
     String oldOrderId = "";
