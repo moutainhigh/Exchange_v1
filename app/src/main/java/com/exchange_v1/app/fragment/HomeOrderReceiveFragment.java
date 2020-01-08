@@ -24,6 +24,7 @@ import com.exchange_v1.app.utils.ToastUtil;
 public class HomeOrderReceiveFragment extends BaseFragment implements View.OnClickListener {
 
     private LinearLayout llView;
+    private TextView tvClear;
 
     public final String TAG = "HomeOrderReceive";
 
@@ -35,7 +36,7 @@ public class HomeOrderReceiveFragment extends BaseFragment implements View.OnCli
     @Override
     protected void findViews() {
         llView = findViewById(R.id.ll_view);
-
+        tvClear = findViewById(R.id.tv_clear);
 
     }
 
@@ -46,7 +47,12 @@ public class HomeOrderReceiveFragment extends BaseFragment implements View.OnCli
 
     @Override
     protected void widgetListener() {
-
+        tvClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                llView.removeAllViews();
+            }
+        });
     }
 
     @Override
